@@ -1,0 +1,224 @@
+<div class="page-wrapper el-page-wrapper container-fluid">
+   <div class="card-container el-card-container">
+      <div class="container" *ngIf="user.tipo != 1">
+         <h5 class="card-title card-title-account-settings">Configuraci&oacute;n</h5>
+         <div class="card card-account-settings">
+            <div class="card-body card-body-account-settings row">
+               <div class="col-12 el-configuration">
+                  <div class="el-configuration-titles">
+                     <span class="bloque el-configuration-title">Consulta online</span>
+                     <a href="javascript:;" class="btn-link btn-link-text bloque el-configuration-help" data-target="#modal-ayuda"
+                        data-toggle="modal">
+                        ¿Cómo funciona?
+                     </a>
+                  </div>
+                  <div *ngIf="isEnabledEstadoConsultas && user.tipo != 1" class="el-configuration-checkbox">
+                     <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox el-configuration-input-checkbox"
+                           id="disponible" (change)="checkChange()" [checked]="checked">
+                        <label class="onoffswitch-label" for="disponible">
+                           <span class="onoffswitch-inner"></span>
+                           <span class="onoffswitch-switch"></span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12 el-configuration-tarifa">
+                  <h5 class="el-configuration-title">Tarifas</h5>
+                  <p class="el-configuration-text">
+                     En el momento del envío de la respuesta legal señalarás el tipo de consulta que consideres estar
+                     realizando y
+                     el precio que deberá abonar el cliente será el que hayas fijado aquí.
+                  </p>
+               </div>
+               <div *ngIf="user.tipo != 1" class="col-12 el-configuration-tarifas">
+                  <form class="form-material" #tarifasForm="ngForm">
+                     <div *ngIf="user.tipo != 1">
+                        <div *ngIf="categorias" class="row">
+                           <div class="col-12">
+                              <div class="table-responsive">
+                                 <table class="table text-left el-table">
+                                    <tbody>
+                                       <tr>
+                                          <td class="">
+                                             <span class="el-configuration-tarifa-name">
+                                                Consulta {{categorias[0]?.nombre | titlecase}}
+                                             </span>
+                                             <span class="el-configuration-tarifa-minimo">
+                                                Mínimo 50€
+                                             </span>
+                                          </td>
+                                          <td class="text-right">
+                                             <span *ngIf="!editing" class="el-configuration-tarifa-monto">{{formulario.simple}}€</span>
+                                             <div *ngIf="editing" class="form-group" [class.has-danger]="(simple.invalid || simple.value < 50) && (simple.dirty || simple.touched)"
+                                                [class.has-success]="(simple.valid || simple.value >= 50) && (simple.dirty || simple.touched)">
+                                                <input type="number" min="50" [(ngModel)]="formulario.simple" name="simple"
+                                                   id="simple" class="form-control text-right" #simple="ngModel"
+                                                   [class.form-control-danger]="(simple.invalid || simple.value < 50) && (simple.dirty || simple.touched)"
+                                                   [class.form-control-success]="(simple.valid || simple.value >= 50) && (simple.dirty || simple.touched)"
+                                                   required>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <span class="el-configuration-tarifa-name">
+                                                Consulta {{categorias[1]?.nombre | titlecase}}
+                                             </span>
+                                             <span class="el-configuration-tarifa-minimo">
+                                                Mínimo 80€
+                                             </span>
+                                          </td>
+                                          <td class="text-right">
+                                             <span *ngIf="!editing" class="el-configuration-tarifa-monto">{{formulario.normal}}€</span>
+                                             <div *ngIf="editing" class="form-group" [class.has-danger]="(normal.invalid || normal.value < 80) && (normal.dirty || normal.touched)"
+                                                [class.has-success]="(normal.valid || normal.value >= 80) && (normal.dirty || normal.touched)">
+                                                <input type="number" [(ngModel)]="formulario.normal" min="80" name="media"
+                                                   id="media" class="form-control text-right" #normal="ngModel"
+                                                   [class.form-control-danger]="(normal.invalid || normal.value < 80) && (normal.dirty || normal.touched)"
+                                                   [class.form-control-success]="(normal.valid || normal.value >= 80) && (normal.dirty || normal.touched)"
+                                                   required>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <span class="el-configuration-tarifa-name">
+                                                Consulta {{categorias[2]?.nombre | titlecase}}
+                                             </span>
+                                             <span class="el-configuration-tarifa-minimo">
+                                                Mínimo 100€
+                                             </span>
+                                          </td>
+                                          <td class="text-right">
+                                             <span *ngIf="!editing" class="el-configuration-tarifa-monto">{{formulario.compleja}}€</span>
+                                             <div *ngIf="editing" class="form-group" [class.has-danger]="(compleja.invalid || compleja.value < 100) && (compleja.dirty || compleja.touched)"
+                                                [class.has-success]="(compleja.valid || compleja.value >= 100) && (compleja.dirty || compleja.touched)">
+                                                <input type="number" min="100" [(ngModel)]="formulario.compleja" name="compleja"
+                                                   id="compleja" class="form-control text-right" #compleja="ngModel"
+                                                   [class.form-control-danger]="(compleja.invalid || compleja.value < 100) && (compleja.dirty || compleja.touched)"
+                                                   [class.form-control-success]="(compleja.valid || compleja.value >= 100) && (compleja.dirty || compleja.touched)"
+                                                   required>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                           <div class="col-12 m-t-50 d-flex justify-content-end">
+                              <a href="javascript:;" *ngIf="!editing" class="btn-link btn-link-text el-configuration-link-edit"
+                                 (click)="editing=true">Editar</a>
+                              <button *ngIf="editing" class="btn btn-link btn-link-bckg" (click)="editing=false">Cancelar</button>
+                              <app-button-loader
+                                    *ngIf="editing"
+                                    [showLoading]="reqInProg"
+                                    [text]="'Guardar'"
+                                    (emitClicked)="updatePrecios($event)"
+                            ></app-button-loader>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <div *ngIf="!user?.consultas && (!user?.DatosFacturaciones) && user.tipo != 1" class="card-body card-body-account-settings row">
+               <div class="col-12">
+                  <p class="alert alert-info text-center">
+                     Todavía no estás dado de alta en nuestro servicio de consultas. Añade tus tarifas y tus datos de
+                     facturación
+                     para
+                     poder hacerlo
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div id="modal-ayuda" class="modal fade" role="dialog">
+   <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">¿Cómo funciona?</h4>
+         </div>
+         <div class="modal-body">
+            <div *ngIf="user.tipo != 1" class="">
+               <p>
+                  <b>1º Date de alta y fija el precio de tus tarifas</b>
+               </p>
+               <table *ngIf="categorias" class="table">
+                  <tr>
+                     <td>
+                        Consulta {{categorias[0].nombre | capitalize}}
+                     </td>
+                     <td>
+                        Desde 50 € - sin límite
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        Consulta {{categorias[1].nombre | capitalize}}
+                     </td>
+                     <td>
+                        Desde 80 € - sin límite
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        Consulta {{categorias[2].nombre | capitalize}}
+                     </td>
+                     <td>
+                        Desde 100 € - sin límite
+                     </td>
+                  </tr>
+               </table>
+               <br>
+               <p>
+                  <b>2º Recibe consultas</b>
+               </p>
+               <p>Los usuarios podrán hacerte consultas y las recibirás en el buzón de notificaciones de tu perfil
+                  profesional. Cada
+                  vez que recibas una consulta o un mensaje nuevo te llegará un aviso a tu correo electrónico</p>
+               <p>
+                  <b>3º Configuración del caso</b>
+               </p>
+               <p>Una vez recibida la consulta, se abrirá un chat con el usuario donde podrás hacerle las preguntas
+                  necesarias
+                  o solicitarle
+                  que te adjunte documentación, para poder darle una respuesta a medida. Finalizada la configuración
+                  del
+                  caso
+                  indicarás
+                  en cuánto tiempo estimas que podrás elaborar la respuesta legal </p>
+               <p>
+                  <b>4º Respuesta legal</b>
+               </p>
+               <p>Cuando elabores la respuesta legal podrás enviarla y adjuntarle un presupuesto si lo estimas
+                  oportuno.
+                  En
+                  este momento
+                  habrás de indicar el tipo de consulta que consideres que hayas realizado (simple, compleja o muy
+                  compleja).
+               </p>
+               <p>
+                  <b>5º Pago</b>
+               </p>
+               <p>El usuario recibirá tu respuesta legal tapada, para verla habrá de abonar el precio prefijado que
+                  irá
+                  asociado al
+                  tipo de consulta que hayas señalado.</p>
+               <p>
+                  <b>6º Aclaración</b>
+               </p>
+               <p> El usuario podrá solicitarte una pequeña aclaración, a la que podrás responder.</p>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-link btn-link-bckg" data-dismiss="modal">Cerrar</button>
+         </div>
+      </div>
+   </div>
+</div>

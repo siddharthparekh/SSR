@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Gracias!</h4>
+      <button type="button" class="close pull-right" data-dismiss="modal"><i class="mdi mdi-close"></i></button>
+    </div>
+    <div class="modal-body">
+      Muchas gracias por la valoración, si desea puede dejarnos su opinión aquí
+      <textarea type="text" class="form-control m-t-10" name="texto" rows="7" [(ngModel)]="opinion"
+      required placeholder="(Opcional)" required></textarea>
+    </div>
+    <div class="modal-footer">
+        <app-button-loader
+          [disabled]="!opinion"
+          [showLoading]="reqInProg"
+          [text]="'Enviar'"
+          (emitClicked)="setOpinion($event)"
+      ></app-button-loader>
+    </div>
+  </div>
+</div>

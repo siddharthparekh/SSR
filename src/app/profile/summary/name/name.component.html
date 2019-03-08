@@ -1,0 +1,24 @@
+<div class="blockable fit-content" [ngClass]="{'blocked': blocked, 'sticky': sticky}">
+  <div class="blockable-overlay" (click)="plan()" style="cursor: pointer;" data-toggle="modal">
+    <app-blocking-simple [sticky]="sticky"></app-blocking-simple>
+  </div>
+  <div class="d-flex align-items-start">
+    <h1 class="blockable-content h5 font-weight-bold mr-2">
+       {{ data.fullName | capitalize }}
+    </h1>
+    <!-- <span *ngIf="data.isExpertise" class="expertia-badge badge badge-pill badge-warning text-uppercase" [ngClass]="{'hide-content': sticky}">Expertia</span> -->
+  </div>
+  <div [ngClass]="{'hide-content': sticky}" class="d-flex align-items-center">
+    <span *ngIf="data && !data.isSpecialist" class="badge badge-light esp-gen font-weight-normal mr-2" data-toggle="tooltip"
+      data-placement="bottom" data-animation="false" title="La mayoría de sus casos no se centran en una o varias áreas del derecho relacionadas y/o no obtiene en ninguna área significativa
+    un IRJ superior a 75/100">
+      Generalista
+    </span>
+    <span *ngIf="data && data.isSpecialist" class="badge badge-light esp-gen font-weight-normal mr-2" data-toggle="tooltip" data-placement="bottom"
+      data-animation="false" title="La mayoría de sus casos se centran en una o varias áreas del derecho relacionadas, obteniendo, en al menos una, un IRJ superior
+      a 75/100">
+      Especialista
+    </span>
+    <span class="blockable-content small">Colegiado/a {{ data.college }}</span>
+  </div>
+</div>

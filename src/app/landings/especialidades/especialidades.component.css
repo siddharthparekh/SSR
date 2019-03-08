@@ -1,0 +1,262 @@
+:host {
+   --orangeish: #ff8b34;
+   --dark: #0f1820;
+   --battleship-grey-two: #64757d;
+   --bluey-grey: #98abb4;
+   --silver: #d6dde1;
+   --pale-grey: #e5eaed;
+   --pale-grey-two: #f5f7f8;
+   --aquamarine: #00ccb1;
+   --duck-egg-blue: #d8f5f6;
+   --greenish-teal: #4ccead;
+   --sun-yellow: #ffd238;
+   --coral: #f87055;
+}
+
+.normal-text {
+   font-family: "Source Sans Pro", sans-serif;
+   font-size: 15px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   text-align: left;
+   color: var(--dark);
+}
+
+.especialidades-container {
+   padding: 0;
+}
+
+/* TOP CONTAINER START */
+
+.title-text {
+   font-size: 30px;
+   font-weight: bold;
+}
+
+.subtitle-text {
+   font-size: 23px;
+   text-align: center;
+   color: var(--battleship-grey-two);
+}
+
+.title-container-especialidad {
+   text-align: center;
+   margin-top: 70px;
+   width: 90%;
+}
+
+.subtitle-container {
+   margin-top: 20px;
+   width: 90%;
+   text-align: center;
+}
+
+.top-container {
+   min-height: 1100px;
+   background: linear-gradient(180deg, var(--duck-egg-blue) 0%, white 70%, var(--pale-grey) 70%, var(--pale-grey) 70%, #e4edf1 100%);
+}
+
+.card-container {
+   border-radius: 8px;
+   box-shadow: 0 0 10px 0 rgba(70, 45, 26, 0.1);
+   background-color: white;
+   height: 230px;
+   max-width: 300px;
+   /* margin: 0; */
+   margin-bottom: 20px;
+}
+
+.card-middle {
+   margin-left: 60px;
+   margin-right: 60px;
+}
+
+.card-body {
+   text-align: center;
+   padding: 20px;
+}
+
+.card-img {
+   object-fit: contain;
+   margin-top: 33px;
+   cursor: pointer;
+}
+
+.lupa-icon {
+   width: 43px;
+}
+
+.merito {
+   width: 36px;
+}
+
+.referencia {
+   width: 43px;
+}
+
+.card-top {
+   text-align: center;
+}
+
+.cards-row {
+   margin: auto;
+   margin-top: 50px;
+   justify-content: center;
+}
+
+.card-text {
+   color: var(--battleship-grey-two);
+}
+
+.card-text-highlight {
+   color: var(--battleship-grey-two);
+   font-weight: 600;
+}
+
+.laurel-text {
+   width: 70%;
+   margin-top: 25px;
+   font-size: 23px;
+   text-align: center;
+   color: var(--battleship-grey-two);
+}
+
+.laurel-container {
+   margin-top: 40px;
+}
+
+.btn-to-top-container {
+   margin-top: 30px;
+   margin-bottom: 40px;
+}
+
+.btn-to-top {
+   height: 45px;
+   width: 150px;
+}
+
+/* TOP CONTAINER END */
+
+/* MIDDLE CONTAINER START*/
+
+.materias-frecuentes {
+   font-size: 23px;
+   font-weight: 600;
+   color: var(--dark);
+   margin-bottom: 40px;
+}
+
+.middle-container {
+   background-color: white;
+   padding-top: 90px;
+   padding-bottom: 30px;
+   padding-right: 10%;
+   padding-left: 10%;
+}
+
+.derecho-title {
+   font-size: 30px;
+   font-weight: bold;
+   color: var(--dark);
+}
+
+.derecho-subtitle {
+   margin-top: 10px;
+   font-size: 15px;
+   color: var(--battleship-grey-two);
+}
+
+.link-ayuda {
+   font-weight: 600;
+}
+
+.derecho-main-content {
+   margin-top: 53px;
+}
+
+.article-container {
+   columns: 300px 2;
+   column-gap: 80px;
+}
+
+.article-container-bullets {
+   columns: 200px 2;
+   column-gap: 80px;
+}
+
+.article-paragraph {
+   page-break-inside: avoid;
+   -webkit-column-break-inside: avoid;
+   break-inside: avoid;
+   margin-bottom: 20px;
+}
+
+.article-paragraph-bullet {
+   margin-bottom: 20px;
+}
+
+ul {
+   list-style: none;
+   padding-left: 1em;
+}
+
+li::before {
+   content: "•";
+   color: #ff8b34;
+   font-weight: bold;
+   width: 1em;
+   margin-left: -1em;
+   display: inline-block;
+}
+
+.battleship-text {
+   color: var(--battleship-grey-two);
+}
+
+/* MIDDLE CONTAINER END */
+
+@media only screen and (min-width: 768px) {
+   .title-text {
+      font-size: 40px;
+      font-weight: bold;
+   }
+   .subtitle-text {
+      font-size: 23px;
+      text-align: center;
+      color: var(--battleship-grey-two);
+   }
+   .title-container-especialidad {
+      text-align: center;
+      margin-top: 130px;
+      width: 50%;
+   }
+   .subtitle-container {
+      margin-top: 30px;
+      width: 80%;
+   }
+   .cards-row {
+      margin: auto;
+      margin-top: 115px;
+      justify-content: center;
+   }
+   /* .card-container {
+        margin: 0;
+    } */
+   .laurel-container {
+      margin-top: 110px;
+   }
+   .btn-to-top-container {
+      margin-top: 30px;
+      margin-bottom: 0px;
+   }
+   .top-container {
+      min-height: 1100px;
+      background: linear-gradient(180deg, var(--duck-egg-blue) 0%, white 50%, var(--pale-grey) 50%, var(--pale-grey) 50%, #e4edf1 100%);
+   }
+   .middle-container {
+      padding-bottom: 90px;
+   }
+}

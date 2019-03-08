@@ -1,0 +1,77 @@
+<section class="container p-0">
+  <section class="blockable blockable-dark" [class.blocked]="blocked">
+    <section class="blockable-overlay">
+      <app-blocking-complex
+        (buyProfile)="buyProfile()"
+        ></app-blocking-complex>
+    </section>
+    <section class="blockable-content">
+      <!-- ranking -->
+      <section *ngIf="data.rankingData" class="mb-2 p-3 p-lg-5 blockable-content__background-color">
+        <app-profile-spec-ranking
+          [data]="data.rankingData"
+          ></app-profile-spec-ranking>
+      </section>
+    
+      <!-- featured subjects -->
+      <section *ngIf="data.subjectsData && data.subjectsData.length > 0" class="mb-2 p-3 p-lg-5 blockable-content__background-color">
+        <app-profile-spec-subjects
+          [items]="data.subjectsData"
+          ></app-profile-spec-subjects>
+      </section>
+
+      <!-- cases -->
+      <section *ngIf="data.casesData" class="mb-2 p-3 p-lg-5 blockable-content__background-color">
+        <app-profile-spec-cases
+          [data]="data.casesData"
+          ></app-profile-spec-cases>
+      </section>
+    </section>
+  </section>
+
+  <section class="blockable blockable-dark" [class.blocked]="blocked">
+    <section class="blockable-overlay">
+      <app-blocking-complex
+        (buyProfile)="buyProfile()"
+        ></app-blocking-complex>
+    </section>
+    <section class="blockable-content">
+      <!-- clients -->
+      <section *ngIf="data.clientsData" class="mb-2 p-3 p-lg-5 blockable-content__background-color">
+        <app-profile-spec-clients
+          [data]="data.clientsData"
+          ></app-profile-spec-clients>
+      </section>
+      
+      <!-- success rate -->
+      <section *ngIf="data.successRateData" class="mb-2 p-3 p-lg-5 blockable-content__background-color">
+        <app-profile-spec-success-rate
+          [data]="data.successRateData"
+          ></app-profile-spec-success-rate>
+      </section>
+    </section>
+  </section>
+  
+  <section class="blockable blockable-dark" [class.blocked]="blocked">
+    <section class="blockable-overlay">
+      <app-blocking-complex
+        (buyProfile)="buyProfile()"
+        ></app-blocking-complex>
+    </section>
+    <section class="blockable-content">
+      <!-- evolution cases -->
+      <section *ngIf="data.evolutionCasesData && data.evolutionCasesData.length > 0" class="mb-2 p-3 p-lg-5 blockable-content__background-color">
+        <app-profile-spec-evolution-cases
+          [items]="data.evolutionCasesData"
+          ></app-profile-spec-evolution-cases>
+      </section>
+      
+      <!-- results-->
+      <section *ngIf="data.resultsData && data.resultsData.length > 0" class="p-3 p-lg-5 blockable-content__background-color">
+        <app-profile-spec-results
+          [items]="data.resultsData"
+          ></app-profile-spec-results>
+      </section>
+    </section>
+  </section>
+</section>

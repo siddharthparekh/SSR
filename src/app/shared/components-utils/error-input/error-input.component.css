@@ -1,0 +1,37 @@
+.error-input {
+  position: relative;
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.error-input__icon {
+  background-color: #fa704f;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  position: relative;
+}
+
+.error-input__icon::after {
+  position: absolute;
+  top: -2px;
+  bottom: 0;
+  left: 1px;
+  right: 0;
+  content: "\d7";
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.error-input__msg {
+  padding-left: 7px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.23;
+  letter-spacing: normal;
+  color: #f03d3d;
+}

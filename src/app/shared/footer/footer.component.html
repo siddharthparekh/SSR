@@ -1,0 +1,113 @@
+<footer class="footer" [class.footer-over]="leftfooter">
+	<div *ngIf="isLogged && isAbogado" class="el-footer-abogado">
+		<div class="el-footer-2-1 text-left">
+			<div class="el-footer-2-1-1">
+				<span>© 2018. Emérita Legal. Todos los derechos reservados</span>
+			</div>
+		</div>
+		<div class="el-footer-2-2 text-right">
+			<ul class="navbar-nav el-footer-list">
+				<li class="menu">
+					<a routerLink="/metodologia">Metodología</a>
+				</li>
+				<li class="menu">
+					<a routerLink="/soy-abogado">Soy abogado</a>
+				</li>
+				<li class="menu">
+					<a routerLink="/nosotros">Nosotros</a>
+				</li>
+				<li class="menu">
+					<a href="https://www.emerita.legal/blog" target="_blank">Blog</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div *ngIf="!isAbogado || !isLogged" class="el-footer-large">
+		<div class="el-footer-1">
+			<div class="el-footer-1-brand">
+				<div class="el-footer-1-logo text-center text-md-left">
+					<img src="assets/images/icono.png" class="logo" alt="homepage" />
+				</div>
+				<div class="el-footer-1-brands">
+					<ul class="navbar-nav el-footer-list-brand d-flex justify-content-center justify-content-md-start">
+						<li>
+							<a href="https://www.facebook.com/emeritalegal/" target="blank">
+								<img src="assets/images/brand/fb.svg" class="fb">
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/emeritalegal" target="blank">
+								<img src="assets/images/brand/tw.svg" class="tw">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/company/emeritalegal" target="blank">
+								<img src="assets/images/brand/in.svg" class="in">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="el-footer-1-contacto">
+				<div class="text-center d-md-none d-block">
+					<a href="javascript:;">Contacta con nosotros</a>
+				</div>
+				<div class="el-footer-1-contacto-title d-none d-md-block">
+					Contacto
+				</div>
+				<div class="el-footer-1-contacto-content d-none d-md-block">
+					<div class="el-footer-1-contacto-address">
+						<i class="fas fa-phone"></i>
+						<span>604 003 860</span>
+					</div>
+					<div class="el-footer-1-contacto-address">
+						<i class="far fa-envelope"></i>
+						<span>info@emerita.legal</span>
+					</div>
+					<div class="el-footer-1-contacto-address">
+						<i class="fas fa-map-marker-alt"></i>
+						<span>Centro de Emprendemento de Galicia</span>
+					</div>
+					<div class="el-footer-1-contacto-address" style="display: flex;">
+						<i class="fas fa-user" style="color: #e5eaed;"></i>
+						<span>Cidade da Cultura, s/n 15707 Santiago de Compostela</span>
+					</div>
+				</div>
+			</div>
+			<div class="el-footer-1-suscribe text-left">
+				<div class="el-footer-1-suscribe-title text-center text-md-left">
+					<span>Suscríbete a nuestro newsletter</span>
+				</div>
+				<div class="el-footer-1-suscribe-subtitle text-center text-md-left pl-4 pr-4 pl-md-1 pr-md-1">
+					<span>Las últimas noticias directamente en tu buzón cada mes.</span>
+				</div>
+				<div class="el-footer-1-suscribe-form">
+					<div class="input-group mb-3">
+						<input type="email" class="form-control" placeholder="Email" aria-label="Email" [(ngModel)]="email">
+						<div class="input-group-append">
+							<button class="btn btn-primary btn-primary-bckg" (click)="confirmSubscription()" type="button">Enviar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="el-footer-2">
+			<div class="el-footer-2-1 text-left">
+				<span>© 2018. Emérita Legal. Todos los derechos reservados</span>
+			</div>
+			<div class="el-footer-2-2 text-right">
+				<a target="_blank" href="/info/aviso-legal">Aviso legal</a>
+			</div>
+		</div>
+	</div>
+	<!-- 
+            © 2018. Emérita Legal. Todos los derechos reservados |
+            <a class="text-muted" data-target="#modal-contacto" data-toggle="modal"> Contacta con nosotros</a> |
+            <a *ngIf="url !== '/abogados' && !(userType==0)" class="text-muted" [routerLink]="['info/condiciones']">Condiciones
+                  de uso |</a>
+            <a *ngIf="url === '/abogados' || (userType==0 || userType==2)" class="text-muted" [routerLink]="['info/condiciones-profesionales']">
+                  Condiciones generales |</a>
+            <a class="text-muted" [routerLink]="['info/privacidad']">Política de Privacidad</a> |
+            <a class="text-muted" [routerLink]="['info/cookies']">Política de Cookies</a> 
+      -->
+</footer>

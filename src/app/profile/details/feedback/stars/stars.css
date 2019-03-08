@@ -1,0 +1,22 @@
+.stars {
+  color: #ffbb20;
+  font-size: 13px;
+}
+
+.stars span {
+  padding: 0 3px;
+}
+
+.stars span:first-child {
+  padding-left: 0;
+}
+
+.stars span:last-child {
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .stars span {
+    padding: 0 2px;
+  }
+}

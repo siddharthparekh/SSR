@@ -1,0 +1,330 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~angular-tree-component/dist/angular-tree-component.css';
+
+.hidden-cropper {
+  display: none;
+}
+
+.cropping {
+  display: inline-block;
+}
+
+.accordionPanel {
+  padding: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  border: 1px solid #ccc !important;
+}
+
+.accordionPanel .card {
+  padding: 0;
+}
+
+#descri p{
+  margin-bottom: 0 !important;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url("assets/fonts/source-sans-pro/SourceSansPro-Regular.otf") format("opentype");
+}
+
+html {
+  font-size: 1.1em;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.img-circle {
+  width: 150px;
+  height: 150px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+/* START
+ESTILOS PARA DROPDOWN BUSCADOR LANDING*/
+
+.input-group .dropdown-menu {
+  width: 100%;
+  overflow-x: hidden;
+  max-height: 250px;
+  overflow-y: hidden;
+  left: 0px !important;
+}
+
+button.dropdown-item.active {
+  background-color: #FF8A3D;
+}
+
+/* END
+ESTILOS PARA DROPDOWN BUSCADOR LANDING*/
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-icons {
+  cursor: pointer;
+  font-size: 1.3em;
+}
+
+.page-wrapper {
+  padding-top: 0px;
+}
+
+.btn {
+  height: 40px;
+  min-width: 100px;
+}
+
+.btn-now {
+  border-radius: 1px;
+  border: 0;
+  background-color: #101820;
+  color: white;
+  height: 36px;
+  width: 100%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+  transition: all 0.5s ease;
+}
+
+.btn-now:hover, .btn-now:focus {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
+  cursor: pointer;
+  border: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.card {
+  padding: 4% 5% 5% 5%;
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.12);*/
+}
+
+.card-header {
+  background-color: white;
+}
+
+#profile-presentation-text strong, #profile-presentation-text b{
+  font-weight: 600;
+}
+
+.jumbotron {
+  border-radius: 0;
+  width: 100%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#092f33+0,101820+50,101820+51,000e1c+100 */
+  background: #101820;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #101820 0%, #0D151F 50%, #0B121A 51%, #05090D 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #101820 0%, #0D151F 50%, #0B121A 51%, #05090D 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #101820 0%, #0D151F 50%, #0B121A 51%, #05090D 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#101820', endColorstr='#05090D', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+.jumbotron, .jumbotron h2, .jumbotron b {
+  color: #fff;
+}
+
+.jumbotron a {
+  color: #FF8A3D;
+}
+
+.enlace {
+  color: #FF8A3D;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.small-font-tooltip .tooltip-inner {
+  font-size: 0.9em !important;
+}
+
+body {
+  transition: 1s ease;
+}
+
+.modal-open {
+  padding-right: 0px !important;
+}
+
+.modal .btn-secondary {
+  border: none;
+  box-shadow: none;
+  color: #292b2c;
+}
+
+.modal .btn-secondary:hover, .modal .btn-secondary.hover, .modal .btn-secondary:focus, .modal .btn-secondary.focus {
+  box-shadow: none;
+  color: #292b2c;
+  background: #ccc;
+}
+
+.modal .btn-disabled, .modal .btn:disabled {
+  color: #99abb4;
+}
+
+.modal .btn-disabled.hover, .modal .btn:disabled:hover, .modal .btn-disabled.focus, .modal .btn:disabled:focus {
+  border: none;
+  color: #99abb4;
+  background: transparent;
+}
+
+.modal .btn-primary {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: #101820;
+}
+
+.modal .btn-primary:hover, .modal .btn-primary.hover, .modal .btn-primary:focus, .modal .btn-primary.focus {
+  border: none;
+  background-color: #ccc;
+  box-shadow: none;
+  color: #101820;
+}
+
+/* .modal .btn {
+  background: transparent;
+} */
+
+.modal-dialog {
+  margin-top: 3%;
+  height: 100%;
+  margin-bottom: 3%;
+  height: 80%;
+}
+
+.modal-header {
+  max-height: 100%;
+  min-height: 88px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  background-color: #101820 !important;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.7rem;
+}
+
+.modal-title {
+  color: white;
+}
+
+button.close i {
+  color: white;
+}
+
+.toasty{
+  z-index: 999999;
+}
+
+.modal-content {
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body {
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 0px;
+}
+
+.page-wrapper {
+  background-color: white;
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.noUi-handle:before, .noUi-handle:after {
+  background: none;
+}
+
+footer.footer {
+  max-height: auto;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 0.7em;
+    padding-top: 70px;
+  }
+  .topbar {
+    top: 0;
+    position: fixed;
+  }
+}
+
+.com-header {
+  padding: 20px;
+  height: 80px;
+}
+
+.sombra {
+  border-color: #d7dfe3;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.12);
+}
+
+.img-profile {
+  border-radius: 50%;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+}
+
+.hide-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.normal-text {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--dark);
+}

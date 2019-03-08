@@ -1,0 +1,18 @@
+<div *ngIf="isDataPresent" class="blockable fit-content" [class.blocked]="blocked">
+	<div class="blockable-overlay" (click)="plan()">
+		<app-blocking-simple></app-blocking-simple>
+	</div>
+	<div class="blockable-content">
+		<span class="small" *ngIf="access.mode === directoryMode">
+			{{ data.isSpecialist ? 'Derecho principal' : 'Especialidad Principal' }}
+		</span>
+		<span class="small" *ngIf="access.mode === rankingMode">
+			{{ data.isSpecialist ? 'Especialidad' : 'Derecho principal' }}
+		</span>
+		<ul class="list-unstyled list-inline mb-sm-0">
+			<li *ngFor="let area of data.specs" class="list-inline-item">
+				{{ area }}
+			</li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+.entrar-certificate-boton {
+    border-radius: 3px;
+    width: 100%;
+}
+
+.entrar-certificate-boton button {
+    font-size: 15px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 11px;
+    background-color: #002b5c;
+    border-color: #002b5c;
+}
+
+.entrar-certificate-boton button:hover {
+    background-color: rgba(23, 162, 184, 0.6);
+    border-color: rgba(23, 162, 184, 0);
+}
+
+.entrar-certificate-boton button img {
+    width: 13px;
+    height: 20px;
+}
+
+.entrar-certificate-boton button span {
+    margin-left: 9px;
+}

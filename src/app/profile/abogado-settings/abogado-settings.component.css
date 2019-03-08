@@ -1,0 +1,14 @@
+
+.el-card-container {
+    margin-top: 0px;
+    padding-top: 30px;
+}
+
+@media (min-width: 1024px) {
+  
+    .el-card-container {
+        margin-top: 0px;
+        padding-top: 60px;
+    }
+
+}

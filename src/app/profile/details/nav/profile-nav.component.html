@@ -1,0 +1,19 @@
+<div class="profile-nav-wrapper">
+  <ul class="profile-nav nav nav-tabs flex-md-column">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="shownTabIndex == 1" href="#" (click)="changeTab(1, $event)">Estadísticas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="shownTabIndex == 2" href="#" (click)="changeTab(2, $event)">Resumen</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="shownTabIndex == 3" href="#" (click)="changeTab(3, $event)">Tarifas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="shownTabIndex == 4" href="#" (click)="changeTab(4, $event)">Contacto</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="shownTabIndex == 5" href="#" (click)="changeTab(5, $event)">Opiniones</a>
+    </li>
+  </ul>
+</div>

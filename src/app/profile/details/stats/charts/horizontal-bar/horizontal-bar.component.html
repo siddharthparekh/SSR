@@ -1,0 +1,14 @@
+<section>
+  <div class="bar" [class.bold]="bold">
+    <span>{{ value | number:'1.0-1' }}</span>
+    <progress [id]="progressId" [value]="value" [max]="max"
+        data-toggle="tooltip" data-placement="top" data-animation="false"></progress>
+    <div class="d-none">
+      <div [id]="contentElementId">
+        <span *ngIf="bold">Casos analizados: </span>
+        <span *ngIf="!bold">Media casos: </span>
+        <span>{{ value | number:'1.0-1' }}</span>
+      </div>
+    </div>
+  </div>
+</section>

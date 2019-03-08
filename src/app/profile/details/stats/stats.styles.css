@@ -1,0 +1,41 @@
+.container.card.scrollbar {
+  overflow-x: scroll;
+}
+
+.container.card::-webkit-scrollbar {
+  display: none;
+}
+
+.spec-container:last-child {
+  border-bottom: 1px solid #e5eaed;
+}
+
+.border-left-lightgray {
+  border-left: 1px solid #e5eaed;
+}
+
+.border-right-lightgray {
+  border-right: 1px solid #e5eaed;
+}
+
+@media(min-width: 576px) {
+  .border-left-sm-lightgray {
+    border-left: 1px solid #e5eaed;
+  }
+}
+
+@media(min-width: 768px) {
+  .border-right-md-lightgray {
+    border-right: 1px solid #e5eaed;
+  }
+}
+
+@media(min-width: 992px) {
+  .container.card.scrollbar {
+    overflow-x: hidden;
+  }
+}
+
+.line-height-1 {
+  line-height: 140%;
+}

@@ -1,0 +1,20 @@
+.legend {
+  padding-left: 12px;
+  border-left: 3px solid lightgray;
+}
+
+.legend.legend-red {
+  border-color: #f27760;
+}
+
+.legend.legend-blue {
+  border-color: #03a2c6;
+}
+
+.legend.legend-yellow {
+  border-color: #f2b160;
+}
+
+.legend.legend-indigo {
+  border-color: #00447b;
+}

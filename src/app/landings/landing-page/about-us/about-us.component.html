@@ -1,0 +1,20 @@
+<div class="about-us">
+  <div class="row">
+    <div class="col-12">
+      <div class="landing-pages__title">Hablan de nosotros</div>
+    </div>
+    <div class="col-12">
+      <div class="about-us__box-grid d-flex flex-wrap">
+        <div
+          class="about-us__box-grid__child"
+          *ngFor="let item of whoTalkAboutUs"
+        >
+          <div
+            class="about-us__box-grid__img-holder d-flex align-items-center"
+            [ngStyle]="getStyle(item)"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

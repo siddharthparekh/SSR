@@ -1,0 +1,98 @@
+﻿.page-wrapper {
+   background-color: #f5f7f8;
+}
+
+.box {
+   border-radius: 2px;
+   box-shadow: 2px 4px 6px 0 rgba(152, 171, 180, 0.06);
+   background-color: #ffffff;
+   padding: 70px 60px 50px 60px;
+}
+
+table tr td {
+   padding: 40px;
+   color: #64757d;
+}
+
+.btn-default {
+   background-color: #fec296;
+   color: #ff8b34;
+}
+
+.table-row {
+   border-bottom: solid 1px #e5eaed;
+}
+
+.table-row:first-of-type {
+   border-top: solid 1px #e5eaed;
+}
+
+.table-row:last-of-type {
+   border-bottom: none;
+}
+
+@media(max-width:767px) {
+   .container-fluid {
+      margin: 0;
+      padding: 0;
+   }
+   .box {
+      padding: 20px;
+   }
+   .price {
+      padding-top: 15px;
+   }
+   .table-row:first-of-type {
+      border-top: none;
+   }
+}
+
+strong {
+   font-size: 18px;
+   color: #0f1820;
+}
+
+strong.sub {
+   font-size: 23px;
+}
+
+.product-name {
+   font-size: 1.1rem;
+}
+
+.product-description {
+   font-size: 0.9rem;
+   font-style: italic;
+}
+
+.sub-title {
+   font-size: 13px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: 0.5px;
+}
+
+.product-price {
+   font-size: 18px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: 1.11;
+   letter-spacing: normal;
+   text-align: right;
+}
+
+.product-button {
+   font-size: 13px;
+   font-weight: 600;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+}
+
+.next-button {
+   font-size: 17px;
+}

@@ -1,0 +1,34 @@
+<div class="el-map-stats-section" [class.blocked]="blocked">
+  <div *ngIf="blocked" class="el-map-stats-lock">
+    <div class="blockable-overlay">
+      <app-blocking-complex hint="Compra el perfil para acceder a todas las estadísticas." (buyProfile)="buyProfile()"></app-blocking-complex>
+    </div>
+    <section class="blockable-content pt-5 pb-5 pt-lg-1 pb-lg-1">
+      <div class="pt-5 pb-5 pt-lg-1 pb-lg-1">
+        <img src="assets/images/map-stats.png" class="img-fluid" alt="Mapa Stats">
+      </div>
+    </section>
+  </div>
+  <div *ngIf="!blocked && data && data.length > 0" class="">
+    <div class="blockable blockable-dark container-fluid card">
+      <div class="blockable-content pt-3 pb-3 pt-lg-4 px-lg-4 px-xl-5">
+        <div _ngcontent-c46="" class="row">
+          <div class="col-12 order-1 col-sm-4"><b>Casos por juzgados</b></div>
+        </div>
+      </div>
+    </div>
+    <!-- <agm-map class="el-map-stats" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="true" [latitude]="lat"
+      [longitude]="lon">
+      <div *ngFor="let location of data">
+        <agm-circle *ngIf="location.lat && location.lon" [latitude]="location.lat" [longitude]="location.lon" [radius]="location.radius"
+          [strokeColor]="location.strokecolor" [strokeOpacity]="location.strokeopacity" [strokeWeight]="location.strokeweight"
+          [fillColor]="location.fillcolor" [fillOpacity]="location.fillopacity"
+          (circleClick)="circleClick($event)" (mouseOver)="circleMouseOver($event)" (mouseOut)="circleMouseOut($event)">
+        </agm-circle>
+      </div>
+    </agm-map> -->
+    <div #googleMap class="el-map-stats">
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,47 @@
+/*
+Error: Invalid CSS after "$font-face ": expected ":", was "{"
+        on line 107 of scss/icons/linea-icons/linea.scss
+
+102:       -webkit-box-shadow:inset 0 0 3px $color0;
+103:       box-shadow:inset 0 0 3px $color0;
+104:     }
+105:   }
+106: }  
+107: $font-face {
+108:   font-family: "linea-arrows-10";
+109:   font-family: "linea-basic-10";
+110:   font-family: "linea-basic-elaboration-10";
+111:   font-family: "linea-ecommerce-10";
+112:   font-family: "linea-music-10";
+
+Backtrace:
+scss/icons/linea-icons/linea.scss:107
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:1278:in `expected'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:1208:in `expected'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:1203:in `tok!'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:640:in `variable'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:696:in `block_child'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:689:in `block_contents'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:137:in `stylesheet'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/scss/parser.rb:41:in `parse'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/engine.rb:414:in `_to_tree'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `each'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:294:in `watch'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/plugin.rb:109:in `method_missing'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/exec/base.rb:52:in `parse'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/lib/sass/exec/base.rb:19:in `parse!'
+/home/herni/.gem/ruby/2.4.0/gems/sass-3.5.1/bin/sass:13:in `<top (required)>'
+/usr/bin/sass:23:in `load'
+/usr/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"$font-face \": expected \":\", was \"{\"\A         on line 107 of scss/icons/linea-icons/linea.scss\A \A 102:       -webkit-box-shadow:inset 0 0 3px $color0;\A 103:       box-shadow:inset 0 0 3px $color0;\A 104:     }\A 105:   }\A 106: }  \A 107: $font-face {\A 108:   font-family: \"linea-arrows-10\";\A 109:   font-family: \"linea-basic-10\";\A 110:   font-family: \"linea-basic-elaboration-10\";\A 111:   font-family: \"linea-ecommerce-10\";\A 112:   font-family: \"linea-music-10\";"; }

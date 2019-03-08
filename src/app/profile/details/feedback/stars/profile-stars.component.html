@@ -1,0 +1,4 @@
+<div class="stars" [class.small]="!large">
+  <span *ngFor="let item of createRangeFilled()" class="fas fa-star"></span>
+  <span *ngFor="let item of createRangeEmpty()" class="far fa-star"></span>
+</div>

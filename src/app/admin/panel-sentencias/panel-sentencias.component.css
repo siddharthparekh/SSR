@@ -1,0 +1,24 @@
+.datosSetencia {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.abogados, .derechos {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.datosAbogados, .datosVarios, .orden{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.btn-add {
+  width: 20%;
+}
+button {
+  height: 70%;
+}
+.btn-form {
+  width: 100%;
+  margin-top: 40px;
+}

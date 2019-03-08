@@ -1,0 +1,15 @@
+.modal-dialog{
+    overflow-y: initial !important;
+    height: 100%;
+    max-width: none;
+    margin: 1% 5% 1% 5%;
+}
+.bg-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 15%;
+}
+.modal-content {
+}

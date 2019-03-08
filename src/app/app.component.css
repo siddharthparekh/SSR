@@ -1,0 +1,34 @@
+.footer {
+  font-size: 0.9rem;
+}
+
+footer {
+  position: relative;
+}
+
+#main-wrapper {
+  position: relative;
+  /* height: 89%; */
+  top: 90px;
+  /* height: calc(100vh - 90px); */
+}
+
+.main-wrapper-abogado {
+  top: 70px !important;
+  /* height: calc(100vh - 70px) !important; */
+}
+
+.dismiss-law {
+  cursor:pointer;
+  color: #bbb; 
+  font-size: 1.2em;
+}
+.sidebar-content {
+   /* height: 100%; */
+}
+
+@media (max-width: 767px) {
+  #main-wrapper {
+    top: 70px;
+  }
+}

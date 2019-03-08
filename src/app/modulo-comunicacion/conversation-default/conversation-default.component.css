@@ -1,0 +1,15 @@
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+@media screen and (max-width: 480px) {
+  #convDefaul{
+      display: none
+  } 
+}

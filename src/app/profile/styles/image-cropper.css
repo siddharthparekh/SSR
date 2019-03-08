@@ -1,0 +1,25 @@
+.image-cropper {
+  display: inline-block;
+  max-width: 60px;
+  max-height: 60px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.image-cropper img{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+@media (min-width: 576px) {
+  .image-cropper.w-sm-110 {
+    max-width: 110px !important;
+    max-height: 110px !important;
+  }
+  .image-cropper.w-sm-110 img{
+    width: 110px !important;
+    height: 110px !important;
+  }
+}

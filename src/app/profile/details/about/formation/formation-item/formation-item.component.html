@@ -1,0 +1,22 @@
+<section (mouseenter)="btnEditarVisible = true" (mouseleave)="btnEditarVisible = false" class="row">
+   <button *ngIf="btnEditarVisible && itIsMe" (click)="editar()" data-toggle="modal" data-target="#edit-education" class="position-absolute btn btn-link btn-link-text"
+      style="right:0;z-index: 9">Editar</button>
+   <div class="col-3 text-left col-lg-2">
+      <span class="display-4" style="color: #bbbbbb;">
+         <span class="fas fa-university"></span>
+      </span>
+   </div>
+   <div class="col-9 col-lg-10">
+      <div>
+         <span class="h5 font-weight-bold">{{ item.institution }}</span>
+      </div>
+      <div>{{ item.certification }}</div>
+      <div class="text-secondary">
+         <!--<small>2005 - 2009</small>-->
+         <small>{{ item.from | date:'yyyy':'es-ES' }}</small>
+         <small class="mx-1">-</small>
+         <small *ngIf="item.to">{{ item.to | date:'yyyy':'es-ES' }}</small>
+         <small *ngIf="!item.to">Actualidad</small>
+      </div>
+   </div>
+</section>

@@ -1,0 +1,90 @@
+<div class="page-wrapper">
+  <div class="container">
+    <label>Introduce el nombre del abogado</label>
+    <ng-select [allowClear]="true" (selected)="getProfile($event)" filterPlaceholder="Busca por apellidos" (keyup)="searchLawyerByApellidos($event.target.value)"
+      [options]="abogados"></ng-select>
+    <hr>
+    <div class="row" *ngIf="abogado">
+      <div class="col-12">
+        <ul>
+          <li>
+            Nombre: {{ abogado?.nombre }} {{ abogado?.apellidos }}
+          </li>
+          <li>
+            Colegio:
+            <span *ngIf="abogado && abogado.Colegios">{{ abogado?.Colegios[0]?.Colegio?.nombre}}</span>
+          </li>
+          <li>
+            Nº colegiado/a:
+            <span *ngIf="abogado && abogado.Colegios">{{ abogado?.Colegios[0]?.n_colegiado}}</span>
+          </li>
+          <li>
+            Número de resoluciones: {{abogado?.numeroResoluciones}}
+          </li>
+          <li>
+            Tasa de éxito: {{abogado?.tasaExito}}
+          </li>
+          <li>
+            Registro:
+            <span *ngIf="abogado && abogado.isRegistered">
+              Registrado/a
+            </span>
+            <span *ngIf="abogado && !abogado.isRegistered">
+              No registrado/a
+            </span>
+          </li>
+          <li>
+            Fecha de registro:
+            <span *ngIf="abogado && abogado.fechaRegistro">
+              {{returnDate(abogado.fechaRegistro)}}
+            </span>
+            <span *ngIf="abogado && !abogado.fechaRegistro">
+              Desconocido
+            </span>
+          </li>
+          <li>
+            Verificación:
+            <span *ngIf="abogado && abogado.isSignupAprobed">
+              Verificado/a
+            </span>
+            <span *ngIf="abogado && !abogado.isSignupAprobed">
+              No verificado/a
+            </span>
+          </li>
+          <li>
+            Estado:
+            <span *ngIf="abogado && abogado.tipoProfesional == 0">
+              En la red
+            </span>
+            <span *ngIf="abogado && abogado.tipoProfesional == 1">
+              En el directorio
+            </span>
+            <span *ngIf="abogado && abogado.tipoProfesional == 2">
+              Anónimo
+            </span>
+            <span *ngIf="abogado && abogado.tipoProfesional == 3">
+              Oculto
+            </span>
+          </li>
+          <li>
+            Apuntado a consultas:
+            <span *ngIf="abogado && abogado.consultas == 1">
+              Sí
+            </span>
+            <span *ngIf="abogado && abogado.consultas == 0">
+              No
+            </span>
+
+          </li>
+        </ul>
+      </div>
+      <div class="col-12">
+        <a class="btn btn-secondary" *ngIf="abogado.tipoProfesional==0" (click)="irProfile()">Ir al perfil</a>
+        <a class="btn btn-secondary" *ngIf="abogado.tipoProfesional != 0" (click)="irProfileOculto()">Ir al perfil</a>
+        <a class="btn btn-secondary" (click)="cambiarSignUp(abogado.id, true)">Cambiar verificación</a>
+        <a class="btn btn-secondary" (click)="cambiarSignUp(abogado.id, false)">Cambiar estado</a>
+        <a class="btn btn-secondary" (click)="openModal(abogado.id)">Ver saldo consultas</a>
+      </div>
+    </div>
+  </div>
+</div>

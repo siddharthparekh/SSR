@@ -1,0 +1,201 @@
+<ng-template #templateDatosFacturacion>
+  <app-datos-facturacion-respuesta-legal (onModalClose)="closeModal();"></app-datos-facturacion-respuesta-legal>
+</ng-template>
+<ng-template #template>
+  <app-conversation-configurar-caso (onModalClose)="closeModal();" (onCaseConfigured)="setConversationAsConfigured($event)"></app-conversation-configurar-caso>
+</ng-template>
+<div id="conversacion" [class.conversacion-customer]="isCustomer" class="row" style="background-color: #fafbfb">
+  <div class="col-12">
+    <!-- <div class="card m-b-0"> -->
+    <div class="chat-container">
+      <!-- .chat-row -->
+      <div class="chat-main-box">
+        <div class="chat-header pointer" (click)="goProfile();">
+          <div class="row header-container">
+            <div class="col-12 col-md-8 perfil-container">
+              <div class="row">
+                <div class="col-2">
+                  <div *ngIf="conversation.destinatario?.tipo ===1">
+                    <!-- cliente-->
+                    <span *ngIf="!conversation.destinatario?.foto" class="round round-primary">{{conversation.destinatario?.nombre |
+                        capitalize | slice:0:1}}</span>
+                      <img *ngIf="conversation.destinatario?.foto" class="round" src="assets/images/profiles/{{conversation.destinatario?.foto}}"
+                      alt="user">
+                  </div>
+                  <div *ngIf="conversation.destinatario?.tipo !==1">
+                     <!-- abogado -->
+                      <img *ngIf="!(conversation.destinatario?.foto)" class="round" src="assets/images/user-pic-placeholder-abogado.png"
+                      alt="user">
+                      <img *ngIf="conversation.destinatario?.foto" class="round" src="assets/images/profiles/{{conversation.destinatario?.foto}}"
+                      alt="user">
+                  </div>
+                    <!-- <span *ngIf="!(conversation.destinatario?.foto)" class="round">{{conversation.destinatario?.nombre |
+                    capitalize | slice:0:1}}</span> -->
+                </div>
+                <div class="col">
+                  <div class="profile-header">
+                    <span>
+                      {{conversation.destinatario?.nombre | capitalize}} {{conversation.destinatario?.apellidos |
+                      capitalize}}
+                    </span>
+                    <span class="normal-text pending-accept">
+                      Pendiente de aceptación
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 header-tail-container">
+              <a *ngIf="isCustomer" href="javascript:;" class="text-normal perfil-link d-none d-md-block">
+                Ir a perfil
+              </a>
+              <!-- <button *ngIf="!isCustomer && conversation.estado == 'ACEPTADA'" -->
+              <!-- <button
+                (click)="openModal(template, 'configurarCaso')" href="javascript:;" class="btn-redactar-configurar">
+
+              </button> -->
+              <!-- <img src="assets/icons/btn_caso.png" *ngIf="!isCustomer && conversation.estado == 'ACEPTADA'" (click)="openModal(template, 'configurarCaso')" href="javascript:;" class="btn-redactar-configurar"> -->
+              <!-- <button *ngIf="!isCustomer && conversation.estado == 'ACEPTADA'" (click)="openModal(template, 'configurarCaso')" href="javascript:;" type="button" class="btn btn-primary">Caso Configurado</button> -->
+              <button *ngIf="!isCustomer && conversation.estado == 'ACEPTADA'" (click)="openModal(template, 'configurarCaso')" href="javascript:;" type="button" class="btn btn-secondary">
+                <span>Caso Configurado</span>
+              </button>
+              <button *ngIf="!isCustomer && conversation.estado == 'CASO_CONFIGURADO'" (click)="toRedactarRespuestaLegal()"
+                class="btn btn-primary btn-redactar-configurar d-none d-md-inline">
+                Redactar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="chat-rbox">
+          <div *ngIf="showAlert && conversation?.estado == CONVERSACION_PREGUNTA && !isCustomer" class="butter-bar w-100">
+            <div class="d-flex justify-content-between" style="margin: 10px;color: #101820">
+              <span>La respuesta aclaratoria consistirá en un ÚNICO mensaje con un número de palabras ilimitadas.<span
+                  style="color: #5c5c5c;">Mayús.+Enter para salto de línea.</span> </span>
+              <span class="pointer" (click)="showAlert = false;"> <i style="font-size: 1.2em;" class="mdi mdi-close"></i>
+              </span>
+            </div>
+          </div>
+          <div id="scrollDiv" class="slimScrollDiv" style="position: relative; width: auto; height: 100%;">
+            <ul class="chat-list" appDnd (onSelect)=sendFile($event)>
+              <div class="bot-message">
+                <span class="col-10 col-lg-7">
+                  La información compartida a través de esta conversación es segura y confidencial.
+                  Solo tú y {{conversation?.destinatario?.nombre | capitalize}} podéis verla. <i class="mdi mdi-lock"></i>
+                </span>
+              </div>
+              <!--chat Row -->
+              <div *ngFor="let msg of conversation.Mensajes">
+                <div *ngIf="msg.tipo==2" class="headerMessage">
+                  <p>Aclaración</p>
+                </div>
+                <div *ngIf="msg.tipo == 20 && isCustomer" class="bot-message">
+                  <span class="col-10 col-lg-7">
+                    {{msg.texto}}
+                  </span>
+                </div>
+                <li *ngIf="conversation.destinatario?.id == msg.Remitente?.id" class="d-flex flex-column">
+                  <div *ngIf="msg.tipo != 1 && msg.tipo != 10 && msg.tipo != 20" class="bubble-container bubble-left">
+                    <div class="normal-text chat-text box box-left">{{msg.texto}}
+                    </div>
+                    <div class="normal-text chat-time chat-time-left">{{msg.createdAt | date: 'HH:mm d MMM'}}</div>
+                  </div>
+                  <div style="width: 100%; margin-left:10px;" *ngIf="msg.tipo == 1">
+                    <app-respuesta-legal [conversacion]="conversation" [respuesta]="msg.RespuestaLegal"></app-respuesta-legal>
+                  </div>
+                  <div *ngIf="msg.tipo == 10" class="chat-content">
+                    <app-chat-archivo [uploadInfo]="uploadInfo" [mensaje]="msg" [conversacion]="conversation"
+                      [positionRight]="false"></app-chat-archivo>
+                  </div>
+                </li>
+                <li *ngIf="conversation.destinatario?.id != msg.Remitente.id" class="d-flex flex-column">
+                  <div *ngIf="msg.tipo != 1 && msg.tipo != 10 && msg.tipo != 20" class="bubble-container bubble-right">
+                    <!-- <span class="remitente-chat">{{msg.remitente}}</span> -->
+                    <div class="normal-text chat-text box box-right">{{msg.texto}}</div>
+                    <div class="normal-text chat-time chat-time-right">{{msg.createdAt | date: 'HH:mm d MMM'}}</div>
+                  </div>
+                  <div style="width: 100%;" *ngIf="msg.tipo == 1">
+                    <app-respuesta-legal [conversacion]="conversation" [respuesta]="msg.RespuestaLegal"></app-respuesta-legal>
+                  </div>
+                  <div *ngIf="msg.tipo == 10" class="chat-content d-flex justify-content-end">
+                    <app-chat-archivo [uploadInfo]="uploadInfo" [mensaje]="msg" [conversacion]="conversation"
+                      [positionRight]="true"></app-chat-archivo>
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-chat">
+        <div class="d-flex justify-content-between">
+          <div id="content-input" class="text-area-container">
+            <textarea *ngIf="isCustomer" (keydown.enter)="sendContentTextArea(textoNewMsg);false" [minHeight]="30" [disabled]="blockInputConversation"
+              [maxHeight]="240" autosize [placeholder]="placeholderCustomer" [(ngModel)]="textoNewMsg" maxlength="240" name="textoNewMsg" class="form-control text-muted control-text"
+              style="background: transparent; box-shadow: none" [class.hideplaceholder]="hidePlaceholder"></textarea>
+
+              <textarea *ngIf="!isCustomer" (keydown.enter)="sendContentTextArea(textoNewMsg);false" [minHeight]="30" [disabled]="blockInputConversation"
+               autosize placeholder="Escribe..." [(ngModel)]="textoNewMsg" name="textoNewMsg" class="form-control text-muted control-text"
+              style="background: transparent; box-shadow: none"></textarea>
+
+            <label *ngIf="isCustomer" class="label-adjuntar buttons-action">
+              <span [class.span-blocked]="blockInputConversation">
+                <i tooltip="Enviar Documento" containerClass="small-font-tooltip" style="cursor:pointer;font-size: 1.5rem"
+                  class="fas fa-paperclip"></i>
+              </span>
+              <input #myInput [disabled]="blockInputConversation" (change)="sendFile($event.target.files[0])" style="display:none"
+                accept=".pdf, .doc, .docx, image/*, video/*, audio/* ,application/rtf" type="file">
+            </label>
+          </div>
+
+          <div class="action-icons">
+            <!-- <span (click)="openModal(template)" *ngIf="CONVERSACION_ACEPTADA == conversation.estado && !isCustomer"
+              class="pull-right box-title d-flex" style="cursor:pointer"> <i tooltip="Marcar caso como configurado" placement="top"
+                id="caso-configurado-icon" containerClass="small-font-tooltip" class="material-icons buttons-action">check_circle_outline</i>
+            </span> -->
+            <!-- <button tooltip="Respuesta Legal" containerClass="small-font-tooltip" *ngIf="!isCustomer && conversation.estado == CONV_CONFIGURADA"
+              [routerLink]="['../../', 'respuestalegal', 'respuesta']" [queryParams]="{c: conversation?.id, d: conversation?.destinatario?.id}"
+              type="button" class="buttons-action">
+              <i style="cursor:pointer" class="material-icons md-48">description</i>
+            </button> -->
+            <div *ngIf="!blockInputConversation" class="">
+              <button type="button" (click)="sendContentTextArea(textoNewMsg)" class="btn btn-primary secondary_btn_small_bckg">
+                <span class="d-none d-md-inline">ENVIAR</span>
+                <i class="d-inline d-md-none fas fa-arrow-up"></i>
+              </button>
+            </div>
+
+            <div *ngIf="blockInputConversation" class="">
+              <button [disabled]="textoNewMsg.length <= 0" type="button" (click)="sendContentTextArea(textoNewMsg)" class="btn btn-primary secondary_btn_small_bckg">
+                <span class="d-none d-md-inline">ENVIAR</span>
+                <i class="d-inline d-md-none fas fa-arrow-up"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- <div *ngIf="blockInputConversation" class="lock-footer">
+          <span>No puedes intercambiar mensajes</span>
+        </div> -->
+        <div *ngIf="CONVERSACION_INICIAL == conversation.estado && !isCustomer" class="mensajes-over-footer">
+          <div class="row">
+            <div class="col">
+              <span class="normal-text footer-text">¿Te interesa esta consulta?</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button (click)="rechazarCaso()" type="button" class="btn btn-primary btn-cancelar"><span class="normal-text footer-btn-text">Rechazar</span></button>
+              <button (click)="aceptarCaso()" type="button" class="btn btn-primary btn-aceptar"><span class="normal-text footer-btn-text">Aceptar</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="dropzone" appDnd>
+  <div class="text-wrapper">
+    <div class="centered">Drop your file here!</div>
+  </div>
+</div> -->
+<router-outlet></router-outlet>

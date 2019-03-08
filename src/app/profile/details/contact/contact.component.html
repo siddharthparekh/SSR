@@ -1,0 +1,73 @@
+<section *ngIf="hasError">
+  <app-profile-error [text]="errMsg"></app-profile-error>
+</section>
+<section *ngIf="!data && !hasError">
+  <app-profile-loading></app-profile-loading>
+</section>
+<section *ngIf="!!data" class="blockable blockable-dark card mb-3 mb-lg-4" [class.blocked]="blocked">
+  <section class="blockable-overlay">
+    <app-blocking-complex hint="Compra el perfil para acceder a los datos de contacto." (buyProfile)="buyProfile()"></app-blocking-complex>
+  </section>
+  <section class="blockable-content">
+    <div class="row el-contact-section">
+      <!-- Info -->
+      <section class="col-md-12 col-xl-6">
+        <app-profile-loading *ngIf="loadingmap" [transparent]="true"></app-profile-loading>
+        <agm-map *ngIf="!loadingmap && location" class="el-map-contact" [latitude]="location.lat" [longitude]="location.lng"
+          [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="true">
+          <agm-marker (markerClick)="clickedMarker(location.label, 0)" [latitude]="location.lat" [longitude]="location.lng">
+            <agm-info-window> <strong>Información</strong> </agm-info-window>
+          </agm-marker>
+        </agm-map>
+        <div *ngIf="!location" class="el-abogado-contact-nomap">
+          <img src="assets/images/mapa.png" class="img-fluid" alt="Mapa Contacto" />
+          <span>Dirección no encontrada</span>
+        </div>
+      </section>
+      <section class="col-md-12 col-xl-6 el-abogado-contact-section">
+        <section class="container">
+          <div class="row mb-2">
+            <div class="col-6">
+              <span class="font-weight-bold">Contacto</span>
+            </div>
+            <!--
+              <div class="col-6 text-right">
+                <a href="#">Editar datos</a>
+              </div>
+            -->
+          </div>
+          <div class="row" *ngIf="!data.address && !data.phone && !data.email">
+            <div class="col-12 text-secondary">No hay datos todavía.</div>
+          </div>
+          <div class="row">
+            <div *ngIf="data.address" class="col-12 col-md-6 col-lg-12">
+              <small class="text-muted">Dirección</small>
+              <p>{{ data.address }}</p>
+            </div>
+            <div *ngIf="data.phone" class="col-12 col-md-6 col-lg-12">
+              <small class="text-muted">Teléfono</small>
+              <p>{{ data.phone }}</p>
+            </div>
+            <div *ngIf="data.email" class="col-12 col-md-6 col-lg-12">
+              <small class="text-muted">Email</small>
+              <p>{{ data.email }}</p>
+            </div>
+            <!--
+              <div class="col-12 col-md-6 col-lg-12">
+                <small class="text-muted">Web</small>
+                <p><a href="#" class="font-weight-normal">goicoaabogados.com</a></p>
+              </div>
+            -->
+          </div>
+        </section>
+      </section>
+
+      <!-- Map -->
+      <!--
+        <div class="col-12 col-lg-6 order-lg-1">
+          <img height="300" class="w-100" src="https://snazzy-maps-cdn.azureedge.net/assets/1243-xxxxxxxxxxx.png?v=20170626083204">
+        </div>
+      -->
+    </div>
+  </section>
+</section>

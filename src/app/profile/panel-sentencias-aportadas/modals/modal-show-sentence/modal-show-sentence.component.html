@@ -1,0 +1,101 @@
+<div class="card-block modal-body">
+   <div class="el-sentence-rows">
+      <div class="row el-sentence-row">
+         <div class="col-12 col-md-4 el-sentence-col">
+            <label class="">Nº de recurso/proceso</label>
+            <span class="">{{sentence?.Proceso?.numeroProceso}}</span>
+         </div>
+         <div class="col-12 col-md-4 el-sentence-col">
+            <label class="">Tipo de resolución</label>
+            <span class="">{{sentence?.tipoResolucion | capitalize}}</span>
+         </div>
+         <div class="col-12 col-md-4 el-sentence-col">
+            <label class="">Nº de resolución</label>
+            <span class="">{{sentence?.numeroResolucion}}</span>
+         </div>
+      </div>
+      <div class="row el-sentence-row">
+         <div class="col-12 col-md-8 el-sentence-col">
+            <label class="">Juzgado</label>
+            <span class="">{{sentence?.Proceso?.OrganoJudicial?.nombre | capitalize}}</span>
+         </div>
+         <div class="col-12 col-md-4 el-sentence-col">
+            <label class="">Partido judicial</label>
+            <span class="">{{sentence?.Proceso?.OrganoJudicial?.localizacion | capitalize}}</span>
+         </div>
+      </div>
+      <!-- <div class="row el-sentence-row">
+          <div *ngIf="sentence?.numeroSeccion" class="col-4 el-sentence-col">
+            <label class="">Nº/Sección</label>
+            <span class="">{{sentence?.numeroSeccion}}</span>
+          </div>
+          <div *ngIf="sentence?.sala" class="col-4 el-sentence-col">
+            <label class="">Sala</label>
+            <span class="">{{sentence?.sala}}</span>
+          </div> -->
+      <div class="row el-sentence-row">
+         <div class="col-12 col-md-4 el-sentence-col">
+            <label class="">Orden</label>
+            <span class="">{{sentence?.Orden?.nombre | capitalize}}</span>
+         </div>
+         <div class="col-12 col-md-4 el-sentence-col">
+            <label class="">Fecha</label>
+            <span class="">{{sentence?.fecha | date}}</span>
+         </div>
+         <div *ngIf="sentence?.Derechos?.length > 0" class="col-12 col-md-4 el-sentence-col">
+            <label class="">Derecho</label>
+            <span *ngFor="let derecho of sentence?.Derechos ; let i = index">
+               {{derecho.nombre | capitalize}} {{i === sentence?.Derechos?.length - 1 || sentence?.Derechos?.length ===
+               1 ? '' : ', '}}
+            </span>
+         </div>
+      </div>
+   </div>
+   <!-- <div class="row el-sentence-row">
+        <div *ngIf="sentence?.Derechos?.length > 1" class="col-3 el-sentence-col">
+          <label class="">Derechos</label>
+          <ul>
+            <li *ngFor="let d of sentence?.Derechos">{{d.nombre | capitalize}}</li>
+          </ul>
+        </div>
+      </div> -->
+   <div class="el-sentence-fallos" *ngFor="let fallo of sentence?.Fallos; let i =index;">
+      <!-- TODO: CAMBIAR ESTA SECCION -->
+      <h5 class="">Fallo {{i+1}} - {{ fallo?.TipoFallo?.nombre }}</h5>
+      <div class="row el-sentence-row">
+         <div *ngFor="let parte of fallo.parteDemandante" class="col-12 col-md-6 el-sentence-col">
+            <span>{{parte.ProfesionalEstadistica.nombre}}</span>
+            <label class="">{{parte.PosicionProcesal.nombre}}</label>
+         </div>
+         <div *ngFor="let parte of fallo.parteDemandada" class="col-12 col-md-6 offset-md-6  el-sentence-col">
+            <span>{{parte.ProfesionalEstadistica.nombre}}</span>
+            <label class="">{{parte.PosicionProcesal.nombre}}</label>
+         </div>
+      </div>
+   </div>
+   <div class="el-sentence-suggestion" *ngIf="editing">
+      <form #form="ngForm" class="">
+         <div class="form-group">
+            <label for="suggestion" class="el-sentence-suggestion-label">Corrección</label>
+            <textarea class="form-control" [(ngModel)]="suggestion" id="suggestion" name="suggestion" rows="8" cols="80"
+               placeholder="" required></textarea>
+         </div>
+      </form>
+   </div>
+</div>
+<div class="modal-footer">
+   <div *ngIf="editing" class="el-sentence-footer-editing">
+      <div *ngIf="errorMsg" id="errorMsg" class="alert alert-danger alert-rounded text-center">
+         {{errorMsg}}
+      </div>
+      <div class="text-right d-flex">
+         <button (click)="editing=false;errorMsg='';" class="btn btn-link btn-link-text" type="button">Cancelar</button>
+         <app-button-loader [disabled]="!suggestion || reqInProg" [showLoading]="reqInProg" [text]="'Enviar'"
+            (emitClicked)="onSendSuggestion($event)"></app-button-loader>
+      </div>
+   </div>
+   <div *ngIf="!editing" class="text-right" class="el-sentence-footer-no-editing">
+      <button type="button" (click)="editing=true;suggestion='';errorMsg='';reqInProg=false;" class="pull-right btn btn-link btn-link-text no-padding"
+         name="button">Sugerir corrección</button>
+   </div>
+</div>

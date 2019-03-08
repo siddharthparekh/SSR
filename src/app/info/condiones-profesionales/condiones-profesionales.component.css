@@ -1,0 +1,18 @@
+.modal-body {
+  padding: 10px 10%;
+}
+p {
+  white-space: normal;
+}
+
+h4 {
+  margin-top: 3%;
+}
+
+li{
+  margin-top: 2%;
+}
+
+.row{
+  font-size: 0.9em;
+}

@@ -1,0 +1,40 @@
+.card-body-account-settings {
+    height: 100px;
+}
+.form-control-value-2 {
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #64757d;
+}
+
+.el-membership-change-text2 {
+  text-align: center;
+}
+
+.el-membership-change-text2 label {
+  float: right;
+}
+
+@media (max-width: 767px) {
+
+  .el-membership-change-text1 {
+    text-align: center;
+  }
+
+  .el-membership-change-text2 {
+    margin-top: 10px;
+  }
+
+  .el-membership-change-text2 label {
+    float: none;
+  }
+  
+}
+
+@media (max-width: 1023px) {
+
+}

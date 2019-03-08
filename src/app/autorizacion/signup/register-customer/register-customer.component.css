@@ -1,0 +1,128 @@
+.register-customer {
+  padding: 0 0 80px 0;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f1820;
+  background-color: #f5f7f8;
+}
+
+.register-customer--holder {
+  border-radius: 2px;
+  box-shadow: 2px 4px 6px 0 rgba(152, 171, 180, 0.06);
+  background-color: #ffffff;
+  text-align: left;
+  margin: 30px auto 0;
+  padding: 40px 20px 36px;
+  max-width: 450px;
+}
+
+.register-customer__form__inputs-div--holder {
+  display: flex !important;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.register-customer__form__inputs-div {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+.presentation__paragraph {
+  margin: 25px 0 0;
+}
+
+.form-input-checkbox {
+  margin: 20px 0 0;
+  text-align: left;
+}
+
+.input-checkbox-last {
+  margin: 14px 0 0 !important;
+}
+
+.register-customer__form__register-button--holder {
+  width: 100%;
+  margin-top: 47px;
+  text-align: -webkit-center;
+}
+
+.register-customer__form__register-button {
+  border-radius: 3px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.register-customer__form__register-button button {
+  font-size: 17px;
+  width: 100%;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  text-transform: uppercase;
+}
+
+.register-customer--holder:last-child > .login-signup__question {
+  margin: 0 !important;
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: -webkit-center;
+}
+
+.register-customer__button-holder {
+  margin: 30px auto 0;
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: -webkit-center;
+}
+
+.register-customer__button {
+  max-width: 320px;
+}
+
+@media (min-width: 768px) {
+  .register-customer {
+    padding: 0 0 100px;
+  }
+  .register-customer--holder {
+    margin: 35px auto 0;
+    padding: 50px 60px 55px;
+    max-width: 800px;
+  }
+  .register-customer__form__inputs-div {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 10px;
+  }
+  .register-customer__form__inputs-div:first-child {
+    padding-right: 15px;
+  }
+  .register-customer__form__inputs-div:last-child {
+    padding-left: 15px;
+  }
+  .register-customer__form__register-button--holder {
+    margin-top: 25px;
+    text-align: -webkit-right;
+  }
+  .register-customer--holder:last-child > .login-signup__question {
+    margin: 0 !important;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    text-align: -webkit-left;
+  }
+  .register-customer__button-holder {
+    margin: 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: -webkit-right;
+  }
+}
+
+@media (min-width: 992px) {
+  .register-customer--holder:last-child > .login-signup__question {
+    padding: 0;
+  }
+}

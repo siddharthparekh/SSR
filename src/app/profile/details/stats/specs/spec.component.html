@@ -1,0 +1,12 @@
+<app-profile-spec-header (toggleContent)="onContentToggle($event)" [data]="headerData" [access]="access" [specialities]="specialities"></app-profile-spec-header>
+<section class="container-fluid px-0 px-sm-3" [hidden]="!isContentOpened">
+   <div *ngIf="hasError" class="container mb-4">
+      <app-profile-error></app-profile-error>
+   </div>
+   <div *ngIf="!contentData && !hasError" class="container mb-4">
+      <app-profile-loading></app-profile-loading>
+   </div>
+   <div *ngIf="!!contentData">
+      <app-profile-spec-content [data]="contentData" [access]="access"></app-profile-spec-content>
+   </div>
+</section>

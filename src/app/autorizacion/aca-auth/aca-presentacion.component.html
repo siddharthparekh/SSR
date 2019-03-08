@@ -1,0 +1,37 @@
+<div class="aca-presentation">
+   <div class="aca-presentation--holder">
+      <div class="login-signup__title">
+         Entra con tu certificado ACA y descubre tu IRJ
+      </div>
+      <p class="presentation__paragraph">
+         Le informamos de que según lo establecido en la normativa en materia
+         de protección de datos y LSSICE, el envío de este formulario supone
+         la aceptación de nuestra política de privacidad y el consentimiento
+         para el tratamiento de sus datos. La finalidad del tratamiento es el
+         alta en nuestro servicio y la inclusión en nuestro sistema de envío
+         de informaciones periódicas a través de correo electrónico. Su
+         información personal será almacenada por un plazo de 36 meses, a
+         partir de la última actualización, salvo petición en contra por su
+         parte. Le informamos, finalmente, que puede ejercer sus derechos
+         mediante comunicación por escrito y copia del DNI u otro documento
+         identificativo, a través del correo electrónico:
+         profesionales@emerita.legal.
+      </p>
+      <label class="form-input-checkbox">
+         <input type="checkbox" id="privacyPolicy" name="privacyPolicy" (change)="togglePrivacyPolicy($event)" />
+         <span class="checkmark"></span>
+         <label for="privacyPolicy">
+            He leído y acepto la <a [routerLink]="['/info/privacidad']">política de privacidad</a> y las
+            finalidades previstas
+         </label>
+      </label>
+      <label class="form-input-checkbox input-checkbox-last">
+         <input type="checkbox" id="recibeNews" name="recibeNews" (change)="toggleRecibeNews($event)" />
+         <span class="checkmark"></span>
+         <label for="recibeNews">Quiero recibir noticias</label>
+      </label>
+      <div class="aca-presentation__certificate-button--holder">
+         <app-entrar-certificate-boton (emitClicked)="goACA()" [disabled]="!privacyPolicy"></app-entrar-certificate-boton>
+      </div>
+   </div>
+</div>

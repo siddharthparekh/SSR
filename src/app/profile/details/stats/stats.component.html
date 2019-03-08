@@ -1,0 +1,119 @@
+<section *ngIf="hasError">
+   <app-profile-error [text]="errMsg"></app-profile-error>
+</section>
+<section *ngIf="!data && !hasError">
+   <app-profile-loading></app-profile-loading>
+</section>
+<article *ngIf="!!data">
+   <!-- disclaimer -->
+   <section class="row d-none d-md-block mb-3 mb-lg-4">
+      <div class="col">
+         <div class="text-secondary small line-height-1">
+            Esta información representa una muestra estadística y, por tanto, no es exhaustiva y no presupone la
+            inexistencia de otras
+            áreas de intervención de este abogado, que puede, por ejemplo, ejercer otras actividades, incluido el
+            asesoramiento,
+            además de su posible actividad ante los tribunales.
+         </div>
+      </div>
+   </section>
+
+   <!-- statistics summary -->
+   <section class="container card scrollbar py-3 py-lg-4 mb-3 mb-lg-4">
+      <div class="row px-lg-4 px-xl-5 flex-nowrap">
+         <div class="text-center col-5 col-sm-4 d-md-none py-2">
+            <div class="d-inline-block text-left mx-auto mb-0">
+               <app-irj-indicator [value]="data.irjValue" [blocked]="isIrjBlocked" (click)="buyProfile($event)"></app-irj-indicator>
+            </div>
+         </div>
+         <div class="border-left-lightgray col-5 col-sm-4 col-lg-3 ml-md-4 ml-lg-3 ml-xl-2 py-2">
+            <div class="d-inline-block text-left mx-auto">
+               <div class="mb-2">Antigüedad</div>
+               <div class="text-secondary">
+                  <span class="h5 text-secondary mb-0 mr-1">{{ xpLevel }}</span>
+                  <br class="d-lg-none" />
+                  <span class="mr-1">·</span>
+                  <span>{{ data.yearsOfXp }} años</span>
+               </div>
+            </div>
+         </div>
+         <div class="border-left-lightgray col-5 col-sm-4 col-md-5 col-lg-3 py-2">
+            <div class="d-inline-block text-left mx-auto">
+               <div>Casos analizados</div>
+               <div>
+                  <span class="h2 font-weight-bold">{{ data.casesAnalyzed }}</span>
+               </div>
+            </div>
+         </div>
+         <div *ngIf="!!data.casesEstimated" class="border-left-lightgray col-5 col-sm-4 col-md-5 col-lg-3 py-2">
+            <div class="d-inline-block text-left mx-auto">
+               <div>Casos estimados</div>
+               <div>
+                  <span class="h2 font-weight-bold">{{ data.casesEstimated }}</span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- law areas -->
+   <section class="mb-3 mb-lg-4">
+      <app-profile-stats-law-areas [areas]="data.lawAreas" [access]="data.access"></app-profile-stats-law-areas>
+   </section>
+
+   <!-- map -->
+   <!--
+    <section class="container-fluid mb-3 mb-lg-4">
+      <div class="row">
+        <div class="map-image">
+          <img src="https://images.unsplash.com/photo-1519992599773-1e1d4029929d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4f2811cff9bae43a699318be0f6b5997&auto=format&fit=crop&w=1053&q=80">
+        </div>
+      </div>
+    </section>
+  -->
+
+   <!-- clients [hideable] -->
+   <section class="mb-3 mb-lg-4">
+      <app-profile-stats-map-stats [data]="data.localizacionesData" [access]="data.access">
+      </app-profile-stats-map-stats>
+   </section>
+
+   <!-- clients [hideable] -->
+   <!-- <section class="mb-3 mb-lg-4">
+      <app-profile-stats-clients [data]="data.clientsData" [access]="data.access"></app-profile-stats-clients>
+   </section> -->
+
+   <!-- global evolution -->
+   <!-- <section class="mb-3 mb-lg-4">
+      <app-profile-stats-global-evolution [items]="data.evolutionData" [access]="data.access"></app-profile-stats-global-evolution>
+   </section> -->
+
+   <!-- specialities -->
+   <section class="container card pt-3 pt-lg-4 mb-3 mb-lg-4 scrollbar">
+      <div *ngIf="data.specialities.length > 0" class="px-lg-4 px-xl-5 mb-4 mb-lg-5">
+         <div class="mb-3">
+            <span class="font-weight-bold">
+               Especialidades
+               <i class="e4-icon info-circle-o ml-1 cursor" data-toggle="tooltip" data-placement="right" data-html="true"
+                  title="Se incluyen aquellas áreas del derecho con un IRJ superior a 75/100"></i>
+            </span>
+         </div>
+         <div *ngFor="let itemData of data.specialities; let i = index" class="spec-container">
+            <app-profile-spec [headerData]="itemData" [access]="itemData.access" 
+            [specialities]="true"></app-profile-spec>
+         </div>
+      </div>
+
+      <div *ngIf="data.featuredAreas.length > 0" class="px-lg-4 px-xl-5 mb-4 mb-lg-5">
+         <div class="mb-3">
+            <span class="font-weight-bold">Áreas destacadas
+               <i class="e4-icon info-circle-o ml-1 cursor" data-toggle="tooltip" data-placement="right" data-html="true"
+                  title="Se incluyen aquellas áreas del derecho con un IRJ superior a 60/100 e inferior a 75/100; si en ninguna se alcanza esa puntuación se muestra el derecho con más número de casos"></i>
+            </span>
+         </div>
+         <div *ngFor="let itemData of data.featuredAreas; let i = index" class="spec-container">
+            <app-profile-spec [headerData]="itemData" [access]="itemData.access"></app-profile-spec>
+         </div>
+      </div>
+   </section>
+</article>

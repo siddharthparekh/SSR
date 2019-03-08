@@ -1,0 +1,45 @@
+
+agm-map, .el-map-stats {
+    height: 300px;
+}
+
+.el-map-stats-lock {
+    position: relative;
+}
+
+.el-map-stats-section.blocked .el-map-stats-lock .blockable-overlay {
+    background-image: linear-gradient(to right, #0f1820, rgba(15, 24, 32, 0.9));
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.el-map-stats-section.blocked .el-map-stats-lock .blockable-overlay app-blocking-complex {
+    display: block;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#el-map-stats-tooltip {
+    background-color: #0f1820 !important;
+    color: #ffffff !important;
+}
+
+#el-map-stats-tooltip .el-map-stats-tooltip-loc {
+    background-color: #0f1820 !important;
+    color: #ffffff !important;
+}
+
+#el-map-stats-tooltip .el-map-stats-tooltip-nom {
+    background-color: #0f1820 !important;
+    color: #ffffff !important;
+}
+
+#el-map-stats-tooltip .el-map-stats-tooltip-res {
+    background-color: #0f1820 !important;
+    color: #ffffff !important;
+}

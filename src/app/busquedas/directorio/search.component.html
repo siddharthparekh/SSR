@@ -1,0 +1,141 @@
+﻿<div class="page-wrapper">
+   <div class="container-fluid">
+      <div class="container">
+         <div class="d-block d-sm-block d-md-none float-button">
+            <div class="col-12 h-100">
+               <div class="row h-100">
+                  <div class="text-center col-12 button" (click)="show_filter()">
+                     <a class="text-primary e4-btn-filtro-mobile">
+                        <span>Filtrar </span>
+                        <span>
+                           <img class="el-btn-filtro-icon" src="assets/images/filtros-icon.png" srcset="assets/images/filtros-icon@2x.png 2x,assets/images/filtros-icon@3x.png 3x"
+                              alt="Filtros">
+                        </span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div *ngIf="!nombreDerechoUrl" class="p-2 pt-4 pb-4 p-md-5 mb-md-4">
+            <div class="col-12 col-md-12 text-center muestros-abogados">
+               Abogados Analizados
+            </div>
+            <div class="col-12 col-md-12 text-center">
+               <div class="mb-4">
+                  <span class="pellentesque-habitan">
+                     Los mejores abogados por especialidad según su eficacia judicial.
+                  </span>
+                  <br>
+                  <a style="font-size: 0.9em;" routerLink='/metodologia'>¿Cómo funciona?</a>
+               </div>
+            </div>
+         </div>
+         <div class="row pb-3 mt-3" *ngIf="nombreDerechoUrl">
+            <!-- <div class="col-12 text-gray">
+               Hemos encontrado <strong>{{ nResults }}</strong> resultados
+            </div> -->
+         </div>
+         <div class="row">
+            <div class="col-12 col-md-5 col-lg-4 px-10">
+               <div class="col-12 solid-bckg" *ngIf="!nombreDerechoUrl">
+                  <div class="col-12">
+                     <img src="/assets/images/directorio/laurel.png" srcset="/assets/images/directorio/laurel@2x.png 2x,/assets/images/directorio/laurel@3x.png 3x"
+                        class="laurel">
+                  </div>
+                  <div class="col-12 Descubre-a-los-mejor pt-3">
+                     Ranking de abogados basado en datos judiciales
+                  </div>
+               </div>
+               <div class="col-12 white-bckg filters_bckg d-none d-sm-none d-md-block">
+                  <app-filtro *ngIf="!isMobile" [filtersFromUrl]="filterParams" [isRanking]="false"
+                     (filterAppliedEmitter)="applyFilter($event)"></app-filtro>
+               </div>
+            </div>
+            <div class="col-12 col-md-7 col-lg-8">
+               <div class="busqueda d-none d-sm-none d-md-block">
+                  <div class="row">
+                     <div class="col-12 col-md-6">
+                        <ng-select (selected)="onSearchByNameChange($event)" style="z-index: 5;" class="e4-select search search_name"
+                           [(ngModel)]="type_names" filterPlaceholder="Buscar por nombre" [options]="nombresTypehead"
+                           placeholder="Buscar por nombre" notFoundMsg="No hay resultados" (filterInputChanged)="search_by_name($event)">
+                           <ng-template #optionTemplate let-option="option">
+                              <div *ngIf="option && option?.value === -50; then showLoading else hideLoading"></div>
+                              <ng-template #showLoading>
+                                 <div class="loading-select">
+                                    <app-profile-loading></app-profile-loading>
+                                 </div>
+                              </ng-template>
+                              <ng-template #hideLoading>{{option?.label}}</ng-template>
+                           </ng-template>
+                        </ng-select>
+                     </div>
+                  </div>
+               </div>
+
+               <div *ngIf="showEmptySearch" class="center m-t-30 p-t-30 text-muted">
+                  <app-empty-search [message]="'No hemos encontrado resultados.'" (clickedGoBack)="clickedGoBack()"></app-empty-search>
+               </div>
+
+               <div class="row comment-widgets">
+                  <div class="col-12" *ngIf="!reqInProg || !hideAbogados">
+                     <div class="abogado" *ngFor="let abogado of abogados; let i = index">
+                        <app-result-badge (onClickNameEmitter)="goToProfile($event)" [hasAccess]="abogado.access"
+                           [abogado]="abogado" [isRanking]="false"></app-result-badge>
+                        <div class="col-12 solid-bckg content" *ngIf="nombreDerechoUrl && i == 1">
+                           <div class="row">
+                              <div class="col-12 col-lg-1 el-descubre-icon">
+                                 <img src="/assets/images/directorio/laurel.png" srcset="/assets/images/directorio/laurel@2x.png 2x,/assets/images/directorio/laurel@3x.png 3x"
+                                    class="laurel">
+                              </div>
+                              <div class="col-12 col-lg-7 Descubre-a-los-mejor pt-2 pt-lg-0">
+                                 Los mejores abogados especialistas según su eficacia judicial.
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-5 d-flex justify-content-center" *ngIf="noMoreResults">
+                        <span class="text-muted">No hay más resultados.</span>
+                     </div>
+                  </div>
+                  <div class="col-12">
+                     <div style="height: 300px;" *ngIf="reqInProg">
+                        <app-profile-loading [transparent]="true"></app-profile-loading>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="row" *ngIf="!reqInProg && abogados && !noMoreResults">
+                  <div class="col-12">
+                     <div class="text-center mb-5" *ngIf="abogados.length > 0">
+                        <a *ngIf="abogados.length > 0" class="text-primary see-more" (click)="fetchNextSet()">Ver más
+                           resultados
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<app-filtro-dialog *ngIf="isMobile" [filtersFromUrl]="filterParams" [isRanking]="false" (filterAppliedEmitter)="apply_Filter_modal($event)"></app-filtro-dialog>
+
+<div id="modal-activar-localizacion" class="modal fade" role="dialog" aria-hidden="true">
+   <div class="modal-dialog">
+      <!-- Modal content -->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Aviso</h4>
+            <button type="button" class="close pull-right" data-dismiss="modal">
+               <i class="mdi mdi-close"></i>
+            </button>
+         </div>
+         <div class="modal-body">
+            <h6>Debes permitir la localización en tu navegador para poder utilizar este filtro</h6>
+         </div>
+         <div class="modal-footer">
+            <app-button-loader data-dismiss="modal" [showLoading]="reqInProg" [text]="'Aceptar'"></app-button-loader>
+         </div>
+      </div>
+   </div>
+</div>

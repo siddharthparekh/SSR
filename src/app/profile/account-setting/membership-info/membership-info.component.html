@@ -1,0 +1,22 @@
+<div *ngIf="user?.tipo != 1">
+  <h5 class="card-title card-title-account-settings">Datos colegiaci&oacute;n</h5>
+  <div class="card card-account-settings">
+    <div class="card-body card-body-account-settings row">
+      <div class="col-12 col-md-4 el-membership-change-text1">
+          <label class="form-control-value">
+            Colegiado/a <span>{{user?.Colegios[0]?.n_colegiado}}</span> <span>{{user?.Colegios[0]?.Colegio.nombre}}</span>
+          </label>
+      </div>
+      <div class="col-12 col-md-8 el-membership-change-text2">
+        <label class="form-control-value-2">
+          Si quieres cambiar tu colegio o número de colegiado/a, contáctanos <a href="javascript:void(0)" data-target="#modal-modificar-abogacia"
+            data-toggle="modal">aquí</a>.
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-modificar-abogacia" class="modal fade" role="dialog">
+  <app-contacto-colegio></app-contacto-colegio>
+</div>

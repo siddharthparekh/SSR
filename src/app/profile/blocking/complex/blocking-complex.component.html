@@ -1,0 +1,17 @@
+<div class="text-center">
+  <div class="mb-2">
+    <img src="assets/images/lock-icon-1.png">
+  </div>
+  <div class="mb-2">
+    <span class="font-weight-bold text-uppercase text-white small">
+      Contenido bloqueado
+   </span>
+  </div>
+  <div *ngIf="!!hint" class="mb-2">
+    <span class="d-inline-block text-secondary small" style="max-width: 200px;">
+      {{ hint }}
+    </span>
+  </div>
+  <div class="pt-2"></div>
+  <!-- <button class="btn btn-primary btn-sm" (click)="_buyProfile()">Comprar perfil</button> -->
+</div>

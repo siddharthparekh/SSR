@@ -1,0 +1,87 @@
+<div class="page-wrapper el-page-wrapper container-fluid">
+      <!--div class="card" id="main-card"-->
+      <div class="row">
+            <div class="col-12 col-md-3">
+                  <nav class="navbar navbar-inverse menu-account-settings">
+                        <ul class="nav flex-column nav-pills">
+                              <li class="item nav-item">
+                                    <a [routerLink]="['personal-info']" routerLinkActive="router-link-active" class="nav-link">
+                                          Datos personales
+                                    </a>
+                              </li>
+                              <li class="item nav-item" *ngIf="user?.tipo === 1">
+                                    <a [routerLink]="['billing-info']" routerLinkActive="router-link-active" class="nav-link">
+                                          Datos de facturaci&oacute;n
+                                    </a>
+                              </li>
+                              <li class="item nav-item" *ngIf="user?.tipo === 1">
+                                    <a [routerLink]="['payment-info']" routerLinkActive="router-link-active" class="nav-link">
+                                          M&eacute;todos de pago
+                                    </a>
+                              </li>
+                              <li class="item nav-item" *ngIf="user?.tipo != 1">
+                                    <a [routerLink]="['membership-info']" routerLinkActive="router-link-active" class="nav-link">
+                                          <span>Datos de colegiaci&oacute;n</span>
+                                    </a>
+                              </li>
+                              <li class="item nav-item" *ngIf="user?.tipo != 1">
+                                    <a [routerLink]="['privacy']" routerLinkActive="router-link-active" class="nav-link">
+                                          <span>Ajustes de Privacidad</span>
+                                    </a>
+                              </li>
+                        </ul>
+                  </nav>
+                  <div class="menu-mobile-account-settings">
+                        <h5 class="card-title card-title-account-settings2">Mi Cuenta</h5>
+                        <div class="sidebar-toggle-mobile">
+                              <ul id="sidebarToggleMobile" class="sidebar-nav nav nav-tabs flex-md-column">
+                                    <li class="nav-item">
+                                          <a href="javascript:;" class="sidebar-nav-group-link nav-link sidebar-nav-link nav-link-toggle-mobile"
+                                                (click)="isCollapsed = !isCollapsed" [class.el-active]="!isCollapsed"
+                                                [attr.aria-expanded]="!isCollapsed"
+                                                aria-controls="collapseBasic">
+                                                <img src="assets/images/icons/menu.png" class="sidebar-nav-link-icon">
+                                                <span class="sidebar-toggle-link-text">{{menuLink}}</span>
+                                          </a>
+                                    </li>
+                              </ul>
+                        </div>
+                        <ul id="collapseBasic" [collapse]="isCollapsed" class="sidebar-nav nav nav-tabs flex-md-column">
+                              <li class="nav-item">
+                                    <a class="nav-link sidebar-nav-link" (click)="menuLink='Datos personales';" [routerLink]="['personal-info']"
+                                          routerLinkActive="router-link-active" (click)=" isCollapsed=true;">
+                                          <span class="sidebar-nav-link-text">Datos personales</span>
+                                    </a>
+                              </li>
+                              <li class="nav-item" *ngIf="user?.tipo === 1">
+                                    <a class="nav-link sidebar-nav-link" (click)="menuLink='Datos de facturaci&oacute;n';" [routerLink]="['billing-info']"
+                                          routerLinkActive="router-link-active" (click)=" isCollapsed=true;">
+                                          <span class="sidebar-nav-link-text">Datos de facturaci&oacute;n</span>
+                                    </a>
+                              </li>
+                              <li class="nav-item" *ngIf="user?.tipo === 1">
+                                    <a class="nav-link sidebar-nav-link" (click)="menuLink='M&eacute;todos de pago';" [routerLink]="['payment-info']"
+                                          routerLinkActive="router-link-active" (click)=" isCollapsed=true;">
+                                          <span class="sidebar-nav-link-text">M&eacute;todos de pago</span>
+                                    </a>
+                              </li>
+                              <li class="nav-item" *ngIf="user?.tipo != 1">
+                                    <a class="nav-link sidebar-nav-link" (click)="menuLink='Datos de colegiaci&oacute;n';" [routerLink]="['membership-info']"
+                                          routerLinkActive="router-link-active" (click)=" isCollapsed=true;">
+                                          <span class="sidebar-nav-link-text">Datos de colegiaci&oacute;n</span>
+                                    </a>
+                              </li>
+                              <li class="nav-item" *ngIf="user?.tipo != 1">
+                                    <a class="nav-link sidebar-nav-link" (click)="menuLink='Ajustes de Privacidad';" [routerLink]="['privacy']"
+                                          routerLinkActive="router-link-active" (click)=" isCollapsed=true;">
+                                          <span class="sidebar-nav-link-text">Ajustes de Privacidad</span>
+                                    </a>
+                              </li>
+                        </ul>
+                  </div>
+            </div>
+            <div class="col-12 col-md-9 card-container el-card-container el-account-settings-content">
+                  <router-outlet></router-outlet>
+            </div>
+      </div>
+</div>

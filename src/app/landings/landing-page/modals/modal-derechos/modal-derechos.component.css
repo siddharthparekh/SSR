@@ -1,0 +1,23 @@
+#listaDerechos .bloque {
+  text-align: center;
+  padding: 3%;
+  min-height: 60px;
+  font-size: 1em;
+  font-weight: 500;
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.bloque-c:nth-child(even) {
+  background-color: gainsboro;
+}
+
+.bloque a {
+  text-align: center;
+  color: #101820;
+}
+
+.bloque-c:hover {
+  background-color: rgba(0, 0, 0, .3);
+}

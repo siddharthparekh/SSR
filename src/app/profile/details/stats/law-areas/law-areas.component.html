@@ -1,0 +1,47 @@
+<section class="blockable blockable-dark container-fluid card" [class.blocked]="blocked">
+  <div class="blockable-overlay">
+    <app-blocking-complex
+      hint="Compra el perfil para acceder a todas las estadísticas."
+      (buyProfile)="buyProfile()"
+      ></app-blocking-complex>
+  </div>
+  <div *ngIf="areas.length > 0"
+      class="blockable-content pt-3 pt-lg-4 px-lg-4 pb-lg-3 px-xl-5">
+    <div class="row">
+      <div class="col-12 order-1 col-lg-3 mb-4">
+        <b>Distribución de casos</b>
+      </div>
+      <div class="col-12 order-2 order-lg-3">
+        <div *ngFor="let area of areas" class="row mb-3">
+          <div class="col-12 text-secondary 
+            col-lg-3 d-flex align-items-center pl-lg-3 
+            col-xl-3 mb-1">
+            {{ capit(area.name) }}
+          </div>
+          <div class="col-12 col-lg-8 col-xl-7 d-flex align-items-center">
+            <div class="w-100">
+              <app-profile-compare-bars
+                [boldValue]="area.solutions"
+                [normalValue]="area.media"
+                [max]="globalMaximum"
+                ></app-profile-compare-bars>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 order-3 text-right col-lg-9 order-lg-2 mb-4">
+        <span class="legend legend-red mr-3">Casos analizados</span>
+        <span id="mediaCasesLegend" class="legend legend-yellow"
+            data-toggle="tooltip" data-placement="left" data-animation="false">Media otros abogados</span>
+        <div class="d-none">
+          <div id="mediaCasesLegendTooltipContent">
+            <span>
+              La media se calcula en base al número total de casos analizados 
+              de los demás abogados en esa área del derecho
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

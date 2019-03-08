@@ -1,0 +1,296 @@
+﻿<div class="page-wrapper">
+   <div class="container-fluid">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 text-center mt-5 mb-3">
+               <h4><b style="font-size: 23px">Tu carrito</b></h4>
+            </div>
+         </div>
+         <div class="row d-none d-sm-none d-md-block">
+            <div class="col-12 mb-3 pm-2">
+               <a class="text-primary" [routerLink]="['/cart']"><i class="fa fa-arrow-left"></i> Volver</a>
+            </div>
+         </div>
+         <div class="row">
+            <div class="d-block d-sm-block d-md-none col-md-4 mb-5 box-container">
+               <div class="col-12 box p-4 pb-0">
+                  <h6 class="pt-4 pb-3"><b class="title">Resumen pago</b></h6>
+                  <table class="table text-muted">
+                     <tbody>
+                        <tr *ngFor="let item of items">
+                           <td>{{item.nombre}}</td>
+                           <td style="width: 35%; text-align: right">
+                              <strong>{{item.precio| number : '1.2-2'}} €</strong>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>IVA</td>
+                           <td style="width: 35%; text-align: right">
+                              <strong>{{iva| number : '1.2-2'}}5€</strong>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="pb-4" colspan="2">
+                              <a class="text-primary">Añadir cupón</a>
+                           </td>
+                        </tr>
+                     </tbody>
+                     <tfoot>
+                        <tr>
+                           <td>TOTAL A PAGAR</td>
+                           <td style="font-size: 15pt; text-align: right">
+                              <strong>{{total + iva | number : '1.2-2'}} €</strong>
+                           </td>
+                        </tr>
+                     </tfoot>
+                  </table>
+               </div>
+            </div>
+            <div class="col-md-8 mb-5">
+               <div>
+                  <div class="col-12 box">
+                     <div class="row" *ngIf="!has_logged">
+                        <div class="col-md-6" [ngClass]="{ 'col-md-12': !!user.id}">
+                           <b class="title">Información de contacto</b>
+                           <div class="row">
+                              <div class="col-12 mt-4 mb-3">
+                                 <input #invoiceEmail="ngModel" class="form-control" style="background-color: white;" [disabled]="user.id" type="email"
+                                    placeholder="Email" [(ngModel)]="invoice.email" required email />
+                                 <app-error-input
+                                    *ngIf="invoiceEmail.value !== '' && invoiceEmail.touched && invoiceEmail.invalid"
+                                    [msg]="'Email inválido'"
+                                 ></app-error-input>
+                              </div>
+                              <div class="col-12" *ngIf="!user.id">
+                                 <label class="e4-check-container">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                    <span class="label">Guardar la información y crear cuenta</span>
+                                 </label>
+                              </div>
+                              <div class="col-12">
+                                 <label class="e4-check-container">
+                                    <input type="checkbox" (change)="toggleFactura()" [(ngModel)]="invoice.emisorEsEntidad">
+                                    <span class="checkmark"></span>
+                                    <span class="label">Quiero factura</span>
+                                 </label>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 text-right e4-checkout-cuenta" *ngIf="!user.id">
+                           <span>¿Ya tienes cuenta? &nbsp;</span> <a class="acccount-label" (click)="show_login()">Entra</a>
+                        </div>
+                     </div>
+                     <div class="row" *ngIf="has_logged">
+                        <div class="col-md-6">
+                           <h6 class="mb-2"><b class="title">Hola de nuevo</b></h6>
+                           <h6 class="text-muted font-size-13">Si no tienes cuenta te llevamos al <a class="text-primary"
+                                 (click)="show_register()">registro</a></h6>
+                           <div class="row">
+                              <div class="col-12 mt-2 mb-2">
+                                 <input #userEmail="ngModel" class="form-control font-size-13"
+                                    id="userEmail" name="userEmail"
+                                    [(ngModel)]="user.email" type="email"
+                                    placeholder="Email" required email />
+                                 <app-error-input
+                                    *ngIf="userEmail.value !== '' && userEmail.touched && userEmail.invalid"
+                                    [msg]="'Email inválido'"
+                                 ></app-error-input>
+                              </div>
+                              <div class="col-12 mb-2">
+                                 <input class="form-control  font-size-13" type="password" [(ngModel)]="user.password"
+                                    placeholder="Contraseña" />
+                              </div>
+                              <div class="col-12 mb-3">
+                                 <h6 class="text-muted"><a [routerLink]="['/auth/recoverpassword']" class="fp-link">He olvidado mi
+                                       contraseña</a></h6>
+                              </div>
+                              <div class="col-12">
+                                 <app-button-loader [disabled]="(userEmail.invalid || !user.password) || loading" class=""
+                                    [showLoading]="loading" [text]="'ENTRAR'" (emitClicked)="login($event)" [float]="'right'"></app-button-loader>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="row">
+                              <div class="col-12">
+                                 <h6 class="text-muted mt-4 mb-4 pt-1 font-size-13">Nunca publicaremos nada
+                                    sin tu permiso.</h6>
+                              </div>
+                              <div class="col-12">
+                                 <button class="w-100 btn btn-primary g-button" (click)="google_login()">
+                                    <img src="assets/images/google-plus-icon.png" />
+                                    Entra con Gmail</button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row  mt-4" *ngIf="invoice.emisorEsEntidad && !has_logged">
+                        <div class="col-12">
+                           <h6 class="mb-2"><b class="title">Información de facturación</b></h6>
+                        </div>
+                        <div class="col-12">
+                           <app-datos-facturacion [editing]="editing" [hiddenData]="true" class="facturacion" [user]="user"
+                              (onValidityChange)="onIsValidFacturacion($event)" (onDataChange)="invoiceData($event)"></app-datos-facturacion>
+
+                           <div class="col-md-12 pull-right text-right" *ngIf="user.id">
+                              <button *ngIf="!editing" class="btn btn-link" (click)="editing=true">Editar</button>
+                              <button *ngIf="editing" class="btn-link pull-right" (click)="editing=false">Cancelar</button>
+                              <button *ngIf="editing" [disabled]="!isValidFacturacion" class="btn-link pull-right"
+                                 (click)="onFacturacion()">Guardar</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row  mt-4">
+                        <div class="col-12">
+                           <h6 class="mb-1"><b class="title">Método de pago</b></h6>
+                           <h6 class="mt-0 mb-3 text-muted font-size-13">Todas las transacciones son seguras y
+                              están
+                              encriptadas.</h6>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-12">
+                           <div class="group">
+                              <div class="col-12 title">
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       <label class="e4-radio-container">
+                                          <input type="radio" [(ngModel)]="invoice.payment_type" value="tarjeta" name="payment_type" />
+                                          <span class="e4-checkmark"></span>
+                                       </label> <span class="pl-2 ml-3 radio-label radio-font">Tarjeta
+                                          crédito/debito</span>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                       <img class="ml-2 mt-1" src="assets/images/visa.jpg" />
+                                       <img class="ml-2 mt-1" src="assets/images/mastercard.png" />
+                                       <img class="mt-1" src="assets/images/maestro.png" />
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-12 p-2 body" *ngIf="invoice.payment_type == 'tarjeta'">
+                                 <app-card-settings *ngIf="user.id" [canDelete]="false" [user]="user" (onChangeCard)="changeCard($event)"></app-card-settings>
+                                 <div class="col-12" *ngIf="!user.id">
+                                    <form class="form-material" [formGroup]="cardForm">
+                                       <div class="row">
+                                          <div class="col-12 col-md-12">
+                                             <!-- <p>Número de tarjeta</p> -->
+                                             <div class="form-group" [class.has-danger]="cardForm.controls.number.invalid && (cardForm.controls.number.dirty || cardForm.controls.number.touched)">
+                                                <input placeholder="Número tarjeta"
+                                                   formControlName="number" class="form-control form-control-placeholder"
+                                                   [textMask]="{mask: creditcardMask, guide: true}"
+                                                   type="text" name="number" id="number" required>
+                                                <span class="card-number">
+                                                   <img src="assets/images/lock-icon.svg" class="lock_icon">
+                                                </span>
+                                                <div class="form-control-error" *ngIf="cardForm.controls.number.invalid && (cardForm.controls.number.dirty || cardForm.controls.number.touched)">
+                                                   <small>Número de tarjeta inválido</small>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <!-- <p>Fecha de expiración</p> -->
+                                          <div class="col-4 col-md-4">
+                                             <div class="form-group" [class.has-danger]="cardForm.controls.exp_month.invalid && (cardForm.controls.exp_month.dirty || cardForm.controls.exp_month.touched)">
+                                                <input formControlName="exp_month" minlength="2" maxlength="2"
+                                                   placeholder="MM" class="form-control form-control-placeholder"
+                                                   [class.form-control-danger]="cardForm.controls.exp_month.invalid && (cardForm.controls.exp_month.dirty || cardForm.controls.exp_month.touched)"
+                                                   type="number" name="exp_month" id="exp_month" required>
+                                                <div class="form-control-error" *ngIf="cardForm.controls.exp_month.invalid && (cardForm.controls.exp_month.dirty || cardForm.controls.exp_month.touched)">
+                                                   <small>Mes inválido</small>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-4 col-md-5">
+                                             <div class="form-group" [class.has-danger]="cardForm.controls.exp_year.invalid && (cardForm.controls.exp_year.dirty || cardForm.controls.exp_year.touched)">
+                                                <input formControlName="exp_year" minlength="4" maxlength="4"
+                                                   placeholder="YYYY" class="form-control form-control-placeholder"
+                                                   [class.form-control-danger]="cardForm.controls.exp_year.invalid && (cardForm.controls.exp_year.dirty || cardForm.controls.exp_year.touched)"
+                                                   type="number" name="exp_year" id="exp_year" required>
+                                                <div class="form-control-error" *ngIf="cardForm.controls.exp_year.invalid && (cardForm.controls.exp_year.dirty || cardForm.controls.exp_year.touched)">
+                                                   <small>Año inválido</small>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <!-- <p>Código CVC</p> -->
+                                          <div class="col-4 col-md-3">
+                                             <div class="form-group" [class.has-danger]="cardForm.controls.cvc.invalid && (cardForm.controls.cvc.dirty || cardForm.controls.cvc.touched)">
+                                                <input placeholder="CVC" minlength="3" maxlength="3" formControlName="cvc"
+                                                   class="form-control form-control-placeholder"
+                                                   [class.form-control-danger]="cardForm.controls.cvc.invalid && (cardForm.controls.cvc.dirty || cardForm.controls.cvc.touched)"
+                                                   type="text" name="cvc" id="cvc" required>
+                                                <div class="form-control-error" *ngIf="cardForm.controls.cvc.invalid && (cardForm.controls.cvc.dirty || cardForm.controls.cvc.touched)">
+                                                   <small>CVC inválido</small>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
+                              <!-- <div class="col-12 title end">
+                                 <label class="e4-radio-container mr-2">
+                                    <input type="radio" value="paypal" name="payment_type" [(ngModel)]="invoice.payment_type" />
+                                    <span class="e4-checkmark"></span>
+                                 </label>
+                                 <img class="pl-3 ml-3 mt-2 paypal" src="assets/images/pay-pal-logo.png" />
+                              </div> -->
+                           </div>
+                        </div>
+
+                        <div *ngIf="!user?.id" class="col-12 mt-3 col-md-12 e4-condiciones-section">
+                           <label class="e4-check-container e4-condiciones">
+                              <input type="checkbox" [(ngModel)]="invoice.condition">
+                              <span class="checkmark"></span>
+                           </label>
+                           <span class="e4-check-container-label">
+                                 <span class="label">He leído y acepto la <a class="link" [routerLink]="['/info/privacidad']">política de privacidad</a>
+                                    y las <a class="link" [routerLink]="['/info/condiciones']">condiciones de uso</a></span>.
+                           </span>
+                        </div>
+                        <div class="col-12 mt-4 mb-4 col-md-12 invoice d-flex justify-content-end">
+                           <app-button-loader [disabled]="validate() || loading" [showLoading]="loading" [text]="formatAmount(total + iva)"
+                              (emitClicked)="payment()">
+                           </app-button-loader>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div #profileNavHolder [ngClass]="{'sticky-bottom': stickyBottom}" class="d-none d-sm-none d-md-block col-md-4 mb-5 box-container e4-invoice-resumen-sec">
+               <div [ngClass]="{'sticky': sticky, 'nav-lawyer': isNavLawyer}" class="col-12 box float p-4 pb-0 e4-invoice-resumen">
+                  <h6 class="pt-4 pb-3"><b class="title">Resumen pago</b></h6>
+                  <table class="table text-muted">
+                     <tbody>
+                        <tr *ngFor="let item of items">
+                           <td>{{item.nombre}}</td>
+                           <td style="width: 35%; text-align: right">
+                              <strong>{{item.precio| number : '1.2-2'}} €</strong>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>IVA</td>
+                           <td style="width: 35%; text-align: right">
+                              <strong>{{iva | number : '1.2-2'}}€</strong>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td class="pb-4" colspan="2">
+                              <a class="text-primary">Añadir cupón</a>
+                           </td>
+                        </tr>
+                     </tbody>
+                     <tfoot>
+                        <tr>
+                           <td>TOTAL A PAGAR</td>
+                           <td style="font-size: 15pt; text-align: right">
+                              <strong style="white-space: nowrap;">{{total + iva | number : '1.2-2'}} €</strong>
+                           </td>
+                        </tr>
+                     </tfoot>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

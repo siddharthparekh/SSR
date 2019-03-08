@@ -1,0 +1,18 @@
+<div class="modal-dialog" id="listaDerechos">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header" style="align-items: center">
+      <h4 class="modal-title">Especialidades</h4>
+      <button type="button" class="close pull-right" data-dismiss="modal"><i class="mdi mdi-close"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-12 bloque-c" *ngFor="let derecho of derechos; let i = index">
+          <div (click)="goToDerecho(derecho)" data-dismiss="modal" class="bloque pointer">
+            <a>{{derecho.nombre }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

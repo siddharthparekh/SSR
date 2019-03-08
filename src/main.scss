@@ -1,0 +1,235 @@
+
+
+// General variable structure
+//
+// Variable format should follow the `$component-modifier-state-property` order.
+
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+// Start with assigning color names to specific hex values.
+$white:  #fff ;
+$black:  #000 ;
+$red:    #d9534f ;
+$orange: #ff8b34 ;
+$orange-light: rgba(255,139,34,.1);
+$yellow: #ffd500 ;
+$green:  #5cb85c ;
+$blue:   #0275d8 ;
+$teal:   #d8f5f6 ;
+$pink:   #ff5b77 ;
+$purple: #613d7c ;
+$coral: #f87055 ;
+$sun-yellow: #ffd238 ;
+$greenish-teal: #4ccead ;
+$duck-egg-blue: #d8f5f6 ;
+$aquamarine: #00ccb1 ;
+$silver: #d6dde1 ;
+
+// Create grayscale
+$gray-dark:                 #0f1820 ;
+$gray:                      #64757d ;
+$gray-light:                #636c72 ;
+$gray-lighter:              #e5eaed ;
+$gray-lightest:             #f5f7f8 ;
+$blue-grey: #98abb4 ;
+
+// Reassign color vars to semantic color scheme
+$brand-primary:             $orange ;
+$brand-success:             $green ;
+$brand-info:                $teal ;
+$brand-warning:             $orange ;
+$brand-danger:              $red ;
+$brand-inverse:             $gray-dark ;
+
+$border-width: 1px ;
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:       $white ;
+$body-color:    $gray-dark ;
+$inverse-bg:    $gray-dark ;
+$inverse-color: $gray-lighter ;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:            $brand-primary ;
+$link-decoration:       none ;
+$link-hover-color:      lighten($link-color, 10%);
+$link-hover-decoration: none ;
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: "Source Sans Pro", sans-serif ;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif ;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace ;
+$font-family-base:       $font-family-sans-serif ;
+
+$font-size-base: 0.9375rem ; // Assumes the browser default, typically `16px`
+$font-size-lg:   1.25rem ;
+$font-size-sm:   .875rem ;
+$font-size-xs:   .75rem ;
+
+$font-weight-normal: normal ;
+$font-weight-bold: 600 ;
+
+$font-weight-base: $font-weight-normal ;
+$line-height-base: 1.5 ;
+$headings-font-weight:   600 ;
+
+$hr-border-color: #e5eaed ;
+$hr-border-width: $border-width ;
+$component-active-color: $white ;
+$component-active-bg:    $brand-primary ;
+
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-padding-x:                  1rem ;
+$btn-padding-y:                  .5rem ;
+$btn-line-height:                normal ;
+$btn-font-weight:                600 ;
+$btn-box-shadow:                 none ;
+$btn-focus-box-shadow:           none ;
+$btn-active-box-shadow:          none ;
+
+$btn-primary-color:              $white ;
+$btn-primary-bg:                 $brand-primary ;
+$btn-primary-border:             $btn-primary-bg ;
+
+$btn-secondary-color:            $brand-primary ;
+$btn-secondary-bg:               $orange-light;
+$btn-secondary-border:           $btn-secondary-bg;
+
+$btn-info-color:                 $white ;
+$btn-info-bg:                    $brand-info ;
+$btn-info-border:                $btn-info-bg ;
+
+$btn-success-color:              $white ;
+$btn-success-bg:                 $brand-success ;
+$btn-success-border:             $btn-success-bg ;
+
+$btn-warning-color:              $white ;
+$btn-warning-bg:                 $brand-warning ;
+$btn-warning-border:             $btn-warning-bg ;
+
+$btn-danger-color:               $white ;
+$btn-danger-bg:                  $brand-danger ;
+$btn-danger-border:              $btn-danger-bg ;
+
+$btn-link-disabled-color:        $gray-light ;
+
+$btn-padding-x-sm:               .5rem ;
+$btn-padding-y-sm:               .25rem ;
+
+$btn-padding-x-lg:               1.5rem ;
+$btn-padding-y-lg:               .75rem ;
+
+$btn-block-spacing-y:            .5rem ;
+$btn-toolbar-margin:             .5rem ;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:              3px ;
+
+$btn-transition:                 all .2s ease-in-out ;
+
+
+// Forms
+$input-padding-x:                16px;
+$input-padding-y:                15px;
+$input-height:                   50px;
+$input-bg:                       $white ;
+$input-bg-disabled:              $gray-lighter ;
+
+$input-color:                    $gray ;
+$input-border-color:             $gray-lighter ;
+$input-btn-border-width:         $border-width ; // For form controls and buttons
+$input-box-shadow:               inset 1px 1px 3px 0 rgba(152, 171, 180, 0.13);
+
+$input-border-radius:            1px ;
+
+$input-bg-focus:                 $input-bg ;
+$input-border-focus:             #97abb4 ;
+$input-box-shadow-focus:         inset 1px 1px 3px 0 rgba(152, 171, 180, 0.13);
+$input-color-focus:              $input-color ;
+
+$input-color-placeholder:        $gray-lighter ;
+
+
+$input-group-addon-bg:           $gray-lighter ;
+$input-group-addon-border-color: $input-border-color ;
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+$dropdown-min-width:             10rem ;
+$dropdown-padding-y:             .5rem ;
+$dropdown-margin-top:            .125rem ;
+$dropdown-bg:                    $white ;
+$dropdown-border-color:          $gray-lighter ;
+$dropdown-border-width:          $border-width ;
+$dropdown-divider-bg:            $gray-lighter ;
+$dropdown-box-shadow:            0 .5rem 1rem rgba($black,.175) ;
+
+$dropdown-link-color:            $gray ;
+$dropdown-link-hover-color:      $gray ;
+$dropdown-link-hover-bg:         $gray-lightest ;
+
+$dropdown-link-active-color:     $gray ;
+$dropdown-link-active-bg:        $gray-lightest;
+
+$dropdown-link-disabled-color:   $gray-light ;
+
+$dropdown-item-padding-x:        1.5rem ;
+
+$dropdown-header-color:          $gray-light ;
+// Navs
+
+$nav-link-hover-bg:             $gray-lighter ;
+$nav-disabled-link-color:       $gray-light ;
+
+$nav-tabs-border-color:                       transparent ;
+$nav-tabs-border-width:                       $border-width ;
+$nav-tabs-border-radius:                      2px ;
+$nav-tabs-link-hover-border-color:            transparent ;
+$nav-tabs-active-link-hover-color:            $gray-dark ;
+$nav-tabs-active-link-hover-bg:               $white ;
+$nav-tabs-active-link-hover-border-color:     $white ;
+$nav-tabs-justified-link-border-color:        $white ;
+$nav-tabs-justified-active-link-border-color: $body-bg ;
+
+$nav-pills-active-link-color: $gray-dark ;
+$nav-pills-active-link-bg:    $white ;
+
+
+// Pagination
+$pagination-color:                     $link-color ;
+$pagination-bg:                        transparent ;
+$pagination-border-width:              0px ;
+$pagination-border-color:              none ;
+
+$pagination-hover-color:               $gray-dark ;
+$pagination-hover-bg:                  transparent ;
+$pagination-hover-border:              none ;
+
+$pagination-active-color:              $gray-dark ;
+$pagination-active-bg:                 none ;
+$pagination-active-border:             none ;
+
+$pagination-disabled-color:            $gray-light ;
+$pagination-disabled-bg:               none ;
+$pagination-disabled-border:           none ;
+
+@import "node_modules/bootstrap/scss/bootstrap";

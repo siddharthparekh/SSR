@@ -1,0 +1,77 @@
+<section *ngIf="hasError">
+   <app-profile-error [text]="errMsg"></app-profile-error>
+</section>
+<section *ngIf="!data && !hasError">
+   <app-profile-loading></app-profile-loading>
+</section>
+<section *ngIf="!!data">
+   <section class="blockable blockable-dark" [class.blocked]="blocked">
+      <section class="blockable-overlay">
+         <app-blocking-complex hint="Compra el perfil para ver la información del abogado." (buyProfile)="buyProfile()"></app-blocking-complex>
+      </section>
+      <section class="blockable-content">
+         <div class="card pt-3 pb-4 p-lg-5 mb-3">
+            <!-- About me -->
+            <div class="mb-4">
+               <app-profile-about-me [itIsMe]="itIsMe" [aboutMeText]="data.aboutMeText"></app-profile-about-me>
+            </div>
+
+            <!-- Agencies -->
+            <section class="container mb-4">
+               <div class="font-weight-bold mb-2">Despacho</div>
+               <div *ngIf="data.agencies.length > 0; then showAgencies else showMsgAgencies"></div>
+               <ng-template #showMsgAgencies>
+                  <section class="text-secondary">No hay datos todavía.</section>
+               </ng-template>
+               <ng-template #showAgencies>
+                  <div *ngFor="let agencyData of data.agencies" class="mb-3">
+                     <app-profile-lawyer-agency [data]="agencyData"></app-profile-lawyer-agency>
+                  </div>
+               </ng-template>
+            </section>
+
+            <!-- Languages -->
+            <div class="mb-2">
+               <app-profile-languages [languages]="data.languages"></app-profile-languages>
+            </div>
+         </div>
+      </section>
+   </section>
+
+
+   <section class="blockable blockable-dark" [class.blocked]="blocked">
+      <section class="blockable-overlay">
+         <app-blocking-complex hint="Compra el perfil para ver la información del abogado." (buyProfile)="buyProfile()"></app-blocking-complex>
+      </section>
+      <section class="blockable-content">
+         <div class="card pt-3 pb-4 p-lg-5 mb-3">
+            <!-- Career -->
+            <div>
+               <app-profile-career (onAgenciesChange)="setAgencies($event)" [agencies]="data.agencies" [itIsMe]="itIsMe"
+                  [items]="data.careerItems"></app-profile-career>
+               <!-- TODO: blocking -->
+            </div>
+
+            <!-- Formation -->
+            <div>
+               <app-profile-formation [itIsMe]="itIsMe" [items]="data.formationItems"></app-profile-formation>
+            </div>
+         </div>
+      </section>
+   </section>
+
+   <!-- Articles -->
+   <div class="card pt-3 pb-4 p-lg-5 mb-3">
+      <div>
+         <app-profile-articles [items]="data.articlesItems"></app-profile-articles>
+      </div>
+   </div>
+
+
+   <!-- News -->
+   <div class="card pt-3 pb-4 p-lg-5 mb-3">
+      <div>
+         <app-profile-news [items]="data.newsItems"></app-profile-news>
+      </div>
+   </div>
+</section>

@@ -1,0 +1,53 @@
+i {
+  font-size: 1.4em;
+}
+
+img {
+  width: 85px;
+  height: 85px;
+}
+
+.card-header {
+  background-color: white;
+  border: none;
+}
+
+.card {
+  padding: 0px;
+}
+
+.card-block {
+  padding-top: 0px;
+}
+
+#estrellas {
+  margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+  .card-header {
+    padding: 1%;
+  }
+}
+
+.question-mark {
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.peque{
+  font-size: 0.7em;
+}
+
+.medi{
+  font-size: 0.8em;
+}
+.enlace {
+  cursor: pointer;
+  color: #ff8a3d !important;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+.enlace:hover {
+  color: #ff8a3d !important;
+}

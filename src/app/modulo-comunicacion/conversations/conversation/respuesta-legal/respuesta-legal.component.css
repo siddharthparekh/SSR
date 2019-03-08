@@ -1,0 +1,186 @@
+.card {
+    padding: 0px;
+}
+
+.col-12 {
+    padding: 0px;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sombra {
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+#asunto {
+    font-weight: 500;
+    color: rgba(0, 0, 0, .4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: #101820;
+}
+
+.btn-secondary:hover {
+    /* border: none; */
+    /* background-color: #ccc; */
+    /* box-shadow: none; */
+    opacity: 0.6;
+}
+
+.form-control:focus {
+    border-color: inherit;
+}
+
+.slimScrollDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+
+.chat-time {
+    font-size: 0.7em;
+}
+
+.card-response {
+    height: 170px;
+    margin: 20px;
+    border-color: #d7dfe3;
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.10), 0 3px 3px rgba(0, 0, 0, 0.12);
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+}
+
+.row {
+    margin: 0px;
+    text-align: start;
+}
+
+.dato {
+    font-size: 13px;
+    color: #98abb4;
+}
+
+.response-title {
+    font-weight: 600;
+    color: #0f1820;
+    font-size: 14px;
+    background-color: white;
+}
+
+.bg-mycolor {
+    background-color: rgba(255, 179, 0, 0.12);
+}
+
+.respuesta-legal-icon-container {
+    background-color: #6ba1ef10;
+    height: 100%;
+    display: flex;
+    border-radius: 10px;
+}
+
+.respuesta-legal-icon {
+    width: 10vw;
+    height: 12vw;
+    margin: auto;
+}
+
+.precio-container {
+    border-left: 1px solid;
+    border-color: #e5eaed;
+    padding: 0;
+    padding-left: 5px
+}
+
+.complejidad-presupuesto-container {
+    border-left: 1px solid;
+    border-color: #e5eaed;
+    padding: 0;
+    padding-left: 5px
+}
+
+.btn-aceptar {
+    color: var(--orangeish);
+    font-size: 13px;
+    width: 50%;
+}
+
+.aceptar-rechazar-container {
+    margin: auto;
+    display: flex;
+}
+
+.text-container {
+    align-items: center;
+}
+
+.precio-text {
+    font-size: 18px;
+}
+
+.respuesta-legal {
+    display: flex;
+}
+
+.respuesta-legal-izq {
+    flex-direction: row;
+}
+
+.respuesta-legal-der {
+    flex-direction: row-reverse;
+}
+
+.respuesta-status {
+    color: #64757d;
+    font-size: 14px;
+}
+
+.respuesta-status-container {
+    margin-top: 10px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+ }
+
+@media only screen and (min-width: 768px) {
+    .respuesta-legal-icon {
+        width: 49px;
+        height: 61px;
+        margin: auto;
+    }
+    .card-response {
+        height: 150px;
+        margin: 20px;
+        border-color: #d7dfe3;
+        border-radius: 4px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.10), 0 3px 3px rgba(0, 0, 0, 0.12);
+        display: flex;
+        width: 50%;
+        padding: 10px;
+    }
+    .response-title {
+        font-size: unset;
+        font-weight: 600;
+        color: #0f1820;
+    }
+    .aceptar-rechazar-container {
+        margin: auto;
+        margin-top: 10px;
+    }
+    .btn-aceptar {
+        font-size: unset;
+        width: unset;
+    }
+}

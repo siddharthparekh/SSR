@@ -1,0 +1,23 @@
+a, a:not([href]):not([tabindex]){
+    color: #101820;
+}
+
+a:hover, a:not([href]):not([tabindex]):hover{
+    text-decoration: underline;
+}
+
+button{
+    border-radius: 1px;
+}
+
+.card-block{
+    padding: 1% !important;
+}
+
+.card{
+    padding: 1px 1px 1px 1px !important;
+}
+
+.page-wrapper{
+    font-size: 0.9em;
+}

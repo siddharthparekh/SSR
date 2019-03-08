@@ -1,0 +1,28 @@
+.landing-pages__title {
+  font-size: 25px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+.landing-pages__sub-title {
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  color: #64757d;
+  margin-top: 20px;
+}
+.highlighted {
+  color: #ff8b34;
+}
+@media (min-width: 992px) {
+  .landing-pages__title {
+    font-size: 30px;
+    line-height: 1.33;
+  }
+}

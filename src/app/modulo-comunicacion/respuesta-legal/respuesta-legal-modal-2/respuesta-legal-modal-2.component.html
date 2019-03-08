@@ -1,0 +1,33 @@
+<div class="wrap row">
+  <div class="col-10 col-md-8 content">
+    <div class="tarifa-header">
+      <h4 class="normal-text title-text">Tipo de tarifa</h4>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <div class="radio-group">
+        <ng-template ngFor let-categoria [ngForOf]="categoriasRespuesta" let-i="index">
+          <hr>
+          <div class="radio-container">
+            <input [(ngModel)]="tarifaId" [value]="categoria.id" name="tarifa" type="radio" id="t{{categoria.id}}">
+            <label for="t{{categoria.id}}">{{categoria.nombre}} <span class="text-price">{{categoria.precio}}€</span></label>
+          </div>
+        </ng-template>
+        <hr>
+        <!-- <div *ngIf="categoriasRespuesta.length > 0" class="radio-group">
+        <input [(ngModel)]="tarifaId" [value]="categoriasRespuesta[0]?.id" name="tarifa" type="radio" id="ms" class="with-gap radio-col-amber">
+        <label for="ms">{{categoriasRespuesta[0]?.nombre}} <span class="text-muted">{{categoriasRespuesta[0]?.precio}}€</span></label><br>
+        <input [(ngModel)]="tarifaId" [value]="categoriasRespuesta[1]?.id" name="tarifa" type="radio" id="s" class="with-gap radio-col-amber">
+        <label for="s">{{categoriasRespuesta[1]?.nombre}} <span class="text-muted">{{categoriasRespuesta[1]?.precio}}€</span></label><br>
+        <input [(ngModel)]="tarifaId" [value]="categoriasRespuesta[2]?.id" name="tarifa" type="radio" id="c" class="with-gap radio-col-amber">
+        <label for="c">{{categoriasRespuesta[2]?.nombre}} <span class="text-muted">{{categoriasRespuesta[2]?.precio}}€</span></label><br>
+      </div>
+    -->
+        <app-respuesta-legal-modal-3 [reqInProg]="reqInProg"></app-respuesta-legal-modal-3>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button [routerLink]="['../respuesta']" [queryParamsHandling]="'merge'" type="button" class="btn btn-secondary footer-btn">Anterior</button>
+      <button (click)="sendResponse()" [disabled]="!(tarifaId >=0) || reqInProg " type="button" class="btn btn-primary footer-btn">Enviar</button>
+    </div>
+  </div>
+</div>

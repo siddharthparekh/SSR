@@ -1,0 +1,20 @@
+<section id="profileImage" [ngClass]="{'sticky': sticky, 'ranking': isRanking}">
+   <div *ngIf="isRanking; then: showRanking; else: showDirectorio"></div>
+   <ng-template #showDirectorio>
+      <div *ngIf="blocked || !data?.imageData?.imageUrl" class="placeholder-blank">
+         <img src="assets/images/user-pic-placeholder-abogado@3x.png" />
+      </div>
+      <div *ngIf="data?.imageData?.imageUrl && !blocked" class="image-cropper">
+         <img src="assets/images/profiles/{{data?.imageData?.imageUrl}}" />
+      </div>
+   </ng-template>
+   <ng-template #showRanking>
+      <div *ngIf="blocked || !data?.imageData?.imageUrl">
+         <img src="/assets/images/laurel@2x.png" />
+         <span class="rankin-number">{{ data.position }}º</span>
+      </div>
+      <div *ngIf="data?.imageData?.imageUrl && !blocked" class="image-cropper">
+         <img src="assets/images/profiles/{{data?.imageData?.imageUrl}}" />
+      </div>
+   </ng-template>
+</section>

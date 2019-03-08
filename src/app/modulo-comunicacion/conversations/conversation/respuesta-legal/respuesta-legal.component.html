@@ -1,0 +1,43 @@
+<div [ngClass]="{'respuesta-legal': true, 'respuesta-legal-izq': isCustomer, 'respuesta-legal-der': !isCustomer}">
+  <div class="row card-response">
+    <div class="col-4 respuesta-legal-icon-container">
+      <img class="respuesta-legal-icon" src="assets/images/icons/respuesta-legal.png" alt="">
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <label class=" normal-text response-title">Respuesta Legal</label>
+      </div>
+      <div class="row text-container">
+        <div class="col-8 complejidad-presupuesto-container">
+          <div class="complejidad">
+              <span class="normal-text dato capitalize">{{respuesta?.Categoria.nombre | lowercase }}</span>
+          </div>
+          <div class="presupuesto">
+            <span *ngIf="respuesta?.presupuesto" class="normal-text dato"> Con presupuesto</span>
+            <span *ngIf="!respuesta?.presupuesto" class="normal-text dato"> Sin presupuesto</span>
+          </div>
+        </div>
+        <div class="col-4 precio-container">
+          <span class="normal-text precio-text">{{respuesta?.precio}}€</span>
+        </div>
+        <!--
+          <div class="row col-6">
+            <i class="mdi mdi-message"></i> Tipo respuesta:<span class="dato"> {{respuesta?.Categoria.nombre}}</span>
+          </div>
+          -->
+      </div>
+      <div class="row">
+        <div *ngIf="isCustomer && respuesta?.estado === 'ENVIADA'" class="aceptar-rechazar-container">
+          <button [routerLink]="['r', 'rechazar', respuesta?.id]" type="button" class="btn btn-secondary btn-aceptar">Rechazar</button>
+          <button type="button" [routerLink]="['r', 'aceptar', respuesta?.id]" class="btn btn-secondary btn-aceptar">Aceptar</button>
+        </div>
+        <div *ngIf="respuesta?.estado !== 'ENVIADA'" class="respuesta-status-container">
+          <h5 class="normal-text respuesta-status">{{respuesta?.estado}}</h5>
+        </div>
+        <div *ngIf="respuesta?.estado === 'ENVIADA' && !isCustomer" class="respuesta-status-container">
+            <h5 class="normal-text respuesta-status">Pendiente de Aceptación</h5>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

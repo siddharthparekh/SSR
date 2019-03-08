@@ -1,0 +1,30 @@
+<section class="spec-header container py-3 py-lg-4">
+  <div class="scroll-into-this-specialities" [id]="scrollIntoThisSpecialitiesId"></div>
+  <section class="row">
+    <section class="col-11">
+      <div class="row center-content-vertical">
+        <div class="blockable col-8 col-sm-9 col-md-8 col-lg-9" [class.blocked]="blocked">
+            <div class="blockable-overlay">
+              <app-blocking-simple ></app-blocking-simple>
+            </div>
+          <div class="blockable-content row">
+            <div class="col-12 name-text">
+              <div *ngIf="data && data.name; then showName else showTestText"></div>
+              <ng-template #showName><span class="mb-0">{{ data.name }}</span></ng-template>
+              <ng-template #showTestText><span class="mb-0">Este texto es de prueba.</span></ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 d-flex flex-column align-items-end justify-content-center col-sm-3 col-md-4 col-lg-3 border-irj-indicator">
+          <app-irj-indicator [value]="data.irjValue" [widthAuto]="true" [blocked]="blocked"></app-irj-indicator>
+        </div>
+      </div>
+    </section>
+    <section class="col-1 p-0 text-center text-sm-right">
+      <a #toggleSwitchSpecialities (click)="toggleSwitch($event)" class="d-flex h-100 align-items-center justify-content-center" href="#">
+        <span *ngIf="isContentOpened" class="fas fa-angle-up fa-lg"></span>
+        <span *ngIf="!isContentOpened" class="fas fa-angle-down fa-lg"></span>
+      </a>
+    </section>
+  </section>
+</section>

@@ -1,0 +1,230 @@
+.header {
+  background-color: #192633;
+  padding: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+h3 {
+  color: white;
+  font-weight: 300;
+}
+
+table td {
+  width: auto;
+}
+
+.ellipsis-field {
+  max-width: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.no-enlace {
+  cursor: default;
+}
+.footer-note {
+  font-weight: 400;
+  font-size: 0.9em;
+}
+.footer-note i {
+  font-size: 1.5em;
+}
+
+.el-card-container {
+  padding-top: 40px;
+  margin-top: 0px;
+  line-height: normal;
+}
+.el-facturas-card {
+  border-radius: 0 0 3px 3px;
+  position: relative;
+  /* top: -5px; */
+  z-index: 0;
+}
+/* FONDOS ACUMULADOS */
+.el-facturas-fondos-container {
+  min-width: 338px;
+  margin: 0 auto;
+  padding: 20px 60px 50px 60px;
+}
+
+.el-facturas-fondos-container h1 {
+  height: 50px;
+  font-size: 40px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #0f1820;
+  margin-bottom: 5px;
+}
+
+.el-facturas-fondos-container h3 {
+  height: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #64757d;
+  margin-bottom: 6px;
+}
+
+.el-facturas-fondos-container p {
+  /* height: 34px; */
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #98abb4;
+  margin-bottom: 0px;
+}
+/* TABS */
+.el-facturas-tabs {
+  margin-bottom: 10px;
+}
+.el-facturas-tabs ul {
+  /* opacity: 0.8; */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* height: 60px; */
+}
+.el-facturas-tabs ul li {
+  /* width: 170px; */
+  width: 33.33%;
+  height: 60px;
+  /* background-color: #ffffff; */
+}
+.el-facturas-tabs ul li a {
+  /* height: 19px; */
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ff8b34;
+  padding: 20px 0;
+  border-right: 1px solid #e5eaed;
+}
+.el-facturas-tabs ul li a:hover {
+  color: #0f1820;
+  font-weight: normal;
+  opacity: unset;
+}
+.el-facturas-tabs ul li a.active {
+  color: #0f1820;
+  font-weight: normal;
+  opacity: unset;
+  /* background-color: #ffffff; */
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom: 2px solid #ff8b34;
+}
+
+/* TABLA */
+.el-table {
+  border-radius: 2px;
+  background-color: #ffffff;
+  height: 40px;
+  border: none;
+}
+.el-table thead th {
+  border: none;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #98abb4;
+  padding: 12px 0 11px 30px;
+}
+
+.el-table td {
+  padding: 31px 0 29px 30px;
+  border-top: 1px solid #e5eaed;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f1820;
+}
+.no-enlace {
+  font-weight: normal;
+}
+.el-table-importe {
+  /* padding-left: 12px; */
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.11;
+  letter-spacing: normal;
+  text-align: right;
+  color: #0f1820;
+}
+.el-download-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: invert(.5) sepia(1) saturate(5) hue-rotate(346deg); /* #ff8b34 */
+}
+.el-download-icon:hover {
+  filter: none;
+}
+
+@media (max-width: 767px) {
+  .container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .container {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .el-facturas-fondos-container {
+    min-width: 100%;
+    padding: 0px 20px 30px 20px;
+  }
+
+  .el-facturas-tabs {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* .el-facturas-tabs ul li {
+    width: 33.33%;
+  } */
+
+  .el-table thead th {
+    padding: 12px 10px 11px 10px;
+  }
+
+  .el-table td {
+    padding: 31px 10px 29px 10px;
+  }
+  
+}
+/* 
+@media (min-width: 1200px) {
+
+  .el-facturas-tabs ul li {
+    width: 33.33%;
+  }
+
+} */

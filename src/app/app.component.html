@@ -1,0 +1,54 @@
+<app-topbar [url$]="url$" [showToggleSidebar]="showToggleSidebar" [titlePage$]="titlePage$" (toggleSidebar)="onToggleSidebar($event)"
+   (setAbogado)="onSetAbogado($event)">
+</app-topbar>
+<div id="main-wrapper" [class.main-wrapper-abogado]="isAbogado">
+   <ng-sidebar-container>
+      <!-- A sidebar -->
+      <ng-sidebar id="sidebar" #sidebar [dockedSize]="'64px'" [autoFocus]="false" [(opened)]="statusSidebar && showSidebar"
+         [mode]="modeSidebar" [dock]="dockSidebar" [position]="positionSidebar" (focus)="mouseEnter('ingreso')" (blur)="mouseLeave('salida')"
+         (mouseenter)="mouseEnter('ingreso')" (mouseleave)="mouseLeave('salida')" (click)="clickSidebar()">
+         <div *ngIf="isMobile && showSidebar" class="sidebar-toggle-mobile">
+            <ul id="sidebarToggleMobile" class="sidebar-nav nav nav-tabs flex-md-column">
+               <li class="nav-item">
+                  <a href="javascript:;" class="nav-link sidebar-nav-link nav-link-toggle-mobile" [attr.aria-expanded]="statusSidebar"
+                     data-toggle="collapse" (click)="onToggleSidebar(true)">
+                     <img [src]="'assets/images/icons/'+imgLink" class="sidebar-nav-link-icon">
+                     <span class="sidebar-toggle-link-text">{{menuLink}}</span>
+                     <span class="el-sidevar-toggle-mobile-icon"></span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+         <div *ngIf="showSidebar != undefined && showSidebar">
+            <app-sidebar-menu [miperfil]="miperfil" [userurl1]="userurl1" [userurl2]="userurl2" (onChangeLink)="changeLink($event)"
+               (onChangeOpenedGroup)="changeOpenedGroup($event)" [openedGroup]="openedGroup"></app-sidebar-menu>
+         </div>
+      </ng-sidebar>
+      <!-- Page content -->
+      <div ng-sidebar-content class="sidebar-content">
+         <router-outlet></router-outlet>
+      </div>
+   </ng-sidebar-container>
+   <app-footer [leftfooter]="statusSidebar && showSidebar && modeSidebar === 'over' && positionSidebar === 'left'" [url]="url" [isAbogado]="isAbogado"></app-footer>
+
+</div>
+<cookie-law #cookieLaw position="bottom" style="max-height: 10px">
+  <div class="row">
+    <div class="col-10">
+      <div style="font-size: 0.8rem;">
+        <div class="row">
+          <div class="col-1">
+          </div>
+          <div class="col-11">
+            <p class="small m-b-0">
+                Utilizamos cookies propias y de terceros para obtener datos estadísticos de la navegación de nuestros usuarios y mejorar
+                nuestros servicios. Si acepta o continúa navegando, consideramos que acepta su uso. Puede cambiar la configuración
+                u obtener más información <a class="text-muted" [routerLink]="['info/cookies']">aquí</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</cookie-law>
+<ng2-toasty class="toasty" [position]="'bottom-center'"></ng2-toasty>

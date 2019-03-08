@@ -1,0 +1,33 @@
+<!-- <div class="card">
+   <h2>Datos de facturación</h2>
+   <app-datos-facturacion *ngIf="invoiceType.type == 'empresa'" [editing]="false"
+      (updateFinishEmitter)="onRequestFinish($event)" [onSubmitForm]="emitSubmit"
+      (onValidityChange)="changeFormValidity($event)">
+   </app-datos-facturacion>
+   <div>
+      <button class="btn btn-primary" (click)="submitForm()" [disabled]="reqInProg || invalidForm">Siguiente</button>
+   </div>
+</div> -->
+
+<div class="section">
+   <div class="card card-facturacion">
+      <div class="card-body">
+         <h5 class="card-title card-title-account-settings">Datos de facturaci&oacute;n</h5>
+         <app-datos-facturacion [editing]="true" 
+         [user]="user" 
+         [onSubmitForm]="emitSubmit"
+         (updateFinishEmitter)="onRequestFinish($event)"
+         (onValidityChange)="changeFormValidity($event)">
+         </app-datos-facturacion>
+         <div class="row el-btns-billing-info">
+            <div class="col-md-12 d-flex justify-content-end">
+               <app-button-loader (emitClicked)="submitForm()"
+               [text]="'Siguiente'"
+               [disabled]="invalidForm"
+               [showLoading]="reqInProg">
+               </app-button-loader>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

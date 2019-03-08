@@ -1,0 +1,4 @@
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$sidebar\".\A         on line 28 of app.scss\A \A 23: * {\A 24:     outline: none;\A 25: }\A 26: \A 27: body {\A 28:     background: $sidebar;\A 29:     font-family: $bodyfont;\A 30:     margin: 0;\A 31:     overflow-x: hidden;\A 32:     color: $bodytext;\A 33:     font-weight: 300;"; }

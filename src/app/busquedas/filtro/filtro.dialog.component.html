@@ -1,0 +1,14 @@
+<div id="modal-filter-dialog" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog model-lg m-0">
+        <!-- Modal content-->
+        <div class="modal-content p-4">
+            <div class="col-12">
+                <h4><strong>Filtros</strong> <a class="close float-right" data-dismiss="modal" aria-label="Close"><img src="assets/images/x.png" /></a></h4>
+            </div>
+            <div class="col-12 text-gray">
+                <app-filtro [filtersFromUrl]="filtersFromUrl"
+                [isRanking]="isRanking" (filterAppliedEmitter)="applyFilter($event)"></app-filtro>
+            </div>
+        </div>
+    </div>
+</div>

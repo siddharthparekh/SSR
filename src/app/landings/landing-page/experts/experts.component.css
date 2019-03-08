@@ -1,0 +1,36 @@
+.experts {
+  background-color: inherit;
+  text-align: center;
+  color: #0f1820;
+  font-family: Source Sans Pro;
+  padding: 56px 15px 70px;
+}
+
+.experts__lawyers-button {
+  margin-top: 40px;
+}
+
+.experts__lawyers-button button {
+  font-size: 17px;
+  width: 190px;
+  height: 45px;
+}
+
+@media (min-width: 576px) {
+  .experts {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
+
+@media (min-width: 992px) {
+  .experts {
+    padding: 120px 25% 130px;
+  }
+  .landing-pages__sub-title {
+    margin-top: 20px;
+  }
+  .experts__lawyers-button {
+    margin-top: 60px;
+  }
+}

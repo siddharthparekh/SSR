@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.profile-nav--holder {
+  position: relative;
+  height: 59px;
+}
+
+.profile-nav-wrapper--holder {
+  position: absolute;
+  width: 100%;
+}
+
+.profile-nav-wrapper--holder.sticky {
+  position: fixed;
+  top: 130px;
+  z-index: 15;
+  background-color: #f5f7f8;
+}
+
+.profile-nav-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .profile-nav--holder {
+    height: auto;
+  }
+  .profile-nav--holder.sticky-bottom {
+    bottom: -1px;
+  }
+  .profile-nav--holder.sticky-bottom.put-position-sticky-bottom {
+    position: absolute;
+  }
+  .sticky-bottom .profile-nav-wrapper--holder {
+    position: relative;
+    top: unset;
+  }
+  .profile-nav-wrapper--holder {
+    width: 210px;
+  }
+  .profile-nav-wrapper--holder.sticky {
+    top: 189px;
+  }
+  .profile-nav-wrapper--holder.sticky.nav-lawyer {
+    top: 170px;
+  }
+}

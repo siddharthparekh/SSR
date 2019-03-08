@@ -1,0 +1,41 @@
+<section *ngIf="!isDataPresent">
+  <app-profile-loading></app-profile-loading>
+</section>
+<section
+  *ngIf="isDataPresent"
+  class="container blockable blockable-dark card mb-3 mb-lg-4"
+  [class.blocked]="blocked"
+>
+  <section class="blockable-overlay">
+    <app-blocking-complex
+      hint="Compra el perfil para ver las tarifas."
+      (buyProfile)="buyProfile()"
+    ></app-blocking-complex>
+  </section>
+  <section class="blockable-content p-4">
+    <div *ngIf="data.groups.length === 0" class="text-secondary">No hay datos todavía.</div>
+    <!-- tarifas group table -->
+    <table *ngFor="let group of data.groups" class="table mb-4">
+      <th colspan="2" class="pl-0" style="border-top: none;">
+        {{ group.name }}
+      </th>
+      <tr *ngIf="group.items.length === 0">
+        <td><div class="text-secondary">No hay datos todavía.</div></td>
+      </tr>
+      <tr *ngFor="let item of group.items">
+        <td>{{ item.title }}</td>
+        <td class="text-right">
+          <span class="h5 font-weight-bold">{{ item.price }}€</span>
+        </td>
+      </tr>
+    </table>
+
+    <!--
+      <div class="row">
+        <div class="col text-center">
+          <a href="#" (click)="onAvailabilityClick($event)">Muéstrame la disponibilidad</a>
+        </div>
+      </div>
+    -->
+  </section>
+</section>

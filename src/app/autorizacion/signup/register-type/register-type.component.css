@@ -1,0 +1,76 @@
+.register-type {
+  padding: 0 0 100px 0;
+  font-family: Source Sans Pro;
+  color: #000000;
+  background-color: #f5f7f8;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  font-weight: 600;
+  text-align: center;
+}
+
+.register-type--holder {
+  margin-top: 49px;
+}
+
+.register-type__buttons-selection--holder {
+  margin-top: 9px;
+  max-width: 330px;
+  padding: 0 15px;
+}
+
+.register-type__buttons-selection {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 20px 10px 0;
+  background-color: #ffffff;
+  border-radius: 2px;
+  box-shadow: 2px 4px 6px 0 rgba(152, 171, 180, 0.15);
+}
+
+.register-type__buttons-selection__icon {
+  width: 60px;
+  height: 60px;
+  margin-top: 49px;
+  color: #ff8b34;
+}
+
+.register-type__buttons-selection__text {
+  margin-top: 10px;
+  margin-bottom: 62px;
+  color: #ff8b34;
+}
+
+@media (min-width: 768px) {
+  .register-type {
+    padding-bottom: 416px;
+  }
+  .register-type--holder {
+    margin-top: 120px;
+  }
+  .register-type__buttons-selection--holder {
+    margin-top: 50px;
+    max-width: 770px;
+  }
+  .register-type__buttons-selection {
+    flex: 0 0 350px;
+    max-width: 350px;
+  }
+  .register-type__buttons-selection__icon {
+    width: 80px;
+    height: 80px;
+    margin-top: 61px;
+  }
+  .register-type__buttons-selection__text {
+    margin-top: 20px;
+    margin-bottom: 70px;
+  }
+}
+
+@media (min-width: 992px) {
+  .register-type--holder {
+    margin-top: 183px;
+  }
+}

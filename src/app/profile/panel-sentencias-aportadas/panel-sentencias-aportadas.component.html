@@ -1,0 +1,70 @@
+<div class="page-wrapper el-page-wrapper container-fluid">
+   <div class="card-container el-card-container">
+      <div class="container">
+         <!-- <h5 class="card-title card-title-account-settings">Resoluciones</h5> -->
+         <!-- <div *ngIf="sentences && sentences.length == 0" class="d-flex justify-content-center align-items-center">
+        <span>No hay resoluciones indexadas.</span>
+      </div> -->
+         <div class="table-responsive">
+            <table class="table table-hover text-left no-wrap el-table">
+               <thead>
+                  <tr>
+                     <th class="">nº recurso/proceso<span class=""></span></th>
+                     <th class="">nº resolución<span class=""></span></th>
+                     <th class="">Juzgado<span class=""></span></th>
+                     <th class="">Partido judicial<span class=""></span></th>
+                     <th class="">Fecha<span class=""></span></th>
+                     <!-- <th class="footable-sortable">Opciones<span class="footable-sort-indicator"></span></th> -->
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr *ngIf="config.totalItems== 0 && !reqInProg">
+                     <td colspan="6" class="text-center">
+                        <span>No hay resoluciones indexadas.</span>
+                     </td>
+                  </tr>
+                  <tr *ngFor="let sentence of sentences | async | paginate: config; let i = index;"
+                     (click)="onSelectedSentence(sentence)" data-target="#show-sentence" data-toggle="modal"
+                     class="item footable-even">
+                     <td *ngIf="!reqInProg">{{sentence.Proceso.numeroProceso}}</td>
+                     <td *ngIf="!reqInProg">{{sentence.numeroResolucion}}</td>
+                     <td *ngIf="!reqInProg">{{sentence.Proceso?.OrganoJudicial?.nombre | capitalize}}</td>
+                     <td *ngIf="!reqInProg">{{sentence.Proceso?.OrganoJudicial?.localizacion | capitalize}}</td>
+                     <td *ngIf="!reqInProg">{{sentence.fecha | date}}</td>
+                     <!-- <td><i class="fa fa"></i></td> -->
+                  </tr>
+                  <tr *ngIf="reqInProg">
+                     <td colspan="6" class="text-center">
+                        <app-profile-loading></app-profile-loading>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <div class="el-pagination-container" *ngIf="config.totalItems>0">
+         <pagination-template #pSentences="paginationApi" [maxSize]="pagesDisplay" [id]="config.id"
+            (pageChange)="onPageChange($event)">
+            <app-paginator-template [pag]="pSentences"></app-paginator-template>
+         </pagination-template>
+      </div>
+   </div>
+</div>
+<div id="show-sentence" class="modal fade" role="dialog">
+   <div class="modal-dialog modal-lg el-sentence-modal">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="card-block">
+            <h4 class="card-title">
+               Resolución
+               <button [routerLink]="['./']" type="button" class="btn el-sentence-modal-btn" data-dismiss="modal">
+                  <img src="assets/images/icons/x.svg" class="el-sentence-modal-x">
+               </button>
+            </h4>
+         </div>
+         <div class="a">
+            <app-modal-show-sentence [sentenceId]="sentenceIdSelected"></app-modal-show-sentence>
+         </div>
+      </div>
+   </div>
+</div>

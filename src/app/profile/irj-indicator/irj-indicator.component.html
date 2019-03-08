@@ -1,0 +1,31 @@
+<div
+  class="blockable d-inline-block text-center irj-indicator-width"
+  [ngClass]="{ blocked: blocked, 'auto-width': widthAuto }"
+>
+  <div class="blockable-overlay">
+    <app-blocking-simple></app-blocking-simple>
+  </div>
+  <div class="blockable-content">
+    <div class="irj-indicator" [attr.data-value]="displayedValue">
+      <div class="irj-scale"></div>
+      <div class="irj-payload">
+        <div class="irj-carrier"></div>
+        <div class="irj-filler"></div>
+      </div>
+      <div class="irj-value"><span></span></div>
+    </div>
+    <div class="d-flex flex-row justify-content-center align-items-center">
+      <span class="text-secondary small">IRJ</span>
+      <span
+        ><i
+          class="e4-icon info-circle-o ml-1 cursor"
+          data-toggle="tooltip"
+          data-html="true"
+          title="El índice de rendimiento judicial evalúa el desempeño de un abogado
+        en una determinada área del derecho en base a casos 100% reales.
+        <div><a href='/metodologia'>Ver metodología</a></div>"
+        ></i
+      ></span>
+    </div>
+  </div>
+</div>

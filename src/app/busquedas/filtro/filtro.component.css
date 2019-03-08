@@ -1,0 +1,54 @@
+.label {
+    display: block;
+}
+
+.olden-group {
+    border-top: solid 1px #e5eaed;
+    padding: 15px 10px;
+    font-size: 13px;
+    color: #64757d;
+}
+
+.olden-group:last-of-type {
+    border-bottom: solid 1px #e5eaed;
+}
+
+.olden-group .olden span {
+    padding-right: 10px;
+}
+
+@media(max-width:767px) {
+    .btn.btn-primary {
+        width: 100%;
+    }
+}
+
+.noUi-handle.noUi-handle-lower {
+    left: 17px !important;
+}
+
+.e4-radio-container {
+    color: #98abb4;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+body {
+    font-size: 15px;
+}
+
+.btn-filter {
+    width: 140px;
+    height: 45px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.9px;
+}

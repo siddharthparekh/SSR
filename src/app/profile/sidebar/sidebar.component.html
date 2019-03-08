@@ -1,0 +1,59 @@
+<!-- <div style="z-index:999;" id="sidebar-left-sticky">
+  <div class="card" id="profile-sidebar-left">
+    <a *ngIf="!hasPermission && user.Derechos && user.Derechos.length >0" id="estrellas" tooltip="Emérita Legal Rating">
+      <star-rating-comp [starType]="'icon'" [rating]="user.Derechos[0].rating" [numOfStars]="5" [staticColor]="'ok'" [readOnly]="true"></star-rating-comp>
+
+    </a>
+    <a *ngIf="hasPermission && user.Derechos && user.Derechos.length >0" id="estrellas" [routerLink]="['/sentences']" tooltip="Emérita Legal Rating">
+      <star-rating-comp [starType]="'icon'" [rating]="user.Derechos[0].rating" [numOfStars]="5" [staticColor]="'ok'" [readOnly]="true"></star-rating-comp>
+    </a>
+    <div class="card-block">
+      <hr>
+      <div class="row text-center m-t-20">
+        <div class="col-12">
+          <div>
+            <span class="count" style="display:none"></span>
+            <h3 class="card-title">
+              <b>ESPECIALIDAD PRINCIPAL</b>
+            </h3>
+            <h4 *ngIf="(user.Derechos && user.Derechos.length > 0)" class="font-light">
+              <span class="count"> {{user.Derechos[0].Derecho.nombre}}</span>
+            </h4>
+            <h4 *ngIf="!(user.Derechos && user.Derechos.length > 0)" class="font-light">Sin datos</h4>
+            <br>
+          </div>
+          <div>
+            <h3 class="card-title">
+              <b>CASOS ANALIZADOS</b>
+              <i [routerLink]="['info/explicacion']" class="fa fa-question-circle question-mark"></i>
+            </h3>
+            <p class="peque">Los casos no representan el total de casos del abogado, sino sólo los analizados por Emérita Legal.</p>
+            <h4 class="font-light">
+              <span class="count"> {{user.numeroResoluciones | number : '1.0-0'}}</span>
+            </h4>
+          </div>
+          <br>
+          <div *ngIf="user.tipoProfesional == 0">
+            <h3 class="card-title">
+              <b>ANTIGÜEDAD</b>
+            </h3>
+            <h4 *ngIf="user.antiguedad" class="font-light">
+              <span class="count"> {{user.antiguedad}}</span>
+            </h4>
+            <h4 *ngIf="!user.antiguedad" class="font-light">Sin datos</h4>
+            <br>
+          </div>
+          <div style="margin-bottom: -18px" *ngIf="!hasPermission && user.tipoProfesional == 0 && user.isRegistered && user.consultas">
+            <a [routerLink]="['info/ver-tarifas']" class="enlace">VER SUS TARIFAS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!hasPermission && user.tipoProfesional == 0">
+      <button *ngIf="!user.isRegistered || !user.consultas" id="btn-sidebar" class="btn btn-primary btn-block waves-effect" type="button" name="button" data-toggle="modal" data-target="#modal-phone">DATOS DE CONTACTO</button>
+      <button *ngIf="user.isRegistered && !isLoggedIn && user.consultas" [routerLink]="[{outlets: {'auth': ['auth', 'login']}}]" class="btn btn-primary btn-block waves-effect" type="button">CONSULTA ONLINE</button>
+      <button *ngIf="user.isRegistered && isLoggedIn && user.consultas" [routerLink]="['info/sendQuery']" class="btn btn-primary btn-block waves-effect" type="button">CONSULTA ONLINE</button>
+    </div>
+  </div>
+</div> -->
+<router-outlet></router-outlet>

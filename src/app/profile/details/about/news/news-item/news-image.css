@@ -1,0 +1,23 @@
+.news-image {
+  max-height: 100px;
+  overflow-y: hidden;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  .news-image {
+    max-height: 150px;
+  }
+
+  .news-image img {
+    height: 150px;
+  }
+}

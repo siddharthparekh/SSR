@@ -1,0 +1,174 @@
+.fs-private-profile {
+   position: absolute;
+   top: 0px;
+   bottom: 0px;
+   left: 0px;
+   right: 0px;
+   background: #f5f7f8;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   z-index: 15;
+}
+
+.fs-private-profile h4 {
+   text-align: center;
+}
+
+.fs-private-profile div {
+   margin: 10%;
+}
+
+#profileSummary {
+   right: 0;
+   z-index: 100;
+   padding-top: 1rem;
+   background-color: white;
+   box-shadow: 2px 2px 5px rgba(100, 117, 125, 0.1);
+   transition: width 0.025s cubic-bezier(0, 0, 0.3, 1);
+}
+
+#profileSummary .container {
+   padding: .25rem .25rem 0;
+}
+
+.summary--holder {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+}
+
+.summary__image--holder, .summary__name-specs--holder, .summary__name--holder, .summary__specs--holder {
+   flex: 0 0 100%;
+   max-width: 100%;
+}
+
+.summary__image--holder, .summary__name--holder, .summary__specs--holder {
+   display: flex;
+   flex-direction: row;
+}
+
+.summary__irj-button--holder {
+   display: none;
+}
+
+.summary__image--holder, .summary__name--holder {
+   justify-content: center;
+}
+
+.summary__image--holder {
+   padding-bottom: 15px;
+}
+
+.summary__specs--holder {
+   padding-top: 20px;
+   justify-content: flex-start;
+}
+
+.badge.badge-pill {
+   position: absolute;
+   right: 1rem;
+   font-size: 8.5px;
+   line-height: normal;
+   letter-spacing: 0.3px;
+}
+
+#profileSummary.sticky {
+   height: 60px;
+   position: fixed;
+   top: 70px;
+   background-color: white;
+   padding: 12px 0 13px;
+   overflow: hidden;
+}
+
+#profileSummary.sticky .container {
+   padding: 0;
+}
+
+#profileSummary.sticky .summary--holder {
+   flex-direction: row;
+}
+
+#profileSummary.sticky .summary__image--holder {
+   padding: 0 0 0 1rem;
+   flex: none;
+}
+
+#profileSummary.sticky .summary__name-specs--holder {
+   flex: 1 0 0%;
+   margin: 0 0 0 10px;
+}
+
+#profileSummary.sticky .summary__name--holder {
+   justify-content: flex-start;
+}
+
+#profileSummary.sticky .summary__specs--holder {
+   display: none;
+}
+
+#profileSummary.sticky .summary__irj--holder {
+   display: none;
+}
+
+#profileSummary.sticky .badge.badge-pill {
+   display: block;
+   left: 80px;
+   right: unset;
+   bottom: 0px;
+}
+
+#profileSummary.sticky .badge.badge-pill.directory {
+   left: 60px;
+}
+
+@media(min-width: 576px) {
+   .summary--holder {
+      flex-direction: row;
+   }
+   .summary__image--holder {
+      padding: 0 1rem;
+      flex: none;
+   }
+   .summary__name-specs--holder {
+      flex: 1 0 0%;
+      margin: 0 1rem;
+   }
+   .summary__name--holder {
+      justify-content: flex-start;
+   }
+   .summary__specs--holder {
+      padding: 0 0 0 1rem;
+      margin: 20px 0;
+      border-left: 1px solid #e5eaed;
+   }
+   .badge.badge-pill {
+      display: none;
+   }
+}
+
+@media (min-width: 768px) {
+   .summary__irj-button--holder {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+   }
+   #profileSummary {
+      padding: 1.5rem 0 1rem;
+   }
+   #profileSummary.sticky {
+      top: 89px;
+      height: 100px;
+      padding: 20px 0;
+   }
+   #profileSummary.sticky.nav-lawyer {
+      top: 70px;
+   }
+   #profileSummary.sticky .summary--holder {
+      align-items: center;
+   }
+   #profileSummary.sticky .badge.badge-pill {
+      display: none;
+   }
+}

@@ -1,0 +1,164 @@
+.el-cards-btn-add {
+  margin-top: 20px;
+}
+
+.card-list .btn-secondary {
+    border: none;
+    box-shadow: none;
+    color: #292b2c;
+  }
+
+  .card-list .btn-secondary:hover,
+  .card-list .btn-secondary.hover,
+  .card-list .btn-secondary:focus,
+  .card-list .btn-secondary.focus {
+    box-shadow: none;
+    color: #292b2c;
+    background: #ccc;
+  }
+
+  .card-list .btn-disabled,
+  .card-list .btn:disabled{
+    color: #99abb4;
+  }
+
+  .card-list .btn-disabled.hover,
+  .card-list .btn:disabled:hover,
+  .card-list .btn-disabled.focus,
+  .card-list .btn:disabled:focus{
+    border: none;
+    color: #99abb4;
+    background: transparent;
+  }
+
+  .card-list .btn-primary {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: #101820;
+
+  }
+
+  .card-list .btn-primary:hover,
+  .card-list .btn-primary.hover,
+  .card-list .btn-primary:focus,
+  .card-list .btn-primary.focus {
+    border:none;
+    background-color: #ccc;
+    box-shadow: none;
+    color: #101820;
+  }
+
+  .card-list .btn{
+    background: transparent;
+  }
+
+  i{
+      vertical-align: middle;
+      font-size: 1.5em;
+  }
+
+/*
+form input.ng-valid[required], .ng-valid.required  {
+  color: #42A948;
+}
+
+form input.ng-invalid.ng-touched  {
+  color: #a94442;
+}
+*/
+.modal-title {
+  height: 19px;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f1820;
+  margin-top: 40px;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  border-color: #e5eaed;
+}
+
+.card-list-panel {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.visa {
+  width: 38px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.mastercard {
+  width: 38px;
+  height: 24px;
+  object-fit: contain;
+  /* border: solid 0.7px #dddddd; */
+  background-color: #ffffff;
+}
+.lock_icon {
+  width: 14px;
+  height: 15px;
+  object-fit: contain;
+}
+
+.card-number {
+  position: absolute;
+  top: 13px;
+  right: 30px;
+}
+.alert-danger {
+  margin-top: 10px;
+}
+
+.el-card-name {
+  margin: 0px;
+}
+.el-card-btn-delete {
+  padding: 0px;
+}
+
+.el-cards-list-name {
+
+}
+
+.el-cards-add-error {
+  line-height: normal;
+}
+
+
+@media (max-width: 767px) {
+  /* .btn {
+    padding: 0px;
+  } */
+
+  .card-list-panel {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .modal-title {
+    margin-top: 20px;
+  }
+
+  .el-card-text {
+    display: none;
+  }
+
+  .el-btns-cards {
+    margin-top: 20px;
+  }
+  
+}

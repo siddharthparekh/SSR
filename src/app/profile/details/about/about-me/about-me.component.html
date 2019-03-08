@@ -1,0 +1,46 @@
+<section class="container">
+   <button *ngIf="itIsMe" (click)="original = aboutMeText" data-toggle="modal" data-target="#presentation-text" class="position-absolute btn btn-link btn-link-text"
+      style="right:0">Editar</button>
+   <div class="font-weight-bold mb-2">Sobre mí</div>
+   <div *ngIf="aboutMeText; then showText else showMsg"></div>
+   <ng-template #showMsg>
+      <section class="text-secondary">No hay datos todavía.</section>
+   </ng-template>
+   <ng-template #showText>
+      <div [innerHtml]="aboutMeText" class="text-secondary"></div>
+   </ng-template>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="presentation-text" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+   data-keyboard="false">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Sobre mí</h4>
+            <button type="button" class="close pull-right" data-dismiss="modal" (click)="aboutMeText = original">
+               <i class="material-icons">close</i>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="form-group">
+               <quill-editor [(ngModel)]="aboutMeText" [placeholder]="'Escriba aquí...'">
+                  <div quill-editor-toolbar>
+                     <span class="ql-formats">
+                        <button class="ql-bold" [title]="'Negrita'"></button>
+                        <button class="ql-link" [title]="'Enlace'"></button>
+                     </span>
+                  </div>
+               </quill-editor>
+               <span class="form-control-feedback pull-right">
+                  <small>Máximo recomendado: 150 palabras.</small>
+               </span>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <app-button-loader [type]="'submit'" [disabled]="reqInProg" [showLoading]="reqInProg" [text]="'Guardar'"
+               (emitClicked)="editPresentationText()"></app-button-loader>
+         </div>
+      </div>
+   </div>
+</div>

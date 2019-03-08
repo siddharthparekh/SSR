@@ -1,0 +1,36 @@
+.bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; }
+  .bar span {
+    display: flex;
+    width: 23px;
+    text-align: right;
+    padding-right: 40px;
+    background-color: rgba(154, 205, 50, 0);
+    font-size: 13px; }
+  .bar progress[value] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    color: #ffce56;
+    background-color: transparent;
+    width: 100%;
+    height: 12px; }
+  .bar progress[value]::-webkit-progress-bar {
+    background-color: transparent; }
+  .bar progress[value]::-webkit-progress-value {
+    background-color: #ffce56; }
+  .bar progress[value]::-moz-progress-bar {
+    background-color: #ffce56; }
+  .bar progress[value]::-ms-fill {
+    border: none; }
+  .bar.bold span {
+    font-weight: bold; }
+  .bar.bold progress[value] {
+    color: #f27760; }
+  .bar.bold progress[value]::-webkit-progress-value {
+    background-color: #f27760; }
+  .bar.bold progress[value]::-moz-progress-bar {
+    background-color: #f27760; }

@@ -1,0 +1,36 @@
+<div class="page-wrapper" [class.page-wrapper-customer]="isCustomer">
+   <div class="container-style">
+      <div class="top-tabs" *ngIf="!hideTab">
+         <div class="row vdivide filters-bckg">
+            <div class="col-6 tab-container">
+               <button [ngClass]="{'btn btn-light btn-tab': true, 'active-tab': conversacionesSelected}" [routerLink]="['conversaciones']"
+                  (click)="selectConversacionesTab()">
+                  <label [ngClass]="{'tab-text normal': true, 'active': conversacionesSelected}">Conversaciones</label>
+                  <span *ngIf="conversationsUnread > 0" class="badge badge-light notify">{{conversationsUnread}}</span>
+               </button>
+               <div *ngIf="notify" class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+            </div>
+            <div class="col-6 tab-container">
+               <button [ngClass]="{'btn btn-light btn-tab': true, 'active-tab': !conversacionesSelected}" [routerLink]="['respuestas-legales']"
+                  (click)="selectRespuestasTab()">
+                  <label [ngClass]="{'tab-text normal': true, 'active': !conversacionesSelected}">Respuestas
+                     legales</label>
+                     <span *ngIf="responseUnread > 0" class="badge badge-light notify">{{responseUnread}}</span>
+                  </button>
+            </div>
+         </div>
+      </div>
+
+      <div class="row navigator-back" *ngIf="level == 4 && !hideBack">
+         <a (click)="goBack()" href="javascript:;">
+            <i class="fas fa-arrow-left"></i>
+            <label class="volver-text">Volver</label>
+         </a>
+      </div>
+
+      <div class='main-content' [class.hidetab]="hideTab" [class.level4]="level == 4">
+         <router-outlet></router-outlet>
+      </div>
+
+   </div>
+</div>

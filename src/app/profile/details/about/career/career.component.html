@@ -1,0 +1,26 @@
+<section class="blockable blockable-dark ">
+   <section class="blockable-overlay">
+      <app-blocking-complex hint="Compra el perfil para ver la información del abogado."></app-blocking-complex>
+   </section>
+   <section class="blockable-content container mb-4">
+      <button *ngIf="itIsMe" data-toggle="modal" data-target="#new-experience" class="position-absolute btn btn-link btn-link-text"
+         style="right:0;top:0"><i style="font-size:1.2rem" class="material-icons">add_circle_outline</i></button>
+      <div class="font-weight-bold mb-2">Trayectoria profesional</div>
+      <div *ngIf="items.length > 0; then: showCareers; else: showMsgCareers"></div>
+      <ng-template #showMsgCareers>
+         <section class="text-secondary">No hay datos todavía.</section>
+      </ng-template>
+      <ng-template #showCareers>
+         <div *ngFor="let item of items" class="mb-5">
+            <app-profile-career-item [itIsMe]="itIsMe" (onClickEdit)="onSelect($event)" [item]="item"></app-profile-career-item>
+         </div>
+      </ng-template>
+   </section>
+</section>
+
+<div id="new-experience" class="modal fade" role="dialog">
+   <app-create-career (onCreateFormation)="newExperience($event)" [reqInProg]="reqInProg" [resetForm]="resetForm"></app-create-career>
+</div>
+<div id="edit-experience" class="modal fade" role="dialog">
+   <app-edit-career (onEditCareer)="editCareer($event)" [onSelectItem]="onSelectItem" [reqInProg]="reqInProg"></app-edit-career>
+</div>

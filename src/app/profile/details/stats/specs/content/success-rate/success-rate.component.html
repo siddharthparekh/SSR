@@ -1,0 +1,36 @@
+<section class="blockable blockable-dark" [class.blocked]="blocked">
+  <section class="blockable-overlay">
+    <app-blocking-complex
+      hint="Compra el perfil para acceder a todas las estadísticas."
+      ></app-blocking-complex>
+  </section>
+  <section class="blockable-content">
+    <div class="font-weight-bold mb-3">Tasa de éxito</div>
+    <div class="row">
+      <div class="col-4">
+        <app-profile-success-rate-donut
+          [value]="displayData.simple.value"
+          [mediaValue]="displayData.simple.mediaValue"
+          valueLabel="Global"
+          valueColor="red"
+          ></app-profile-success-rate-donut>
+      </div>
+      <div class="col-4">
+        <app-profile-success-rate-donut
+          [value]="displayData.company.value"
+          [mediaValue]="displayData.company.mediaValue"
+          valueLabel="Empresa"
+          valueColor="blue"
+          ></app-profile-success-rate-donut>
+      </div>
+      <div class="col-4">
+        <app-profile-success-rate-donut
+          [value]="displayData.individual.value"
+          [mediaValue]="displayData.individual.mediaValue"
+          valueLabel="Particular"
+          valueColor="indigo"
+          ></app-profile-success-rate-donut>
+      </div>
+    </div>
+  </section>
+</section>

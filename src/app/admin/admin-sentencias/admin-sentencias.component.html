@@ -1,0 +1,39 @@
+<div class="page-wrapper">
+  <div class="container">
+      <label>Introduce el nombre del abogado</label>
+      <ng-select [allowClear]="true" (selected)="getSentencias($event)" filterPlaceholder="Busca por apellidos" (keyup)="searchLawyer($event.target.value)" [options]="abogados"></ng-select>      
+      <div class="table-responsive m-t-40">
+      <table class="table table-striped" *ngIf="sentences && sentences.length > 0">
+        <thead>
+          <tr>
+            <th>ECLI</th>
+            <th>Fecha</th>
+            <th>Número de resolución</th>
+            <th>Fecha de creación</th>
+            <th> Eliminar </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sentence of sentences">
+            <td>
+              {{sentence.ecli}}
+            </td>
+            <td>
+
+              {{returnDate(sentence.fecha)}}
+            </td>
+            <td>
+              {{sentence.numeroResolucion}}
+            </td>
+            <td>
+              {{returnDate(sentence.createdAt)}}
+            </td>
+            <td>
+              <a (click)="eliminarSentencia(sentence.id)">Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

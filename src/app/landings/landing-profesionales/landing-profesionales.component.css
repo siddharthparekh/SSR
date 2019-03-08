@@ -1,0 +1,286 @@
+/*samuka css*/
+
+.input-group-btn button {
+  background-color: transparent;
+  border: 0px;
+}
+
+#search-box-input {
+  border: none;
+  padding: 1%;
+}
+
+.input-group-btn {
+  flex-direction: row;
+}
+
+#d1 {
+  background: #eeede6;
+  color: #232F35;
+}
+
+#d1 p {
+  line-height: 1.5;
+}
+
+.grey {
+  background: #E8E7DF;
+}
+
+#d1 .features h4 {
+  color: #FF8A3D;
+  line-height: 1.5;
+  font-weight: 570;
+}
+
+#d1 .features b {
+  font-weight: 570;
+}
+
+.features-col {
+  padding: 3%;
+}
+
+#d1 .att h3 {
+  font-size: 3em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+#d1 .att {
+  padding-top: 7%;
+}
+
+.yellow {
+  color: #FF8A3D;
+}
+
+#main {
+  padding-top: 140px;
+  border-bottom: 4px solid #192633;
+  background: url('../../../assets/images/fondo-landing-profesionales.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+.cover {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .18);
+}
+
+#precios {
+  border-top: 4px solid #192633;
+  background: #eeede6;
+}
+
+#main .title h1 {
+  font-size: 4em;
+  line-height: 1.25;
+  color: white;
+  margin-top: 3%;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#main .title h2 {
+  font-size: 1.5em;
+  color: white;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#main .title h3 {
+  font-size: 1.1em;
+  color: white;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.btn-now {
+  background: #FF8A3D;
+  color: white;
+  height: auto;
+  border-radius: 2px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  letter-spacing: 0;
+}
+
+.btn-now:hover, .btn-now:focus {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .8);
+  cursor: pointer;
+  background: #FF8A3D;
+  color: white;
+  height: auto;
+  border-radius: 2px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  letter-spacing: 0;
+}
+
+#d2 {
+  padding: 0;
+  overflow: hidden;
+}
+
+#d2 .d-title, #d2 .d-list {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#d2 {
+  background: radial-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .55)), url('../../../assets/images/fondo-diapo.jpg') 35% 0;
+  background-size: cover;
+}
+
+#d2 .d-title h2 {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 1.25;
+  color: white;
+}
+
+#d2 .d-title h3 {
+  font-size: 3em;
+  font-weight: 400;
+  line-height: 1.25;
+  color: white;
+}
+
+#d2 .d-list h3 {
+  color: white;
+  font-weight: 500;
+  line-height: 1, 25;
+}
+
+#d2 .d-list i {
+  color: white;
+  font-size: 4em;
+}
+
+#d2 .d-list p {
+  color: white;
+  line-height: 1.25;
+}
+
+.section-heading-underline {
+  margin: 0;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.faq-q {
+  color: #333;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-top: 20px;
+}
+
+.faq-q:after {
+  content: "";
+  height: 3px;
+  width: 100px;
+  margin: 0.8em auto 0 auto;
+  display: block;
+  background: #eff0f3;
+}
+
+.faq-list {
+  list-style: none;
+  text-align: center;
+}
+
+.faq-a {
+  font-size: .875em;
+  line-height: 2;
+  color: #232F35;
+}
+
+#faq {
+  background: #fff;
+}
+
+.landing-input {
+  border-radius: 0;
+  border-style: solid;
+  padding: 0;
+  background: white;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+
+#medios {
+  background: #eeede6;
+}
+
+#medios .media-block {
+  text-align: center;
+  background: #fff;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+#precios .block {
+  text-align: center;
+  background: #fff;
+  border-radius: 5px;
+  padding: 4%;
+  margin-top: 3%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+#precios .block:hover, #precios img:hover {
+  transform: scale(1.05);
+  transition: all 0.2s;
+}
+
+#medios .media-block label {
+  color: #333;
+  font-weight: 600;
+  padding-top: 4%;
+  margin-top: 5%;
+  border-top: 3px solid #eeede6;
+}
+
+#medios .media-block img {
+  max-width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img-block {
+  min-height: 70px;
+  position: relative;
+}
+
+.content {
+  font-size: 0.8em;
+}
+
+@media (max-width: 767px) {
+  section {
+    position: relative;
+    top: -70px;
+  }
+}

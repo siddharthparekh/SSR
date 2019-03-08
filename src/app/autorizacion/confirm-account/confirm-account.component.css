@@ -1,0 +1,8 @@
+.contenedor {
+  background: transparent linear-gradient(180deg, #101820, #6795ab) repeat scroll 0 0;
+  height: 90vh;
+}
+
+.card-block {
+  text-align: center
+}

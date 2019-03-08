@@ -1,0 +1,21 @@
+<div class="modal-dialog">
+   <!-- Modal content -->
+   <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title">Añadir Formación</h4>
+         <button type="button" class="close pull-right" data-dismiss="modal">
+            <i (click)="closeModal()" class="material-icons">close</i>
+         </button>
+      </div>
+      <div class="modal-body">
+         <app-formation-form 
+         [onClean]="resetForm"
+         (onValidityChange)="isValid = $event" 
+         (onDataChange)="form = $event">
+         </app-formation-form>
+      </div>
+      <div class="modal-footer">
+         <app-button-loader [showLoading]="reqInProg" [text]="'Añadir'" [disabled]="!isValid" (emitClicked)="newEducation()"></app-button-loader>
+      </div>
+   </div>
+</div>

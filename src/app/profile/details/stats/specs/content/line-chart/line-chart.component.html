@@ -1,0 +1,13 @@
+<section class="row">
+  <div class="col-12 order-1 col-sm-5 mb-4">
+    <b>{{ heading }}</b>
+  </div>
+  <div class="col-12 order-2 order-sm-3 mb-2">
+    <canvas height="100" #lineChart>{{ chart }}</canvas>
+  </div>
+  <div class="col-12 order-3 col-sm-7 order-sm-2 text-right">
+    <span class="legend legend-yellow small mr-3" *ngIf="heading == 'Evolución de resultados'">Alcanzable</span>
+    <span class="legend legend-yellow small mr-3" *ngIf="heading != 'Evolución de resultados'">Media</span>
+    <span class="legend legend-blue small mr-3">{{ individualLabel }}</span>
+  </div>
+</section>

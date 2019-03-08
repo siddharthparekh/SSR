@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="304" height="540" viewBox="0 0 304 540">
+    <defs>
+        <path id="a" d="M0 0h302v538H0z"/>
+        <rect id="c" width="253.68" height="72.48" x="24.16" y="612.704" rx=".805"/>
+        <filter id="d" width="101.8%" height="106.4%" x="-.9%" y="-3.2%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1"/>
+            <feOffset dx="1" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.596078431 0 0 0 0 0.670588235 0 0 0 0 0.705882353 0 0 0 0.131425498 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+        <mask id="b" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <path stroke="#E5EAED" d="M-.5-.5h303v539H-.5z"/>
+        <g mask="url(#b)">
+            <g transform="translate(0 -267)">
+                <path fill="#E5EAED" d="M0 0h302v805H0z"/>
+                <rect width="302" height="318.507" y="10.72" fill="#FFF" rx="1.611"/>
+                <text font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12.08">
+                    <tspan x="16.107" y="46.475" fill="#64757D">Sed iaculis iaculis sagittis. Aliquam tortor erat, </tspan> <tspan x="16.107" y="64.192" fill="#64757D">convallis id nisl lobortis, semper ultrices nibh. </tspan> <tspan x="16.107" y="81.909" fill="#64757D">Phasellus eu sapien justo. Nulla sit amet vestibulum </tspan> <tspan x="16.107" y="99.627" fill="#64757D">dui, sit amet vestibulum ante. Proin at sapien et </tspan> <tspan x="16.107" y="117.344" fill="#64757D">sapien elementum lobortis id vel turpis. Nulla facilisi. </tspan> <tspan x="16.107" y="135.061" fill="#64757D">Vestibulum congue nibh augue, nec accumsan urna </tspan> <tspan x="16.107" y="152.779" fill="#64757D">aliquet ut. Nullam sit amet eleifend nunc, non </tspan> <tspan x="16.107" y="170.496" fill="#64757D">tempor nulla.</tspan>  <tspan x="16.107" y="205.931" fill="#64757D">Etiam nec ipsum metus. Vestibulum id diam orci. </tspan> <tspan x="16.107" y="223.648" fill="#64757D">Curabitur eu luctus dolor. Orci varius natoque </tspan> <tspan x="16.107" y="241.365" fill="#64757D">penatibus et magnis dis parturient montes, nascetur </tspan> <tspan x="16.107" y="259.083" fill="#64757D">ridiculus mus. Vivamus eros ligula, lobortis eget </tspan> <tspan x="16.107" y="276.8" fill="#64757D">vestibulum quis, euismod at eros. Nam tincidunt </tspan> <tspan x="16.107" y="294.517" fill="#64757D">risus in sem tempus, nec rhoncus elit rutrum. </tspan>
+                </text>
+                <rect width="285.893" height="426.827" x="8.053" y="339.696" fill="#F5F7F8" rx="4.027"/>
+                <text font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="18.523" font-weight="500">
+                    <tspan x="24.16" y="373.803" fill="#0F1820">Valora al abogado</tspan>
+                </text>
+                <g fill-rule="nonzero">
+                    <use fill="#FFF" xlink:href="#c"/>
+                    <use fill="#000" filter="url(#d)" xlink:href="#c"/>
+                    <rect width="254.485" height="73.285" x="23.757" y="612.301" stroke="#E5EAED" stroke-width=".805" rx=".805"/>
+                </g>
+                <g transform="translate(173.147 701.29)">
+                    <rect width="104.693" height="36.24" fill="#FF8B34" fill-rule="nonzero" rx="2.416"/>
+                    <text fill="#FFF" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="13.691" font-weight="500">
+                        <tspan x="36.471" y="21.859">Envía</tspan>
+                    </text>
+                </g>
+                <text font-family="SourceSansPro-Regular, Source Sans Pro" font-size="10.469">
+                    <tspan x="24.16" y="603.376" fill="#98ABB4">Comentario</tspan>
+                </text>
+                <text font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12.08">
+                    <tspan x="24.16" y="397.6" fill="#64757D">Puntúa la respuesta legal recibida y deja una </tspan> <tspan x="24.16" y="415.317" fill="#64757D">opinión sobre el abogado.</tspan>
+                </text>
+                <path fill="#E5EAED" fill-rule="nonzero" d="M24.16 445.195h253.68v1H24.16zM24.16 486.267h253.68v1H24.16zM24.16 527.339h253.68v1H24.16zM24.16 568.411h253.68v1H24.16z"/>
+                <path stroke="#FFBB20" stroke-width="1.162" d="M202.464 472.312l-.774-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.426.622 3.214 3.093-.775 4.387 3.95-2.09 3.95 2.09zM202.464 513.384l-.774-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.426.622 3.214 3.093-.775 4.387 3.95-2.09 3.95 2.09z"/>
+                <text font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12.885">
+                    <tspan x="32.213" y="471.08" fill="#0F1820">Atención</tspan>
+                </text>
+                <text font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12.885">
+                    <tspan x="32.442" y="512.152" fill="#0F1820">Asesoramiento</tspan>
+                </text>
+                <text font-family="SourceSansPro-Regular, Source Sans Pro" font-size="12.885">
+                    <tspan x="32.213" y="553.224" fill="#0F1820">Calidad/precio</tspan>
+                </text>
+                <path stroke="#FFBB20" stroke-width="1.162" d="M202.464 554.456l-.774-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.426.622 3.214 3.093-.775 4.387 3.95-2.09 3.95 2.09zM266.086 472.312l-.775-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.425.622 3.213 3.093-.775 4.387 3.95-2.09 3.95 2.09zm-8.377-3.98l.054-.304.17.52-.224-.216zM266.086 513.384l-.775-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.425.622 3.213 3.093-.775 4.387 3.95-2.09 3.95 2.09zM266.086 554.456l-.775-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.425.622 3.213 3.093-.775 4.387 3.95-2.09 3.95 2.09zM245.147 472.312l-.775-4.387 3.214-3.093-4.426-.622-1.963-4.005-1.963 4.005-4.425.622 3.213 3.093-.774 4.387 3.95-2.09 3.95 2.09zM224.208 472.312l-.774-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.426.622 3.214 3.093-.775 4.387 3.95-2.09 3.95 2.09zM245.147 513.384l-.775-4.387 3.214-3.093-4.426-.622-1.963-4.005-1.963 4.005-4.425.622 3.213 3.093-.774 4.387 3.95-2.09 3.95 2.09zM224.208 513.384l-.774-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.426.622 3.214 3.093-.775 4.387 3.95-2.09 3.95 2.09zM245.147 554.456l-.775-4.387 3.214-3.093-4.426-.622-1.963-4.005-1.963 4.005-4.425.622 3.213 3.093-.774 4.387 3.95-2.09 3.95 2.09zM224.208 554.456l-.774-4.387 3.213-3.093-4.425-.622-1.963-4.005-1.963 4.005-4.426.622 3.214 3.093-.775 4.387 3.95-2.09 3.95 2.09z"/>
+            </g>
+        </g>
+    </g>
+</svg>

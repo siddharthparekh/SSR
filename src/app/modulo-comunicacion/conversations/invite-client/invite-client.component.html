@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="content">
+    <div class="">
+      <h2>Crea unha conversación con un cliente externo.</h2>
+      <h5>Escribe su correo y podrás enviarle la invitación</h5>
+    </div>
+    <div class="m-t-20">
+      <form class="form-material row">
+        <div class="col-12 col-md-9 col-lg-10">
+          <div class="form-group">
+            <input
+              #email="ngModel"
+              required
+              ngModel
+              email
+              class="form-control"
+              type="email"
+              name="email"
+              placeholder="cliente@gmail.com"
+            />
+            <app-error-input
+              *ngIf="!email.valid && email.touched"
+              [msg]="'Email inválido'"
+            ></app-error-input>
+          </div>
+        </div>
+        <div class="col-12 col-md-3 col-lg-2 invite-client__send-button--holder">
+          <app-button-loader
+            class="invite-client__send-buttom"
+            [extend]="true"
+            [parentHeight]="true"
+            [disabled]="!email.valid"
+            [showLoading]="reqInProg"
+            [text]="'Invitar'"
+            (emitClicked)="enviarInvitacion($event, email.value)"
+        ></app-button-loader>
+        </div>
+      </form>
+    </div>
+    <div class="">
+      <p class="text-muted">
+        Cuando el cliente reciba la invitación y se registre podrá iniciar una
+        conversación con usted.
+      </p>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

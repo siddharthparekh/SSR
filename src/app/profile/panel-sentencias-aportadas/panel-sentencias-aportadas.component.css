@@ -1,0 +1,114 @@
+
+.el-card-container {
+  padding-top: 60px;
+  margin-top: 0px;
+  line-height: normal;
+}
+
+.item {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.modal {
+  overflow-y: auto;
+}
+
+.success {
+  border-left-color: rgba(106, 227, 104, 1);
+}
+.fail {
+  border-left-color: rgba(255, 51, 51, 1);
+}
+.partial {
+  border-left-color: rgba(255,146,0, 1);
+}
+
+/* TABLA */
+.el-table {
+  border-radius: 2px;
+  background-color: #ffffff;
+  height: 40px;
+  border: none;
+}
+.el-table thead th {
+  border: none;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #98abb4;
+  padding: 12px 0 11px 30px;
+}
+
+.el-table td {
+  padding: 31px 0 29px 30px;
+  border-top: 1px solid #e5eaed;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f1820;
+}
+
+/* MODAL */
+.el-sentence-modal {
+
+}
+
+.el-sentence-modal .modal-content {
+  padding: 50px 40px 50px 50px;
+}
+
+.el-sentence-modal .card-block {
+  padding: 0px 0px 15px 0px;
+}
+
+.el-sentence-modal .card-title {
+  height: 29px;
+  font-size: 23px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f1820;
+  margin-bottom: 0px;
+}
+
+.el-sentence-modal-btn {
+  float: right;
+  padding: 0px !important;
+}
+
+.el-sentence-modal-x {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+
+  .container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .container {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .el-table thead th {
+    padding: 5px 20px 3px 20px;
+  }
+  
+  .el-table td {
+    padding: 5px 20px 3px 20px;
+  }
+  
+}

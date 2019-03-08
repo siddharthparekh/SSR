@@ -1,0 +1,197 @@
+<div class="section">
+   <h5 class="card-title card-title-account-settings">Datos personales</h5>
+   <div class="card card-account-settings">
+      <form class="form-material" [formGroup]="userForm" novalidate>
+         <div class="card-body card-body-account-settings card-body-data row">
+            <div class="card-block col-md-12 img-profile">
+               <img *ngIf="foto" src="assets/images/profiles/{{foto}}" class="img-circle img-responsive" />
+               <img *ngIf="!foto" src="assets/images/emerita-default.png" class="img-circle img-responsive" />
+               <div class="img-profile-change">
+                  <input id="changefoto" style="display:none;" (change)="fileChangeListener($event.target.files[0])"
+                     accept="image/*" type="file" />
+                  <button type="button" class="btn btn-link btn-link-text bloque img-profile-change-button" onclick="document.getElementById('changefoto').click()">
+                     Cambiar foto
+                  </button>
+                  <!--
+              <label for="changefoto" *ngIf="!reqInProg" class="img-profile-change-title btn-link-text bloque">
+                Cambiar foto
+              </label>
+            -->
+                  <app-profile-loading *ngIf="reqInProg" [transparent]="true"></app-profile-loading>
+                  <span class="img-profile-change-warning form-control-label">
+                     M&aacute;ximo 1MB
+                  </span>
+               </div>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="nombre" class="form-control-label">Nombre</label>
+               <label class="form-control-value" *ngIf="!editing['section1']">{{
+                  userForm.value.nombre
+                  }}</label>
+               <input formControlName="nombre" class="form-control" type="text" name="nombre" id="nombre" *ngIf="editing['section1']" />
+               <app-error-input *ngIf="
+            userForm.get('nombre').hasError('required') &&
+            userForm.get('nombre').touched
+          "
+                  [msg]="'El nombre es obligatorio'"></app-error-input>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="apellidos" class="form-control-label">Apellidos</label>
+               <label class="form-control-value" *ngIf="!editing['section1']">{{
+                  userForm.value.apellidos
+                  }}</label>
+               <input formControlName="apellidos" class="form-control" type="text" name="apellidos" id="apellidos"
+                  *ngIf="editing['section1']" />
+            </div>
+            <div class="form-group col-md-6">
+               <label for="email" class="form-control-label">Email</label>
+               <label class="form-control-value" *ngIf="!editing['section1']">{{
+                  userForm.value.email
+                  }}</label>
+               <input formControlName="email" class="form-control" type="email" name="email" id="email" *ngIf="editing['section1']" />
+               <app-error-input *ngIf="
+              userForm.get('email').hasError('email') &&
+              userForm.get('email').touched
+            "
+                  [msg]="'Email inválido'"></app-error-input>
+               <app-error-input *ngIf="userForm.get('email').hasError('emailExist')" [msg]="'El email ya existe'"></app-error-input>
+            </div>
+            <div class="form-group col-md-6" *ngIf="user?.tipo != 1">
+               <label for="telefono" class="form-control-label">Teléfono</label>
+               <label class="form-control-value" *ngIf="!editing['section1']">{{
+                  userForm.value.telefono
+                  }}</label>
+               <input class="form-control" type="text" formControlName="telefono" placeholder data-mask="+34 999 999 999"
+                  name="telefono" id="telefono" *ngIf="editing['section1']" />
+               <app-error-input *ngIf="
+              userForm.get('telefono').hasError('pattern') &&
+              userForm.get('telefono').touched
+            "
+                  [msg]="'Formato inválido'"></app-error-input>
+            </div>
+            <div class="form-group col-md-6" *ngIf="user?.tipo != 1">
+               <label for="localidad" class="form-control-label">Ciudad</label>
+               <label class="form-control-value" *ngIf="!editing['section1']">{{
+                  userForm.value.localidad
+                  }}</label>
+               <input formControlName="localidad" class="form-control" type="text" name="localidad" id="localidad"
+                  *ngIf="editing['section1']" />
+            </div>
+            <div class="form-group col-md-6" *ngIf="user?.tipo != 1">
+               <label for="provincia" class="form-control-label">Provincia</label>
+               <!-- <label class="form-control-value" *ngIf="!editing['section1']"> -->
+                     <label class="form-control-value">
+                  {{
+                  userForm.value.provincia
+                  }}</label>
+               <!-- <select2 [cssImport]="true" name="provincia" [data]="provincias" [value]="provinciaIdInicial"
+                  (valueChanged)="onProvinciaSelect($event.value)" [options]="{
+              width: '100%',
+              placeholder: 'Seleccione una provincia'
+            }"
+                  class="form-control" *ngIf="editing['section1']"></select2> -->
+            </div>
+            <div class="form-group col-md-6" *ngIf="user?.tipo != 1">
+               <label for="provincia" class="form-control-label">Dirección</label>
+               <label class="form-control-value" *ngIf="!editing['section1']">{{
+                  userForm.value.domicilio
+                  }}</label>
+               <input formControlName="domicilio" class="form-control" type="text" name="domicilio" id="domicilio"
+                  *ngIf="editing['section1']" />
+            </div>
+
+            <div class="col-md-12 el-btns-data d-flex justify-content-end align-items-center">
+               <button type="button" class="btn btn-link btn-link-text" *ngIf="!editing['section1']" (click)="
+              editing['section1'] = !editing['section1'];
+              orig = userForm.value;
+              userForm.reset(orig)
+            ">
+                  Editar datos
+               </button>
+               <button type="button" class="btn btn-link btn-link-bckg" *ngIf="editing['section1']" (click)="
+              editing['section1'] = !editing['section1'];
+              userForm.value = orig;
+              userForm.reset(orig)
+            ">
+                  Cancelar
+               </button>
+               <app-button-loader *ngIf="editing['section1']" [disabled]="!userForm.valid" [showLoading]="reqInProg"
+                  [text]="'Actualizar'" (emitClicked)="updateUser($event)"></app-button-loader>
+            </div>
+         </div>
+      </form>
+   </div>
+   <div class="card card-account-settings card-password">
+      <form class="form-material" [formGroup]="passwordForm" novalidate>
+         <div class="card-body card-body-account-settings card-body-password">
+            <div class="row" *ngIf="!editing['password']">
+               <div class="col-6">
+                  <label class="label-password">* * * * * * * * * * *</label>
+               </div>
+               <div *ngIf="!editing['password']" class="col-6 text-right">
+                  <button type="button" class="btn btn-link btn-link-text" (click)="editing['password'] = true">
+                     Editar contraseña
+                  </button>
+               </div>
+            </div>
+            <div class="row" *ngIf="editing['password']">
+               <div class="form-group col-md-6">
+                  <label for="password" class="form-control-label">Antigua contraseña</label>
+                  <input class="form-control" formControlName="password" type="password" name="password" id="password" />
+                  <app-error-input *ngIf="
+                passwordForm.get('password').hasError('minlength') &&
+                passwordForm.get('password').touched
+              "
+                     [msg]="'Longitud menor de 6 caracteres'"></app-error-input>
+                  <app-error-input *ngIf="passwordForm.get('password').hasError('incorrect')" [msg]="'La antigua contraseña es inválida'"></app-error-input>
+               </div>
+               <div class="col-md-6 text-left el-btn-recovery">
+                  <a class="btn btn-link btn-link-text btn-link-text-recovery" [routerLink]="['/auth/recoverpassword']">He
+                     olvidado la contraseña
+                  </a>
+               </div>
+               <div class="form-group col-md-6">
+                  <label for="passwordNueva" class="form-control-label">Nueva contraseña</label>
+                  <input (keypress)="setEmtpyPassConfirm()" class="form-control" formControlName="passwordNueva" type="password"
+                     name="passwordNueva" id="passwordNueva" />
+                  <app-error-input *ngIf="
+                passwordForm.get('passwordNueva').hasError('minlength') &&
+                passwordForm.get('passwordNueva').touched
+              "
+                     [msg]="'Longitud menor de 6 caracteres'"></app-error-input>
+                  <small class="form-text text-muted">Min. 6 caracteres</small>
+               </div>
+               <div class="col-md-6"></div>
+               <div class="form-group col-md-6">
+                  <label for="passwordConfirm" class="form-control-label">Repetir nueva contraseña</label>
+                  <input class="form-control" formControlName="passwordConfirm" type="password" name="passwordConfirm"
+                     id="passwordConfirm" />
+                  <app-error-input *ngIf="
+                passwordForm.get('passwordConfirm').hasError('minlength') &&
+                passwordForm.get('passwordConfirm').touched
+              "
+                     [msg]="'Longitud menor de 6 caracteres'"></app-error-input>
+                  <app-error-input *ngIf="
+                passwordForm
+                  .get('passwordConfirm')
+                  .hasError('mismatchedPassword')
+              "
+                     [msg]="'Las contraseñas no coinciden'"></app-error-input>
+               </div>
+               <div class="col-md-6 el-btns-password d-flex justify-content-end align-items-center">
+                  <button type="button" class="btn btn-link btn-link-bckg" (click)="
+                editing['password'] = !editing['password']; passwordForm.reset()
+              ">
+                     Cancelar
+                  </button>
+                  <app-button-loader [disabled]="!passwordForm.valid" [showLoading]="reqInProgPass" [text]="'Guardar'"
+                     (emitClicked)="updatePassword($event)"></app-button-loader>
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
+<div id="modal-cropper" class="modal fade" role="dialog">
+   <app-cropper [imgHtml]="imgHtml" (onPhotoSaved)="uploadPhoto($event)"></app-cropper>
+</div>

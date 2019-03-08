@@ -1,0 +1,145 @@
+/* .sentence-list .row > div:first-child{
+    font-weight: 400;
+}
+
+.sentence-list ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.sentence-list{
+    overflow-x: hidden;
+    max-height: 310px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.sentence-list .row{
+    padding: 1% 0 1% 0;
+} */
+
+.modal-body {
+    padding: 0px;
+}
+
+.el-sentence-row {
+    min-height: 84px;
+    border-bottom: 1px solid #e5eaed;
+    padding: 20px 0px;
+    margin: 0px;
+}
+
+.el-sentence-col {
+    margin: 0px;
+    padding: 0px;
+}
+
+.el-sentence-col label, .el-sentence-suggestion-label {
+    display: block;
+    height: 17px;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #98abb4;
+    margin-bottom: 7px;
+}
+
+.el-sentence-col span {
+    display: block;
+    height: 20px;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0f1820;
+}
+
+.el-sentence-fallos {
+    margin-top: 30px;
+}
+
+.el-sentence-fallos h5 {
+    height: 22px;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.22;
+    letter-spacing: normal;
+    color: #0f1820;
+    margin-bottom: 20px;
+}
+
+.el-sentence-fallos .row {
+    padding: 0px;
+    border: none;
+    min-height: unset;
+}
+
+.el-sentence-suggestion {
+    margin-top: 13px;
+    padding-top: 20px;
+    border-top: 1px solid #e5eaed;
+}
+
+.modal-footer {
+    margin-top: 0px;
+    border: none;
+    padding: 0px;
+}
+
+.el-sentence-footer-no-editing {
+    margin-top: 50px;
+    border: none;
+    padding: 0px;
+}
+
+.el-sentence-footer-editing {
+    margin-top: 30px;
+    border: none;
+    padding: 0px;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+@media (max-width: 767px) {
+
+    .el-sentence-row {
+        min-height: auto;
+        padding: 10px 0px;
+    }
+
+    .el-sentence-col label, .el-sentence-suggestion-label {
+        margin-bottom: 3px;
+    }
+
+    .el-sentence-col span {
+        margin-bottom: 10px;
+    }
+
+    .el-sentence-fallos {
+        margin-top: 30px;
+    }
+
+    .el-sentence-fallos h5 {
+        margin-bottom: 20px;
+    }
+
+    .el-sentence-fallos .row {
+        padding: 0px;
+    }
+
+    .el-sentence-fallos .el-sentence-col label {
+        margin-bottom: 10px;
+    }
+
+    .el-sentence-fallos .el-sentence-col span {
+        margin-bottom: 3px;
+    }
+
+}

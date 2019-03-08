@@ -1,0 +1,45 @@
+<article class="container">
+  <section class="row">
+    <!-- profile nav -->
+    <section class="col-12 col-md-4 col-lg-3 mb-4 px-0">
+      <div class="profile-nav--holder" #profileNavHolder [ngClass]="{'sticky-bottom': stickyBottom, 'put-position-sticky-bottom': putPositionStickyBottomClass}">
+        <div class="profile-nav-wrapper--holder" [ngClass]="{'sticky': sticky, 'nav-lawyer': isNavLawyer}">
+          <div class="profile-nav-wrapper">
+            <div class="pb-md-5">
+              <app-profile-nav (showTab)="onTabChanged($event)"></app-profile-nav>
+            </div>
+            <div class="card d-none d-md-block py-3 pl-4">
+              <div class="mb-2">Comparte este perfil</div>
+              <div style="width: 150px;">
+                <div class="d-flex justify-content-between">
+                  <app-shared-link [socialNetwork]="'fb'"></app-shared-link>
+                  <app-shared-link [socialNetwork]="'tw'"></app-shared-link>
+                  <app-shared-link [socialNetwork]="'in'"></app-shared-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- tabs content -->
+    <section class="col-12 col-md-8 col-lg-9">
+      <div [hidden]="shownTabIndex !== 1">
+        <app-profile-stats [shown]="shownTabIndex === 1"></app-profile-stats>
+      </div>
+      <div [hidden]="shownTabIndex !== 2">
+        <app-profile-about [shown]="shownTabIndex === 2"></app-profile-about>
+      </div>
+      <div [hidden]="shownTabIndex !== 3">
+        <app-profile-tariffs [shown]="shownTabIndex === 3"></app-profile-tariffs>
+      </div>
+      <div [hidden]="shownTabIndex !== 4">
+        <app-profile-contact [shown]="shownTabIndex === 4"></app-profile-contact>
+      </div>
+      <div [hidden]="shownTabIndex !== 5">
+        <app-profile-feedback [shown]="shownTabIndex === 5"></app-profile-feedback>
+      </div>
+    </section>
+  </section>
+</article>

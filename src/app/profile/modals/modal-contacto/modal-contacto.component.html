@@ -1,0 +1,45 @@
+<div id="modal-contacto-abogado" class="modal fade" role="dialog" aria-hidden="true">
+   <div class="modal-dialog ">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Enviar consulta</h4>
+            <button type="button" class="close pull-right" (click)="closeModal()"><i class="mdi mdi-close"></i></button>
+         </div>
+         <div class="modal-body">
+            <form class="form-horizontal form-material" #form="ngForm">
+               <div class="" style="margin: -15px;background: #dcdcdc5e;padding: 20px;display: flex;flex-direction: column;">
+                  <span class="help-block text-muted">
+                     <small style="white-space: pre-line;">Te aconsejamos: <br>
+                        1. Que sigas un orden cronológico <br>
+                        2. Que describas detalladamente el motivo de tu consulta <br>
+                        3. Que especifiques todas tus dudas o preguntas. <br>
+                        4. Que si tienes documentación relativa al motivo de tu consulta la adjuntes en el chat que se
+                        abrirá a continuación con el/la especialista para que pueda revisarla.
+                     </small>
+                  </span>
+               </div>
+               <div class="form-group" style="margin-top: 35px;">
+                  <input type="text" class="form-control" name="asunto" [(ngModel)]="asunto" required placeholder="Asunto*"
+                     required>
+               </div>
+               <div class="form-group">
+                  <label for=""></label>
+                  <textarea placeholder="Describe el motivo de tu consulta*" type="text" class="form-control" name="texto"
+                     rows="12" [(ngModel)]="texto" required></textarea>
+               </div>
+               <div class="from-group">
+                  <re-captcha (resolved)="resolved($event)" siteKey="6Ldzcy0UAAAAACzmQU1tRmuBk0OM1BLPLpqqzKGz"></re-captcha>
+               </div>
+            </form>
+         </div>
+         <div class="modal-footer">
+            <app-button-loader
+            [text]="'Enviar'"
+            (emitClicked)="send()"
+            [showLoading]="reqInProg"
+            [disabled]="!form.valid || !captchaResponse">
+            </app-button-loader>
+         </div>
+      </div>
+   </div>
+</div>

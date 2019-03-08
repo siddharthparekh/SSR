@@ -1,0 +1,139 @@
+.wrap {
+    /* height: 80%; */
+    background: white;
+    overflow-y: auto;
+    /* height: calc(100vh - 140px); */
+    height: 100%;
+}
+
+.content {
+    background-color: lightgrey;
+}
+
+.content-editor {
+    /* height: calc(100vh - 170px); */
+    /* height: 100%; */
+    /* min-height: 850px; */
+    /* height: 100vh; */
+    overflow-y: hidden;
+}
+
+.editor {
+    min-height: calc(100vh - 240px);
+    margin: 0 20%;
+    /* height: 99%; */
+    /* min-height: 820px; */
+    /* height: calc(100vh - 140px) !important; */
+    background: white;
+    overflow-y: hidden;
+    /* margin-bottom: 140px; */
+}
+.btn-secondary:disabled {
+    background-color: rgba(255, 139, 34, 0.3) !important;
+}
+.navigator-back {
+    margin-top: 33px;
+}
+
+.btn {
+    width: 100px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+.modal-footer {
+    background: white;
+    padding: 15px 30px 15px 30px;
+    /* display: flex; */
+    justify-content: flex-end;
+    text-align:center;
+}
+
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
+.col-2 {
+    max-width: 25%;
+}
+.round {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+
+@media (min-width: 1200px){
+    .container {
+        /* max-width: 2503px !important; */
+    }
+}
+
+@media (max-width: 900px) {
+    .editor {
+        margin: 0px;
+        /* margin-bottom: 50px !important; */
+        height: 100%;
+    }
+
+    .content-editor {
+        /* height: 100%; */
+    }
+
+    .navigator-back {
+        margin-top: 0px;
+    }
+
+    .wrap {
+        overflow-y: auto;
+    }
+    .editor {
+        margin-bottom: 70px;
+    }
+}
+
+@media (min-width: 992px)and (max-width: 1200px){
+    .container {
+        max-width: 1120px !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px){
+    .ql-editor {
+        /* height: 110%; */
+    }
+    .container {
+        max-width: 900px !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width:768px){
+    .container {
+        max-width: 700px !important;
+    }
+}
+
+@media screen and (max-width: 480px) and (max-width: 576px){
+    .left {
+        padding-right: 30px;
+    }   
+    .right {
+        padding-left: 30px;
+    }    
+    .col {
+        padding-left: 50px;
+    }
+    .ql-editor {
+        height: 80%;
+    }
+
+    .container {
+        max-width: 500px !important;
+    }
+}

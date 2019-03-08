@@ -1,0 +1,160 @@
+<form class="form-material" #datosFactForm="ngForm">
+   <div class="row el-datos-facturacion-form">
+      <div class="form-group col-12 col-md-6" *ngIf="!editing">
+         <p class="form-control-label">Nombre/Razón social</p>
+         <label class="form-control-value" *ngIf="!editing">{{
+            formulario.nombre
+            }}</label>
+      </div>
+      <div class="form-group col-12 col-md-6" *ngIf="editing"
+         [class.has-danger]="nombre.invalid && (nombre.dirty || nombre.touched)"
+         [class.has-success]="nombre.valid && (nombre.dirty || nombre.touched)">
+         <p class="form-control-label">Nombre/Razón social</p>
+         <input type="text" [(ngModel)]="formulario.nombre" name="nombre" id="nombreFacturacion" class="form-control"
+            #nombre="ngModel" [class.form-control-danger]="
+          nombre.invalid && (nombre.dirty || nombre.touched)
+        " [class.form-control-success]="
+          nombre.valid && (nombre.dirty || nombre.touched)
+        " required />
+         <app-error-input *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+            [msg]="'Introduce un nombre válido.'"></app-error-input>
+      </div>
+      <div class="form-group col-12 col-md-6" *ngIf="!editing">
+         <p class="form-control-label">NIF/CIF</p>
+         <label class="form-control-value" *ngIf="!editing">{{
+            formulario.nif
+            }}</label>
+         <div *ngIf="
+          !hiddenData &&
+          user?.tipo != 1 &&
+          formulario?.nif
+            ?.trim()
+            .substring(0, 1)
+            .toUpperCase() === 'J'
+        " class="w-100">
+            <span>Facturar con: </span>
+            <div class="radio-group">
+               <input (change)="onEsIRPF(true)" [(ngModel)]="formulario.tieneIRPF" [value]="true" id="irpf"
+                  name="facturaSocCivil" type="radio" class="with-gap radio-col-amber" readonly />
+               <label for="irpf"> <span>IRPF</span> </label>
+               <input (change)="onEsIRPF(false)" [(ngModel)]="formulario.tieneIRPF" [value]="false" id="sociedades"
+                  name="facturaSocCivil" type="radio" class="with-gap radio-col-amber" readonly />
+               <label for="sociedades"> <span>Imp. de Sociedades</span> </label>
+            </div>
+         </div>
+      </div>
+      <div class="form-group col-12 col-md-6" *ngIf="editing"
+         [class.has-danger]="nif?.invalid && (nif?.dirty || nif?.touched)"
+         [class.has-success]="nif?.valid && (nif?.dirty || nif?.touched)">
+         <p class="form-control-label">NIF/CIF</p>
+         <input (keyup)="onNifChange()" type="text" [(ngModel)]="formulario.nif" pattern="[A-Za-z0-9]{9}" name="nif"
+            id="nifFacturacion" class="form-control" #nif="ngModel" [class.form-control-danger]="
+          nif?.invalid && (nif?.dirty || nif?.touched)
+        " [class.form-control-success]="
+          nif?.valid && (nif?.dirty || nif?.touched)
+        " required style="text-transform: uppercase" />
+         <app-error-input *ngIf="nif?.invalid && (nif?.dirty || nif?.touched)" [msg]="'Introduce un NIF/CIF válido.'">
+         </app-error-input>
+         <div *ngIf="user && user?.tipo != 1 && formulario?.nif?.trim().substring(0, 1).toUpperCase() === 'J'" class="w-100">
+            <span>Facturar con: </span>
+            <div class="radio-group">
+               <input (change)="onEsIRPF(true)" [value]="true" [attr.checked]="true" id="irpf" name="facturaSocCivil"
+                  type="radio" class="with-gap radio-col-amber" />
+               <label for="irpf"> <span>IRPF</span> </label>
+               <input (change)="onEsIRPF(false)" [value]="false" id="sociedades" name="facturaSocCivil" type="radio"
+                  class="with-gap radio-col-amber" />
+               <label for="sociedades"> <span>Imp. de Sociedades</span> </label>
+            </div>
+            <span style="color: #d9534f;" *ngIf="esSociedadCivil && formulario.tieneIRPF == undefined">
+               <small>Seleccione una de las opciones</small>
+            </span>
+         </div>
+      </div>
+      <div class="form-group col-12 col-md-6" *ngIf="!editing">
+         <p class="form-control-label">Domicilio</p>
+         <label class="form-control-value" *ngIf="!editing">{{
+            formulario.domicilio
+            }}</label>
+      </div>
+      <div class="form-group col-12 col-md-6" [class.has-danger]="
+        domicilio.invalid && (domicilio.dirty || domicilio.touched)
+      " [class.has-success]="
+        domicilio.valid && (domicilio.dirty || domicilio.touched)
+      " *ngIf="editing">
+         <p class="form-control-label">Domicilio</p>
+         <input type="text" [(ngModel)]="formulario.domicilio" name="domicilio" id="domicilioFacturacion"
+            class="form-control" #domicilio="ngModel" [class.form-control-danger]="
+          domicilio.invalid && (domicilio.dirty || domicilio.touched)
+        " [class.form-control-success]="
+          domicilio.valid && (domicilio.dirty || domicilio.touched)
+        " required />
+         <app-error-input *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)"
+            [msg]="'Introduce un domicilio válido.'"></app-error-input>
+      </div>
+      <div class="form-group col-12 col-md-6" *ngIf="!editing">
+         <p class="form-control-label">Localidad</p>
+         <label class="form-control-value" *ngIf="!editing">{{
+            formulario.localidad
+            }}</label>
+      </div>
+      <div class="form-group col-12 col-md-6" *ngIf="editing" [class.has-danger]="
+        localidad.invalid && (localidad.dirty || localidad.touched)
+      " [class.has-success]="
+        localidad.valid && (localidad.dirty || localidad.touched)
+      ">
+         <p class="form-control-label">Localidad</p>
+         <input type="text" [(ngModel)]="formulario.localidad" name="localidad" id="localidadFacturacion"
+            class="form-control" #localidad="ngModel" [class.form-control-danger]="
+          localidad.invalid && (localidad.dirty || localidad.touched)
+        " [class.form-control-success]="
+          localidad.valid && (localidad.dirty || localidad.touched)
+        " required />
+         <app-error-input *ngIf="localidad.invalid && (localidad.dirty || localidad.touched)"
+            [msg]="'Introduce una localidad válida.'"></app-error-input>
+      </div>
+      <div class="form-group col-12 col-md-6" *ngIf="!editing">
+         <p class="form-control-label">Código Postal</p>
+         <label class="form-control-value">{{ formulario.cp }}</label>
+      </div>
+      <div class="form-group col-12 col-md-6" *ngIf="editing"
+         [class.has-danger]="cp.invalid && (cp.dirty || cp.touched)"
+         [class.has-success]="cp.valid && (cp.dirty || cp.touched)">
+         <p class="form-control-label">Código Postal</p>
+         <input type="text" [(ngModel)]="formulario.cp" name="cp" pattern="[0-9]{5}" id="cpFacturacion"
+            class="form-control" #cp="ngModel" [class.form-control-danger]="cp.invalid && (cp.dirty || cp.touched)"
+            [class.form-control-success]="cp.valid && (cp.dirty || cp.touched)" required />
+         <app-error-input *ngIf="cp.invalid && (cp.dirty || cp.touched)" [msg]="'Introduce un código postal válido.'">
+         </app-error-input>
+      </div>
+      <div *ngIf="!hiddenData && user?.tipo != 1" class="form-group col-12 col-md-6 form-provincia">
+         <p class="form-control-label">Provincia</p>
+         <label class="form-control-value" *ngIf="!editing">{{
+        formulario.provincia
+      }}</label>
+         <ng-select *ngIf="editing" style="z-index:99" name="provincia" [options]="provincias"
+            [(ngModel)]="formulario.provincia" placeholder="Selecciona una provincia" required id="provincia">
+         </ng-select>
+      </div>
+      <div *ngIf="!hiddenData && !editing && user?.tipo != 1" class="form-group col-12 col-md-6">
+         <p class="form-control-label">Código IBAN</p>
+         <label class="form-control-value" *ngIf="!editing">{{
+        formulario.iban
+      }}</label>
+      </div>
+      <div *ngIf="!hiddenData && editing && user?.tipo != 1" class="form-group col-12 col-md-6"
+         [class.has-danger]="iban.invalid && (iban.dirty || iban.touched)"
+         [class.has-success]="iban.valid && (iban.dirty || iban.touched)">
+         <p class="form-control-label">Código IBAN</p>
+         <input (input)="formatCardNumber()" type="text" [(ngModel)]="formulario.iban" name="iban"
+            pattern="([A-Za-z]{2}[0-9]{2} [0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}|[A-Za-z]{2}[0-9]{22})(| )"
+            id="iban" #iban="ngModel" [class.form-control-danger]="
+          iban.invalid && (iban.dirty || iban.touched)
+        " [class.form-control-success]="
+          iban.valid && (iban.dirty || iban.touched)
+        " class="form-control" required />
+         <app-error-input *ngIf="iban.invalid && (iban.dirty || iban.touched)" [msg]="
+          'Introduce un código IBAN válido. (ES00 0000 0000 0000 0000 0000)'
+        "></app-error-input>
+      </div>
+   </div>
+</form>

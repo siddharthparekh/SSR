@@ -1,0 +1,23 @@
+.entrar-gmail-boton {
+  width: 100%;
+}
+
+.entrar-gmail-boton button {
+  font-size: 15px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 11px;
+  background-color: #ea4335;
+  border: 0;
+}
+
+.entrar-gmail-boton button:hover,
+.entrar-gmail-boton button:visited,
+.entrar-gmail-boton button:focus {
+  opacity: 0.6;
+  outline: none;
+}
+
+.entrar-gmail-boton button span {
+  margin-left: 9px;
+}

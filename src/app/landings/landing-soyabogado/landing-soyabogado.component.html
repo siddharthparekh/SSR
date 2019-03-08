@@ -1,0 +1,733 @@
+<div class="content text-center">
+   <section id="section1">
+      <h3>La única comunidad legal basada en méritos reales</h3>
+      <p>
+         ¿Persigues en tus casos la excelencia técnica? Descubre tu índice de rendimiento judicial
+      </p>
+      <div class="pulse-container">
+         <div class="button-bg"></div>
+         <button routerLink="/aca">Descubre tu irj</button>
+      </div>
+   </section>
+   <section [ngClass]="{'fixed-header': fixedNav}" id="section2">
+      <ul class="ng_desktop">
+         <li width=" 150px" (click)="activeMenu = 0" [ngClass]="{ active: activeMenu == 0 }">
+            <a pageScroll [pageScrollOffset]='150' [pageScrollDuration]='1000' [pageScrollEasing]='myEasing' href="#section3">Reputación</a>
+         </li>
+         <li width="310px" (click)="activeMenu = 1" [ngClass]="{ active: activeMenu == 1 }">
+            <a pageScroll [pageScrollOffset]='80' [pageScrollDuration]='1000' [pageScrollEasing]='myEasing' href="#section5">Captación
+               y gestión de clientes</a>
+         </li>
+         <li width="195px" (click)="activeMenu = 2" [ngClass]="{ active: activeMenu == 2 }">
+            <a pageScroll [pageScrollOffset]='80' [pageScrollDuration]='1000' [pageScrollEasing]='myEasing' href="#section7">Inteligencia
+               legal
+            </a>
+         </li>
+         <li width="260px" (click)="activeMenu = 3" [ngClass]="{ active: activeMenu == 3 }" style="border-right: 1px solid #e5eaed;">
+            <a pageScroll [pageScrollOffset]='80' [pageScrollDuration]='1000' href="#section8">Comunidad colaborativa
+            </a>
+         </li>
+      </ul>
+      <ul class="ng_mobile">
+         <li width=" 150px" (click)="activeMenu = 0" [ngClass]="{ active: activeMenu == 0 }">
+            <a pageScroll [pageScrollOffset]='130' [pageScrollDuration]='1000' [pageScrollEasing]='myEasing' href="#section3">Reputación</a>
+         </li>
+         <li width="310px" (click)="activeMenu = 1" [ngClass]="{ active: activeMenu == 1 }">
+            <a pageScroll [pageScrollOffset]='69' [pageScrollDuration]='1000' [pageScrollEasing]='myEasing' href="#section5">Captación
+               y gestión de clientes</a>
+         </li>
+         <li width="195px" (click)="activeMenu = 2" [ngClass]="{ active: activeMenu == 2 }">
+            <a pageScroll [pageScrollOffset]='69' [pageScrollDuration]='1000' [pageScrollEasing]='myEasing' href="#section7">Inteligencia
+               legal
+            </a>
+         </li>
+         <li width="260px" (click)="activeMenu = 3" [ngClass]="{ active: activeMenu == 3 }" style="border-right: 1px solid #e5eaed;">
+            <a pageScroll [pageScrollOffset]='69' [pageScrollDuration]='1000' href="#section8">Comunidad colaborativa
+            </a>
+         </li>
+      </ul>
+   </section>
+   <section id="section3">
+      <h3>7 de cada 10 personas te buscan online</h3>
+      <p>
+         Aun cuando te haya recomendado algún conocido, familiar o antiguo cliente, la mayoría de tus clientes,
+         colaboradores y compañeros
+         te buscan en Internet, a ti o a tu despacho, para conocer tu trayectoria y formarse una primera impresión.
+      </p>
+      <div class="container ">
+         <div class="row">
+            <div class="col-12 col-md-6 text-left block">
+               <h4>
+                  <img class="Star" src="assets/images/star.png" />Certifica tu trayectoria judicial
+               </h4>
+               <p>
+                  Demuestra tu experiencia real y tasa de éxito en cada materia. Obtén
+                  <span>la única referencia objetiva</span> del mercado que
+                  <span>avala tu trayectoria.</span>
+               </p>
+            </div>
+            <div class="col-12 col-md-6 text-left block">
+               <h4>
+                  <img class="Star" src="assets/images/star.png" />Mejora tu posicionamiento
+               </h4>
+               <p>
+                  Busca la excelencia técnica y posiciónate de forma natural para diferenciarte objetivamente de tu
+                  competencia. Si te posicionas
+                  pagando solo te diferencias por cuanto gastas.
+                  <span>Posiciónate en el mercado por tu trayectoria.</span>
+               </p>
+            </div>
+            <div class="col-12 col-md-6 text-left block">
+               <h4>
+                  <img class="Star" src="assets/images/star.png" />Refuerza tu marca profesional
+               </h4>
+               <p>
+                  Gestiona fácilmente tu reputación online y refuerza tu visibilidad reuniendo toda la información de
+                  tu trayectoria en un
+                  único lugar, tu perfil profesional en Emérita Legal.
+                  <b> Aumenta el alcance de tu reputación y la de tu despacho.</b>
+               </p>
+            </div>
+            <div class="col-12 col-md-6 text-left block">
+               <h4>
+                  <img class="Star" src="assets/images/star.png" />Avala tus campañas de captación
+               </h4>
+               <p>
+                  ¿Haces tus propias campañas de marketing online? Utiliza tu perfil profesional y el de tu despacho en
+                  Emérita Legal para
+                  proporcionar una referencia objetiva a tus potenciales clientes.
+                  <b> Refuerza tu credibilidad online para aumentar la conversión.</b>
+               </p>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section id="section4">
+      <h3>
+         <b>Digitaliza tus servicios</b>
+      </h3>
+      <img title="Pérfil abogado registrado Emérita" alt="Pérfil abogado registrado Emérita" src="assets/images/digitalizacion-img@3x.png" class="digitalizacion_img">
+   </section>
+   <section id="section5">
+      <h3>Con nuestro software de gestión de clientes podrás</h3>
+      <div class="container ">
+         <div class="row">
+            <div class="col-12 col-md-6 text-center block">
+               <img src="assets/images/clientes-icon.png" class="clientes_icon" />
+               <h4>
+                  <b>Conectar con tus propios clientes</b>
+               </h4>
+               <p>
+                  Redirige a tus clientes a tu perfil profesional en Emérita Legal desde tu propia web o por correo
+                  electrónico, whatsapp…y gestiona
+                  el
+                  <span>proceso completo de interacción</span> con tus clientes
+                  <span> 100% online</span> a través de nuestro software de gestión de clientes.
+               </p>
+            </div>
+            <div class="col-12 col-md-6 text-center block">
+               <img src="assets/images/nuevos-cleintes-icon.png" class="nuevos_cleintes_icon" />
+               <h4>
+                  <b>Conectar con nuevos clientes</b>
+               </h4>
+               <p>
+                  Date de alta en nuestro
+                  <span>servicio de consultas online </span>y amplía tu red de clientes. Los potenciales clientes que
+                  te busquen o busquen
+                  especialistas en tu materia podrán hablar contigo directamente, desde tu perfil, para hacerte sus
+                  consultas.
+               </p>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section id="section6">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-6 block text-left">
+               <img class="iphone-img" src="assets/images/iphone-img.png" />
+               <div class="img-slider">
+                  <ngx-hm-carousel [(ngModel)]="index" (ngModelChange)="indexChanged($event)" [autoplay-speed]="3000"
+                     [autoplay]="true" [infinite]="infinite" [between-delay]="2000" class="carousel c-accent">
+
+                     <section ngx-hm-carousel-container class="content">
+                        <article class="item cursor-pointer" ngx-hm-carousel-item *ngFor="let slide of slides">
+                           <div class="img" [style.backgroundImage]="'url('+slide+')'">
+                           </div>
+                        </article>
+                     </section>
+                  </ngx-hm-carousel>
+               </div>
+            </div>
+            <div class="col-12 col-md-6 text-center description">
+               <div class="text-left">
+                  <h4>
+                     <b>Habla online</b>
+                  </h4>
+                  <p>
+                     Ahorra tiempo evitando numerosas llamadas y correos no facturables, mantén organizadas tus
+                     <span> conversaciones online </span>y presta el mejor servicio de atención cumpliendo el RGPD.
+                     Incorporamos las técnicas
+                     de cifrado más avanzadas para garantizar la seguridad de tus comunicaciones.
+                  </p>
+                  <h4>
+                     <b>Recibe documentación</b>
+                  </h4>
+                  <p>
+                     Recibe y envía documentos
+                     <span> al instante y de forma 100% segura</span> con tus clientes en el área privada de tu perfil
+                     profesional.
+                  </p>
+                  <h4>
+                     <b>Consultas online</b>
+                  </h4>
+                  <p>
+                     <span>
+                        Transforma las conversaciones con tus clientes en consultas online con un solo click.</span>
+                     Cuando tengas
+                     claro el
+                     problema, fija el plazo de elaboración y el coste; después envía tu respuesta legal, con un
+                     presupuesto adjunto
+                     si quieres, y recibe el pago online.
+                  </p>
+                  <h4>
+                     <b>Contrata online</b>
+                  </h4>
+                  <p>
+                     <span>Envía presupuestos</span> para la realización de gestiones o procesos judiciales.
+                     <span>Contrata y recibe la provisión, o el pago, online, emitiendo las facturas automáticamente.</span>
+                  </p>
+                  <h4>
+                     <b>Consigue opiniones verificadas</b>
+                  </h4>
+                  <p>
+                     Los usuarios solo podrán valorar tu servicio si te han hecho un pago online.
+                     <span>Aumenta tu reputación con opiniones verificadas</span> para reforzar aún más tu perfil
+                     profesional demostrando
+                     la calidad de tu atención y asesoramiento.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="section7">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-12 block text-center">
+               <h3>
+                  <b>Inteligencia legal</b>
+               </h3>
+               <h4>Información clave para optimizar tus decisiones</h4>
+               <p>
+                  Combinamos millones de resoluciones judiciales con la tecnología más innovadora para proporcionarte
+                  <span>información clave</span> nunca antes disponible a través de nuestros productos de Inteligencia
+                  Legal, que te
+                  ayudarán a hacer
+                  <span>más eficaces y competitivos tus procesos judiciales y de negocio.</span>
+               </p>
+            </div>
+            <div class="description2">
+               <div>
+                  <img src="assets/images/judicial-icon.png" class="nuevos_cleintes_icon" />
+               </div>
+               <div class="description3" style=" text-align: left">
+                  <h4>Inteligencia judicial</h4>
+                  <p>
+                     Sobre oponentes, jueces, juzgados, así como de las especialidades en sí. Una visión global de la
+                     trayectoria de las partes
+                     del proceso y de la evolución de las distintas especialidades que te permite crear estrategias
+                     judiciales más
+                     exitosas.
+                  </p>
+               </div>
+            </div>
+            <div class="description2">
+               <div>
+                  <img src="assets/images/predictiva-icon.png" class="nuevos_cleintes_icon" />
+               </div>
+               <div class="description3" style=" text-align: left">
+                  <h4>Inteligencia predictiva</h4>
+                  <p>
+                     Una predicción del resultado de un litigio concreto en base al análisis y comparativa con millones
+                     de casos previos similares
+                     que te permite tomar la mejor decisión: litigar u optar por una vía alternativa de resolución.
+                  </p>
+               </div>
+            </div>
+            <div class="description2">
+               <div>
+                  <img src="assets/images/negocios-icon.png" class="nuevos_cleintes_icon" />
+               </div>
+               <div class="description3" style=" text-align: left">
+                  <h4>Inteligencia de negocio</h4>
+                  <p>
+                     <b>Captación de clientes</b>. Una visión 360º de los litigios de las distintas empresas españolas
+                     que te permite
+                     orientar tus esfuerzos de captación y crear estrategias comerciales apoyándote en datos objetivos.
+                  </p>
+                  <p>
+                     <b>Análisis de la competencia</b>. Una visión profunda de tus competidores que te permite analizar
+                     su trayectoria,
+                     resultados, clientes, abogados… y elaborar estrategias de diferenciación y posicionamiento más
+                     eficaces.
+                  </p>
+                  <p>
+                     <b>Recursos humanos.</b> Encuentra fácilmente y en base a su trayectoria certificada al
+                     profesional que necesitas,
+                     ya sea un colaborador, un trabajador especializado o un procurador.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="section8">
+      <h3>
+         <b>El poder de la colaboración</b>
+      </h3>
+      <h4>Comunidad colaborativa de abogados certificados</h4>
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-4 text-center block">
+               <img src="assets/images/conecta-icon.png" class="conecta_icon" style="height: 70px; width: 70px;margin-top: 10px;" />
+               <h5 style="margin-top: 10px;">
+                  <b>Conecta</b>
+               </h5>
+               <p>
+                  con otros expertos de tu especialidad y establece vínculos a largo plazo gracias a nuestros chats
+                  entre profesionales, reuniones
+                  y eventos jurídicos.
+               </p>
+            </div>
+            <div class="col-12 col-md-4 text-center block">
+               <img src="assets/images/interactua-icon.png" class="interactua_icon" />
+               <h5>
+                  <b>Interactúa</b>
+               </h5>
+               <p>
+                  en los foros de debate sobre las nuevas tendencias de tu especialidad, donde agrupamos a los mejores
+                  expertos a nivel nacional.
+               </p>
+            </div>
+            <div class="col-12 col-md-4 text-center block">
+               <img src="assets/images/comparte-icon.png" class="comparte_icon" />
+               <h5>
+                  <b>Comparte</b>
+               </h5>
+               <p>
+                  tu conocimiento, aporta tu experiencia y apóyate en tus compañeros para resolver tus dudas.
+               </p>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="section9">
+      <div class="title">
+         <h3>
+            <b>Precios y planes</b>
+         </h3>
+         <h4>Tenemos el plan perfecto para ti.</h4>
+         <div class="btn-group" id="status" data-toggle="buttons">
+            <div (click)="active = 0" [ngClass]="{'active': active == 0}" class="mensual">Mensual</div>
+            <div (click)="active = 1" [ngClass]="{'active': active == 1}" class="semestral">Semestral</div>
+         </div>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-12 text-left block">
+               <table class="table table-center" style="vertical-align:middle !important; background-color:white">
+                  <thead>
+                     <th style="position: relative; border: none !important;" height="200" width="28%" class="text-center cell-border description">
+                        <h5 style="position: absolute; bottom: 20px">Posicionamiento online</h5>
+                     </th>
+                     <th height="200" width="24%" class="text-center cell-bordered">
+                        COMUNIDAD
+                        <br />
+                        <p>Freemium</p>
+                     </th>
+                     <th height="200" width="24%" class="text-center cell-bordered">
+                        PREMIUM ABOGADOS
+                        <p style="font-size: 30px">{{tableData[active].abogados}}
+                           <span style="font-size: 23px">€</span>
+                           <span class="unit">/mes</span>
+                        </p>
+                     </th>
+                     <th height="200" width="24%" class="text-center cell-bordered">
+                        PREMIUM DESPACHOS
+                        <p style="font-size: 30px; margin-top: 12px; margin-bottom: 10px;" [ngClass]="{'last-option-amount': dispatches[dispatches.length - 1].value === selectedDispatch}">
+                           {{tableData[active].despachos[activeDispatch]}}
+                           <span style="font-size: 23px">€</span>
+                           <span class="unit">/mes</span>
+                        </p>
+                        <ng-select style="width: 150px;" (selected)='onSelected($event)' [options]="dispatches"
+                           [(ngModel)]="selectedDispatch" [multiple]="false"></ng-select>
+                     </th>
+                  </thead>
+                  <tbody>
+                     <tr class="text-center cell-border">
+                        <td class="description">Perfil profesional</td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>TODOS LOS ABOGADOS</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Perfil despacho <span>Próximamente</span></td>
+                        <td>OFICINA PRINCIPAL</td>
+                        <td>OFICINA PRINCIPAL</td>
+                        <td>TODOS LAS OFICINAS</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Certificación de trayectoria</td>
+                        <td>
+                           ESPECIALIDAD PRINCIPAL
+                        </td>
+                        <td>
+                           TODAS LAS ESPECIALIDADES
+                        </td>
+                        <td>
+                           TODAS LOS ABOGADOS
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Certificación despacho <span>Próximamente</span></td>
+                        <td>
+                           ESPECIALIDAD PRINCIPAL
+                        </td>
+                        <td>
+                           ESPECIALIDAD PRINCIPAL
+                        </td>
+                        <td>
+                           TODAS LAS ESPECIALIDADES
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Calificaciones (IRJ)</td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Posicionamiento en buscadores</td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Subida resoluciones <span>Próximamente</span></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Sello-Aval para tu web <span>Próximamente</span></td>
+                        <td><img src="assets/images/x.svg" class="x" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr>
+                        <td class="description"></td>
+                        <td rowspan="1" colspan="3"></td>
+                     </tr>
+                     <tr>
+                        <td class="description">
+                           <h6>Captación y gestión de clientes</h6>
+                        </td>
+                        <td rowspan="1" colspan="3"></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Chat integrado</td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Gestión de consultas online</td>
+                        <td>COMISIÓN 20%</td>
+                        <td>SIN COMISIONES</td>
+                        <td>SIN COMISIONES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Visibilidad mejorada</td>
+                        <td>
+                           <img src="assets/images/x.svg" class="x" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Promoción directa <span>Próximamente</span></td>
+                        <td>
+                           <img src="assets/images/x.svg" class="x" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Webs captación <span>Próximamente</span></td>
+                        <td><img src="assets/images/x.svg" class="x" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr>
+                        <td class="description"></td>
+                        <td rowspan="1" colspan="3"></td>
+                     </tr>
+                     <tr>
+                        <td class="description">
+                           <h6>Inteligencia analítica</h6>
+                        </td>
+                        <td rowspan="1" colspan="3"></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de oponentes/RRHH</td>
+                        <td>ESPECIALIDAD PRINCIPAL</td>
+                        <td>TODAS LAS ESPECIALIDADES</td>
+                        <td>TODAS LAS ESPECIALIDADES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de despachos <span>Próximamente</span></td>
+                        <td>ESPECIALIDAD PRINCIPAL</td>
+                        <td>ESPECIALIDAD PRINCIPAL</td>
+                        <td>TODAS LAS ESPECIALIDADES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de procuradores
+                           <span>Próximamente</span>
+                        </td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de jueces
+                           <span>Próximamente</span>
+                        </td>
+                        <td>PAGO POR PERFIL</td>
+                        <td>5 PERFILES AL MES</td>
+                        <td>DESDE 15 PERFILES AL MES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de empresas
+                           <span>Próximamente</span>
+                        </td>
+                        <td>PAGO POR PERFIL</td>
+                        <td>5 PERFILES AL MES</td>
+                        <td>DESDE 15 PERFILES AL MES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de juzgados
+                           <span>Próximamente</span>
+                        </td>
+                        <td>PAGO POR PERFIL</td>
+                        <td>5 PERFILES AL MES</td>
+                        <td>DESDE 15 PERFILES AL MES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description" style="box-shadow: 1px 12px 0px 0px #f5f7f8;">Inteligencia por áreas
+                           jurídicas
+                           <span>Próximamente</span>
+                        </td>
+                        <td><img src="assets/images/x.svg" class="x" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <div class="description2">
+                  <div class="img-title">
+                     <div class="premium">
+                        COMUNIDAD
+                        <p class="freemium" style="font-weight: 500 !important;" class="last-p">Freemium</p>
+                     </div>
+                     <div class="premium-description">
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Perfil profesional
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Perfil despacho <b>(próximamente)</b>
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Certificación trayectoria (especialidad
+                           principal)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Calificaciones IRJ
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Posicionamiento en buscadores
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Chat integrado
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Gestión consultas online (comisión 20%)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Inteligencia oponentes/RRHH
+                           (especialidad principal)
+                        </div>
+                     </div>
+                     <div class="premium">
+                        PREMIUM ABOGADOS
+                        <p style="font-weight: 500 !important;" class="gray-color">
+                           {{tableData[active].abogados}}
+                           <span style="font-size: 23px">€</span>
+                           <span class="unit">/mes</span>
+                        </p>
+                        <p style="font-weight: 500 !important;" class="last-p">
+                           Freemium Comunidad +
+                        </p>
+                     </div>
+                     <div class="premium-description">
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Certificación trayectoria (todas las
+                           especialidades)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Sello-aval para tu web
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Gestión consultas online (sin
+                           comisiones)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Visibilidad mejorada
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Promoción directa
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Webs de captación
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Inteligencia oponentes/RRHH (Todas las
+                           especialidades)
+                        </div>
+                     </div>
+                     <div class="premium">
+                        PREMIUM DESPACHOS
+                        <p style="font-weight: 500 !important;" class="gray-color" [ngClass]="{'last-option-amount': dispatches[dispatches.length - 1].value === selectedDispatch}">
+                           {{tableData[active].despachos[activeDispatch]}}
+                           <span style="font-size: 23px">€</span>
+                           <span class="unit">/mes</span>
+                        </p>
+                        <p style="font-weight: 500 !important;" class="last-p">
+                           Premium abogados +
+                        </p>
+                        <ng-select class="select-on-mobile" (selected)='onSelected($event)' [options]="dispatches"
+                           [(ngModel)]="selectedDispatch" [multiple]="false"></ng-select>
+                     </div>
+                     <div class="premium-description">
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Perfil profesional (Todos los abogados)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Perfil despacho (Todas las oficinas)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Certificación trayectoria (Todos los
+                           abogados)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Certificación despacho (Todas las
+                           especialidades)
+                        </div>
+                     </div>
+                  </div>
+                  <div class="img-div">
+                     <img title="Sello Emérita" alt="Sello Red Expertia Emérita Legal" src="assets/images/group-47@3x.png" class="group-47" />
+                  </div>
+                  <div style="text-align: left; display: flex; align-items:center;padding-top: 20px;">
+                     <p>
+                        ¿Estás posicionado en el Top 20 de tu especialidad en tu CCAA?
+                        <span>
+                           <a routerLink="/aca"> Descubre tu IRJ</a>
+                        </span> y disfruta de todas las ventajas de pertenecer a
+                        <span style="color: #64757d; font-weight: bold">Expertia, la única red de expertos legales.
+                        </span>
+                        <span>
+                           <a routerLink="/soy-abogado-expertia">Descubre cómo funciona
+                           </a>
+                        </span>.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section id="section10">
+      <h3>
+         <b>Por abogados para abogados</b>
+      </h3>
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-4 text-center block">
+               <h4>
+                  <b>Sólo calidad legal</b>
+               </h4>
+               <p>
+                  Queremos poner fin a los servicios que reducen el valor de la profesión y conducen a una
+                  diferenciación basada en precios,
+                  promoviendo soluciones de calidad basadas en información real.
+               </p>
+            </div>
+            <div class="col-12 col-md-4 text-center block">
+               <h4>
+                  <b>Transparencia total</b>
+               </h4>
+               <p>
+                  No basta con decir que eres el mejor abogado en tu especialidad, la clave es demostrarlo. Te ayudamos
+                  a demostrar la calidad
+                  de tu trayectoria para que tus clientes se convenzan por sí mismos.
+               </p>
+            </div>
+            <div class="col-12 col-md-4 text-center block">
+               <h4>
+                  <b>Innovación legaltech</b>
+               </h4>
+               <p>
+                  Tecnología legal que te permite destacar, colaborar, captar clientes y mucho más. Diseñada por
+                  abogados para abogados. No
+                  te quedes atrás, súbete al legaltech y lleva tu reputación y la de tu despacho al siguiente nivel.
+               </p>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section id="section11"></section>
+</div>

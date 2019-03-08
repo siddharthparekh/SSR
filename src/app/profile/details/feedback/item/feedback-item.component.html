@@ -1,0 +1,13 @@
+<section class="profile-feedback-item">
+  <div class="d-flex align-items-center">
+    <span class="profile-feedback-item__name">{{ item.userName }}</span>
+    <span *ngIf="item.isVerified" 
+      class="badge badge-pill badge-success">Verificado</span>
+  </div>
+  <div class="mb-1 d-flex align-items-center">
+    <app-profile-stars [value]="item.ratingAvg"></app-profile-stars>
+    <span class="text-muted mx-2">·</span>
+    <span class="profile-feedback-item__date">{{ item.date | date:'longDate':'es-ES' }}</span>
+  </div>
+  <p class="text-secondary">{{ item.comment }}</p>
+</section>

@@ -1,0 +1,107 @@
+
+.img-profile {
+    display: inline-flex;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.img-circle {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.img-profile img {
+    width: 70px;
+    height: 70px;
+    min-height: 70px;
+    min-width: 70px;
+    margin-right: 20px;
+}
+
+.img-profile-change {
+    margin-top: 14px;
+}
+
+.img-profile-change-button {
+    padding: 0px !important;
+    margin: 0px !important;
+    border: none;
+}
+
+.card-password {
+    margin-top: 30px;  
+}
+
+.card-body-passwrod {
+    padding-top: 50px;  
+    padding-bottom: 30px;
+}
+
+.label-password {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0.4px;
+    color: #303b48;
+}
+
+.card-body-data .form-group {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.card-body-password .form-group {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.card-body-password .form-group:first-child {
+    margin-top: 0px;
+}
+
+.btn-link-text-recovery {
+    margin-top: 23px;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 6px 13px !important;
+    border-radius: 3px;
+    height: 42px !important;
+}
+
+.el-btns-data {
+    padding-top: 50px;
+}
+
+.el-btns-password {
+    padding-top: 60px;
+}
+
+@media (max-width: 767px) {
+  
+    .card-body-data .form-group {
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+
+    .card-body-password .form-group {
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+
+    .label-password {
+        line-height: 2;
+    }
+    
+    .btn-link-text-recovery {
+        padding: 0px !important;
+        height: auto !important;
+        margin-top: 0px;
+    }
+
+    .el-btn-recovery, .el-btns-password, .el-btns-data {
+        padding-top: 20px;
+    }
+    
+}

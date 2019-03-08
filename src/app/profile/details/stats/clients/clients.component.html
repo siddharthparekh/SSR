@@ -1,0 +1,27 @@
+<section class="blockable blockable-dark container-fluid card" [class.blocked]="blocked">
+  <div class="blockable-overlay">
+    <app-blocking-complex
+      hint="Compra el perfil para acceder a todas las estadísticas."
+      (buyProfile)="buyProfile()"
+      ></app-blocking-complex>
+  </div>
+  <div class="blockable-content pt-3 pt-lg-4 px-lg-4 pb-lg-2 px-xl-5">
+    <div class="font-weight-bold mb-3">Tipos de clientes</div>
+    <div class="row">
+      <div class="col-12 col-lg-6 mb-4">
+        <app-profile-clients-donut
+          heading="Defiende a"
+          [individual]="data.demanded.individual"
+          [company]="data.demanded.company"
+          ></app-profile-clients-donut>
+      </div>
+      <div class="col-12 col-lg-6 mb-4">
+        <app-profile-clients-donut
+          heading="Litiga contra"
+          [individual]="data.demanding.individual"
+          [company]="data.demanding.company"
+          ></app-profile-clients-donut>
+      </div>
+    </div>
+  </div>
+</section>

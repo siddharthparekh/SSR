@@ -1,0 +1,22 @@
+<section class="container mb-2">
+  <div class="font-weight-bold mb-2">Artículos</div>
+  <div class="container">
+    <div class="row">
+      <div *ngIf="items.length > 0; then: showArticles; else: showMsgArticles"></div>
+      <ng-template #showMsgArticles>
+        <section class="text-secondary">No hay datos todavía.</section>
+      </ng-template>
+      <ng-template #showArticles>
+        <div *ngFor="let item of items" class="col-12 col-lg-6 mb-4">
+          <app-profile-articles-item [item]="item"></app-profile-articles-item>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!--
+    <div class="text-center">
+      <a href="#">Ver más</a>
+    </div>
+  -->
+</section>

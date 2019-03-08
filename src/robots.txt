@@ -1,0 +1,23 @@
+User-agent: *
+
+Disallow: /blog/wp-login	
+Disallow: /blog/wp-admin	
+Disallow: //blog/wp-includes/	
+Disallow: /blog/*/feed/	
+Disallow: /blog/*/trackback/	
+Disallow: /blog/*/attachment/	
+Disallow: /blog/author/	
+Disallow: /blog*?replytocom	
+Disallow: /blog/tag/*/page/	
+Disallow: /blog/tag/*/feed/	
+Disallow: /blog/tag/*	
+Disallow: /blog/comments/	
+Disallow: /blog/xmlrpc.php	
+Disallow: /blog/*?s=	
+Disallow: /blog/*/*/*/feed.xml	
+Disallow: /blog/?attachment_id*	
+Disallow: /blog/attachment-sitemap.xml	
+Disallow: /blog/category-sitemap.xml	
+Disallow: /blog/post_tag-sitemap.xml	
+Disallow: /blog/author-sitemap.xml	
+Disallow: /blog/*/* 

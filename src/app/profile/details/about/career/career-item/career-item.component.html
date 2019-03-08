@@ -1,0 +1,25 @@
+<section (mouseenter)="btnEditarVisible = true" (mouseleave)="btnEditarVisible = false" class="row">
+   <button *ngIf="btnEditarVisible && itIsMe" (click)="editar()" data-toggle="modal" data-target="#edit-experience" class="position-absolute btn btn-link btn-link-text"
+      style="right:0;z-index: 9">Editar</button>
+  <div class="col-2 pt-2">
+    <div class="work-placeholder--holder">
+      <img src="/assets/images/resumen/work-placeholder.png" alt="">
+    </div>
+  </div>
+  <div class="col-10 pl-lg-0">
+    <span class="d-block h5 font-weight-bold mb-2">{{ item.post }}</span>
+    <span class="d-block">{{ item.agency?.name }}</span>
+    <div class="text-muted mb-1">
+      <span>{{ item.from | date:'LLLL yyyy':'es-ES' }}</span>
+      <span class="mx-1">-</span>
+      <span *ngIf="item.to">{{ item.to | date:'LLLL yyyy':'es-ES' }}</span>
+      <span *ngIf="!item.to">presente</span>
+      <!--<span class="mx-1">|</span>
+      <span>6 meses</span>-->
+      </div>
+      <span *ngIf="item.location" class="d-block text-secondary mb-2">{{ item.location }}</span>
+      <span class="d-block text-secondary">
+         {{ item.summaryText }}
+      </span>
+   </div>
+</section>

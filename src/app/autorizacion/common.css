@@ -1,0 +1,35 @@
+.login-signup__title {
+    font-size: 30px;
+    line-height: 0.73;
+    color: inherit;
+}
+
+.login-signup__question {
+    font-size: 15px;
+    font-weight: normal;
+    color: #64757d;
+    margin-top: 10px;
+}
+
+.login-signup__question a {
+    color: #ff8b34;
+}
+
+.presentation__paragraph {
+    font-size: 13px;
+    font-weight: normal;
+    color: #98abb4;
+}
+
+form input[type='text'],
+form input[type='password'],
+form input[type='email'] {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: inset 1px 1px 3px 0 rgba(152, 171, 180, 0.13);
+    border: solid 1px #e5eaed !important;
+    background-color: #ffffff;
+    margin-top: 10px;
+    padding: 12px 16px;
+    font-size: 15px;
+}

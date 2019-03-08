@@ -1,0 +1,33 @@
+<div class="page-wrapper el-page-wrapper container-fluid">
+   <div class="card-container el-card-container">
+      <div class="container">
+         <h5 class="card-title card-title-account-settings">Mis Abogados</h5>
+         <div class="card card-account-settings" id="table-card" style="background: transparent">
+            <div class="">
+               <div class="d-flex justify-content-center align-items-center">
+                  <div style="height: 200px;" *ngIf="reqInProg">
+                     <app-profile-loading [transparent]="true"></app-profile-loading>
+                  </div>
+               </div>
+               <div *ngIf="!reqInProg && (abogados && abogados.length == 0)" class="el-compras-none d-flex justify-content-center align-items-center">
+                  <span>No has realizado ninguna compra.</span>
+               </div>
+               <div *ngIf="!reqInProg && (abogados && abogados.length>0)" class="table-responsive" style="overflow: hidden">
+                  <div class="abogado" *ngFor="let abogado of abogados | paginate: config; let i = index;">
+                     <app-result-badge (onClickNameEmitter)="goToProfile($event)" 
+                     [mostrarDerechos]="false" 
+                     [abogado]="abogado" 
+                     [hasAccess]="abogado.hasAccess"
+                     [isRanking]="false"></app-result-badge>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="el-pagination-container" *ngIf="abogados && abogados.length > 0">
+         <pagination-template #p="paginationApi" [maxSize]="pagesDisplay" [id]="config.id" (pageChange)="config.currentPage = $event">
+            <app-paginator-template [pag]="p"></app-paginator-template>
+         </pagination-template>
+      </div>
+   </div>
+</div>

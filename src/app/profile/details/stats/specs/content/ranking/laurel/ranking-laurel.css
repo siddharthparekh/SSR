@@ -1,0 +1,34 @@
+.laurel-background-color {
+  background-color: #fff;
+}
+
+.ranking-laurel {
+  display: inline-block;
+  background-image: url("/assets/images/laurel.png");
+  background-size: cover;
+  width: 63px;
+  height: 40px;
+  text-align: center;
+}
+
+.ranking-laurel > span {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-left: 8%;
+}
+
+.ranking-laurel > span::after {
+  content: 'º';
+}
+
+.laurel-text {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 576px) {
+  .laurel-text {
+    justify-content: center;
+  }
+}

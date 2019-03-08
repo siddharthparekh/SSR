@@ -1,0 +1,28 @@
+<section class="blockable blockable-dark ">
+  <section class="blockable-overlay">
+    <app-blocking-complex
+      hint="Compra el perfil para ver la información del abogado."
+    ></app-blocking-complex>
+  </section>
+  <section class="blockable-content container mb-2">
+    <div class="font-weight-bold mb-2">Noticias destacadas</div>
+
+    <div
+      *ngIf="items.length > 0; then: showNews; else: showMsgNews"
+    ></div>
+    <ng-template #showMsgNews>
+      <section class="text-secondary">No hay datos todavía.</section>
+    </ng-template>
+    <ng-template #showNews>
+      <div *ngFor="let item of items" class="mb-4">
+        <app-profile-news-item [item]="item"></app-profile-news-item>
+      </div>
+    </ng-template>
+
+    <!--
+      <div class="text-center">
+        <a href="#">Ver más</a>
+      </div>
+    -->
+  </section>
+</section>

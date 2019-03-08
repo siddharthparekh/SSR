@@ -1,0 +1,94 @@
+<div id="modal-specilist-contract-plans" class="modal fade" role="dialog" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content text-gray p-4">
+         <div class="text-right">
+            <a class="close" data-dismiss="modal" aria-label="Close"><img src="assets/images/x.png" /></a>
+         </div>
+         <div class="row">
+            <div class="col-12 col-sm-12 col-md-6">
+               <div class="col-12">
+                  <h4 class="title text-center"><strong>Descubre quién es este especialista</strong></h4>
+               </div>
+               <div class="col-12 first">
+                  <div class="col-12">
+                     <div class="row mb-4">
+                        <div class="col-md-12 box-card active">
+                           <div class="row">
+                              <div class="recomeded">
+                                 <span>Recomendado</span>
+                              </div>
+                              <div class="col-md-12">
+                                 <h4 class="text-center e4-specialist-plan-title">AVANZADO</h4>
+                                 <div class="text-center font-size-14">Descubre sus datos identificativos, sus datos de
+                                    contacto
+                                    y sus tarifas.</div>
+                                 <div class="text-center"><a target="_blank" routerLink="/abogado/ejemplo01234" class="text-primary e4-specialist-plan-title-example">Ver ejemplo</a></div>
+                              </div>
+                              <div class="col-md-12" *ngIf="gamasProducto && gamasProducto.length > 0">
+                                 <div class="row price-container">
+                                    <div class="col-md-12 text-center price">{{gamasProducto[0]?.precio / 100}}€</div>
+                                    <div class="col-md-12 text-center">
+                                       <button class="btn btn-primary btn-buy" (click)="bay_profile(gamasProducto[0])"
+                                          [disabled]="gamasProducto[0] && gamasProducto[0].isAdded">Comprar</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12 box-card">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <h4 class="text-center e4-specialist-plan-title">ANALÍTICO</h4>
+                                 <div class="text-center font-size-14">La información que necesitas para realizar la elección más eficaz</div>
+                                 <div class="text-center"><a (click)="bay_Analitico(null)" class="text-primary e4-specialist-plan-title-example">Ver ejemplo</a></div>
+                              </div>
+                              <div class="col-md-12" *ngIf="true">
+                                 <div class="row price-container">
+                                    <div class="col-md-12 text-center price">{{gamasProducto[0]?.precio * 1.5 / 100 | number : '1.2-2'}}€</div>
+                                    <div class="col-md-12 text-center">
+                                       <button class="btn btn-primary btn-buy" (click)="bay_Analitico(null)">Comprar</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-1 d-none d-sm-none d-md-block divider">
+               <div class="col-md-6 border-right"></div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-5">
+               <h4 class="title text-center"><strong>Descubre a otros abogados y compara</strong></h4>
+               <div class="col-12">
+                  <div class="col-12">
+                     <div class="row">
+                        <div class="col-md-12 text-center mb-4 box-card ">
+                           <h4 class="e4-specialist-plan-title"><strong>TOP 5</strong></h4>
+                           <div class="value">
+                              25<span>% dto</span>
+                           </div>
+                           <div class="text-center">
+                              <button class="btn btn-primary btn-buy" (click)="bay_Analitico(null)">Comprar</button>
+                           </div>
+                        </div>
+                        <div class="col-md-12 text-center box-card">
+                           <h4 class="e4-specialist-plan-title"><strong>PROMOCIÓN</strong></h4>
+                           <div class="value">
+                              3x2
+                           </div>
+                           <div class="text-center">
+                              <button class="btn btn-primary btn-buy" (click)="bay_Analitico(null)">Comprar</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>

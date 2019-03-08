@@ -1,0 +1,20 @@
+﻿<div id="modal-bay-profile-{{profesionalId}}" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog model-lg">
+        <!-- Modal content-->
+        <div class="modal-content text-gray p-4">
+            <div class="text-right">
+                <a class="close" data-dismiss="modal" aria-label="Close"><img src="assets/images/x.png" /></a>
+            </div>
+            <div class="col-12 mt-4">
+                <h4 class="text-center"><strong>¿Quieres saber quién es?</strong></h4>
+            </div>
+            <div class="col-12 text-center mb-4">
+                <app-button-loader
+                    [showLoading]="loading"
+                    [text]="'Descúbrelo'"
+                    (emitClicked)="bay_profile($event)"
+              ></app-button-loader>
+            </div>
+        </div>
+    </div>
+</div>

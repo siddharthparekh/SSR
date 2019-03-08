@@ -1,0 +1,80 @@
+<ul #sidebarMenu [scrollTop]="sidebarMenu.scrollHeight" id="sidebarMenu" class="sidebar-nav nav nav-tabs flex-md-column"
+   (clickOutside)="clickOutsideMenuSidebar()">
+   <li class="nav-item" *ngIf="userurl1 && userurl2">
+      <a class="nav-link sidebar-nav-link el-nav-link-click" (click)="collapseGroups()" [routerLink]="[userurl1, userurl2]"
+         [class.router-link-active]="miperfil">
+         <img src="assets/images/icons/user-icon.svg" class="sidebar-nav-link-icon"><span class="sidebar-nav-link-text">Mi
+            perfil</span>
+      </a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link sidebar-nav-link el-nav-link-click" (click)="collapseGroups();" routerLink="buscador" routerLinkActive="router-link-active">
+         <img src="assets/images/icons/recursos-icon.svg" class="sidebar-nav-link-icon"><span class="sidebar-nav-link-text">Buscador
+         </span>
+      </a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link sidebar-nav-link el-nav-link-click" (click)="collapseGroups();" routerLink="/proximamente">
+         <img src="assets/images/icons/star-icon.svg" class="sidebar-nav-link-icon"><span class="sidebar-nav-link-text">Posición
+            global</span>
+      </a>
+   </li>
+   <li class="nav-item" routerLinkActive="active-link">
+      <a href="#menu1sub1sub1" class="sidebar-nav-group-link nav-link sidebar-nav-link" data-toggle="collapse"
+         data-parent="#sidebarMenu" aria-expanded="false">
+         <img src="assets/images/icons/message-icon.svg" class="sidebar-nav-link-icon"><span class="sidebar-nav-link-text">Consultas
+            online</span>
+      </a>
+      <div class="collapse sidebar-nav-group" id="menu1sub1sub1">
+         <a [routerLink]="['/ajustesconsultas']" routerLinkActive="router-link-active" class="nav-link sidebar-nav-link">
+            <span class="sidebar-nav-link-text">Configuración</span>
+         </a>
+         <a routerLinkActive="router-link-active" routerLink="/inbox/conversaciones/" class="nav-link sidebar-nav-link">
+            <span class="sidebar-nav-link-text">Consultas</span>
+         </a>
+      </div>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link sidebar-nav-link el-nav-link-click" (click)="collapseGroups();" routerLink="/proximamente">
+         <img src="assets/images/icons/estadisticas-icon.svg" class="sidebar-nav-link-icon">
+         <span class="sidebar-nav-link-text">Estadísticas de uso</span>
+      </a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link sidebar-nav-link el-nav-link-click" (click)="collapseGroups();" routerLink="/proximamente">
+         <img src="assets/images/icons/despacho-icon.svg" class="sidebar-nav-link-icon"><span class="sidebar-nav-link-text">Despacho</span>
+      </a>
+   </li>
+   <li class="nav-item" routerLinkActive="active-link">
+      <a href="#menu1sub1sub3" class="sidebar-nav-group-link nav-link sidebar-nav-link" data-toggle="collapse"
+         data-parent="#sidebarMenu" aria-expanded="false">
+         <img src="assets/images/icons/resoluciones-icon.svg" class="sidebar-nav-link-icon"><span class="sidebar-nav-link-text">Resoluciones</span>
+      </a>
+      <div class="collapse sidebar-nav-group" id="menu1sub1sub3">
+         <a [routerLink]="['/sentences']" routerLinkActive="router-link-active" class="nav-link sidebar-nav-link">
+            <span class="sidebar-nav-link-text">Resoluciones Indexadas</span>
+         </a>
+         <a routerLink="/proximamente" class="nav-link sidebar-nav-link">
+            <span class="sidebar-nav-link-text">Enviar resoluciones</span>
+         </a>
+      </div>
+   </li>
+   <li class="nav-item" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+      <a href="#menu1sub1sub4" class="sidebar-nav-group-link nav-link sidebar-nav-link" data-toggle="collapse"
+         data-parent="#sidebarMenu" aria-expanded="false">
+         <img src="assets/images/icons/facturas-icon.svg" class="sidebar-nav-link-icon"><span class="sidebar-nav-link-text">Pagos
+            y cobros</span>
+      </a>
+      <div class="collapse sidebar-nav-group" id="menu1sub1sub4">
+         <a #lFacturas="routerLinkActive" [routerLink]="['/payments']" routerLinkActive="router-link-active" class="nav-link sidebar-nav-link">
+            <span class="sidebar-nav-link-text">Facturas</span>
+         </a>
+         <a [routerLink]="['/abogadosettings/billing-info']" routerLinkActive="router-link-active" class="nav-link sidebar-nav-link">
+            <span class="sidebar-nav-link-text">Datos de facturación</span>
+         </a>
+         <a [routerLink]="['/abogadosettings/payment-info']" routerLinkActive="router-link-active" class="nav-link sidebar-nav-link">
+            <span class="sidebar-nav-link-text">Métodos de pago</span>
+         </a>
+      </div>
+   </li>
+</ul>

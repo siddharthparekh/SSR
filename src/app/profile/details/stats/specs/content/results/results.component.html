@@ -1,0 +1,8 @@
+<section class="blockable blockable-dark" [class.blocked]="blocked">
+  <section class="blockable-overlay">
+    <app-blocking-complex hint="Compra el perfil para acceder a todas las estadísticas."></app-blocking-complex>
+  </section>
+  <section class="blockable-content">
+    <app-profile-line-chart heading="Evolución de resultados" [items]="items" [isPercentage]="true" [individualLabel]="'Tasa de éxito'"></app-profile-line-chart>
+  </section>
+</section>

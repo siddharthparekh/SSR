@@ -1,0 +1,71 @@
+<section *ngIf="hasError">
+   <app-profile-error [text]="errMsg"></app-profile-error>
+</section>
+<section *ngIf="!isItemsPresent && !hasError">
+   <app-profile-loading></app-profile-loading>
+</section>
+<article *ngIf="isItemsPresent" class="container card py-4 p-lg-5">
+   <!-- valorations header -->
+   <div class="row mb-4">
+      <div class="col">
+         <p class="h6 font-weight-bold">Valoraciones</p>
+      </div>
+   </div>
+   <!-- valorations content -->
+   <section class="row">
+      <!-- Major valoration -->
+      <section class="col-12 col-lg-4 mb-2">
+         <div class="d-flex">
+            <span class="display-4 font-weight-light mr-3 pr-lg-1">
+               {{ mainAverageRating | number: "1.1-1" }}
+            </span>
+            <div class="d-flex flex-column justify-content-center">
+               <app-profile-stars [value]="averageRatingValue" [large]="true"></app-profile-stars>
+               <span class="text-muted">{{ items.length }} opiniones</span>
+            </div>
+         </div>
+      </section>
+
+      <!-- Minor valorations -->
+      <section class="col-12 col-lg-8">
+         <section class="row stars-parent mt-md-3 mt-lg-0 mx-0">
+            <div class="col-12 col-md-4 stars-title--holder">
+               <div class="stars-title">Atención</div>
+               <div class="stars-content--holder">
+                  <app-profile-stars [value]="averageAtencion" [large]="true"></app-profile-stars>
+               </div>
+            </div>
+            <div class="col-12 col-md-4 stars-title--holder">
+               <div class="stars-title">Asesoramiento</div>
+               <div class="stars-content--holder">
+                  <app-profile-stars [value]="averageAsesoramiento" [large]="true"></app-profile-stars>
+               </div>
+            </div>
+            <div class="col-12 col-md-4 stars-title--holder">
+               <div class="stars-title">Calidad/precio</div>
+               <div class="stars-content--holder">
+                  <app-profile-stars [value]="averageCalidad" [large]="true"></app-profile-stars>
+               </div>
+            </div>
+         </section>
+      </section>
+
+      <div class="col-12">
+         <div class="opinions-ranking"></div>
+      </div>
+   </section>
+
+   <div class="feedback-item-list">
+      <div *ngFor="let item of items; first as isFirst" class="mb-3 feedback-item--holder">
+         <app-profile-feedback-item [item]="item" *ngIf="item.comment"></app-profile-feedback-item>
+      </div>
+   </div>
+
+   <!--
+    <div class="row mb-4">
+      <div class="col text-center">
+        <a href="#">Ver más</a>
+      </div>
+    </div>
+  -->
+</article>

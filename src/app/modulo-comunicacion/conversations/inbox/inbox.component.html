@@ -1,0 +1,75 @@
+<div class="container-fluid p-0 conversaciones-container">
+  <div id="left-menu-container-header" class="row m-0" >
+    <div id="left-menu-container" class="col-12 col-md-4 p-0"  *ngIf="screenWidth >= 768 || level < 3">
+      <div class="row m-0 selector-container-container">
+        <div class="col-12 p-0">
+          <div class="selector-container">
+            <select [(ngModel)]="selectedOption" class="form-control custom-select">
+              <option *ngFor="let o of options" [ngValue]="o.id">{{o.option}}</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="inbox" class="row p-0 m-0">
+        <div class="col-12 col-conv p-0" style="-ms-overflow-style: none; background-color:white">
+          <div class="conversations-list">
+            <ul>
+              <li *ngFor="let conv of convs" routerLinkActive="active" [routerLink]="[conv.id]" class="conversation">
+                <div class="d-flex justify-content-between align-items-start w-100">
+                  <div class="d-flex align-items-center content-left">
+                    <div class="foto">
+                      <!-- <span *ngIf="!conv.destinatario?.foto" class="round round-primary">{{conv.destinatario?.nombre |
+                        capitalize | slice:0:1}}</span> -->
+                        <div *ngIf="conv.destinatario?.tipo ===1"> 
+                            <!-- cliente-->
+                            <span *ngIf="!conv.destinatario?.foto" class="round round-primary">{{conv.destinatario?.nombre |
+                                capitalize | slice:0:1}}</span>
+                              <img *ngIf="conv.destinatario?.foto" class="round" src="assets/images/profiles/{{conv.destinatario?.foto}}"
+                              alt="user">
+                          </div>
+                          <div *ngIf="conv.destinatario?.tipo !==1">
+                             <!-- abogado -->
+                              <img *ngIf="!(conv.destinatario?.foto)" class="round" src="assets/images/user-pic-placeholder-abogado.png"
+                              alt="user">
+                              <img *ngIf="conv.destinatario?.foto" class="round" src="assets/images/profiles/{{conv.destinatario?.foto}}"
+                              alt="user">
+                          </div>
+                      <!-- <img *ngIf="conv.destinatario?.foto" class="round" src="assets/images/profiles/{{conv.destinatario?.foto}}"
+                        alt=""> -->
+                    </div>
+                    <div class="d-flex flex-column name m-l-5">
+                      <h6 [class.bold]="!conv.visto" class="nombre-conversa"><a title="{{conv.destinatario?.nombre | capitalize}} {{conv.destinatario?.apellidos | capitalize}}">{{conv.destinatario?.nombre
+                          | capitalize}}<span class="apellidos">{{conv.destinatario?.apellidos | capitalize}}</span></a></h6>
+                      <span [class.bold]="!conv.visto" class="conv-detail">{{conv.asunto}}</span>
+                    </div>
+                  </div>
+                  <div class="conv-fecha-visto text-right">
+                    <span id="fecha" class="fecha" title="{{conv.updatedAt | date: 'medium'}}">
+                      {{conv.updatedAt | date: 'MMM d'}}
+                    </span>
+                    <span class="visto" *ngIf="!conv.visto"><i class="fas fa-circle"></i></span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div *ngIf="convs && convs.length === 0" class="center p-20 text-muted" style="padding-left: 20px !important;">
+              <app-empty-consultas></app-empty-consultas>
+            </div>
+            <div *ngIf="!convs" class="center p-20 text-muted">
+              <h5>Cargando...</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col p-0">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+
+</div>

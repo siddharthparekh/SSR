@@ -1,0 +1,205 @@
+<div id="modal-profile-contract-plans" class="modal fade" role="dialog" aria-hidden="true">
+   <div class="modal-dialog modal-90">
+      <!-- Modal content-->
+      <div class="modal-content text-gray p-4">
+         <div class="text-right pr-4 pt-4">
+            <a class="close" data-dismiss="modal" aria-label="Close"><img src="assets/images/x.svg" /></a>
+         </div>
+         <div class="col-12">
+            <h4 class="title text-center"><strong>Compra un perfil a tu medida</strong></h4>
+         </div>
+         <div class="col-12">
+            <div class="col-12">
+               <div class="row box-row first">
+                  <div class="col-md-3 pb-3">
+                     <span class="text d-none d-sm-block"><strong>Estadísticas Globales</strong></span>
+                  </div>
+                  <div class="col-md-3 text-center box" *ngIf="gamasProducto.length > 0">
+                     <h4><strong class="text-uppercase">Esencial</strong></h4>
+                     <div class="desc">
+                        La información básica para casos pequeños.
+                     </div>
+                     <div class="mt-1 mb-1"><a target="_blank" 
+                        routerLink="/abogado/ejemplo-1234567890" 
+                        [queryParams]="{p:'esencial'}" 
+                        class="text-primary">Ver ejemplo</a></div>
+                     <div class="value">
+                        <div class="mt-3 mb-3">{{gamasProducto[0].precio / 100}}€</div><button class="ml-3 btn btn-primary px-4" [disabled]="gamasProducto[0] && gamasProducto[0].isAdded" (click)="bay_profile(gamasProducto[0])">Comprar</button>
+                     </div>
+                  </div>
+                  <div class="col-md-3 text-center box recomended first" *ngIf="gamasProducto.length > 1">
+                     <div class="recomeded">
+                        Recomendado
+                     </div>
+                     <h4><strong class="text-uppercase">Avanzado</strong></h4>
+                     <div class="desc">
+                        Analiza y compara nuestros mejores abogados.
+                     </div>
+                     <div class="mt-1 mb-1"><a target="_blank" routerLink="/abogado/ejemplo-1234567890" class="text-primary">Ver ejemplo</a></div>
+                     <div class="value">
+                        <div class="mt-3 mb-3">{{gamasProducto[1]?.precio / 100}}€</div>
+                        <button class="ml-3 btn btn-primary px-4"  [disabled]="gamasProducto[1] && gamasProducto[1].isAdded" (click)="bay_profile(gamasProducto[1])">Comprar</button>
+                     </div>
+                  </div>
+                  <div class="col-md-3 text-center box" *ngIf="true || gamasProducto.length > 2">
+                     <h4><strong class="text-uppercase">Analítico</strong></h4>
+                     <div class="desc">
+                        Para empresas y profesionales que quieren una visión exhaustiva.
+                     </div>
+                     <!-- <div class="value" *ngIf="gamasProducto.length <= 2">
+                        <div class="mt-3 mb-3 font-size-14">Próximamente</div>
+                     </div> -->
+                     <div *ngIf="true || gamasProducto.length > 2" class="mt-1 mb-1"><a (click)="bay_Analitico(null)" class="text-primary">Ver ejemplo</a></div>
+                     <div *ngIf="true || gamasProducto.length > 2" class="value">
+                        <div class="mt-3 mb-3">{{gamasProducto[1]?.precio * 1.5 / 100 | number : '1.2-2'}}€</div>
+                        <button class="ml-3 btn btn-primary px-4" (click)="bay_Analitico(null)">Comprar</button>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Calificación global (IRJ)</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center box-x recomended"> <img src="assets/images/x.svg" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Posición global/categoría</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center box-x recomended"> <img src="assets/images/x.svg" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Antigüedad profesional</div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /> </div>
+                  <div class="col-md-3 box text-center recomended"> <img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Casos por áreas</div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /> </div>
+                  <div class="col-md-3 box text-center recomended"> <img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Casos por juzgados (mapa)</div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /> </div>
+                  <div class="col-md-3 box text-center recomended"> <img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Tipos de clientes y oponentes</div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /> </div>
+                  <div class="col-md-3 box text-center recomended"> <img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Evolución del abogado</div>
+                  <div class="col-md-3 box text-center"> 5 AÑOS </div>
+                  <div class="col-md-3 box text-center recomended"> 5 AÑOS</div>
+                  <div class="col-md-3 box text-center"> 10 AÑÓS</div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Analítica global 360º</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center box-x recomended"> <img src="assets/images/x.svg" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3"><strong>Estadísticas Especialidades</strong></div>
+                  <div class="col-md-3 box text-center"> </div>
+                  <div class="col-md-3 box text-center recomended"> </div>
+                  <div class="col-md-3 box text-center"> </div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Calificación especialidades (IRJ)</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center recomended"><img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center">TODAS</div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Posición especialidad/categoría</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center recomended"><img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"><img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Áreas destacadas y especialidades</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center recomended"><img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center">TODAS</div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Experiencia por materias legales</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center recomended"><img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center">TODAS</div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Tasa de éxito especialidad</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center recomended"><img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"><img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Tipos de clientes y oponentes</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center recomended"><img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"><img src="assets/images/check.png" /></div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Evolución en la especialidad</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center recomended"> 5 AÑOS</div>
+                  <div class="col-md-3 box text-center"> 10 AÑÓS</div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3">Analítica avanzada 360º</div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center box-x recomended"> <img src="assets/images/x.svg" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+
+
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3"><strong>Info. contacto</strong></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /> </div>
+                  <div class="col-md-3 box text-center recomended"> <img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3"><strong>Tarifas*</strong></div>
+                  <div class="col-md-3 box text-center box-x"> <img src="assets/images/x.svg" /> </div>
+                  <div class="col-md-3 box text-center recomended"> <img src="assets/images/check.png" /></div>
+                  <div class="col-md-3 box text-center"> <img src="assets/images/check.png" /></div>
+               </div>
+
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3"><strong>Disponibilidad del perfil</strong></div>
+                  <div class="col-md-3 box box-last text-center">1 MES</div>
+                  <div class="col-md-3 box box-last text-center recomended last">1 MES</div>
+                  <div class="col-md-3 box box-last text-center">2 MESES</div>
+               </div>
+               <div class="row box-row">
+                  <div class="col-md-3 mt-3"><small>* Disponibles solo en algunos perfiles</small></div>
+                  <div class="col-md-3"></div>
+                  <div class="col-md-3"></div>
+                  <div class="col-md-3"></div>
+               </div>
+
+               <div class="row botton-row" *ngIf="gamasProducto">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-3 text-center p-4"><button class="btn btn-primary" *ngIf="gamasProducto.length > 0"
+                     (click)="bay_profile(gamasProducto[0])"  [disabled]="gamasProducto[0] && gamasProducto[0].isAdded">Comprar</button></div>
+                  <div class="col-md-3 text-center p-4"><button class="btn btn-primary" *ngIf="gamasProducto.length > 1"
+                  (click)="bay_profile(gamasProducto[1])"  [disabled]="gamasProducto[1] && gamasProducto[1].isAdded">Comprar</button></div>
+                  <div class="col-md-3 text-center p-4"><button class="btn btn-primary" *ngIf="true || gamasProducto.length > 2"
+                     (click)="bay_Analitico(null)"  [disabled]="false">Comprar</button></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

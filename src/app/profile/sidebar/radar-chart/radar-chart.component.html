@@ -1,0 +1,10 @@
+<div class="row">
+    <canvas baseChart
+    style="z-index: 99"
+    [datasets]="radarChartData"
+    [labels]="radarChartLabels"
+    [colors]="radarChartColors"
+    [chartType]="radarChartType"
+    [options]="options"
+    (chartClick)="this.graphId = chartClicked($event, this.graphId)"></canvas>
+</div>

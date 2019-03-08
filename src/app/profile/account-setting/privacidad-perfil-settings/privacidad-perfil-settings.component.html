@@ -1,0 +1,28 @@
+<div>
+   <h5 class="card-title card-title-account-settings">Ajustes de privacidad</h5>
+   <div class="card card-account-settings">
+      <div class="card-body card-body-account-settings">
+         <div *ngFor="let opcion of opcionesPrivacidad">
+            <div *ngIf="opcionSeleccionada == opcion.value || editing" class="row align-items-center" style="min-height: 70px;">
+               <div class="col-12 col-md-4 el-membership-change-text1">
+                  <label class="radio-container">
+                     <input *ngIf="editing" type="radio" [(ngModel)]="opcionSeleccionada" [value]="opcion.value" name="privacidad" />
+                     <span *ngIf="editing" class="checkmark"></span>
+                     {{opcion.label}}
+                  </label>
+               </div>
+               <div class="col-12 col-md-8">
+                  <label class="form-control-value-2">
+                     {{opcion.textDescription}}
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-12 text-right el-btns-data d-flex justify-content-end align-items-center">
+            <button *ngIf="!editing" class="btn btn-link btn-link-text" type="button" (click)="editing = true; org = opcionSeleccionada">Editar</button>
+            <button *ngIf="editing" class="btn btn-link btn-link-text" type="button" (click)="editing = false; opcionSeleccionada = org">Cancelar</button>
+            <app-button-loader *ngIf="editing" [showLoading]="reqInProg" [text]="'Guardar'" (emitClicked)="updatePrivacy()"></app-button-loader>
+         </div>
+      </div>
+   </div>
+</div>

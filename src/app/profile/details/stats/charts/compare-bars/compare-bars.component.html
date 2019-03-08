@@ -1,0 +1,34 @@
+<section>
+  <div [id]="boldWrapperId" data-toggle="tooltip"
+      data-placement="top" data-html="true" data-animation="false">
+    <app-profile-horizontal-bar
+      [value]="boldValue"
+      [max]="max"
+      [bold]="true"
+      ></app-profile-horizontal-bar>
+    <div class="d-none">
+      <div [id]="contentElementId">
+        <div class="text-uppercase mb-2">Casos analizados</div>
+        <div class="d-flex w-100 align-items-center justify-content-center mb-1">
+          <span *ngIf="differencePercent > 0" 
+              class="fas fa-caret-up caret-green fa-lg"></span>
+          <span *ngIf="differencePercent < 0"
+              class="fas fa-caret-down fa-lg caret-red"></span>
+          <span class="ml-1">
+            {{ differencePercent > 0 ? differencePercent : -differencePercent }}%
+          </span>
+        </div>
+        <div *ngIf="differencePercent === 0" class="small hint-gray">igual que la media</div>
+        <div *ngIf="differencePercent > 0" class="small hint-gray">más que la media</div>
+        <div *ngIf="differencePercent < 0" class="small hint-gray">menos que la media</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-profile-horizontal-bar
+      [value]="normalValue"
+      [max]="max"
+      [bold]="false"
+      ></app-profile-horizontal-bar>
+  </div>
+</section>

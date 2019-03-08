@@ -1,0 +1,23 @@
+.profile-feedback-item__name {
+  color: #0f1820;
+  margin-right: 7px;
+}
+
+.profile-feedback-item .badge {
+  color: #44cfad;
+  background-color: transparent;
+  border: 1px solid #44cfad;
+  font-size: 11px;
+}
+
+.profile-feedback-item__date {
+  font-size: 14px;
+  color: #98abb4;
+}
+
+.text-secondary {
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 1.47;
+  color: #64757d;
+}

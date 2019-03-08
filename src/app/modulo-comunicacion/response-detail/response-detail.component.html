@@ -1,0 +1,105 @@
+<div class="container c-style">
+   <div class="row respuesta-header">
+      <div class="col-12 col-md-6 profile-container">
+         <!-- <img src="assets/images/user-pic-placeholder-abogado.png" class="profile-pic">
+      <div class="profile-details">
+        <label class="respuesta-name">{{response?.Mensaje?.Remitente?.nombre |
+          capitalize}}&nbsp;{{response?.Mensaje?.Remitente?.apellidos | capitalize}}</label>
+        <label class="respuesta-subject">{{response?.Mensaje?.Conversacion?.asunto}}</label>
+      </div> -->
+         <img *ngIf="response?.Mensaje.Conversacion.Usuarios[1]?.foto && response?.Mensaje.Remitente"
+            class="profile-pic" src="assets/images/profiles/{{response?.Mensaje?.Conversacion.Usuarios[1].foto}}">
+         <span *ngIf="!(response?.Mensaje.Conversacion.Usuarios[1]?.foto)"
+            class="profile-pic">{{response?.Mensaje?.Conversacion.Usuarios[1].nombre | slice:0:1}}</span>
+         <div class="profile-details">
+            <label class="respuesta-name">{{response?.Mensaje?.Conversacion.Usuarios[1].nombre |
+            capitalize}}&nbsp;{{response?.Mensaje?.Conversacion.Usuarios[1].apellidos | capitalize}}</label>
+            <label class="respuesta-subject">{{response?.Mensaje?.Conversacion?.asunto}}</label>
+         </div>
+      </div>
+      <div class="col-12 col-md-6 respuesta-tail-container">
+         <label class="normal-text respuesta-legal-header">
+            Respuesta Legal
+         </label>
+         <div class="header-separator"></div>
+         <div class="complexity-price-container">
+            <label class="normal-text complexity-text">
+               {{response?.Categoria?.nombre}}
+            </label>
+            <label class="normal-text price-text">
+               {{response?.precio + '€'}}
+            </label>
+         </div>
+      </div>
+   </div>
+   <div class="row respuesta-body">
+      <div class="row respuesta-content-container" *ngIf="response != undefined">
+         <div class="respuesta-content" [innerHTML]="response?.textoBorrador">
+         </div>
+      </div>
+
+      <div id="content" class="d-flex flex-column">
+         <div *ngIf="response?.presupuesto" class="d-flex align-items-center presupuesto">
+            <div id="attachment" class="sombra label label-success d-flex align-items-center">
+               <i class="material-icons">attach_file</i>
+            </div>
+            <div class="presupuesto-card">
+               Presupuesto
+            </div>
+            <div (click)="descargarPresupuesto()" class="middle">
+               <i [style.font-size]="'1.5rem'" [style.color]="'white'" class="material-icons">cloud_download</i>
+            </div>
+         </div>
+      </div>
+
+      <div class="row inner-container" *ngIf="isClient && !wasOpinionShowed">
+         <div class="col">
+            <div class="row abogado-rate-text"> Valora al abogado </div>
+            <div class="row abogado-rate-description"> Puntúa la respuesta legal recibida y deja una opinión sobre el
+               abogado.</div>
+            <div class="row rate-separator atencion">
+               <div class="col-6">
+                  Atención
+               </div>
+               <div class="col-6 stars-container">
+                  <span class="stars-rating" *ngFor="let r of [4,3,2,1,0]">
+                     <span [ngClass]="{'star-rate-selected': r <= rate.atencion || r <= tmpRateAt}"
+                        (mouseout)="tmpRateAt=-1" (mouseover)="tmpRateAt=r" (click)="updateRate('atencion', r)">☆</span>
+                  </span>
+               </div>
+            </div>
+            <div class="row rate-separator">
+               <div class="col-6">
+                  Asesoramiento
+               </div>
+               <div class="col-6 stars-container">
+                  <span class="stars-rating" *ngFor="let r of [4,3,2,1,0]">
+                     <span [ngClass]="{'star-rate-selected': r <= rate.asesoramiento || r <= tmpRateAs}"
+                        (mouseout)="tmpRateAs=-1" (mouseover)="tmpRateAs=r"
+                        (click)="updateRate('asesoramiento', r)">☆</span>
+                  </span>
+               </div>
+            </div>
+            <div class="row rate-separator calidad-precio">
+               <div class="col-6">
+                  Calidad/precio
+               </div>
+               <div class="col-6 stars-container">
+                  <span class="stars-rating" *ngFor="let r of [4,3,2,1,0]">
+                     <span [ngClass]="{'star-rate-selected': r <= rate.calidad || r <= tmpRateCa}"
+                        (mouseout)="tmpRateCa=-1" (mouseover)="tmpRateCa=r" (click)="updateRate('calidad', r)">☆</span>
+                  </span>
+               </div>
+            </div>
+            <div class="row comentario-container">
+               <label class='comentario-label'>Comentario</label>
+               <textarea [(ngModel)]="comentario" class="text-area-comentario"></textarea>
+            </div>
+            <div class="row btn-container">
+               <button class="btn btn-enviar" (click)="sendRating()">Envía</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</div>

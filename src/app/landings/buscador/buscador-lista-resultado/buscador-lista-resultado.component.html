@@ -1,0 +1,77 @@
+<div class="buscador-resultado d-lg-flex" *ngIf="searchResult">
+    <div class="buscador-resultado__block">
+        <div class="buscador-resultado__title-list text-uppercase">
+            <span>{{ searchResult.abogado }}</span>
+        </div>
+        <div
+            *ngIf="
+                searchResult.abogados && searchResult.abogados.length > 0;
+                then: showListAbogado;
+                else: showMsgAbogado
+            "
+        ></div>
+        <ng-template #showListAbogado>
+            <app-buscador-lista
+                [tipo]="buscadorListaTipos.Abogado"
+                [searchResult]="searchResult.abogados"
+                [term]="term"
+            ></app-buscador-lista>
+        </ng-template>
+        <ng-template #showMsgAbogado>
+            <div class="buscador-resultado__msg">
+                <span>¿Por qué no aparece este abogado?</span>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="buscador-resultado__block">
+        <div class="buscador-resultado__title-list text-uppercase">
+            <span>{{ searchResult.despacho }}</span>
+        </div>
+        <div
+            *ngIf="
+                searchResult.despachos && searchResult.despachos.length > 0;
+                then: showListDespacho;
+                else: showMsgDespacho
+            "
+        ></div>
+        <ng-template #showListDespacho>
+            <app-buscador-lista
+                [tipo]="buscadorListaTipos.Despacho"
+                [searchResult]="searchResult.despachos"
+                [term]="term"
+            ></app-buscador-lista>
+        </ng-template>
+        <ng-template #showMsgDespacho>
+            <div class="buscador-resultado__msg">
+                <span>No hay resultados</span>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="buscador-resultado__block">
+        <div class="buscador-resultado__title-list text-uppercase">
+            <span>{{ searchResult.especialidad }}</span>
+        </div>
+        <div
+            *ngIf="
+                searchResult.especialidades &&
+                    searchResult.especialidades.length > 0;
+                then: showListEspecialidad;
+                else: showMsgEspecialidad
+            "
+        ></div>
+        <ng-template #showListEspecialidad>
+            <app-buscador-lista
+                [tipo]="buscadorListaTipos.Especialidad"
+                [searchResult]="searchResult.especialidades"
+                [term]="term"
+            ></app-buscador-lista>
+        </ng-template>
+        <ng-template #showMsgEspecialidad>
+            <div class="buscador-resultado__msg">
+                <span>No hay resultados</span>
+            </div>
+        </ng-template>
+    </div>
+</div>

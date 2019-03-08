@@ -1,0 +1,41 @@
+<div *ngIf="showPrivateProfile" class="fs-private-profile">
+   <div>
+      <h4>Perfil privado</h4>
+      <h6>Este profesional ha decidido no mostar su perfil</h6>
+   </div>
+</div>
+<article *ngIf="!showPrivateProfile" id="profileSummary" class="container-fluid" [ngClass]="{'sticky': sticky, 'nav-lawyer': isNavLawyer }"
+   [ngStyle]="customWidth">
+   <section *ngIf="hasError">
+      <app-profile-error [text]="errMsg"></app-profile-error>
+   </section>
+   <section *ngIf="!data && !hasError" class="container">
+      <app-profile-loading></app-profile-loading>
+   </section>
+   <section *ngIf="data" class="container">
+      <div class="summary--holder">
+         <div class="summary__image--holder">
+            <app-profile-summary-image [data]="data" [sticky]="sticky" [access]="data.access"></app-profile-summary-image>
+         </div>
+         <div class="summary__name-specs--holder">
+            <div class="summary__name--holder">
+               <app-profile-summary-name [data]="data.nameData" [sticky]="sticky" [access]="data.access"></app-profile-summary-name>
+            </div>
+            <div class="summary__specs--holder">
+               <app-profile-summary-specs [data]="data.specsData" [access]="data.access"></app-profile-summary-specs>
+            </div>
+         </div>
+         <div class="summary__irj-button--holder">
+            <div class="summary__irj--holder mb-md-3">
+               <app-irj-indicator (click)="plan();$event.stopPropagation()" [value]="data.irjValue" [blocked]="isIrjBlocked"></app-irj-indicator>
+            </div>
+            <div class="summary__button--holder">
+               <app-profile-talk-button [mode]="mode" [isRegistered]="data.isRegistered" [hasQueries]="data.hasQueries"
+                  [access]="data.access"></app-profile-talk-button>
+            </div>
+         </div>
+         <!-- <span *ngIf="data.isExpertise" class="badge badge-pill badge-warning text-uppercase position-absolute" [ngClass]="{'directory': isDirectory}">Expertia</span> -->
+      </div>
+   </section>
+</article>
+<app-modal-contacto [profesionalId]="mode.identifier"></app-modal-contacto>

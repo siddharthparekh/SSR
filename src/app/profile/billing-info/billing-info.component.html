@@ -1,0 +1,16 @@
+<div class="section">
+  <h5 class="card-title card-title-account-settings">Datos de facturaci&oacute;n</h5>
+  <div class="card card-account-settings">
+    <div class="card-body card-body-account-settings">
+      <app-datos-facturacion [editing]="editing['section2']" [user]="user" [onSubmitForm]="submitDatosFacturacion"
+        (updateFinishEmitter)="updateFacturacion($event)"></app-datos-facturacion>
+      <div class="row el-btns-billing-info">
+        <div class="col-md-12 text-right">
+          <button *ngIf="!editing['section2']" class="btn btn-link btn-link-text" (click)="editing['section2']=true">Editar</button>
+          <button *ngIf="editing['section2']" class="btn btn-link btn-link-bckg" (click)="editing['section2']=false">Cancelar</button>
+          <button *ngIf="editing['section2']" class="btn btn-primary btn-primary-bckg" (click)="onFacturacion()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

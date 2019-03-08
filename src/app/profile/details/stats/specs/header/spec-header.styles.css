@@ -1,0 +1,24 @@
+.spec-header {
+  border-top: 1px solid #e5eaed;
+  position: relative;
+}
+
+.center-content-vertical {
+  align-items: center;
+}
+
+.blocked .name-text {
+  text-align: center;
+}
+
+.scroll-into-this-specialities {
+  position: absolute;
+  left: 0;
+  top: -189px;
+}
+
+@media (min-width: 576px) {
+  .border-irj-indicator {
+    border-left: 1px solid #e5eaed;
+  }
+}

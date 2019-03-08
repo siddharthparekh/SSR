@@ -1,0 +1,17 @@
+<div *ngIf="!itIsMe">
+   <button [disabled]="!hasQueries" (click)="startConversation()" 
+   *ngIf="!isRanking && isRegistered"
+      class="btn btn-outline-primary">
+      <span class="text-uppercase">Habla conmigo</span>
+   </button>
+   <button (click)="buyProfile()" *ngIf="isRanking && access?.level != accessOwner" class="btn btn-outline-primary">
+      <span class="text-uppercase short-size">
+         Descubre Quién es
+      </span>
+   </button>
+   <button  [routerLink]='["/aca"]' *ngIf="!isRanking && !isRegistered && access?.level != accessOwner" class="btn btn-outline-primary">
+      <span class="text-uppercase">
+         <a>¿Eres tú?</a>
+      </span>
+   </button>
+</div>

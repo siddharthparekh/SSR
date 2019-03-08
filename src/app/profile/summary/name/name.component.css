@@ -1,0 +1,59 @@
+.blockable.blocked .blockable-content {
+  color: transparent;
+  opacity: 0.5;
+  text-shadow: 0 0 10px black;
+}
+
+.expertia-badge {
+  margin-top: 6px;
+  margin-left: 2px;
+  font-size: 10px;
+}
+
+span.expertia-badge {
+  display: none;
+}
+
+.sticky span.blockable-content {
+  width: 100%;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.esp-gen {
+  cursor: pointer;
+  z-index: 20;
+  position: absolute;
+}
+
+span.blockable-content.small {
+  margin-left: 78px;
+  min-width: 180px;
+}
+
+@media (min-width: 576px) {
+  .blocked>.blockable-overlay {
+    width: 80% !important;
+  }
+  .blocked.sticky>.blockable-overlay {
+    width: 100% !important;
+  }
+  span.expertia-badge {
+    display: inline;
+  }
+}
+
+@media (max-width: 767px) {
+  .hide-content {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .sticky .expertia-badge {
+    margin-top: 2px;
+    padding-top: 3px;
+  }
+}

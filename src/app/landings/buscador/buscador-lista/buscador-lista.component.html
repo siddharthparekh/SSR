@@ -1,0 +1,20 @@
+<div
+  class="buscador-lista__card-holder d-flex align-items-center justify-content-between"
+  *ngFor="let item of searchResult"
+  (click)="clickedResult(item)"
+>
+  <div
+    class="buscador-lista__card__img-holder"
+    *ngIf="item.foto && item.foto.length > 0"
+    [ngStyle]="getStyle(item.foto)"
+  ></div>
+  <div
+    class="buscador-lista__card__text text-lowercase"
+    [innerHTML]="boldString(item.texto, term)"
+  ></div>
+  <div class="buscador-lista__card__badge" *ngIf="item.esExperto">
+    <span class="badge badge-pill badge-warning text-uppercase">
+      Expertia
+    </span>
+  </div>
+</div>

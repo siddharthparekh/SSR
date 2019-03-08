@@ -1,0 +1,19 @@
+<div *ngIf="isRanking && !hasAccess" class="col-md-8 blockable--holder">
+  <!-- <app-block-content (click)="clickOnCard()" style="top: -5px;" [is_ranking]="isRanking"></app-block-content> -->
+  <div class="blockable-overlay" (click)="plan();$event.stopPropagation()">
+    <app-blocking-simple [isRanking]="isRanking"></app-blocking-simple>
+  </div>
+</div>
+<div *ngIf="abogado" [ngClass]="{ 'block-name': isRanking && !hasAccess }" class="mb-0 d-flex align-items-center">
+  <a *ngIf="hasAccess || !isRanking">{{ abogado?.Usuario?.nombre | capitalize}}</a>
+  <a *ngIf="!hasAccess && isRanking">Samuel De La Fuente</a>
+  <!-- <span *ngIf="!isRanking" class="badge-expertis badge badge-pill badge-warning text-uppercase" data-toggle="tooltip" data-placement="right"
+    data-html="true" title="El acceso a la red Expertia es exclusivo, únicamente acceden los 20 mejores especialistas por CCAA (Top20) de cada una de las especialidades del derecho, independientemente de su antigüedad.">EXPERTIA</span> -->
+</div>
+<span class="text-muted" *ngIf="abogado && abogado.ProfesionalesEstadistica">
+  <span>
+    {{abogado?.Profesional?.localidad | capitalize}}
+    <span *ngIf="abogado?.Profesional?.localidad && abogado?.ProfesionalesEstadistica?.provincia">,</span>
+    {{abogado?.ProfesionalesEstadistica?.provincia | capitalize}}
+  </span>
+</span>

@@ -1,0 +1,78 @@
+:host {
+    --orangeish: #ff8b34;
+    --dark: #0f1820;
+    --pale-grey: #e5eaed;
+    --pale-grey-two: #f5f7f8;
+    --battleship-grey-two: #64757d;
+}
+
+.custom-select {
+    display: block;
+    width: 50%;
+    background: url(assets/images/icons/chevron-down.svg) no-repeat right center;
+    background-origin: content-box;
+    border: 2px solid red !important;
+    border-color: var(--pale-grey) !important;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.grey-text {
+    color: var(--battleship-grey-two);
+}
+
+.pregunta-text {
+    margin-top: 60px;
+    font-size: 18px;
+}
+
+.btn-enviar {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 30px;
+    width: 100%;
+}
+
+.modal-footer {
+    border-top: 0px solid;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.modal-lg {
+    margin-top: 50px !important;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 50px;
+}
+
+.modal-header {
+    border: none;
+    padding: 0;
+}
+
+.modal-body {
+    border: none;
+    padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .modal-footer {
+        padding: unset;
+        margin-top: unset;
+        justify-content: flex-end;
+    }
+    .custom-select {
+        width: 25%;
+    }
+    .btn-enviar {
+        width: unset;
+    }
+}

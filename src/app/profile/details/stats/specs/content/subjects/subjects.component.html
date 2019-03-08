@@ -1,0 +1,29 @@
+<section class="blockable blockable-dark" [class.blocked]="blocked">
+  <section class="blockable-overlay">
+    <app-blocking-complex
+      hint="Compra el perfil para acceder a todas las estadísticas."
+    ></app-blocking-complex>
+  </section>
+  <section class="blockable-content row">
+    <div class="col-12 mb-2">
+      <span class="font-weight-bold">Materias destacadas</span>
+    </div>
+    <div class="col">
+      <ul class="materials-list list-unstyled">
+        <li *ngFor="let item of items">
+          <label class="text-level-1 mb-2">{{ item.name }}</label>
+          <ul class="list-unstyled ml-3 pl-1">
+            <li *ngFor="let item2 of item.children">
+              <label class="text-level-2 mb-1">{{ item2.name }}</label>
+              <ul class="list-unstyled small text-secondary ml-3 pl-1 mb-3">
+                <li class="text-level-3" *ngFor="let item3 of item2.children">
+                  {{ item3.name }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+</section>

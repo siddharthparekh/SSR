@@ -1,0 +1,89 @@
+<form id="form-exp" [formGroup]="expForm" class="form-horizontal form-material">
+   <div formGroupName="empresa" ngui-auto-complete [source]="despachos" [list-formatter]="autocompleListFormatter"
+      [value-formatter]="resultFormatter" (ngModelChange)="onSelect($event)" [tab-to-select]="false" min-chars="1">
+      <input type="text" formControlName="nombre" name="empresa" placeholder="Empresa*"
+         class="form-control" required />
+      <app-error-input *ngIf="
+      expForm.get('empresa.nombre').hasError('required') &&
+      (expForm.get('empresa.nombre').dirty ||
+        expForm.get('empresa.nombre').touched)"
+         [msg]="'Campo obligatorio'"></app-error-input>
+   </div>
+   <br />
+   <div class="form-group">
+      <input type="text" class="form-control" name="cargo" placeholder="Cargo*" formControlName="cargo" required />
+      <app-error-input *ngIf="
+      expForm.get('cargo').hasError('required') &&
+      (expForm.get('cargo').dirty ||
+        expForm.get('cargo').touched)
+    "
+         [msg]="'Campo obligatorio'"></app-error-input>
+   </div>
+   <div class="form-group">
+      <textarea type="text" class="form-control" name="descripcion" rows="5" placeholder="Descripción" formControlName="descripcion"></textarea>
+   </div>
+   <div class="form-group">
+      <label>Inicio*</label>
+      <div formGroupName="fechaInicio" class="d-flex">
+         <select class="form-control" name="mes-inicio" formControlName="month" required>
+            <option value="">Mes</option>
+            <option *ngFor="let month of monthOptions" [value]="month.value">{{month.label}}</option>
+         </select>
+         <select class="form-control" name="ano-inicio" formControlName="year" required>
+            <option value="">Año</option>
+            <option *ngFor="let year of yearsOptions" [value]="year">{{year}}</option>
+         </select>
+      </div>
+      <span *ngIf="
+      (expForm.get('fechaInicio.month').hasError('required') ||
+        expForm.get('fechaInicio.year').hasError('required')) &&
+      ((expForm.get('fechaInicio.month').dirty &&
+        expForm.get('fechaInicio.year').dirty) ||
+        (expForm.get('fechaInicio.year').touched &&
+          expForm.get('fechaInicio.month').touched)
+        )
+    "
+         class="text-danger form-control-feedback">Campo obligatorio</span>
+   </div>
+   <div class="form-group">
+      <label>Fin*</label>
+      <div formGroupName="fechaFin" class="d-flex">
+         <select class="form-control" name="mes-inicio" formControlName="month" required>
+            <option value="">Mes</option>
+            <option *ngFor="let month of monthOptions" [value]="month.value">{{month.label}}</option>
+         </select>
+         <select class="form-control" name="ano-fin" formControlName="year" required>
+            <option value="">Año</option>
+            <option *ngFor="let year of yearsOptions" [value]="year">{{year}}</option>
+         </select>
+      </div>
+      <div class="d-flex flex-column">
+         <app-error-input *ngIf="
+        (expForm.get('fechaFin.month').hasError('required') ||
+          expForm.get('fechaFin.year').hasError('required')) &&
+        ((expForm.get('fechaFin.month').dirty &&
+          expForm.get('fechaFin.year').dirty) ||
+          (expForm.get('fechaFin.year').touched &&
+            expForm.get('fechaFin.month').touched) 
+          )
+      "
+            [msg]="'Campo obligatorio'"></app-error-input>
+         <app-error-input *ngIf="
+        expForm.hasError('coherentDate') &&
+        ((expForm.get('fechaFin.month').dirty &&
+          expForm.get('fechaFin.year').dirty) ||
+          (expForm.get('fechaFin.year').touched &&
+            expForm.get('fechaFin.month').touched) 
+          )
+      "
+            [msg]="'Fecha incorrecta'"></app-error-input>
+      </div>
+   </div>
+   <div class="form-group">
+      <label class="form-input-checkbox">
+         <input type="checkbox" id="checkbox-actu-career-{{uniqueId}}" formControlName="periodo_end_actualidad_exp" name="periodo_end_actualidad_exp" />
+         <label for="checkbox-actu-career-{{uniqueId}}"> Actualmente trabajo aquí </label>
+         <span class="checkmark"></span>
+      </label>
+   </div>
+</form>

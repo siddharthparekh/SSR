@@ -1,0 +1,91 @@
+.blockable {
+  position: relative;
+}
+.blockable.fit-content {
+  width: fit-content;
+}
+.blockable .blockable-overlay {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+}
+.blockable .blockable-overlay > * {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.blockable .blockable-content .blockable-text-lightgray {
+  color: #98abb4;
+}
+.blockable .blockable-content .blockable-text-gray {
+  color: #64757d;
+}
+.blockable.blockable-dark > .blockable-overlay {
+  background-image: linear-gradient(to right, #0f1820, rgba(15, 24, 32, 0.9));
+}
+.blockable.blocked > .blockable-overlay {
+  display: block;
+}
+.blockable.blocked > .blockable-content {
+  color: transparent;
+  opacity: 0.5;
+  text-shadow: 0 0 10px black;
+}
+.blockable .blockable-content .blockable-content__background-color {
+  background-color: rgba(229, 234, 237, 0.25);
+}
+.blockable.blocked > .blockable-content .blockable-text-lightgray,
+.blockable.blocked > .blockable-content .blockable-text-gray {
+  color: transparent;
+}
+
+.categoriaPosiciones {
+  background-color: #d6dde1;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  color: #64757d;  
+  text-align: middle;
+  font-size: 10px;
+  padding: 6.5px 15px;
+cursor: pointer;
+}
+
+.categoriaPosiciones.active {
+  background-color: #f5f7f8;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  color: #ff8b34;  
+  text-align: middle;
+  font-size: 10px;
+  padding: 6.5px 15px;
+cursor: pointer;
+  border: solid 1px #d6dde1;
+}
+
+.globalPosiciones {
+  background-color: #d6dde1;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-color: #d6dde1;
+  border: solid 1px #d6dde1;
+  color: #64757d;
+  font-size: 10px;
+  padding: 6.5px 15px;
+cursor: not-allowed;
+}
+
+.globalPosiciones.active {
+  background-color: #f5f7f8;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-color: #d6dde1;
+  border: solid 1px #d6dde1;
+  color: #ff8b34;
+  font-size: 10px;
+  padding: 6.5px 15px;
+  cursor: not-allowed;
+}

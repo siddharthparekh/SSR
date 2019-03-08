@@ -1,0 +1,142 @@
+:host {
+    --orangeish: #ff8b34;
+    --dark: #0f1820;
+    --pale-grey: #e5eaed;
+    --pale-grey-two: #f5f7f8;
+    --battleship-grey-two: #64757d;
+}
+
+.main-content {
+    overflow-y: auto;
+    height: calc(100vh - 100px);
+}
+
+.radio-group {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.wrap {
+    /* flex-direction: column; */
+    /* align-items: center; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    /* height: 100%; */
+    background-color: var(--pale-grey-two);
+    padding: 30px 0px;
+    height: 100%;
+    overflow: auto;
+}
+
+.content {
+    background-color: white;
+    padding: 2vw;
+    /* max-height: 370px; */
+    overflow-y: hidden;
+    min-height: 700px;
+}
+
+.title-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+input[disabled] + label::after, input[disabled] + datalist + label::after, textarea[disabled] + label::after, select[disabled] + label::after {
+    content: " (disabled)";
+}
+
+input[type=radio] {
+    position: absolute;
+    top: auto;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+}
+
+input[type=radio] + label {
+    display: block;
+    padding-left: 1.5em;
+    text-indent: 1em;
+}
+
+input[type=radio] + label:before, input[type=checkbox] + label:before {
+    content: '';
+    background: #fff;
+    border: .1em solid #ddd;
+    background-color: rgba(255, 255, 255, .8);
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    width: 1.6em;
+    height: 1.6em;
+    margin-left: -1.5em;
+    cursor: pointer;
+    text-align: center;
+    transition: all .1s ease-out;
+}
+
+input[type=radio] + label:before {
+    border-radius: 100%;
+}
+
+input[type=radio]:disabled + label:before {
+    border: .1em solid #ddd;
+    background-color: #ddd;
+}
+
+input[type=radio]:disabled + label {
+    color: #ccc;
+}
+
+input[type=radio]:checked + label:before {
+    background-color: var(--orangeish);
+    box-shadow: inset 0 0 0 .25em white;
+}
+
+.radio-container {
+    display: block;
+    margin-left: 2vw;
+}
+
+.modal-footer {
+    border: 0px solid;
+    margin-top: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2% !important
+}
+
+.btn {
+    width: 100px;
+    height: 35px;
+    object-fit: contain;
+    text-align:center !important;
+  }
+  
+
+.footer-btn {
+    padding-left: 0.7vw;
+    /* padding-right: 2vw; */
+    padding-top: 0.23vw;
+    padding-bottom: 0.5vw;
+}
+
+.text-price {
+    float: right;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+    .wrap {
+        /* height: calc(100vh - 170px); */
+        /* overflow: auto; */
+        padding: 60px 0px;
+    }
+    .content {
+        max-height: unset;
+        /* overflow-y: unset; */
+        padding: 4vw;
+    }
+}

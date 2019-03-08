@@ -1,0 +1,11 @@
+.section {
+   overflow: auto;
+   height: calc(100vh - 70px);
+}
+.card-facturacion {
+   margin: 5% 12%;
+}
+
+.card-body {
+   padding: 2.25rem;
+}

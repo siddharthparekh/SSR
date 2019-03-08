@@ -1,0 +1,240 @@
+
+
+.el-card-container {
+    padding-top: 40px;
+    margin-top: 0px;
+    line-height: normal;
+}
+
+.el-configuration {
+    display: inline-flex;
+}
+
+.el-configuration-title {
+    height: 20px;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0f1820;
+    margin-bottom: 5px;
+}
+.el-configuration-help {
+    height: 17px;
+    font-size: 13px;
+}
+
+/* CHECKBOX */
+.el-configuration-checkbox {
+    margin-left: 10px;
+}
+.el-configuration-input-checkbox {
+    /* visibility: hidden; */
+}
+.onoffswitch {
+    position: relative; width: 70px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; 
+    overflow: hidden; 
+    cursor: pointer;
+    border-radius: 3px;
+    border: solid 1px #f7f7f7;
+    margin: 0px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 40px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "Sí";
+    height: 28px;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.7px;
+    padding-left: 11px;
+    padding-top: 7px;
+    background-color: #53E07D; 
+    color: #30ac55;
+}
+.onoffswitch-inner:after {
+    content: "No";
+    height: 28px;
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.7px;
+    padding-top: 7px;
+    padding-right: 9px;
+    background-color: #F95560; 
+    color: #d14542;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; 
+    width: 30px;
+    height: 24px;
+    margin: 3px;
+    background: #FFFFFF;
+    position: absolute; 
+    top: 0; 
+    bottom: 0;
+    right: 34px;
+    border: none; 
+    border-radius: 2px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+/**
+ * Create the checkbox event for the label
+ */
+.el-configuration-checkbox input[type=checkbox]:checked + label {
+    left: 60px;
+    background: #26ca28;
+}
+/* TARIFAS */
+.el-configuration-tarifa {
+
+}
+.el-configuration-text {
+    min-height: 44px;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: #64757d;
+}
+/* TARIFAS */
+.el-configuration-tarifa {
+    margin-top: 54px;
+}
+.el-configuration-tarifa.el-configuration-title {
+    margin-bottom: 5px;
+}
+.el-configuration-tarifa.el-configuration-text {
+    margin-bottom: 10px;
+}
+/* TABLA */
+.el-table {
+    /* border-radius: 2px; */
+    /* background-color: #ffffff; */
+    /* height: 40px; */
+    /* border: none; */
+  }
+  
+  .el-table td {
+    padding: 20px 0 21px 10px;
+    border-top: 1px solid #e5eaed;
+  }
+
+  .el-table tr:last-child {
+    border-bottom: 1px solid #e5eaed;
+  }
+
+  .el-configuration-tarifa-name {
+    height: 19px;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: #0f1820;
+}
+
+.el-table .form-group {
+    margin: 0px;
+}
+
+.el-table .form-group .form-control {
+    margin: 0px;
+    height: 32px !important;
+    padding-right: 30px !important;
+}
+
+
+.el-configuration-tarifa-minimo {
+    height: 17px;
+    padding-left: 20px;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #98abb4;
+}
+.el-configuration-tarifa-monto {
+    height: 22px;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.1;
+    letter-spacing: normal;
+    text-align: right;
+    color: #0f1820;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+@media (max-width: 767px) {
+
+    .container-fluid {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+  
+    .container {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .card-body-account-settings {
+        padding: 20px 20px 26px 20px;
+    }
+
+    .el-configuration-tarifa-minimo {
+        display: block;
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 1023px) {
+
+    .card-title-account-settings {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .card-body-account-settings {
+        padding: 20px 20px 26px 20px;
+    }
+    
+}

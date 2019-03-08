@@ -1,0 +1,84 @@
+/* TABLA */
+
+.el-table {
+   border-radius: 2px;
+   background-color: #ffffff;
+   height: 40px;
+   border: none;
+}
+
+.el-table thead th {
+   border: none;
+   font-size: 13px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #98abb4;
+   padding: 12px 0 11px 30px;
+}
+
+.el-table td {
+   padding: 31px 0 29px 30px;
+   border-top: 1px solid #e5eaed;
+   font-size: 16px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   color: #0f1820;
+}
+
+.no-enlace {
+   font-weight: normal;
+}
+
+.el-table-importe {
+   font-size: 18px;
+   font-weight: 600;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: 1.11;
+   letter-spacing: normal;
+   text-align: right;
+   color: #0f1820;
+}
+
+.el-download-icon {
+   width: 20px;
+   height: 20px;
+   object-fit: contain;
+   filter: invert(.5) sepia(1) saturate(5) hue-rotate(346deg);
+   /* #ff8b34 */
+}
+
+.el-download-icon:hover {
+   filter: none;
+}
+
+.el-compras-none span {
+   line-height: normal;
+}
+
+@media (max-width: 767px) {
+   .container-fluid {
+      padding-right: 0px;
+      padding-left: 0px;
+   }
+   .container {
+      padding-right: 0px;
+      padding-left: 0px;
+   }
+   .el-table thead th {
+      padding: 12px 10px 11px 10px;
+   }
+   .el-table td {
+      padding: 31px 10px 29px 10px;
+   }
+}
+
+.abogado {
+   margin-bottom: 30px;
+}

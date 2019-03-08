@@ -1,0 +1,57 @@
+<div class="page-wrapper">
+  <div class="container">
+    <label>Introduce el nombre del derecho</label>
+    <ng-select [allowClear]="true" (selected)="getProfile($event)" filterPlaceholder="Busca por nombre del derecho" (keyup)="searchRight($event.target.value)"
+      [options]="derechos"></ng-select>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-12" style="min-height: 1000px;">
+      <ngx-graph class="chart-container" 
+      [legend]="false" 
+      [links]="arbol.links" 
+      [nodes]="arbol.nodos"
+       [curve]="curve"
+      [update$]="update$" 
+      [center$]="center$" 
+      [zoomToFit$]="zoomToFit$"  
+        >
+        <ng-template #defsTemplate>
+          <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto">
+            <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+          </svg:marker>
+        </ng-template>
+        <ng-template #nodeTemplate let-node>
+          <svg:g class="node" [contextMenu]="basicMenu" [contextMenuSubject]="node">
+            <svg:rect [attr.width]="node.width" [attr.height]="node.height" [attr.fill]="node.options.color" />
+            <svg:text alignment-baseline="central" [attr.x]="10" [attr.y]="node.height / 2">{{node.label}}</svg:text>
+
+          </svg:g>
+        </ng-template>
+        <ng-template #linkTemplate let-link>
+          <svg:g class="edge">
+            <svg:path class="line" stroke-width="2" marker-end="url(#arrow)">
+            </svg:path>
+            <svg:text class="edge-label" text-anchor="middle">
+              <textPath class="text-path" [attr.href]="'#' + link.id" [style.dominant-baseline]="link.dominantBaseline" startOffset="50%">
+                {{link.label}}
+              </textPath>
+            </svg:text>
+          </svg:g>
+        </ng-template>
+      </ngx-graph>
+
+    </div>
+
+  </div>
+</div>
+
+<context-menu #basicMenu>
+  <ng-template contextMenuItem (execute)="getParents($event)">
+    Ver padres 
+  </ng-template>
+  <ng-template contextMenuItem divider="true"></ng-template>
+  <ng-template contextMenuItem (execute)="getChildren($event)">
+    Ver hijos
+  </ng-template>
+</context-menu>

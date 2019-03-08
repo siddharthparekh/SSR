@@ -1,0 +1,52 @@
+﻿<div class="page-wrapper">
+   <div class="container-fluid">
+      <div class="col-12 offset-md-2 col-md-8">
+         <div class="row">
+            <div class="col-12 text-center mt-5 mb-3">
+               <h4><b>Tu carrito</b></h4>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-12 box mb-5">
+               <div class="row p-4 table-row" *ngFor="let item of items">
+                  <div class="col-8 col-sm-8 col-md-9">
+                     <div class="row">
+                        <div class="col-12 col-sm-12 col-md-8">
+                           <div class="row product-name">{{item.nombre}}</div>
+                           <div class="row text-muted product-description">
+                              {{item.descripcion | capitalize}}
+                           </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4">
+                           <a class="text-primary product-button" (click)="delete(item)">Eliminar</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-4 col-sm-4 col-md-3 text-right product-price">
+                     <strong>{{item.precio | number : '1.2-2'}} €</strong>
+                  </div>
+               </div>
+               <div class="row p-4">
+                  <div class="col-8 col-sm-8 col-md-9 text-muted sub-title">
+                     SUBTOTAL
+                  </div>
+                  <div class="col-4 col-sm-4 col-md-3 text-right">
+                     <strong class="sub">{{total| number : '1.2-2'}} €</strong>
+                  </div>
+               </div>
+               <div class="row mt-5">
+                  <div class="col-6 col-sm-6 col-md-6 p-0">
+                     <button class="btn btn-secondary px-4" (click)="returnUrl()">
+                        Seguir comprando
+                     </button>
+                  </div>
+                  <div class="
+                        col-6 col-sm-6 col-md-6 text-right p-0">
+                        <button [disabled]="items.length <= 0" class="btn btn-primary px-5" [routerLink]="['/invoice/checkout']">Continuar</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

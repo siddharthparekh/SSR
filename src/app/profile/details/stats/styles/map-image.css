@@ -1,0 +1,13 @@
+.map-image {
+  max-height: 300px;
+  overflow-y: hidden;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+.map-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}

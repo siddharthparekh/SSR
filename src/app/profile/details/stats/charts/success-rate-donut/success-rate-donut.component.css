@@ -1,0 +1,29 @@
+.legend {
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 364px) {
+  .success-rate-donut__details--holder {
+    padding-left: 0.5rem;
+    padding-right: 0.25rem;
+  }
+}
+
+@media (min-width: 365px) {
+  .success-rate-donut__details--holder {
+    left: 10px;
+  }
+}
+
+@media (min-width: 400px) {
+  .success-rate-donut__details--holder {
+    left: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .success-rate-donut__details--holder {
+    left: 0;
+  }
+}

@@ -1,0 +1,187 @@
+<div class="page-wrapper">
+	<div class="title-container p-2 pt-4 pb-4 p-md-5 mb-md-4">
+		<div class="col-12 col-md-12 text-center muestros-abogados">
+			Ranking Legal
+		</div>
+		<div class="col-12 col-md-12 text-center">
+			<div class="mb-4">
+				<span class="pellentesque-habitan">Los mejores abogados por especialidad según su eficacia judicial.</span>
+				<br>
+				<a style="font-size: 0.9em;" routerLink='/metodologia'>¿Cómo funciona?</a>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<!-- BUSCADOR PRINCIPAL DERECHO -->
+		<div class="derecho-holder">
+			<div class="col-12 col-sm-12 p-0 d-flex flex-column align-items-center">
+				<div class="buscador-derecho-box">
+					<ng-select style="box-shadow: none; z-index: 10;" #selectBuscarPorDerecho class="e4-select ng-ranking search not-icon" [allowClear]="true"
+					 (filterInputChanged)="onFilterInputChanged($event)" (selected)="quick_filter()" [(ngModel)]="terminoBuscado" name="derecho"
+					 [options]="derechos" notFoundMsg="No se encontraron resultados." placeholder="Busca por materia específica, palabra clave o área de derecho"
+					 filterPlaceholder="Busca por materia específica, palabra clave o área de derecho">
+					</ng-select>
+				</div>
+				<div class="buscador__info-help-holder">
+					<div class="buscador__info-help">
+						<span (click)="noseCual()">¿No sabes cuál es?</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="d-block d-sm-block d-md-none float-button">
+				<div class="col-12 h-100">
+					<div class="row h-100">
+						<div class="col-6 text-center button" (click)="go_to_directory()">
+							<a href="javascript:;" class="text-primary e4-btn-filtro-mobile">Ir al directorio</a>
+						</div>
+						<div class="text-center col-6 button" (click)="show_filter()">
+							<a href="javascript:;" class="text-primary e4-btn-filtro-mobile">
+								<span>Filtrar </span>
+								<span>
+									<img class="el-btn-filtro-icon" src="assets/images/filtros-icon.png" srcset="assets/images/filtros-icon@2x.png 2x,assets/images/filtros-icon@3x.png 3x"
+									 alt="Filtros">
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<ul class="nav nav-tabs location" id="myTab" role="tablist">
+						<li class="nav-item" (click)="selected_tab = 'state'; clickEstatal();">
+							<div [ngClass]="{'active': selected_tab == 'state'}">
+								<div class="row p-3">
+									<div class="col-md-2 d-none d-sm-none d-md-block">
+										<img src="assets/images/laurel-start.png" />
+									</div>
+									<div class="col-md-10">
+										<a class="nav-link">
+											Estatal</a>
+										<div class="small">
+											<img class="d-block d-sm-block d-md-none" style="width: 16px;" src="assets/images/laurel-start.png" /> Top 100
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item" (click)="selected_tab = 'comunnity'; clickCCAA();">
+							<div [ngClass]="{'active': selected_tab == 'comunnity'}">
+								<div class="row p-3">
+									<div class="col-md-2 d-none d-sm-none d-md-block">
+										<img src="assets/images/laurel-start.png" />
+									</div>
+									<div class="col-md-10">
+										<a class="nav-link">
+											<span class="d-none d-sm-none d-md-block">Comunidad Autónoma</span>
+											<span class="d-block d-sm-block d-md-none">C. Autónoma</span>
+										</a>
+										<div class="small">
+											<img class="d-block d-sm-block d-md-none" style="width: 16px;" src="assets/images/laurel-start.png" /> Top 20
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item" (click)="selected_tab = 'province'; clickProvincia();">
+							<div [ngClass]="{'active': selected_tab == 'province'}">
+								<div class="row p-3">
+									<div class="col-md-2 d-none d-sm-none d-md-block">
+										<img src="assets/images/laurel-start.png" />
+									</div>
+									<div class="col-md-10">
+										<a class="nav-link">Provincia</a>
+										<div class="small">
+											<img class="d-block d-sm-block d-md-none" style="width: 16px;" src="assets/images/laurel-start.png" /> Top 10
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-12 tab-content mb-4">
+					<div class="col-12 tab-pane fade show" [ngClass]="{'show active': selected_tab == 'state'}" id="state" role="tabpanel" aria-labelledby="state-tab">
+					</div>
+					<div class="col-12 tab-pane fade" id="comunnity" role="tabpanel" aria-labelledby="comunnity-tab" [ngClass]="{'show active': selected_tab == 'comunnity'}">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-12 p-2 pl-md-0">
+								<div class="bt-xs el-ranking-buscar-box">
+									<ng-select style="box-shadow: none; z-index: 9 !important;" class="e4-select search not-icon " [(ngModel)]="comunidad" [allowClear]="true"
+									 (selected)="quick_filter()" name="comunidad" [options]="comunidades" placeholder="¿En qué comunidad?" required id="comunidad"></ng-select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 tab-pane fade" id="province" role="tabpanel" aria-labelledby="province-tab" [ngClass]="{'show active': selected_tab == 'province'}">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-12 p-2 pl-md-0">
+								<div class="bt-xs el-ranking-buscar-box">
+									<ng-select style="box-shadow: none; z-index: 9;" class="e4-select search not-icon " [(ngModel)]="provincia" [allowClear]="true"
+									 (selected)="quick_filter()" name="provincia" [options]="provincias" placeholder="¿En qué provincia?" required id="provincia"></ng-select>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-5 col-lg-4 d-none d-sm-none d-md-block">
+					<div class="white-bckg p-3">
+						<app-filtro [filtersFromUrl]="queryParams" [isRanking]="true" (filterAppliedEmitter)="quick_filter($event)"></app-filtro>
+					</div>
+				</div>
+				<div class="col-12 col-md-7 col-lg-8">
+					<div class="col-12">
+						<div class="busqueda p-0">
+							<div class="row">
+								<div class="col-12 p-3 pt-4 pr-5 text-right d-none d-sm-none d-md-block">
+									<a class="text-primary gt" (click)="go_to_directory()">Ir al directorio</a>
+								</div>
+							</div>
+						</div>
+						<div class="comment-widgets" *ngIf="!reqInProg || !hideAbogados">
+							<app-result-badge (onClickNameEmitter)="goToProfile($event, i + 1)" *ngFor="let abogado of abogados; let i = index;" [hasAccess]="abogado.access"
+							 [abogado]="abogado" [isRanking]="true" [index]="abogado.posicion" (onClickBlock)="plan(abogado)"></app-result-badge>
+						</div>
+						<div style="height: 300px;" *ngIf="reqInProg">
+							<app-profile-loading [transparent]="true"></app-profile-loading>
+						</div>
+						<div class="p-5 d-flex justify-content-center" *ngIf="!reqInProg && abogados && abogados.length == 0">
+							<span class="text-muted">No hay resultados con estos filtros.</span>
+						</div>
+						<div class="text-center mb-5" *ngIf="!reqInProg && abogados && abogados.length > 0">
+							<a *ngIf="abogados.length > 0" class="text-primary see-more" (click)="fetchNextSet()">Ver más resultados
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<app-filtro-dialog [filtersFromUrl]="queryParams" [terminoBuscado]="terminoBuscado" [derechos]="derechos" [isRanking]="true"
+ (filterAppliedEmitter)="applyFilter($event)"></app-filtro-dialog>
+
+<app-specialist-contract-plans *ngIf="abogado" [gamasProducto]="abogado?.productos" (onProductSelected)="addProducto($event)"
+ [productosCarrito]="productosCarrito" (onComprarAnalitico)="showProximamente($event)"></app-specialist-contract-plans>
+
+<app-bay-profile [queryParams]="queryParams" [return_url]="return_url"></app-bay-profile>
+
+<div id="modal-profile-contract-plan-analitico" class="modal fade" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content text-gray p-4">
+			<div class="text-right">
+				<a class="close" data-dismiss="modal" aria-label="Close">
+					<img src="assets/images/x.svg" />
+				</a>
+			</div>
+			<app-empty-proximamente></app-empty-proximamente>
+		</div>
+	</div>
+</div>

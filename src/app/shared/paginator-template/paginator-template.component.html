@@ -1,0 +1,20 @@
+<div class="el-pagination text-center">
+  <div class="el-pagination-item el-pagination-previous" [class.disabled]="pag.isFirstPage()">
+    <a *ngIf="!pag.isFirstPage()" (click)="pag.previous()">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+  <div *ngFor="let page of pag.pages" class="el-pagination-item" [class.current]="pag.getCurrent() === page.value">
+    <a (click)="pag.setCurrent(page.value)" *ngIf="pag.getCurrent() !== page.value">
+      <span>{{ page.label }}</span>
+    </a>
+    <div *ngIf="pag.getCurrent() === page.value">
+      <span>{{ page.label }}</span>
+    </div>
+  </div>
+  <div class="el-pagination-item el-pagination-next" [class.disabled]="pag.isLastPage()">
+    <a *ngIf="!pag.isLastPage()" (click)="pag.next()">
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.el-datos-facturacion-form {
+   margin-top: 0px;
+}
+
+.el-datos-facturacion-form .form-group {
+   margin-top: 30px;
+}
+
+.options ul li {
+   padding: 8px 8px !important;
+}
+
+.options ul li.highlighted {
+   background-color: #f5f7f8 !important;
+   color: #212529 !important;
+}
+
+@media (max-width: 767px) {
+   .el-datos-facturacion-form {
+      margin-top: 0px;
+   }
+   .el-datos-facturacion-form .form-group {
+      margin-top: 10px;
+   }
+}
+
+.form-facturacion {
+   border-top: 1px solid;
+   border-bottom: 1px solid;
+   border-color: var(--pale-grey);
+   margin-top: 20px;
+   padding: 10px;
+}

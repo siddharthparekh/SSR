@@ -1,0 +1,22 @@
+<section class="blockable blockable-dark container-fluid card" [class.blocked]="blocked">
+  <section class="blockable-overlay">
+    <app-blocking-complex
+      hint="Compra el perfil para acceder a todas las estadísticas."
+      (buyProfile)="buyProfile()"
+      ></app-blocking-complex>
+  </section>
+  <section class="blockable-content pt-3 pb-3 pt-lg-4 px-lg-4 px-xl-5">
+    <div class="row">
+      <div class="col-12 order-1 col-sm-4 mb-4">
+        <b>Evolución de casos</b>
+      </div>
+      <div class="col-12 order-2 order-sm-3 mb-2">
+        <canvas #globalEvolutionChart>{{ chart }}</canvas>
+      </div>
+      <div class="col-12 order-3 col-sm-8 order-sm-2 text-right">
+        <span class="legend legend-red small mr-3">Número de casos</span>
+        <span class="legend legend-blue small">Tasa de éxito</span>
+      </div>
+    </div>
+  </section>
+</section>

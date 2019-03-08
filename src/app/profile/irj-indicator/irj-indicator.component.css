@@ -1,0 +1,8 @@
+.irj-indicator-width {
+    width: 90px !important;
+}
+
+.irj-indicator-width.auto-width {
+    width: auto !important;
+    max-width: 90px !important;
+}

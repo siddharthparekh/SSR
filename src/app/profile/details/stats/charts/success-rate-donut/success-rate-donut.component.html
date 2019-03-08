@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-12 mb-sm-3 col-lg-6 pl-lg-0 pr-lg-1 mb-3">
+      <canvas #successRateChart>{{ chart }}</canvas>
+  </div>
+  <div class="col-12 col-lg-6 d-flex flex-column justify-content-center  pl-lg-1 pr-lg-0 success-rate-donut__details--holder">
+    <div class="legend mb-3"
+      [class.legend-red]="valueColor === 'red'"
+      [class.legend-blue]="valueColor === 'blue'"
+      [class.legend-indigo]="valueColor === 'indigo'">
+      <span class="d-block mb-2" style="line-height: 0.8;">{{ valueLabel }}</span>
+      <span class="d-block text-secondary" style="line-height: 1;">
+        {{ value | number:'1.0-1' }}%
+      </span>
+    </div>
+    <div class="legend legend-yellow">
+      <span class="d-block mb-2" style="line-height: 0.8;">Alcanzable</span>
+      <span class="d-block text-secondary" style="line-height: 1;">
+        {{ mediaValue | number:'1.0-1' }}%
+      </span>
+    </div>
+  </div>
+</div>

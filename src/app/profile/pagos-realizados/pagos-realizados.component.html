@@ -1,0 +1,196 @@
+<div class="page-wrapper el-page-wrapper container-fluid">
+   <div class="card-container el-card-container">
+      <div *ngIf="!isCustomer" class="el-facturas-fondos-container">
+         <!-- <h1 class="el-facturas-fondos-title">{{ fondos_acumulados }}€</h1>
+      <h3 class="el-facturas-fondos-subtitle">Fondos acumulados</h3> -->
+         <p class="el-facturas-fondos-text">
+            EMÉRITA LEGAL te abonará mediante transferencia bancaria los fondos
+            acumulados a finales de cada mes.
+         </p>
+      </div>
+      <div *ngIf="!isCustomer" class="container el-facturas-tabs">
+         <ul class="nav nav-pills">
+            <li class="nav-item">
+               <a class="nav-link active" [class.active]="tabFacturas == 0" (click)="tabFacturas = 0" href="javascript:;">Todas</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" [class.active]="tabFacturas == 1" (click)="tabFacturas = 1" href="javascript:;">Gastos</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" [class.active]="tabFacturas == 2" (click)="tabFacturas = 2" href="javascript:;">Ingresos</a>
+            </li>
+         </ul>
+      </div>
+      <div *ngIf="tabFacturas == 0">
+         <div class="container">
+            <h5 *ngIf="isCustomer" class="card-title card-title-account-settings">
+               Facturas
+            </h5>
+            <div class="card card-account-settings el-facturas-card" id="table-card">
+               <div class="">
+                  <div class="d-flex justify-content-center align-items-center">
+                     <app-profile-loading *ngIf="reqInProg" [transparent]="true"></app-profile-loading>
+                  </div>
+                  <div *ngIf="!reqInProg && (charges && charges.length == 0)" class="d-flex justify-content-center align-items-center">
+                     <app-empty-facturas></app-empty-facturas>
+                  </div>
+                  <div *ngIf="!reqInProg && (charges && charges.length > 0)" class="table-responsive">
+                     <table class="table text-left el-table">
+                        <thead>
+                           <tr>
+                              <th class="text-left">Emision</th>
+                              <th class="text-left">Idntificador</th>
+                              <th class="text-right">Importe</th>
+                              <th class="text-left"></th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="
+                      let charge of (charges | paginate: config);
+                      let i = index
+                    ">
+                              <td>
+                                 <a class="no-enlace" title="{{charge.createdAt | date: 'short'}}">
+                                    {{ charge.createdAt | date: "dd/MM/yyyy" }}
+                                 </a>
+                              </td>
+                              <td>
+                                 <span>#{{ charge.id }}</span>
+                              </td>
+                              <td class="text-right">
+                                 <span *ngIf="charge.facturaEmerita || this.isCustomer" class="el-table-importe">
+                                    {{ charge.importeBase / 100 }}€
+                                 </span>
+                                 <span *ngIf="!charge.facturaEmerita && !this.isCustomer" class="el-table-importe">
+                                    {{ (charge.importeBase * 0.20) / 100}}€
+                                 </span>
+                              </td>
+                              <td class="text-center">
+                                 <a href="javascript:void(0)" (click)="descargarFactura(i)">
+                                    <img src="assets/images/icons/download.svg" class="el-download-icon" />
+                                 </a>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="el-pagination-container" *ngIf="charges && charges.length > 0">
+            <pagination-template #p="paginationApi" [maxSize]="pagesDisplay" [id]="config.id" (pageChange)="config.currentPage = $event">
+               <app-paginator-template [pag]="p"></app-paginator-template>
+            </pagination-template>
+         </div>
+      </div>
+      <div *ngIf="tabFacturas == 1">
+         <div class="container">
+            <div class="card card-account-settings el-facturas-card" id="table-card-gastos">
+               <div class="">
+                  <div class="d-flex justify-content-center align-items-center">
+                     <app-profile-loading *ngIf="reqInProgGastos" [transparent]="true"></app-profile-loading>
+                  </div>
+                  <div *ngIf="!reqInProgGastos && (gastos && gastos.length == 0)" class="d-flex justify-content-center align-items-center">
+                     <app-empty-facturas></app-empty-facturas>
+                  </div>
+                  <div *ngIf="!reqInProgGastos && (gastos && gastos.length > 0)" class="table-responsive">
+                     <table class="table text-left el-table">
+                        <thead>
+                           <tr>
+                              <th class="text-left">Emision</th>
+                              <th class="text-left">Concepto</th>
+                              <th class="text-right">Importe</th>
+                              <th class="text-left"></th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="
+                      let charge of (gastos | paginate: configGastos);
+                      let i = index
+                    ">
+                              <td>
+                                 <a class="no-enlace" title="{{charge.createdAt | date: 'short'}}">
+                                    {{ charge.createdAt | date: "dd/MM/yyyy" }}
+                                 </a>
+                              </td>
+                              <td>
+                                 <span>{{ charge.importeTotal }}</span>
+                              </td>
+                              <td class="text-right">
+                                 <span class="el-table-importe">{{ charge.importeTotal / 100 }}€</span>
+                              </td>
+                              <td class="text-center">
+                                 <a href="javascript:void(0)" (click)="descargarFactura(i)">
+                                    <img src="assets/images/icons/download.svg" class="el-download-icon" />
+                                 </a>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="el-pagination-container" *ngIf="gastos && gastos.length > 0">
+            <pagination-template #pGastos="paginationApi" [id]="configGastos.id" [maxSize]="pagesDisplay" (pageChange)="configGastos.currentPage = $event">
+               <app-paginator-template [pag]="pGastos"></app-paginator-template>
+            </pagination-template>
+         </div>
+      </div>
+      <div *ngIf="tabFacturas == 2">
+         <div class="container">
+            <div class="card card-account-settings el-facturas-card" id="table-card-ingresos">
+               <div class="">
+                  <div class="d-flex justify-content-center align-items-center">
+                     <app-profile-loading *ngIf="reqInProgIngresos" [transparent]="true"></app-profile-loading>
+                  </div>
+                  <div *ngIf="!reqInProgIngresos && (ingresos && ingresos.length == 0)" class="d-flex justify-content-center align-items-center">
+                     <app-empty-facturas></app-empty-facturas>
+                  </div>
+                  <div *ngIf="!reqInProgIngresos && (ingresos && ingresos.length > 0)" class="table-responsive">
+                     <table class="table text-left el-table">
+                        <thead>
+                           <tr>
+                              <th class="text-left">Emision</th>
+                              <th class="text-left">Concepto</th>
+                              <th class="text-right">Importe</th>
+                              <th class="text-left"></th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="
+                      let charge of (ingresos | paginate: configIngresos);
+                      let i = index
+                    ">
+                              <td>
+                                 <a class="no-enlace" title="{{charge.createdAt | date: 'short'}}">
+                                    {{ charge.createdAt | date: "dd/MM/yyyy" }}
+                                 </a>
+                              </td>
+                              <td>
+                                 <span>{{ charge.importeTotal }}</span>
+                              </td>
+                              <td class="text-right">
+                                 <span class="el-table-importe">{{ charge.importeTotal / 100 }}€</span>
+                              </td>
+                              <td class="text-center">
+                                 <a href="javascript:void(0)" (click)="descargarFactura(i)">
+                                    <img src="assets/images/icons/download.svg" class="el-download-icon" />
+                                 </a>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="el-pagination-container" *ngIf="ingresos && ingresos.length > 0">
+            <pagination-template #pIngresos="paginationApi" [id]="configIngresos.id" [maxSize]="pagesDisplay"
+               (pageChange)="configIngresos.currentPage = $event">
+               <app-paginator-template [pag]="pIngresos"></app-paginator-template>
+            </pagination-template>
+         </div>
+      </div>
+   </div>
+</div>

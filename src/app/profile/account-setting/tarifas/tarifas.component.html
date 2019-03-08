@@ -1,0 +1,21 @@
+<div class="page-wrapper">
+   <div class="container">
+      <div class="row m-t-40">
+         <div class="col-12">
+            <h3>¿Quieres darte de alta en nuestro servicio de consultas online? </h3>
+            <p>Introduce tus tarifas iniciales (Podrás cambiarlos después en los <a routerLink="/accountsettings">ajustes
+                  de cuenta</a>.).
+            </p>
+            <app-ajustes-consultas (updatePreciosFinishEmitter)="onUpdateTarifasFinish($event)" [onUpdatePreciosConsultas]="onSubmitTarifas"></app-ajustes-consultas>
+            <div class="row justify-content-end">
+               <div class="checkbox checkbox-primary pull-left p-t-0">
+                  <input (click)="saveNoVolverMostrar()" id="checkbox-skiptarifas" type="checkbox">
+                  <label for="checkbox-skiptarifas"> No volver a mostrar </label>
+               </div>
+            </div>
+            <button (click)="onSubmitTarifas.next()" class="pull-right btn btn-primary waves-effect waves-light m-t-20">Guardar</button>
+            <button (click)="omitir()" class="pull-right btn btn-secondary m-r-10 m-t-20" type="button">Omitir</button>
+         </div>
+      </div>
+   </div>
+</div>

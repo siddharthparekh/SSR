@@ -1,0 +1,65 @@
+:host {
+    --orangeish: #ff8b34;
+    --dark: #0f1820;
+    --pale-grey: #e5eaed;
+    --pale-grey-two: #f5f7f8;
+    --battleship-grey-two: #64757d;
+    --silver: #d6dde1;
+}
+
+.progress-bar {
+    height: 4px !important;
+}
+
+.title-text {
+    margin-top: 40px;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.subtitle-text {
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+    color: var(--battleship-grey-two);
+}
+
+.orange-text {
+    color: var(--orangeish);
+}
+
+.upload-file-container {
+    border: 2px solid;
+    border-style: dashed;
+    border-radius: 5px;
+    border-color: var(--silver);
+    width: 100%;
+    padding: 2vw;
+    align-self: flex-start;
+}
+
+.upload-text {
+    color: var(--battleship-grey-two);
+}
+
+.el-upload-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .upload-file-container {
+        border: 2px solid;
+        border-style: dashed;
+        border-radius: 5px;
+        border-color: var(--silver);
+        width: 65%;
+        padding: 2vw;
+        align-self: flex-start;
+    }
+}

@@ -1,0 +1,104 @@
+.aca-update-credentials {
+   background-color: #f5f7f8;
+   color: #0f1820;
+   padding: 70px 0;
+   font-weight: 600;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   text-align: center;
+   overflow: hidden;
+ }
+ 
+ .aca-update-credentials__white-box {
+   width: 100%;
+   max-width: 800px;
+   margin: 45px 0;
+   padding: 45px 0;
+   background-color: #ffffff;
+   border-radius: 2px;
+   box-shadow: 2px 4px 6px 0 rgba(152, 171, 180, 0.06);
+ }
+ 
+ .aca-update-credentials__box--holder {
+   width: 100%;
+   max-width: 300px;
+   margin: auto;
+ }
+ 
+ .aca-update-credentials__box__confirmation-icon--holder {
+   display: flex !important;
+   flex-direction: row !important;
+   justify-content: center !important;
+   align-items: center !important;
+ }
+ 
+ .aca-update-credentials__box__confirmation-icon {
+   width: 70px;
+   height: 70px;
+ }
+ 
+ .aca-update-credentials__box__title {
+   margin-top: 20px;
+   font-size: 23px;
+ }
+ 
+ .aca-update-credentials__box__sub-title {
+   margin-top: 10px;
+   font-size: 18px;
+   line-height: 1.39;
+   color: #64757d;
+   font-weight: normal;
+ }
+ 
+ .aca-update-credentials__box__form {
+   margin-top: 10px;
+ }
+ 
+ .aca-update-credentials__box__form .text-danger {
+   text-align: left;
+ }
+ 
+ .form-input-checkbox {
+   margin-top: 20px;
+   text-align: -webkit-left;
+ }
+ 
+ .aca-update-credentials__box__form__button {
+   margin-top: 30px;
+   border-radius: 3px;
+   width: 100%;
+ }
+ 
+ .aca-update-credentials__box__form__button button {
+   font-size: 17px;
+   width: 100%;
+   padding-top: 9px;
+   padding-bottom: 9px;
+   text-transform: uppercase;
+ }
+ 
+ @media (min-width: 576px) {
+   .aca-update-credentials__white-box {
+     width: 80%;
+     margin: 45px auto;
+   }
+ }
+ 
+ @media (min-width: 768px) {
+   .aca-update-credentials__white-box {
+     width: 70%;
+     margin: 100px auto 120px;
+     padding: 52px 0 65px;
+   }
+ }
+ 
+ @media (min-width: 992px) {
+   .aca-update-credentials__white-box {
+     width: 80%;
+     margin: 123px auto 200px;
+     padding: 60px 0 90px;
+   }
+ }
+ 

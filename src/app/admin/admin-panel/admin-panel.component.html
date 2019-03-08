@@ -1,0 +1,133 @@
+<div class="page-wrapper">
+  <div class="container">
+    <div class="row m-t-40">
+      <div class="col-12 col-md-6">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Panel de administración</h4>
+              <ul class="feeds">
+                <li>
+                  <div class="bg-warning">
+                    <i class="fa fa-bell-o text-white"></i>
+                  </div>
+                  <a [routerLink]="['add']">Introducir sentencias</a>
+                </li>
+                <li>
+                  <div class="bg-warning">
+                    <i class="ti-server text-white"></i>
+                  </div>
+                  <a [routerLink]="['sentences']">Administrar sentencias</a>
+                </li>
+                <li>
+                  <div class="bg-warning">
+                    <i class="ti-shopping-cart text-white"></i>
+                  </div>
+                  <a [routerLink]="['registered']">Ver usuarios registrados</a>
+                </li>
+
+                <li>
+                  <div class="bg-warning">
+                    <i class="fa fa-user text-white"></i>
+                  </div>
+                  <a [routerLink]="['detail']">Ver perfil de usuario</a>
+                </li>
+                <li>
+                  <div class="bg-warning">
+                    <i class="fa fa-tree text-white"></i>
+                  </div>
+                  <a [routerLink]="['tree']">Ver árbol de derechos</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 m-t-20">
+        <div class="row text-center">
+          <div class="col-12 col-md-6">
+            <div class="card card-body">
+              <b>{{countRegistrados}}</b> profesionales registrados
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="card card-body">
+              <b>{{countUsers}}</b> clientes registrados
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="card card-body">
+              <b>{{countSentences}}</b> sentencias totales
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="card card-body">
+              <b>{{countOffices}}</b> despachos creados
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Ver saldo consultas</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Selecciona las fechas:
+      <br>
+      <br>
+      <form class="form-material" #consultasForm="ngForm">
+        <div class="form-group row">
+          <div class="col-6">
+            <label for="date1">Inicio</label>
+            <input type="date" [(ngModel)]="date1" id="date1" name="date1" class="form-control" required>
+          </div>
+          <div class="col-6">
+            <label for="date2">Fin</label>
+            <input type="date" [(ngModel)]="date2" id="date2" name="date2" class="form-control" required>
+          </div>
+          <br>
+        </div>
+        <button [disabled]="!consultasForm.form.valid" class="btn btn-primary pull-right m-b-20" (click)="getPagos()">Buscar</button>
+
+      </form>
+      <br style="clear: both" *ngIf="pagosClick">
+      <div *ngIf="pagos && pagos.length > 0 && pagosClick" style="text-align: center">
+        <h4>Resumen de pagos</h4>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <h5>Importe total</h5>
+          </div>
+          <div class="col-4">
+            <h5>Comisión</h5>
+          </div>
+          <div class="col-4">
+            <h5>A pagar</h5>
+          </div>
+
+        </div>
+        <div *ngFor="let pago of pagos" class="row">
+          <div class="col-4">{{pago.importeTotal / 100}}€</div>
+          <div class="col-4">{{(pago.importeBase * 0.2) / 100}}€</div>
+          <div class="col-4">{{(pago.importeTotal - (pago.importeBase * 0.2)) / 100}}€</div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-4">{{totalPagos / 100}}€</div>
+          <div class="col-4">{{totalComisiones / 100}}€</div>
+          <div class="col-4">{{totalCobro / 100}}€</div>
+        </div>
+      </div>
+      <div *ngIf="(!pagos || pagos.length == 0) && pagosClick" style="text-align: center">
+        El abogado no tiene consultas en estas fechas
+      </div>
+    </div>
+  </ng-template>
+</div>

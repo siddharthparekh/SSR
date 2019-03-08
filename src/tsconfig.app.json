@@ -1,0 +1,23 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "target": "es5",
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "module": "es2015",
+    "baseUrl": "",
+    "types": []
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "../node_modules/ng-autosize/**/*.ts",
+    "**/*.ts"
+  ]
+}

@@ -1,0 +1,16 @@
+<section class="container">
+  <div class="font-weight-bold mb-2">Idiomas</div>
+  <div class="text-secondary mb-2">
+    <div
+      *ngIf="languages.length > 0; then: showLangs; else: showMsgLangs"
+    ></div>
+    <ng-template #showMsgLangs>
+      <section class="text-secondary">No hay datos todavía.</section>
+    </ng-template>
+    <ng-template #showLangs>
+      <span *ngFor="let language of languages; let i = index">
+        <span *ngIf="i !== 0" class="mx-1">|</span> <span>{{ language }}</span>
+      </span>
+    </ng-template>
+  </div>
+</section>

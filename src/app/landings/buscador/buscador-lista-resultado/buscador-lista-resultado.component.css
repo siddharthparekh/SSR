@@ -1,0 +1,83 @@
+.buscador-resultado {
+    position: relative;
+    width: 100%;
+    font-family: Source Sans Pro;
+    max-height: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+:host-context(.input-expanded) .buscador-resultado {
+    max-height: 500px;
+}
+
+.buscador-resultado__block {
+    width: 100%;
+}
+
+.buscador-resultado__title-list {
+    background-color: rgba(246, 248, 249, 0.6);
+    text-align: -webkit-left;
+    padding-left: 10px;
+}
+
+.buscador-resultado__title-list span {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #98abb4;
+}
+
+.buscador-resultado__msg {
+    text-align: left;
+    padding: 17px 0 17px 20px;
+}
+
+.buscador-resultado__msg span {
+    font-size: 15px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ff8b34;
+}
+
+@media all and (max-width: 991px) and (max-height: 420px) and (orientation: landscape) {
+    :host-context(.input-expanded) .buscador-resultado {
+        max-height: 270px;
+    }
+}
+
+@media all and (max-width: 767px) and (orientation: landscape) {
+    :host-context(.input-expanded) .buscador-resultado {
+        max-height: 240px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    :host-context(.input-expanded) .buscador-resultado {
+        max-height: 250px;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .buscador-resultado__block {
+        flex: 0 0 33.3333333333%;
+        max-width: 33.3333333333%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+
+/* Leave this line to the end to let correct functionality of the dropdown animation */
+:host-context(.input-expanded-loading) .buscador-resultado {
+    max-height: 0px;
+}

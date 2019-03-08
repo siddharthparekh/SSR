@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+   <!-- Modal content -->
+   <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title">Editar Trayectoria</h4>
+         <button type="button" class="close pull-right" data-dismiss="modal">
+            <i class="material-icons">close</i>
+         </button>
+      </div>
+      <div class="modal-body">
+         <app-career-form 
+         (onValidityChange)="isValid = $event" 
+         (onDataChange)="item = $event"
+         [onInitialCareer]="onSelectItem">
+         </app-career-form>
+      </div>
+      <div class="modal-footer">
+         <app-button-loader [showLoading]="reqInProg" [text]="'Editar'"
+          [disabled]="!isValid" (emitClicked)="editExperiencia()"></app-button-loader>
+      </div>
+   </div>
+</div>

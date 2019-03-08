@@ -1,0 +1,44 @@
+<div class="page-wrapper">
+  <div class="container">
+    <div class="table-responsive m-t-40">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID de Solr</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Fecha de registro</th>
+            <th>Consultas</th>
+            <th>Saldo de consultas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>
+              {{user.idSolr}}
+            </td>
+            <td>
+              {{user.Usuario.nombre}}
+            </td>
+            <td>
+              {{user.Usuario.apellidos}}
+            </td>
+            <td>
+              {{user.Usuario.email}}
+            </td>
+            <td>
+              {{ user.Usuario.fechaRegistro? returnDate(user.Usuario.fechaRegistro) : "Desconocido"}}
+            </td>
+            <td>
+              {{ user.consultas? "Sí" : "No"}}
+            </td>
+            <td>
+              <a (click)="openModal(user.id)">VER</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

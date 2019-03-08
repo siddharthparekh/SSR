@@ -1,0 +1,96 @@
+<div class="register-customer">
+   <div class="register-customer--holder">
+      <div class="login-signup__title">Registro</div>
+      <div class="login-signup__question">
+         <span>Si ya tienes cuenta <a [routerLink]="['/auth/login']">entra</a>
+         </span>
+      </div>
+      <form [formGroup]="registerForm">
+         <div class="register-customer__form__inputs-div--holder">
+            <div class="register-customer__form__inputs-div">
+               <input type="text" placeholder="Nombre" formControlName="name" required />
+               <app-error-input *ngIf="
+              registerForm.get('name').hasError('required') &&
+              registerForm.get('name').touched
+            "
+                  [msg]="'Campo obligatorio'"></app-error-input>
+               <input type="email" placeholder="Email" formControlName="email" required />
+               <app-error-input *ngIf="
+              registerForm.get('email').hasError('email') &&
+              registerForm.get('email').touched
+            "
+                  [msg]="'Email inválido'"></app-error-input>
+            </div>
+            <div class="register-customer__form__inputs-div">
+               <input type="password" placeholder="Contraseña" formControlName="password" required />
+               <app-error-input *ngIf="
+              registerForm.get('password').hasError('password') &&
+              registerForm.get('password').touched
+            "
+                  [msg]="'Clave inválida'"></app-error-input>
+               <input type="password" placeholder="Repetir contraseña" formControlName="passwordRepeat" required />
+               <app-error-input *ngIf="
+              registerForm.get('passwordRepeat').hasError('mismatchedPassword') &&
+              registerForm.get('passwordRepeat').touched
+            "
+                  [msg]="'Clave inválida'"></app-error-input>
+            </div>
+         </div>
+         <p class="presentation__paragraph">
+            Le informamos de que según lo establecido en la normativa en materia de
+            protección de datos y LSSICE, el envío de este formulario supone la
+            aceptación de nuestra política de privacidad y el consentimiento para el
+            tratamiento de sus datos.
+         </p>
+         <p class="presentation__paragraph">
+            La finalidad del tratamiento es el alta en nuestro servicio y la
+            inclusión en nuestro sistema de envío de informaciones periódicas a
+            través de correo electrónico. Su información personal será almacenada
+            por un plazo de 36 meses, a partir de la última actualización, salvo
+            petición en contra por su parte. Le informamos, finalmente, que puede
+            ejercer sus derechos mediante comunicación por escrito y copia del DNI u
+            otro documento identificativo, a través de los correos electrónicos:
+            clientes@emerita.legal (usuarios clientes) y profesionales@emerita.legal
+            (usuarios profesionales)
+         </p>
+         <label class="form-input-checkbox">
+            <input type="checkbox" id="privacyPolicy" name="privacyPolicy" formControlName="privacidad" />
+            <span class="checkmark"></span>
+            <label for="privacyPolicy">
+               He leído y acepto la <a [routerLink]="['/info/privacidad']">política de privacidad</a> y las finalidades
+               previstas
+            </label>
+         </label>
+         <label class="form-input-checkbox input-checkbox-last">
+            <input type="checkbox" id="recibeNews" name="recibeNews" formControlName="noticias" />
+            <span class="checkmark"></span>
+            <label for="recibeNews">Quiero recibir noticias</label>
+         </label>
+         <div class="register-customer__form__register-button--holder">
+            <div class="register-customer__form__register-button">
+               <app-button-loader
+                  [extend]="true"
+                  [type]="'submit'" 
+                  [disabled]="!registerForm.valid"
+                  [showLoading]="reqInProg"
+                  [text]="'Registrarme'"
+                  (emitClicked)="authLogin()"
+               >
+               </app-button-loader>
+            </div>
+         </div>
+      </form>
+   </div>
+
+   <div class="register-customer--holder d-flex flex-wrap">
+      <div class="login-signup__question">
+         Si prefieres puedes registrarte con tu cuenta de Google. Nunca
+         publicaremos nada sin tu permiso.
+      </div>
+      <div class="register-customer__button-holder">
+         <div class="register-customer__button">
+            <app-entrar-gmail-boton [text]="'Regístrate con Gmail'" (emitClicked)="gmailButtonClicked()"></app-entrar-gmail-boton>
+         </div>
+      </div>
+   </div>
+</div>

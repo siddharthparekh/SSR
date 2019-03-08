@@ -1,0 +1,162 @@
+.login {
+  padding: 0 0 100px 0;
+  font-family: Source Sans Pro;
+  color: #000000;
+  background-color: #f5f7f8;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  font-weight: 600;
+}
+
+.login__form--holder {
+  margin-top: 42px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: -4px 4px 6px 0 rgba(152, 171, 180, 0.06);
+}
+
+.login__form-tabs__button {
+  width: 48%;
+  margin-left: 1.333333333333%;
+  background-color: rgba(152, 171, 180, 0.06);
+  color: #ff8b34;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  cursor: pointer;
+}
+
+.login__form-tabs__button:last-child {
+  margin-right: 1.333333333333%;
+}
+
+.user-type-user .login__form-tabs__button:first-child,
+.user-type-lawyer .login__form-tabs__button:last-child {
+  background-color: #ffffff;
+  color: #000000;
+  opacity: 1;
+}
+
+.login__form-tabs__button__icon {
+  width: 30px;
+  height: 30px;
+  color: inherit;
+  margin: 10px 0 10px 35px;
+}
+
+.login__form-tabs
+  > .login__form-tabs__button:last-child
+  > .login__form-tabs__button__icon {
+  width: 27px;
+  height: 27px;
+}
+
+.login__form-tabs__button__icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.login__form-tabs__button__text {
+  font-size: 15px;
+  margin-left: 4px;
+}
+
+.login__form-tabs
+  > .login__form-tabs__button:last-child
+  > .login__form-tabs__button__text {
+  margin-left: 8px;
+}
+
+.login__form {
+  background-color: #ffffff;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  width: 100%;
+  padding: 51px 0 39px;
+}
+
+.login__form--box {
+  padding: 0 20px;
+}
+
+.login__form form > input:first-child {
+  margin-top: 20px !important;
+}
+
+.login__form__recover-password-question {
+  margin-top: 7px;
+  text-align: right;
+  font-size: 13px;
+  color: #ff8b34;
+  line-height: 1;
+}
+
+.form-input-checkbox {
+  margin: 20px 0 0;
+}
+
+.login__form__login-button {
+  margin-top: 30px;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.login__form__login-button button {
+  font-size: 17px;
+  width: 100%;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  text-transform: uppercase;
+}
+
+.login__form__external-login-button--holder {
+  margin-top: 40px;
+  border-top: 1px solid #e5eaed;
+  padding: 39px 20px 0;
+  width: 100%;
+}
+
+.login__form__info-text {
+  margin-top: 10px;
+  font-size: 13px;
+  text-align: center;
+  color: #98abb4;
+}
+
+@media (min-width: 400px) {
+  .login__form--box {
+    padding: 0 50px;
+  }
+  .login__form__external-login-button--holder {
+    padding: 39px 50px 0;
+  }
+  .login__form-tabs__button {
+    width: 49.25%;
+    margin-left: 0;
+  }
+  .login__form-tabs__button:last-child {
+    margin-left: 1.5%;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .login__form--holder {
+    margin-top: 102px;
+  }
+}
+
+@media (min-width: 992px) {
+  .login {
+    padding-bottom: 269px;
+  }
+  .login__form-tabs__button {
+    width: 49.25%;
+    margin-left: 0;
+  }
+  .login__form-tabs__button:last-child {
+    margin-left: 1.5%;
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,573 @@
+.metodologia {
+  padding: 0 0 70px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #64757d;
+  background-color: #f5f7f8;
+}
+
+.metodologia__paragraph {
+  font-size: 18px;
+  line-height: 1.39;
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+.metodologia__paragraph a {
+  color: #ff8b34;
+}
+
+.metodologia__title {
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 0.96;
+  color: #0f1820;
+}
+
+/* Hero view START */
+.metodologia__hero {
+  padding: 80px 20px 61px;
+  box-shadow: 2px 2px 7px 0 rgba(15, 24, 32, 0.13);
+  background-color: #ffffff;
+}
+
+.metodologia__hero__title {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 0.73;
+  color: #0f1820;
+}
+
+.metodologia__hero__sub-title {
+  font-size: 23px;
+  line-height: 1.3;
+  max-width: 280px;
+  margin: 20px auto 0;
+}
+
+.mt-60-100 {
+  margin-top: 60px;
+}
+
+.metodologia__hero__type-user-info--holder {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 80px;
+}
+
+.metodologia__hero__type-user-info__user,
+.metodologia__hero__type-user-info__lawyer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.metodologia__hero__type-user-info__lawyer {
+  margin-top: 60px;
+}
+
+.metodologia__hero__type-user-info__user > .icon--holder,
+.metodologia__hero__type-user-info__lawyer > .icon--holder {
+  width: 70px;
+  height: 70px;
+}
+
+.metodologia__hero__type-user-info__user > .title,
+.metodologia__hero__type-user-info__lawyer > .title {
+  margin-top: 20px;
+  font-size: 23px;
+  color: #0f1820;
+}
+
+.metodologia__hero__type-user-info__user > .sub-title,
+.metodologia__hero__type-user-info__lawyer > .sub-title {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.47;
+}
+/* Hero view END */
+
+/* How it's work view START */
+.metodologia__how-works {
+  padding: 50px 20px 0;
+}
+
+.mt-20-30 {
+  margin-top: 20px;
+}
+
+.metodologia__how-works__source-box--holder {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.metodologia__how-works__source-box {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.metodologia__how-works__source-box:nth-child(3),
+.metodologia__how-works__source-box:nth-child(4) {
+  margin-top: 30px;
+}
+
+.metodologia__how-works__source-box__icon--holder {
+  width: 120px;
+  height: 120px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metodologia__how-works__source-box__text {
+  margin: 20px auto 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f1820;
+  max-width: 96px;
+}
+/* How it's work view END */
+
+/* Steps view START */
+.metodologia__steps {
+  padding: 0 20px;
+  position: relative;
+}
+
+.metodologia__steps__step {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.metodologia__steps__step__line-1,
+.metodologia__steps__step__line-2,
+.metodologia__steps__step__line-3,
+.metodologia__steps__step__line-4,
+.metodologia__steps__step__line-5 {
+  display: none;
+  position: absolute;
+  z-index: 10;
+}
+
+.metodologia__steps__step__text,
+.metodologia__steps__step__img--holder {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.metodologia__steps__step__img--holder {
+  margin-top: 30px;
+}
+
+.metodologia__steps__step__img,
+.metodologia__steps__step__img > img {
+  width: 100%;
+  height: auto;
+}
+/* Steps view END */
+
+/* Along paragraph view START */
+.metodologia__along-paragraph {
+  padding: 70px 20px 0;
+}
+/* Along paragraph view END */
+
+/* FAQ view START */
+.metodologia__faq {
+  padding: 87px 0 0;
+  max-width: 960px;
+  margin: auto;
+}
+
+.metodologia__faq > .metodologia__title {
+  max-width: 335px;
+  margin: auto;
+}
+
+.metodologia__faq__accordion--holder {
+  margin-top: 50px;
+  border-radius: 2px;
+}
+
+.accordion {
+  border-radius: inherit;
+}
+
+.accordion > .card:first-child,
+.accordion > .card:first-child > .card-header__button {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.accordion > .card:last-child,
+.accordion > .card:last-child > .card-header__button,
+.accordion > .card:last-child > .collapse,
+.accordion > .card:last-child > .collapse > .card-body {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.card-header__button {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: unset;
+}
+
+.card-header__button.collapsed {
+  border-bottom: 1px solid #e5eaed;
+}
+
+.accordion > .card:last-child .card-header__button {
+  border: unset;
+}
+
+.accordion > .card .card-body {
+  border-bottom: 1px solid #e5eaed;
+}
+
+.accordion > .card:last-child .card-body {
+  border: unset;
+}
+
+.card-header__button__title {
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.38;
+  text-align: left;
+  color: #0f1820;
+  padding-right: 30px;
+}
+
+.card-header__button__icon--holder {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+}
+
+.card-header__button__icon--holder img {
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
+  transition: transform 0.3s linear;
+}
+
+.card-header__button:not(.collapsed) .card-header__button__icon--holder img {
+  transform: rotate(0deg);
+}
+
+.card-body {
+  padding: 20px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.47;
+  background-color: rgba(229, 234, 237, 0.25);
+}
+/* FAQ view END */
+
+@media (min-width: 576px) {
+  .metodologia__hero,
+  .metodologia__how-works,
+  .metodologia__steps,
+  .metodologia__along-paragraph {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .metodologia__steps {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  /* Hero view START */
+  .metodologia__hero__sub-title {
+    max-width: unset;
+  }
+  /* Hero view END */
+}
+
+@media (min-width: 768px) {
+  .metodologia__hero,
+  .metodologia__how-works,
+  .metodologia__steps,
+  .metodologia__along-paragraph {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .metodologia__hero,
+  .metodologia__how-works,
+  .metodologia__steps,
+  .metodologia__along-paragraph {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .metodologia__title {
+    font-size: 35px;
+    line-height: normal;
+  }
+
+  .metodologia__steps {
+    max-width: 950px;
+    margin: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Hero view START */
+  .metodologia__hero {
+    padding-top: 160px;
+    padding-bottom: 131px;
+  }
+  .metodologia__hero__title {
+    font-size: 50px;
+    line-height: normal;
+  }
+  .metodologia__hero__sub-title {
+    margin-top: 10px;
+    line-height: 1.13;
+  }
+  .mt-60-100 {
+    margin-top: 100px;
+  }
+  .metodologia__hero__type-user-info--holder {
+    margin-top: 160px;
+  }
+  .metodologia__hero__type-user-info__user,
+  .metodologia__hero__type-user-info__lawyer {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 3%;
+  }
+  .metodologia__hero__type-user-info__lawyer {
+    margin-top: 0;
+  }
+  /* Hero view END */
+
+  /* How it's work view START */
+  .metodologia__how-works {
+    padding-top: 80px;
+  }
+  .mt-20-30 {
+    margin-top: 30px;
+  }
+  .metodologia__how-works > .metodologia__paragraph {
+    max-width: 432px;
+  }
+  .metodologia__how-works__source-box--holder {
+    max-width: 960;
+    margin: 50px auto 0;
+  }
+  .metodologia__how-works__source-box {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .metodologia__how-works__source-box {
+    margin-top: 0 !important;
+  }
+  /* How it's work view END */
+
+  /* Steps view START */
+  .metodologia__steps__step {
+    margin-top: 100px;
+    justify-content: space-between !important;
+    position: relative;
+  }
+  .metodologia__steps__step.reverse {
+    flex-direction: row-reverse;
+    justify-content: unset;
+  }
+  .metodologia__steps__step__text {
+    flex: 0 0 360px;
+    max-width: 360px;
+    margin: 0;
+    text-align: left;
+    z-index: 20;
+  }
+  .reverse > .metodologia__steps__step__text {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .reverse > .metodologia__steps__step__text > div {
+    max-width: 360px;
+    margin: auto;
+  }
+  .metodologia__steps__step__img--holder {
+    flex: 1 0 50%;
+    max-width: unset;
+    padding-left: 5%;
+    z-index: 20;
+  }
+  .reverse > .metodologia__steps__step__img--holder {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0;
+  }
+
+  .metodologia__steps__step__line-1,
+  .metodologia__steps__step__line-2,
+  .metodologia__steps__step__line-3,
+  .metodologia__steps__step__line-4,
+  .metodologia__steps__step__line-5 {
+    display: block;
+  }
+  .metodologia__steps__step__line-1 {
+    width: 320px;
+    height: 60px;
+  }
+  .metodologia__steps__step__line-2 {
+    width: 500px;
+    height: 75px;
+  }
+  .metodologia__steps__step__line-3 {
+    width: 470px;
+    height: 70px;
+  }
+  .metodologia__steps__step__line-4,
+  .metodologia__steps__step__line-5 {
+    width: 470px;
+    height: 70px;
+  }
+  .metodologia__steps__step__line-1 {
+    -webkit-transform: rotate(140deg);
+    transform: rotate(140deg);
+    top: -20px;
+    left: 200px;
+  }
+  .metodologia__steps__step__line-2 {
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    top: -95px;
+    left: 145px;
+  }
+  .metodologia__steps__step__line-3 {
+    -webkit-transform: rotate(140deg);
+    transform: rotate(140deg);
+    top: -70px;
+    left: 130px;
+  }
+  .metodologia__steps__step__line-4 {
+    -webkit-transform: rotate(-133deg);
+    transform: rotate(-133deg);
+    top: -75px;
+    left: 75px;
+  }
+  .metodologia__steps__step__line-5 {
+    -webkit-transform: rotate(133deg);
+    transform: rotate(133deg);
+    top: -10px;
+    left: 300px;
+  }
+  /* Steps view END */
+
+  /* Along paragraph view START */
+  .metodologia__along-paragraph {
+    padding-top: 150px;
+  }
+  /* Along paragraph view END */
+
+  /* FAQ view START */
+  .metodologia__faq {
+    padding-top: 140px;
+  }
+  .metodologia__faq > .metodologia__title {
+    max-width: unset;
+    margin: auto;
+  }
+  .metodologia__faq__accordion--holder {
+    margin-top: 40px;
+  }
+  .card-header__button {
+    padding: 30px;
+  }
+  .card-body {
+    padding: 30px 40px;
+  }
+  /* FAQ view END */
+}
+
+@media (min-width: 1200px) {
+  .metodologia__hero,
+  .metodologia__how-works,
+  .metodologia__along-paragraph {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+
+  .metodologia__steps {
+    max-width: 1080px;
+  }
+
+  /* Steps view START */
+  .metodologia__steps__step__line-1 {
+    width: 360px;
+    height: 70px;
+  }
+  .metodologia__steps__step__line-2,
+  .metodologia__steps__step__line-3 {
+    width: 550px;
+    height: 100px;
+  }
+  .metodologia__steps__step__line-4,
+  .metodologia__steps__step__line-5 {
+    width: 520px;
+    height: 80px;
+  }
+  .metodologia__steps__step__line-1 {
+    -webkit-transform: rotate(140deg);
+    transform: rotate(140deg);
+    top: -30px;
+    left: 215px;
+  }
+  .metodologia__steps__step__line-2 {
+    -webkit-transform: rotate(-142deg);
+    transform: rotate(-142deg);
+    top: -90px;
+    left: 190px;
+  }
+  .metodologia__steps__step__line-3 {
+    -webkit-transform: rotate(140deg);
+    transform: rotate(140deg);
+    top: -90px;
+    left: 190px;
+  }
+  .metodologia__steps__step__line-4 {
+    -webkit-transform: rotate(-133deg);
+    transform: rotate(-133deg);
+    top: -60px;
+    left: 130px;
+  }
+  .metodologia__steps__step__line-5 {
+    -webkit-transform: rotate(136deg);
+    transform: rotate(136deg);
+    top: -15px;
+    left: 315px;
+  }
+  /* Steps view END */
+
+  /* Steps view START */
+  .metodologia__steps__step__img--holder {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0;
+  }
+  /* Steps view END */
+}

@@ -1,0 +1,142 @@
+<div class="content text-center">
+  <section id="section1">
+    <div class="container">
+      <h3>El equipo promotor de Emérita Legal</h3>
+      <img width="100%" src="assets/images/nosotros.png" title="Equipo Emérita" alt="Equipo promotor Emérita Legal" />
+      <div class="row">
+        <p class="col-md-6">
+          Está formado por ocho personas que trabajan juntas desde el inicio del proyecto en los distintos
+          departamentos: desarrollo de producto y negocio, datos, soporte y ventas, marketing y plataforma.
+        </p>
+        <p class="col-md-6">
+          El proyecto nace en 2017, de la mano de un equipo consolidado y con experiencia, que ha apostado por un
+          proyecto innovador en un sector muy tradicional hasta el momento; el legal.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="section2">
+    <h3>Qué hacemos</h3>
+    <h4>Revelamos datos nunca antes disponibles de abogados, jueces, partes y de los casos en sí a través de nuestra
+      herramienta de analítica de la BigData judicial.</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <img style="width: 100%" src="assets/images/chart-map.png" title="BigData Judicial" alt="Especialidad y experencia abogados" />
+      </div>
+      <div class="col-md-6">
+        <p><b>La falta de información en el sector legal afecta tanto a los usuarios de servicios legales</b>, que en
+          la búsqueda de abogados no cuentan con datos que les permitan contrastar su experiencia judicial y escoger al
+          más eficaz para su tipo de caso;<b> como a los abogados,</b> que no pueden diferenciarse por su trayectoria,
+          ni
+          tampoco optimizar la captación y gestión de sus clientes y asuntos.</p>
+        <p><b>¿La solución? En Emérita estamos convencidos que pasa por transformar la BigData judicial en información
+            accesible, a través del uso de tecnologías de Inteligencia Artificial.</b></p>
+        <p>Los <b>particulares</b> y <b>empresas</b> utilizan nuestra plataforma para conocer la experiencia judicial
+          de los abogados
+          o despachos, evaluar las alternativas y <b>realizar elecciones más eficaces basadas en datos,</b> no en
+          opiniones.</p>
+        <p><b>Los abogados, y despachos,</b> la utilizan para posicionarse por su trayectoria judicial, <b>demostrar su
+            especialidad o su experiencia real en una materia</b> y para evaluar su rendimiento respecto a perfiles
+          similares. Además, a través de nuestra<b> IA Legal,</b> consiguen crear estrategias judiciales más exitosas,
+          optimizar la contratación de sus RRHH y mejorar sus procesos de captación.</p>
+      </div>
+    </div>
+  </section>
+  <section id="section3">
+    <p>Nuestra misión es proporcionar una <b> visión transparente del sector legal</b> promoviendo la <b>accesibilidad
+        universal a información de interés público</b> contrastada, objetiva e independiente en el ámbito de la
+      justicia.</p>
+  </section>
+  <section id="section4">
+    <div class="row">
+      <div class="col-md-6">
+        <img style="cursor: pointer" data-toggle='modal' data-target='#modal-contacto' width="52px" src="assets/images/contacto-icon.png" /><br />
+        <span>Contacta con nosotros</span>
+      </div>
+      <div class="col-md-6">
+        <img style="cursor: pointer" (click)="download()" width="52px" src="assets/images/download-icon.png" /><br />
+        <span style="cursor: pointer" (click)="download()"> Kit de prensa</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="modal-contacto" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Escríbenos<br />
+          <span class="modal-subtitle">Te responderemos lo antes posible.</span>
+        </h4>
+        <button type="button" class="close pull-right" data-dismiss="modal">
+          <img width="24px" src='assets/images/x@3x.png' />
+        </button>
+      </div>
+      <div *ngIf="errorMsg" class="alert alert-danger alert-rounded">
+        {{errorMsg}}
+        <button (click)="errorMsg=''" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-material" #form="ngForm">
+          <div class="form-group first-row desktop">
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="nombre" required placeholder="Nombre">
+            <input type="email" class="form-control" name="email" [(ngModel)]="email" required placeholder="Email">
+          </div>
+          <div class="mobile">
+            <div class="form-group">
+              <input type="text" class="form-control" name="nombre" [(ngModel)]="nombre" required placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" [(ngModel)]="email" required placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="asunto" [(ngModel)]="asunto" required placeholder="Asunto">
+          </div>
+          <div class="form-group">
+            <textarea type="text" class="form-control" name="texto" rows="7" [(ngModel)]="texto" required placeholder="Escríbenos un mensaje"></textarea>
+          </div>
+          <div class="form-group">
+            <p>Le informamos de que según lo establecido en el RGPD
+              679/2016 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, la LO 15/1999 de 13 de diciembre y
+              la LSSICE 34/2002 de 11 de julio, el envío de este formulario supone la aceptación
+              de nuestra <a target="_blank" [routerLink]="['/info/privacidad']">política de privacidad</a> y el
+              consentimiento para el tratamiento de sus datos. <br><br>
+              La finalidad del tratamiento de estos datos es la gestión de consultas que nos pueda plantear y la
+              inclusión
+              en nuestro sistema de envío de informaciones periódicas a través de correo electrónico. Su información
+              personal será almacenada por un plazo de 36 meses, a partir de la última actualización, salvo petición en
+              contra por su parte. Le informamos,
+              finalmente, que puede ejercer sus derechos mediante comunicación por escrito y copia del DNI u otro
+              documento identificativo, a través de la siguiente dirección de correo electrónico: info@emerita.legal</p>
+          </div>
+          <div style="padding-bottom: 1px" class="form-group" id="check1">
+            <div class="form-input-checkbox checkbox-primary">
+              <input type="checkbox" id="privacidad" name="condiciones" [(ngModel)]='privacidad' required>
+              <span class="checkmark"></span>
+              <label for="privacidad">He leído y acepto la <a target="_blank" [routerLink]="['/info/privacidad']">política
+                  de privacidad</a> y las finalidades previstas.</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-input-checkbox checkbox-primary" id="check2">
+              <input type="checkbox" id="noticias" name="condiciones" [(ngModel)]='noticias' required>
+              <span style="top: 3px" class="checkmark"></span>
+              <label for="noticias">Quiero recibir noticias</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="send()" [disabled]="!form.valid" type="button" class="btn btn-primary waves-effect waves-light">
+          <span *ngIf="!reqInProg">ENVIAR</span>
+          <span class="text-muted" *ngIf="reqInProg">Enviando...></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+ng build -prod --env=prod
+scp -rp dist/* emerita@hl14.dinaserver.com:/home/emerita/web

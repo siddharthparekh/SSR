@@ -1,0 +1,20 @@
+<div class="wrap d-flex flex-column align-items-center p-0 m-0">
+  <h4 class="normal-text title-text">Presupuesto</h4>
+  <p class="normal-text subtitle-text">Adjunta un presupuesto o envía tu respuesta.</p>
+  <div *ngIf="!isUploaded" class="upload-file-container">
+    <input class="d-none" id="id_file" (change)="selectFile($event.target.files[0])" accept=".pdf, .doc, .docx" type="file">
+    <label for="id_file">
+      <img src="assets/images/icons/upload.svg" class="el-upload-icon">
+    <span *ngIf="!reqInProg" class="normal-text upload-text">Arrastra aquí el archivo o <span class="orange-text">búscalo</span></span>
+    </label>
+    <app-profile-loading *ngIf="reqInProg"></app-profile-loading>
+  </div>
+  <div *ngIf="isUploaded">
+    <i style="font-size: 60px;color: #101820;" class="mdi mdi-file"></i>
+    <span class="m-t-10">{{nombre}}</span>
+    <div class="progress" style="width: 100%;" *ngIf="uploadInfo?.progress">
+      <div class="progress-bar bg-emerita-color wow animated progress-animated" [style.width.%]="uploadInfo.progress"
+        role="progressbar"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+:host {
+    --dark: #0f1820;
+}
+
+
+.card-title {
+    font-size: 23px;
+    color: var(--dark);
+}
+
+.modal-header {
+    padding: 50px 60px 10px 60px;
+}

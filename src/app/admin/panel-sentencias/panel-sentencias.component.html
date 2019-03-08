@@ -1,0 +1,233 @@
+<div class="page-wrapper">
+  <div class="container">
+    <div class="container">
+      <div class="row"><br>
+        <div class="col-12 col-md-6 offset-md-3 m-t-40">
+          <div class="form-group">
+            <textarea #area class="form-control" rows="8" cols="80"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn pull-right" (click)="sendTextToStructure(area.value)" type="button">Enviar texto de la sentencia</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+    <form [formGroup]="formSentencia" novalidate>
+      <div class="row"><br>
+        <div class="col-12 col-md-8 offset-md-2">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <h4>Campos identificados</h4>
+              <div class="form-group">
+                <label>ECLI</label>
+                <input type="text" class="form-control" formControlName="ecli" readonly="true">
+              </div>
+              <div class="form-group">
+                <label>Nº Recurso/Proceso</label>
+                <input type="text" class="form-control" formControlName="numeroResolucion" readonly="true">
+              </div>
+              <div class="form-group">
+                <label>Fecha</label>
+                <input type="date" class="form-control" formControlName="fecha" readonly="true">
+              </div>
+              <div class="form-group">
+                <label>Tipo Resolucion</label>
+                <select class="form-control" disabled formControlName="tipoResolucion" readonly="true">
+                  <option value="SENTENCIA">Sentencia</option>
+                  <option value="AUTO">Auto</option>
+                  <option value="AUTO ACLARATORIO">Auto Aclaratorio</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Nº Resolución</label>
+                <input type="text" class="form-control" formControlName="numeroSentencia" placeholder="" readonly="true">
+              </div>
+              <div class="form-group">
+                <label>Juzgado</label>
+                <input type="text" class="form-control" formControlName="juzgado" placeholder="" readonly="true">
+              </div>
+              <div class="form-group">
+                <label>Partido Judicial</label>
+                <input type="text" class="form-control" formControlName="localizacionPartidoJudicial" placeholder="" readonly="true">
+              </div>
+              <div class="form-group">
+                Juzgado
+                <input type="text" class="form-control" formControlName="numeroSeccion" placeholder="Nº/Sección" readonly="true">
+                <input type="text" class="form-control" formControlName="sala" placeholder="Sala" readonly="true">
+              </div>
+            </div>
+            <div class="datosSentenciaCorregidos col-12 col-md-6">
+              <h4>Campos corregidos</h4>
+              <div class="form-group">
+                <label>ECLI</label>
+                <input type="text" class="form-control" formControlName="ecliCor">
+              </div>
+              <div class="form-group">
+                <label>Nº Recurso/Proceso</label>
+                <input type="text" class="form-control" formControlName="numeroResolucionCor">
+              </div>
+              <div class="form-group">
+                <label>Fecha Corregida</label>
+                <input type="date" class="form-control" formControlName="fechaCor" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Tipo Resolucion</label>
+                <select class="form-control" formControlName="tipoResolucionCor">
+                  <option [ngValue]="null"></option>
+                  <option value="SENTENCIA">Sentencia</option>
+                  <option value="AUTO">Auto</option>
+                  <option value="AUTO ACLARATORIO">Auto Aclaratorio</option>
+              </select>
+              </div>
+              <div class="form-group">
+                <label>Nº Resolución</label>
+                <input type="text" class="form-control" formControlName="numeroSentenciaCor" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Juzgado</label>
+                <select class="form-control" formControlName="juzgadoCor">
+                  <option [value]="null"></option>
+                    <option *ngFor="let partido of partidos.nombres" [value]="partido.nombre">{{partido.nombre}}</option>
+                  </select> </div>
+              <div class="form-group">
+                <label>Partido Judicial</label>
+                <select class="form-control" formControlName="localizacionPartidoJudicialCor">
+                  <option [ngValue]="null"></option>
+                    <option *ngFor="let partido of partidos.localizaciones" [value]="partido.localizacion">{{partido.localizacion}}</option>
+                  </select> </div>
+              <div class="form-group">
+                Juzgado
+                <input type="text" class="form-control" formControlName="numeroSeccionCor" placeholder="Nº/Sección">
+                <select class="form-control" formControlName="salaCor">
+                  <option [ngValue]="null"></option>
+                  <option *ngFor="let sala of salas" [ngValue]="sala.id">{{sala.nombre}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div formArrayName="fallos" class="datosVarios">
+        <h4>Fallos</h4>
+        <div class="p-t-30" *ngFor="let fallo of formSentencia.get('fallos')['controls']; let i = index">
+          <h4>Fallo {{fallo.value.id}}</h4>
+          <div class="fallos row" [formGroupName]="i">
+            <div class="col-12 col-md-6">
+              <label for="">Fallo</label>
+              <select class="form-control" formControlName="nombre" disabled>
+                <option *ngFor="let fallo of fallos" [value]="fallo.nombre">{{fallo.nombre}}</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="">Corrección</label>
+              <select class="form-control" formControlName="nombreCor">
+                <option [value]="null"></option>
+                <option *ngFor="let fallo of fallos" [value]="fallo.nombre">{{fallo.nombre}}</option>
+              </select>
+            </div>
+            <button class="btn btn-secondary" *ngIf="formSentencia.get('fallos').value.length > 1" (click)="removeFallo(i)">
+                Eliminar
+              </button>
+          </div>
+        </div>
+        <button type="button" (click)="addFallo()" class="btn btn-secondary btn-add">Añadir Fallo</button>
+      </div>
+      <div formArrayName="abogados" class="datosAbogados">
+        <h4>Abogados</h4>
+        <div *ngFor="let abogado of formSentencia.get('abogados')['controls']; let i=index">
+          <p>Abogado {{i+1}}</p>
+          <div class="abogados" [formGroupName]="i">
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <label>Abogado</label>
+                    <input formControlName="nombre" class="form-control" readonly="true" />
+                  </div>
+                  <div class="col-6">
+                    <label for="">Corrección</label>
+                    <ng-select [allowClear]="true" formControlName="idSolrCor" filterPlaceholder="Busca por apellidos" (keyup)="searchLawyerByApellidos($event.target.value, i)" [options]="abogados[i]"></ng-select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <label>Rol</label>
+                    <select disabled class="form-control" formControlName="posicion" readonly="true">
+                    <option *ngFor="let rol of roles" [value]="rol.id">{{rol.nombre}}</option>
+                  </select>
+                  </div>
+                  <div class="col-6">
+                    <label>Corrección</label>
+                    <select class="form-control" formControlName="posicionCor">
+                      <option [value]="null"></option>
+                      <option *ngFor="let rol of roles" [value]="rol.id">{{rol.nombre}}</option>
+                </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <label>Fallo</label>
+                <select class="form-control" formControlName="falloId">
+                  <option [value]="null"></option>
+                  <option *ngFor="let fallo of formSentencia.get('fallos')['controls']" [value]="fallo.value.id">Fallo {{fallo.value.id}} (<small>{{fallo.value.nombreCor}}</small>)</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-secondary" (click)="removeAbogado(i)">
+                Eliminar
+              </button>
+          </div>
+          <hr>
+        </div>
+        <button (click)="addAbogado()" class="btn btn-secondary btn-add" type="button">Añadir Abogado</button>
+
+      </div>
+      <div formArrayName="derechos" class="datosVarios">
+        <h4>Derechos</h4>
+        <div class="form-group">
+          <div *ngFor="let derecho of formSentencia.get('derechos')['controls']; let i = index">
+            <div class="derechos" [formGroupName]="i">
+              <ng-select [allowClear]="true" formControlName="id" placeholder="Derecho" filterPlaceholder="Busca por derechos" [options]="derechos"></ng-select>
+              <button class="btn btn-secondary" *ngIf="formSentencia.get('derechos').value.length > 1" (click)="removeDerecho(i)">
+                  Eliminar
+                </button>
+            </div>
+          </div>
+          <button type="button" (click)="addDerecho()" class="btn btn-secondary btn-add">Añadir Derecho</button>
+        </div>
+      </div>
+      <h4>Orden</h4>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <p>Anotador</p>
+          <div class="form-group">
+            <input class="form-control" formControlName="orden" readonly="true">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <p>Corrección</p>
+          <div class="form-group">
+            <select class="form-control" formControlName="ordenCor">
+              <option [value]="null"></option>
+            <option *ngFor="let orden of ordenes" [value]="orden.nombre">{{orden.nombre}}</option>
+          </select>
+          </div>
+        </div>
+      </div>
+      <h4>Instancia</h4>
+      <div class="form-group">
+        <select class="form-control" formControlName="instancia">
+          <option [value]="null"></option>
+          <option *ngFor="let instancia of instancias" [value]="instancia.nombre">{{instancia.nombre}}</option>
+        </select>
+      </div>
+      <div class="center btn-form">
+        <app-button-loader [disabled]="!formSentencia.valid || reqInProg" [showLoading]="reqInProg" [text]="'Enviar Sentencia'" (emitClicked)="sendSentence($event)"></app-button-loader>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+.hero {
+    background-color: inherit;
+    font-family: Source Sans Pro;
+    color: #0f1820;
+}
+
+.hero.container {
+    padding: 0px;
+}
+
+.hero__title {
+    font-size: 35px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.09;
+    letter-spacing: normal;
+    text-align: center;
+    margin: 60px 15px 0;
+}
+
+.hero__sub-title {
+    opacity: 0.5;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    margin: 16px 20px 0;
+}
+
+.hero__search-holder {
+    margin: 39px auto 0;
+    text-align: center;
+}
+
+.hero .row:last-child {
+    margin-top: 15px;
+    margin-bottom: 65px;
+}
+
+.hero__box-info {
+    width: 100%;
+    margin-top: 55px;
+}
+
+.hero__statistic_title {
+    font-size: 35px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: 0.9px;
+    text-align: center;
+}
+
+.hero__statistic_sub-title {
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #64757d;
+    margin: 10px auto 0;
+    max-width: 170px;
+    text-transform: uppercase !important;
+}
+
+@media (min-width: 576px) {
+    .hero__box-info {
+        flex: 0 0 33.3333333333%;
+        max-width: 33.3333333333%;
+    }
+    .hero__box-info:first-child,
+    .hero__box-info:nth-child(2) {
+        border-right: 1px solid #d8d8d8;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero__title {
+        font-size: 40px;
+        line-height: normal;
+        margin: 120px auto 0;
+    }
+
+    .hero__sub-title {
+        font-size: 20px;
+        margin: 6px auto 0;
+    }
+
+    .hero__search-holder {
+        margin: 100px auto 0;
+    }
+
+    .hero .row:last-child {
+        margin-top: 34px;
+        margin-bottom: 90px;
+    }
+
+    .hero__statistic_title {
+        font-size: 40px;
+        line-height: 1.13;
+        letter-spacing: 1px;
+    }
+}

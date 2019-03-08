@@ -1,0 +1,82 @@
+.aca-presentation {
+  background-color: #f5f7f8;
+  color: #0f1820;
+  padding: 29px 0 46px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  overflow: hidden;
+}
+
+.aca-presentation--holder {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 2px;
+  box-shadow: 2px 4px 6px 0 rgba(152, 171, 180, 0.06);
+  background-color: #ffffff;
+  padding: 40px 20px 46px;
+}
+
+.login-signup__title {
+  line-height: 1.2 !important;
+  max-width: 371px;
+  margin: auto;
+  text-align: center;
+}
+
+.presentation__paragraph {
+  margin: 25px 0 0 0;
+  padding: 0;
+}
+
+.form-input-checkbox {
+  margin: 20px 0 0;
+}
+
+.input-checkbox-last {
+  margin: 14px 0 0 !important;
+}
+
+.aca-presentation__certificate-button--holder {
+  width: 100%;
+  max-width: 300px;
+  margin: 46px auto 0;
+}
+
+@media (min-width: 576px) {
+  .aca-presentation {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .aca-presentation--holder {
+    padding: 30px 50px 46px;
+  }
+}
+
+@media (min-width: 768px) {
+  .aca-presentation {
+    padding: 100px 50px;
+  }
+  .aca-presentation--holder {
+    padding: 40px 75px 46px;
+  }
+}
+
+@media (min-width: 992px) {
+  .aca-presentation {
+    padding: 130px 0 200px;
+  }
+  .aca-presentation--holder {
+    padding: 60px 150px 81px;
+  }
+  .presentation__paragraph {
+    margin: 40px 0 0 0;
+  }
+  .aca-presentation__certificate-button--holder {
+    margin: 50px auto 0;
+  }
+}

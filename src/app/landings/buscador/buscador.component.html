@@ -1,0 +1,50 @@
+<div class="buscador">
+  <div class="d-flex flex-column-reverse">
+    <div class="buscador__info-help-holder">
+      <div class="buscador__info-help">
+        <span (click)="onAyudaDerecho()">¿No sabes cuál es la especialidad?</span>
+      </div>
+    </div>
+    <div *ngIf="showResults" class="buscador__input__glass" (click)="closeSearch()"></div>
+    <div class="buscador__input-container d-lg-flex" [ngClass]="{
+        'input-expanded': showResults,
+        'input-expanded-loading': reqInProg
+      }">
+      <div class="buscador__input">
+        <input (keyup)="searchTerm$.next($event.target.value)" ç
+        placeholder="Busca por abogado, especialidad o palabra clave"
+        />
+        <div class="buscador__input__expand-result">
+          <div class="buscador__input__expand-result__loading">
+            <app-profile-loading [transparent]="true" [label]="''"></app-profile-loading>
+          </div>
+          <app-buscador-lista-resultado [searchResult]="searchResult" [term]="currentTerm"></app-buscador-lista-resultado>
+        </div>
+      </div>
+      <div class="d-block d-lg-none buscador__input__zoom-out-holder" (click)="this.showResults = !this.showResults">
+        <div class="buscador__input__zoom-out">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 24 24">
+            <defs>
+              <path id="a" d="M18.032 16.618l3.675 3.675a1 1 0 0 1-1.414 1.414l-3.675-3.675a9 9 0 1 1 1.414-1.414zm-1.99-.762a7 7 0 1 0-.185.185 1.01 1.01 0 0 1 .184-.185z"
+              />
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <mask id="b" fill="transparent">
+                <use xlink:href="#a" />
+              </mask>
+              <use fill="#ff8b34" fill-rule="nonzero" xlink:href="#a" />
+              <g fill="#ff8b34" mask="url(#b)">
+                <path d="M0 0h24v24H0z" />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="d-none d-md-block align-self-lg-center buscador__input__button-search-holder">
+        <button type="button" (click)="clickedSearch()" class="btn btn-secondary">
+          BUSCAR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

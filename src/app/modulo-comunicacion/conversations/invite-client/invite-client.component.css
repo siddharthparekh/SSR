@@ -1,0 +1,26 @@
+.container {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+.content {
+  margin: 5%;
+}
+
+.invite-client__send-button--holder {
+  margin: 5px auto 0.75rem;
+  height: 42px;
+  max-width: 150px;
+}
+
+.invite-client__send-button {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .invite-client__send-button--holder {
+    margin-top: 5px;
+    max-height: 42px;
+  }
+}

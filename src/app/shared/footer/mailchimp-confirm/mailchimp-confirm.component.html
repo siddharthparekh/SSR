@@ -1,0 +1,39 @@
+<div class="page-wrapper" style="margin-bottom: 300px;">
+  <div class="container m-t-40">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              <h5><b>Revisa nuestra política de privacidad antes de enviarnos tus datos</b></h5>
+            </div>
+            <p class="m-t-10">
+              Te informamos que el envío de este formulario implica que aceptas expresamente nuestra <a [routerLink]="['/info/privacidad']">política
+                de privacidad</a>
+              y
+              consientes que tratemos tus datos con la finalidad de enviarte información de manera periódica a través
+              del
+              correo
+              electrónico facilitado.
+              Almacenaremos esta información durante un plazo máximo de 36 meses, salvo que nos solicites lo
+              contrario.
+              Puedes ejercer tus derechos de oposición o cancelación de estos datos envíandonos un correo desde tu
+              correo
+              electrónico a info@emerita.legal
+            </p>
+            <p><b>
+                Odiamos el spam tanto o más que tu. Sólo utilizaremos tu email para enviarte información que creamos
+                que
+                puede
+                serte útil.
+              </b></p>
+            <hr>
+            <p>Haciendo click en el botón de enviar aceptas que incluyamos la dirección de correo electrónico <b>{{email}}</b> en nuestro newsletter.</p>
+            <button (click)="sendSubscription()" class="btn btn-primary">Enviar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

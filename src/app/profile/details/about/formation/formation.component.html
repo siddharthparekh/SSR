@@ -1,0 +1,22 @@
+<section class="container mb-2">
+   <button *ngIf="itIsMe" data-toggle="modal" data-target="#new-education" class="position-absolute btn btn-link btn-link-text" style="right:0"><i
+         style="font-size:1.2rem" class="material-icons">add_circle_outline</i></button>
+   <div class="font-weight-bold mb-2">Formación</div>
+
+   <div *ngIf="items.length > 0; then: showFormations; else: showMsgFormations"></div>
+   <ng-template #showMsgFormations>
+      <section class="text-secondary">No hay datos todavía.</section>
+   </ng-template>
+   <ng-template #showFormations>
+      <div *ngFor="let item of (items | sort: '-to')" class="mb-5">
+         <app-profile-formation-item [itIsMe]="itIsMe" (onClickEdit)="selectItem($event)" [item]="item"></app-profile-formation-item>
+      </div>
+   </ng-template>
+</section>
+
+<div id="new-education" class="modal fade" role="dialog">
+   <app-create-formation (onCreateFormation)="newFormation($event)" [reqInProg]="reqInProg" [resetForm]="resetForm"></app-create-formation>
+</div>
+<div id="edit-education" class="modal fade" role="dialog">
+   <app-edit-formation (onEditFormation)="editFormation($event)" [onSelectItem]="onSelectItem" [reqInProg]="reqInProg"></app-edit-formation>
+</div>

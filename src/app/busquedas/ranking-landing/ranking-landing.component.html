@@ -1,0 +1,154 @@
+<div class="page-wrapper">
+   <div class="title-container">
+      <div class="col-12 col-md-12 text-center normal-text muestros-abogados">
+         Descubre el Top 5
+      </div>
+      <div class="col-12 col-md-12 text-center">
+         <div class="normal-text mejores-expertos mb-4" *ngIf="selected_tab != 'state'">
+            Los mejores expertos en {{derechoTitle}} en {{selectedPlace}}
+         </div>
+         <div class="normal-text mejores-expertos mb-4" *ngIf="selected_tab == 'state'">
+            Los mejores expertos en {{derechoTitle}} en España
+         </div>
+      </div>
+   </div>
+   <div class="container ranking-container p-0 mb-110">
+      <div class="row">
+         <div class="col-12 mb-30">
+            <ul class="nav nav-tabs location" id="myTab" role="tablist">
+               <li class="nav-item" (click)="selected_tab = 'state';searchLawyer()">
+                  <div class="default-tab" [ngClass]="{'active active-tab': selected_tab == 'state'}">
+                     <div class="row tab-padding">
+                        <div class="col-md-2 d-none d-sm-none d-md-block">
+                           <img src="assets/images/laurel-start.png" />
+                        </div>
+                        <div class="col-md-10">
+                           <a class="nav-link">
+                              Estatal</a>
+                           <div class="small">
+                              <img class="d-block d-sm-block d-md-none" style="width: 16px;" src="assets/images/laurel-start.png" />
+                              Top 5
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="nav-item" (click)="onTabComunity()">
+                  <div class="default-tab" [ngClass]="{'active active-tab': selected_tab == 'community'}">
+                     <div class="row tab-padding">
+                        <div class="col-md-2 d-none d-sm-none d-md-block">
+                           <img src="assets/images/laurel-start.png" />
+                        </div>
+                        <div class="col-md-10">
+                           <a class="nav-link">
+                              <span class="d-none d-sm-none d-md-block">Comunidad Autónoma</span>
+                              <span class="d-block d-sm-block d-md-none">C. Autónoma</span></a>
+                           <div class="small">
+                              <img class="d-block d-sm-block d-md-none" style="width: 16px;" src="assets/images/laurel-start.png" />
+                              Top 5
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="nav-item" (click)="onTabProvince()">
+                  <div class="default-tab" [ngClass]="{'active active-tab': selected_tab == 'province'}">
+                     <div class="row tab-padding">
+                        <div class="col-md-2 d-none d-sm-none d-md-block">
+                           <img src="assets/images/laurel-start.png" />
+                        </div>
+                        <div class="col-md-10">
+                           <a class="nav-link">Provincia</a>
+                           <div class="small">
+                              <img class="d-block d-sm-block d-md-none" style="width: 16px;" src="assets/images/laurel-start.png" />
+                              Top 5
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <div class="col-12 tab-content mb-4">
+            <div class="col-12 tab-pane fade show" [ngClass]="{'show active': selected_tab == 'state'}" id="state" role="tabpanel"
+               aria-labelledby="state-tab">
+               <div class="row search-container-state">
+                  <div class="col-12 col-md-5 el-ranking-buscar-box" style="z-index: 10">
+                     <ng-select class="e4-select search" [(ngModel)]="antiguedadSeleccionada" [allowClear]="true" name="antiguedad"
+                        [options]="antiguedadGroup" placeholder="Antigüedad" required id="antiguedad" (ngModelChange)="searchLawyer()">
+                     </ng-select>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 tab-pane fade" id="community" role="tabpanel" aria-labelledby="community-tab" [ngClass]="{'show active': selected_tab == 'community'}">
+               <div class="row search-container">
+                  <div class="col-12 col-md-5 el-ranking-buscar-box" style="z-index: 10">
+                     <ng-select class="e4-select search" [(ngModel)]="comunidad" [allowClear]="true" name="comunidad"
+                        [options]="comunidades" placeholder="¿En qué comunidad?" required id="comunidad"
+                        (ngModelChange)="searchLawyer()"></ng-select>
+                  </div>
+                  <div class="col-12 col-md-5 el-ranking-buscar-box" style="z-index: 5">
+                     <ng-select class="e4-select search" [(ngModel)]="antiguedadSeleccionada" [allowClear]="true" name="antiguedad"
+                        [options]="antiguedadGroup" placeholder="Antigüedad" required id="antiguedad" (ngModelChange)="searchLawyer()">
+                     </ng-select>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 tab-pane fade" id="province" role="tabpanel" aria-labelledby="province-tab" [ngClass]="{'show active': selected_tab == 'province'}">
+               <div class="row search-container">
+                  <div class="col-12 col-md-5 el-ranking-buscar-box" style="z-index: 10">
+                     <ng-select class="e4-select search" [(ngModel)]="provincia" [allowClear]="true" name="provincia"
+                        [options]="provincias" placeholder="¿En qué provincia?" required id="provincia" (ngModelChange)="searchLawyer()">
+                     </ng-select>
+                  </div>
+                  <div class="col-12 col-md-5 el-ranking-buscar-box" style="z-index: 5">
+                     <ng-select class="e4-select search" [(ngModel)]="antiguedadSeleccionada" [allowClear]="true" name="antiguedad"
+                        [options]="antiguedadGroup" placeholder="Antigüedad" required id="antiguedad" (ngModelChange)="searchLawyer()">
+                     </ng-select>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row result-badge-container">
+         <div class="col-11 p-0">
+            <div class="comment-widgets">
+               <app-result-badge (onClickNameEmitter)="goToProfile($event, i + 1)" *ngFor="let abogado of abogados; let i = index;"
+                  [hasAccess]="abogado.access" [abogado]="abogado" [isRanking]="true" [index]="(i + 1)" (onClickBlock)="plan(abogado)"
+                  class="app-result-container"></app-result-badge>
+            </div>
+            <div style="height: 300px;" *ngIf="reqInProg">
+               <app-profile-loading [transparent]="true"></app-profile-loading>
+            </div>
+            <div class="p-5 d-flex justify-content-center " *ngIf="!reqInProg && abogados.length == 0">
+               <span class="text-muted">No hay resultados con estos filtros.</span>
+            </div>
+         </div>
+      </div>
+      <div *ngIf="!reqInProg && abogados.length > 0" class="row pb-30">
+         <div class="col-12 text-center">
+            <a (click)="goToRanking()" class="normal-text link-text">Ver ranking completo</a>
+         </div>
+      </div>
+   </div>
+</div>
+
+<app-filtro-dialog *ngIf="false" [filtersFromUrl]="queryParams" [terminoBuscado]="terminoBuscado" [derechos]="derechos"
+   [isRanking]="true" (filterAppliedEmitter)="applyFilter($event)"></app-filtro-dialog>
+
+<app-specialist-contract-plans *ngIf="abogado" [gamasProducto]="abogado?.productos" (onProductSelected)="addProducto($event)"
+   [productosCarrito]="productosCarrito" (onComprarAnalitico)="showProximamente($event)"></app-specialist-contract-plans>
+
+<app-bay-profile [queryParams]="queryParams" [return_url]="return_url"></app-bay-profile>
+
+<div id="modal-profile-contract-plan-analitico" class="modal fade" role="dialog" aria-hidden="true">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content text-gray p-4">
+         <div class="text-right">
+            <a class="close" data-dismiss="modal" aria-label="Close"><img src="assets/images/x.svg" /></a>
+         </div>
+         <app-empty-proximamente></app-empty-proximamente>
+      </div>
+   </div>
+</div>

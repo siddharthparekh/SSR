@@ -1,0 +1,435 @@
+<div class="content text-center">
+   <section id="section1">
+      <h3>La distinción de los mejores expertos legales</h3>
+      <p>
+         ¿Estás entre los abogados más eficaces de tu especialidad?
+      </p>
+      <div class="pulse-container">
+         <div class="button-bg"></div>
+         <button routerLink="/aca">Descubre tu irj</button>
+      </div>
+   </section>
+   <section id="section3">
+      <h3>Distinción objetiva</h3>
+      <p>
+         La primera red que agrupa anualmente a los mejores expertos certificados de cada comunidad autónoma en las
+         distintas especialidades
+         de acuerdo a su
+         <span>Índice de rendimiento Judicial</span> (IRJ).
+      </p>
+      <img title="Sello Emérita" alt="Sello Red Expertia Emérita Legal" src="assets/images/group-47@3x.png" class="Group-47">
+   </section>
+   <section id="section8">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-4 text-center block">
+               <img src="assets/images/vip-icon.png" class="vip_icon" />
+               <h4>
+                  <b>Acceso exclusivo</b>
+               </h4>
+               <p>
+                  Queremos construir la mejor red de abogados, por eso solo acceden a esta red los abogados calificados
+                  como los mejores expertos por especialidad, que están dentro del Top 20 de su comunidad autónoma.
+               </p>
+            </div>
+            <div class="col-12 col-md-4 text-center block">
+               <img src="assets/images/merito-icon.png" class="merito-icon" />
+               <h4>
+                  <b>Permanencia por méritos</b>
+               </h4>
+               <p>
+                  La permanencia en la red está condicionada al mantenimiento de un rendimiento medio excepcional (IRJ
+                  > 75 puntos) en la actualización
+                  anual. El no cumplimiento implica trasladar el perfil del abogado a la comunidad legal, fuera de la
+                  red Expertia.
+               </p>
+            </div>
+            <div class="col-12 col-md-4 text-center block">
+               <img src="assets/images/ventajas-icon.png" class="ventajas-icon" />
+               <h4>
+                  <b>Ventajas exclusivas expertia</b>
+               </h4>
+               <p>
+                  Disfruta de descuentos, accesos gratuitos a servicios premium, actividades exclusivas para miembros
+                  Expertia y mucho más…
+                  Descubre tu IRJ para comprobar si puedes acceder a Expertia.
+               </p>
+
+            </div>
+         </div>
+         <a href="javascript:void(0)" [routerLink]="['/soy-abogado']">
+            <h5>Descubre lo que podemos hacer por ti</h5>
+         </a>
+      </div>
+   </section>
+   <section id="section9">
+      <div class="title">
+         <h3>
+            <b>Precios y planes</b>
+         </h3>
+         <h4>Tenemos el plan perfecto para ti.</h4>
+         <div class="btn-group" id="status" data-toggle="buttons">
+            <div (click)="active = 0" [ngClass]="{'active': active == 0}" class="mensual">Mensual</div>
+            <div (click)="active = 1" [ngClass]="{'active': active == 1}" class="semestral">Semestral</div>
+         </div>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-12 text-left block">
+               <table class="table table-center" style="vertical-align:middle !important; background-color:white">
+                  <thead>
+                     <th style="position: relative; border: none !important;" height="200" width="28%" class="text-center cell-border description">
+                        <h5 style="position: absolute; bottom: 20px;margin-left: 15px;">Posicionamiento online</h5>
+                     </th>
+                     <th height="200" width="24%" class="text-center cell-bordered">
+                        RED EXPERTIA
+                        <br />
+                        <p style="margin-bottom:0px;">Freemium</p>
+                        <span style="font-size:13px;color:#64757d;">Invitación*</span>
+                     </th>
+                     <th height="200" width="24%" class="text-center cell-bordered">
+                        PREMIUM ABOGADOS
+                        <p style="font-size: 30px">{{tableData[active].abogados}}
+                           <span style="font-size: 23px">€</span>
+                           <span class="unit">/mes</span>
+                        </p>
+                     </th>
+                     <th height="200" width="24%" class="text-center cell-bordered">
+                        PREMIUM DESPACHOS
+                        <p style="font-size: 30px; margin-top: 12px; margin-bottom: 10px;" [ngClass]="{'last-option-amount': dispatches[dispatches.length - 1].value === selectedDispatch}">
+                           {{tableData[active].despachos[activeDispatch]}}
+                           <span style="font-size: 23px">€</span>
+                           <span class="unit">/mes</span>
+                        </p>
+                        <ng-select style="width: 150px;" (selected)='onSelected($event)' [options]="dispatches"
+                           [(ngModel)]="selectedDispatch" [multiple]="false"></ng-select>
+                     </th>
+                  </thead>
+                  <tbody>
+                     <tr class="text-center cell-border">
+                        <td class="description">Perfil profesional</td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>TODOS LOS ABOGADOS</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Perfil despacho <span>Próximamente</span></td>
+                        <td>OFICINA PRINCIPAL</td>
+                        <td>OFICINA PRINCIPAL</td>
+                        <td>TODOS LAS OFICINAS</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Certificación de trayectoria</td>
+                        <td>
+                           ESPECIALIDAD PRINCIPAL
+                        </td>
+                        <td>
+                           TODAS LAS ESPECIALIDADES
+                        </td>
+                        <td>
+                           TODAS LOS ABOGADOS
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Certificación despacho <span>Próximamente</span></td>
+                        <td>
+                           ESPECIALIDAD PRINCIPAL
+                        </td>
+                        <td>
+                           ESPECIALIDAD PRINCIPAL
+                        </td>
+                        <td>
+                           TODAS LAS ESPECIALIDADES
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Calificaciones (IRJ)</td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Posicionamiento en buscadores</td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Subida resoluciones <span>Próximamente</span></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Distinción Expertia <span>Próximamente</span></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Sello-Aval para tu web <span>Próximamente</span></td>
+                        <td><img src="assets/images/x.svg" class="x" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr>
+                        <td class="description"></td>
+                        <td rowspan="1" colspan="3"></td>
+                     </tr>
+                     <tr>
+                        <td class="description">
+                           <h6>Captación y gestión de clientes</h6>
+                        </td>
+                        <td rowspan="1" colspan="3"></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Chat integrado</td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Gestión de consultas online</td>
+                        <td>COMISIÓN 20%</td>
+                        <td>SIN COMISIONES</td>
+                        <td>SIN COMISIONES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Visibilidad mejorada</td>
+                        <td>
+                           <img src="assets/images/x.svg" class="x" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Promoción directa <span>Próximamente</span></td>
+                        <td>
+                           <img src="assets/images/x.svg" class="x" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                        <td>
+                           <img src="assets/images/check.png" class="check" />
+                        </td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Webs captación <span>Próximamente</span></td>
+                        <td><img src="assets/images/x.svg" class="x" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr>
+                        <td class="description"></td>
+                        <td rowspan="1" colspan="3"></td>
+                     </tr>
+                     <tr>
+                        <td class="description">
+                           <h6>Inteligencia analítica</h6>
+                        </td>
+                        <td rowspan="1" colspan="3"></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de oponentes/RRHH</td>
+                        <td>ESPECIALIDAD PRINCIPAL</td>
+                        <td>TODAS LAS ESPECIALIDADES</td>
+                        <td>TODAS LAS ESPECIALIDADES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de despachos <span>Próximamente</span></td>
+                        <td>ESPECIALIDAD PRINCIPAL</td>
+                        <td>ESPECIALIDAD PRINCIPAL</td>
+                        <td>TODAS LAS ESPECIALIDADES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de procuradores
+                           <span>Próximamente</span>
+                        </td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de jueces
+                           <span>Próximamente</span>
+                        </td>
+                        <td>DESCUENTO 20%</td>
+                        <td>5 PERFILES AL MES</td>
+                        <td>DESDE 15 PERFILES AL MES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de empresas
+                           <span>Próximamente</span>
+                        </td>
+                        <td>DESCUENTO 20%</td>
+                        <td>5 PERFILES AL MES</td>
+                        <td>DESDE 15 PERFILES AL MES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description">Inteligencia de juzgados
+                           <span>Próximamente</span>
+                        </td>
+                        <td>DESCUENTO 20%</td>
+                        <td>5 PERFILES AL MES</td>
+                        <td>DESDE 15 PERFILES AL MES</td>
+                     </tr>
+                     <tr class="text-center cell-border">
+                        <td class="description" style="box-shadow: 1px 12px 0px 0px #f5f7f8;">Inteligencia por áreas
+                           jurídicas
+                           <span>Próximamente</span>
+                        </td>
+                        <td><img src="assets/images/x.svg" class="x" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                        <td><img src="assets/images/check.png" class="check" /></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <div class="description2">
+                  <div class="img-title">
+                     <div class="premium">
+                        RED EXPERTIA
+                        <p class="freemium last-p" style="font-weight: 500 !important;">Freemium
+                           <span style="font-size:13px;color:#64757d;display: block;margin-top: -3px">Invitación*</span>
+                        </p>
+                     </div>
+                     <div class="premium-description">
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Perfil profesional
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Perfil despacho <b>(próximamente)</b>
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Certificación trayectoria (especialidad
+                           <p style="padding: 0 0 0 53px; text-align:left; line-height: 10px;">
+                              principal)
+                           </p>
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Calificaciones IRJ
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Posicionamiento en buscadores
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Distinción expertia <b>(próximamente)</b>
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Chat integrado
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Gestión consultas online (comisión 20%)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" />Inteligencia oponentes/RRHH (especialidad
+                           <p style="padding: 0 0 0 53px; text-align:left; line-height: 10px;">
+                              principal)
+                           </p>
+                        </div>
+                     </div>
+                     <div class="premium">
+                        PREMIUM ABOGADOS
+                        <p style="font-weight: 500 !important;" class="gray-color">
+                           {{tableData[active].abogados}}
+                           <span style="font-size: 23px">€</span>
+                           <span class="unit">/mes</span>
+                        </p>
+                        <p style="font-weight: 500 !important;" class="last-p">
+                           Freemium Red Expertia +
+                        </p>
+                     </div>
+                     <div class="premium-description">
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Certificación trayectoria (Todas las
+                           <p style="padding: 0 0 0 53px; text-align:left; line-height: 10px;">
+                              especialidades)
+                           </p>
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Sello-aval para tu web
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Gestión consultas online (sin
+                           comisiones)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Visibilidad mejorada
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Promoción directa
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Webs de captación
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Inteligencia oponentes/RRHH (Todas las
+                           <p style="padding: 0 0 0 53px; text-align:left; line-height: 10px;">
+                              especialidades)
+                           </p>
+                        </div>
+                     </div>
+                     <div class="premium">
+                        PREMIUM DESPACHOS
+                        <p style="font-weight: 500 !important;" class="gray-color" [ngClass]="{'last-option-amount': dispatches[dispatches.length - 1].value === selectedDispatch}">
+                           {{tableData[active].despachos[activeDispatch]}}
+                           <span style="font-size: 23px">€</span>
+                           <span class="unit">/mes</span>
+                        </p>
+                        <p style="font-weight: 500 !important;" class="last-p">
+                           Premium abogados +
+                        </p>
+                        <ng-select class="select-on-mobile" (selected)='onSelected($event)' [options]="dispatches"
+                           [(ngModel)]="selectedDispatch" [multiple]="false"></ng-select>
+                     </div>
+                     <div class="premium-description">
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Perfil profesional (Todos los abogados)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Perfil despacho (Todas las oficinas)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Certificación trayectoria (Todos los
+                           abogados)
+                        </div>
+                        <div>
+                           <img src="assets/images/check.png" class="check" /> Certificación despacho (Todas las
+                           <p style="padding: 0 0 0 53px; text-align:left; line-height: 10px;">
+                              especialidades)
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</div>

@@ -1,0 +1,115 @@
+:host {
+    --orangeish: #ff8b34;
+    --dark: #0f1820;
+    --pale-grey: #e5eaed;
+    --pale-grey-two: #f5f7f8;
+    --battleship-grey-two: #64757d;
+    --bluey-grey: #98abb4;
+}
+
+.btn-menu {
+    height: 71px;
+    width: 100%;
+    background-color: white;
+    border-color: #fbfbfb00;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--orangeish);
+    border-top: 1px solid var(--pale-grey);
+    border-right: 1px solid var(--pale-grey);
+    border-bottom: 1px solid var(--pale-grey);
+}
+
+.btn-menu:active, .btn-menu.active {
+    background-color: #fafbfb !important;
+    font-weight: normal !important;
+    color: var(--dark) !important;
+}
+
+.btn-light.focus, .btn-light:focus {
+    box-shadow: 0 0 0 0.2rem rgba(233, 236, 239, .0);
+}
+
+.btn-light:not(:disabled):not(.disabled).active:focus, .btn-light:not(:disabled):not(.disabled):active:focus, .show>.btn-light.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(233, 236, 239, .0);
+}
+
+.respuestas-legales-container {
+    padding: 0;
+    /* height: 100vh; */
+    height: 100%;
+    overflow-y: auto;
+}
+
+.router-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: var(--pale-grey-two);
+    width: 100%;
+    margin-left: 0px;
+}
+
+.router-container-full {
+    margin-left: 360px;
+}
+
+.btns-menu-container {
+    min-width: 360px;
+    position: fixed;
+    height: 100%;
+    background-color: white;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.empty-space {
+    border-right: 1px solid var(--pale-grey);
+    display: flex;
+    flex: 1;
+}
+
+.navigator-back {
+    margin: auto;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    margin-top: 20px;
+ }
+ 
+@media only screen and (min-width: 768px) {
+    .respuestas-legales-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .router-container {
+        padding-left: 0;
+        padding-right: 0;
+        background-color: unset;
+    }
+    .btns-menu-container {
+        padding-left: 0px;
+    }
+    .navigator-back {
+       margin: 33px auto 22px auto;
+       padding-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .respuestas-legales-container {
+        /* height: 100vh; */
+    }
+
+    .router-container {
+        margin-left: 0px;
+    }
+
+    .btns-menu-container {
+        width: 100%;
+        background-color: #f5f7f8;
+    }
+}

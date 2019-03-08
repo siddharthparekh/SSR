@@ -1,0 +1,14 @@
+<div *ngIf="positionRight" class="chat-time">{{mensaje?.createdAt | date: 'HH:mm d MMM'}}</div>
+<div class="box" [class.bg-light-inverse]="positionRight" [class.bg-mycolor]="!positionRight">
+  <div class="d-flex align-items-center">
+    <i [style.font-size]="'1.2rem'" class="fas fa-paperclip"></i>
+    <span  class="hide-text-ellipsis"><a *ngIf="(!uploadInfo?.progress || uploadInfo.progress == 100)" (click)="downloadFile()" class="mdi mdi-download cursor" title="{{mensaje?.texto}}">{{mensaje?.texto}}</a></span>
+  </div>
+  <div>
+    <div class="progress" *ngIf="uploadInfo?.progress && uploadInfo?.msgId == mensaje?.id">
+      <div class="progress-bar bg-emerita-color wow animated progress-animated" [style.width.%]="uploadInfo.progress" role="progressbar"></div>
+    </div>
+    <i *ngIf="(!uploadInfo?.progress || uploadInfo.progress == 100)" (click)="downloadFile()" [style.font-size]="'1.5rem'" class="mdi mdi-download cursor"></i>
+  </div>
+</div>
+<div *ngIf="!positionRight" class="chat-time">{{mensaje?.createdAt | date: 'HH:mm d MMM'}}</div>

@@ -1,0 +1,6 @@
+<div *ngIf="user?.tipo != 1">
+  <app-ajustes-consultas (updatePreciosFinishEmitter)="onUpdatePrecios($event)" [onUpdatePreciosConsultas]="submitPreciosConsultas">
+  </app-ajustes-consultas>
+  <button (click)="submitPreciosConsultas.next()" class="btn btn-secondary waves-effect waves-light">
+    Guardar</button>
+</div>

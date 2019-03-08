@@ -1,0 +1,14 @@
+<div class="text-center" *ngIf="!isRanking">
+  <img src="assets/images/lock-icon-inv-20px.png">
+  <div class="d-flex flex-row flex-wrap justify-content-center align-items-center">
+    <span class="text-uppercase font-weight-bold small mr-1">Bloqueado</span>
+    <i class="e4-icon info-circle-o cursor" style="margin-top: -4px;" data-toggle="tooltip" data-html="true" title="El profesional no ha hecho visibles estas estadísticas"></i>
+  </div>
+</div>
+<div *ngIf="isRanking" class="e4-block-simple-ranking">
+  <div class="d-flex flex-row flex-wrap justify-content-center align-items-center">
+      <span class="text-uppercase font-weight-bold small mr-1">Bloqueado</span>
+      <img src="assets/images/lock-icon-inv-20px.png">
+      <i class="e4-icon info-circle-o cursor" data-toggle="tooltip" data-html="true" title="Compra el perfil para ver contenidos bloqueados"></i>
+    </div>
+</div>

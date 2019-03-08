@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Recortar Imagen</h4>
+      <button type="button" class="close pull-right" data-dismiss="modal"><i class="mdi mdi-close"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="row center">
+        <img-cropper #cropper [image]="data2" class="center" [settings]="cropperSettings2"></img-cropper>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button (click)="saveFoto()"  data-dismiss="modal"  class="btn btn-primary btn-primary-bckg waves-effect waves-light">Guardar
+     </button>
+    </div>
+  </div>
+</div>

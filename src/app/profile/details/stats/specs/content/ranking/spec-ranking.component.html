@@ -1,0 +1,40 @@
+<section class="blockable blockable-dark" [class.blocked]="blocked">
+  <section class="blockable-overlay">
+    <app-blocking-complex></app-blocking-complex>
+  </section>
+  <section class="blockable-content">
+    <!-- heading -->
+    <div class="row mb-4 mb-lg-5">
+      <div class="col-6">
+        <span class="font-weight-bold">Ranking</span>
+      </div>
+      <div class="col-6 text-right">
+          <div class="btn-group" id="status" data-toggle="buttons">
+            <div (click)="active = 0" [ngClass]="{'active': active == 0}" class="categoriaPosiciones">{{antiguedad}}</div>
+            <div class="globalPosiciones">Todos</div>
+          </div>
+      </div>
+    </div>
+    <!-- laurels -->
+    <div class="row">
+      <div class="col-12 col-lg-4 mb-2 mb-lg-0 pr-lg-1">
+        <app-profile-spec-laurel 
+          [place]="data.placeNational"
+          text="{{data.nation}}"
+          ></app-profile-spec-laurel>
+      </div>
+      <div class="col-12 col-lg-4 mb-2 mb-lg-0 px-lg-1">
+        <app-profile-spec-laurel 
+          [place]="data.comunity? data.placeCommunity : '-'"
+          text="{{data.comunity || 'Comunitario'}}"
+          ></app-profile-spec-laurel>
+      </div>
+      <div class="col-12 col-lg-4 mb-2 mb-lg-0 pl-lg-1">
+        <app-profile-spec-laurel 
+          [place]="data.province? data.placeProvincial : '-'"
+          text="{{data.province || 'Provincial'}}"
+          ></app-profile-spec-laurel>
+      </div>
+    </div>
+  </section>
+</section>

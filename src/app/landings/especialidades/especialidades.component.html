@@ -1,0 +1,119 @@
+<div class="container-fluid especialidades-container">
+   <div class="top-container">
+      <div class="row">
+         <div class="col-12">
+            <div class="d-flex flex-column align-items-center">
+               <div class="title-container-especialidad">
+                  <span class="normal-text title-text" *ngIf="provincia != '' || comunidad != ''">
+                     Los mejores abogados de {{derechoTitle}} en {{selectedPlace}} según su trayectoria judicial
+                  </span>
+                  <span class="normal-text title-text" *ngIf="provincia == '' && comunidad == ''">
+                     Descubre a los mejores abogados de {{derechoTitle}} en España según su trayectoria judicial
+                  </span>
+               </div>
+               <div class="subtitle-container">
+                  <span class="normal-text subtitle-text">
+                     Analizamos millones de sentencias para identificar a los especialistas más eficaces
+                  </span><br>
+                  <a routerLink="/metodologia">¿Cómo funciona?</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row cards-row">
+         <div class="col-12 col-lg-4 card-container">
+            <div class="card-top">
+               <img routerLink="/metodologia" src="assets/images/icons/lupa-icon.png" class="card-img lupa-icon">
+            </div>
+            <div class="card-body">
+               <span class="normal-text card-text-highlight">Identificamos a los especialistas más eficaces</span><span
+                  class="normal-text card-text"> en {{derechoTitle}} a través del análisis de su trayectoria en
+                  casos judiciales 100% reales.</span>
+            </div>
+         </div>
+         <div class="col-12 col-lg-4 card-container card-middle">
+            <div class="card-top">
+               <img routerLink="/metodologia" src="assets/images/icons/merito-icon.png" class="card-img merito">
+            </div>
+            <div class="card-body">
+               <span class="normal-text card-text-highlight">Garantizamos su especialización, experiencia y resultados</span><span
+                  class="normal-text card-text"> en casos similares al tuyo de forma independiente y
+                  objetiva.</span>
+            </div>
+         </div>
+         <div class="col-12 col-lg-4 card-container">
+            <div class="card-top">
+               <img routerLink="/metodologia" src="assets/images/icons/referencia-icon.png" class="card-img referencia">
+            </div>
+            <div class="card-body">
+               <span class="normal-text card-text-highlight">Proporcionamos la única referencia objetiva</span><span
+                  class="normal-text card-text">
+                  en la contratación de abogados que no está basada en opiniones,
+                  sino en datos.</span>
+            </div>
+         </div>
+      </div>
+      <div class="row below-cards-content">
+         <div class="d-flex flex-column align-items-center">
+            <div class="laurel-container">
+               <img src="assets/images/icons/laurel.png">
+            </div>
+            <div class="normal-text laurel-text">
+               El único ranking de abogados especialistas donde la posición no se compra, se gana.
+            </div>
+            <div class="btn-to-top-container">
+               <button class="btn btn-primary btn-to-top" (click)="scroll(rankingSection)">
+                  VER TOP 5
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="middle-container">
+      <div class="row">
+         <div class="col-12 p-0">
+            <div class="d-flex flex-column">
+               <div class="normal-text derecho-title">
+                  ¿Qué es el {{derechoTitle}}?
+               </div>
+               <div class="normal-text derecho-subtitle">
+                  ¿No encaja con tu caso? <a (click)="ayuda()" href="javascript:;" class="link-ayuda">Haz click y te
+                     ayudamos</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row derecho-main-content">
+         <div class="article-container">
+            <div [innerHTML]="derechoContent">
+            </div>
+         </div>
+      </div>
+      <div class="row derecho-main-content">
+         <div class="col-12 p-0">
+            <div class="normal-text materias-frecuentes">
+               Materias más frecuentes
+            </div>
+         </div>
+         <div class="col-12 col-md-6">
+            <ul class="m-0">
+               <li *ngFor="let mat of materiasColumnLeft" class="article-paragraph-bullet">
+                  {{mat}}
+               </li>
+            </ul>
+         </div>
+         <div class="col-12 col-md-6">
+            <ul class="m-0">
+               <li *ngFor="let mat of materiasColumnRight" class="article-paragraph-bullet">
+                  {{mat}}
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+   <div class="row" #rankingSection id="Ranking">
+      <div class="col-12">
+         <app-ranking-landing [derecho]="derecho" [prov]="provincia" [comun]="comunidad"></app-ranking-landing>
+      </div>
+   </div>
+</div>

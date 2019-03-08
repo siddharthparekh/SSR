@@ -1,0 +1,104 @@
+<div (click)="clickOnCard()" #card class="newcard" [ngClass]="{'r-c': isRanking}">
+    <div class="card-block">
+        <div class="row">
+            <div class="img--holder">
+                <div *ngIf="isRanking" class="el-ranking-section">
+                    <img src="assets/images/laurel.png" srcset="assets/images/laurel@2x.png 2x,assets/images/laurel@3x.png 3x" class="rounded-circle">
+                    <!-- <img src="assets/images/laurel.svg" class="rounded-circle" /> -->
+                    <span *ngIf="isRanking" class="rankin-number">{{abogado?.posicion}}º</span>
+                </div>
+                <div *ngIf="!isRanking && abogado.Usuario">
+                    <img *ngIf="!abogado.Usuario.foto" class="img-profile rounded-circle" src="assets/images/avatars/user-pic-placeholder-abogado.svg"
+                    />
+                    <img *ngIf="abogado.Usuario.foto" class="img-profile rounded-circle" src="assets/images/profiles/{{abogado?.Usuario.foto}}"
+                    />
+                </div>
+                <div class="name-container d-none d-sm-block d-md-none d-lg-block">
+                    <app-name-location [isRanking]="isRanking" [hasAccess]="hasAccess" [abogado]="abogado" (onClickBlock)="plan()"></app-name-location>
+                </div>
+            </div>
+            <div class="irj-indicator--holder" *ngIf="abogado.ProfesionalesEstadistica">
+                <div class="data-info" style="position: relative;">
+                    <div class="rating" [ngClass]="{'block': !hasAccess && !isRanking }">
+                        <!-- <app-block-content (click)="plan();$event.stopPropagation()" class="block" *ngIf="!hasAccess && !isRanking"></app-block-content> -->
+                        <div *ngIf="!hasAccess && !isRanking" class="blockable-overlay" (click)="plan()">
+                            <app-blocking-simple></app-blocking-simple>
+                        </div>
+                        <app-irj-indicator [ngClass]="{'blocked': !hasAccess && !isRanking}" [value]="abogado.ProfesionalesEstadistica.rating" [blocked]="false"></app-irj-indicator>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-block d-sm-none d-md-block d-lg-none">
+            <div class="col-12 name-container">
+                <app-name-location [isRanking]="isRanking" [hasAccess]="hasAccess" [abogado]="abogado" (onClickBlock)="plan();$event.stopPropagation()"></app-name-location>
+            </div>
+        </div>
+        <div class="row experience">
+            <div class="col-12 col-md-4 col-xl-3 left-border" *ngIf="abogado.ProfesionalesEstadistica">
+                <div class="custom-border"></div>
+                <div class="left-title">Antigüedad</div>
+                <div class="left-desc">
+                    <div class="antigudad-value">
+                        {{abogado.ProfesionalesEstadistica.tipoAntiguedad}} &nbsp;·&nbsp;
+                        <span class="text-muted font-size-14">{{abogado.ProfesionalesEstadistica.antiguedad}} a&ntilde;os</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-5 left-border" *ngIf="abogado.Profesional">
+                <div *ngIf="(!hasAccess) && !isRanking && mostrarDerechos" class="blockable-overlay" (click)="plan();$event.stopPropagation()">
+                    <app-blocking-simple></app-blocking-simple>
+                </div>
+                <div *ngIf="mostrarDerechos" [ngClass]="{'block': (!hasAccess) && !isRanking}">
+                    <div class="custom-border"></div>
+                    <div class="left-title">
+                        <span *ngIf="!isRanking && abogado.ProfesionalesEstadisticas?.rating >= 75">Especialidad Principal</span>
+                        <span *ngIf="!isRanking && abogado.ProfesionalesEstadisticas?.rating < 75">Derecho Principal</span>
+                        <span *ngIf="isRanking">Especialidad</span>
+                    </div>
+                    <div class="left-desc">
+                        <div class="antigudad-value">
+                            {{abogado?.ProfesionalesDerechos?.derecho | capitalize}}
+                        </div>
+                        <div *ngIf="!hasAccess && !isRanking">
+                            <span>Derecho del Ejemplos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-4 text-right" *ngIf="abogado.Profesional">
+                <div class="row">
+                    <div class="col-12 icon-container" style="position: absolute; bottom: 0;">
+                        <a class="text-primary pl-3" *ngIf="abogado.Profesional.tarifas" data-toggle="tooltip" data-placement="top" title="Tarifas disponibles">
+                            <i class="e4-icon tarifas"></i>
+                        </a>
+                        <a class="text-primary pl-3" *ngIf="abogado.Profesional.telefono" data-toggle="tooltip" data-placement="top" title="Datos de contacto disponibles">
+                            <i class="e4-icon phone"></i>
+                        </a>
+                        <a class="text-primary pl-3" *ngIf="abogado.Profesional.consultas" data-toggle="tooltip" data-placement="top" title="Consultas online disponibles">
+                            <i class="e4-icon chat"></i>
+                        </a>
+                        <!-- <a class="text-primary pl-3" data-toggle="tooltip" data-placement="top" title="Consultas online disponibles">
+                            <i class="e4-icon cita"></i>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 price" *ngIf="isRanking">
+            <div class="col-md-6 col-lg-9 col-6 col-sm-7 text-right right">
+                <span class="d-none d-md-block">
+                    Descubre quién es por
+                    <b>{{abogado?.productos[0]?.precio / 100 | number : '1.2-2'}}€</b>
+                </span>
+                <span class="d-block d-md-none">
+                    Desbloquéalo por
+                    <b>{{abogado?.productos[0]?.precio / 100 | number : '1.2-2'}}€</b>
+                </span>
+            </div>
+            <div class="col-md-6 col-lg-3 col-6 col-sm-5 left">
+                <a id="descubre" class="text-primary">Ver perfil</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="pl-4 pl-lg-0">
+  <div class="pb-3">{{ heading }}</div>
+  <!-- <div class="h3 font-weight-bold">{{ individual + company }}</div> -->
+  <div class="row">
+    <div class="col-6 col-lg-7">
+      <canvas #donutChart height="220">{{ chart }}</canvas>
+    </div>
+    <div class="col-6 col-lg-5 d-flex flex-column justify-content-center pl-0">
+      <div class="pl-2 mb-4" style="border-left: 3px solid #00447b;">
+        <span class="d-block mb-2" style="line-height: 1;">Personas físicas</span>
+        <span class="d-block text-secondary small" style="line-height: 1;">
+          {{ getPercentage(individual) }} clientes
+        </span>
+      </div>
+      <div class="pl-2" style="border-left: 3px solid #03a2c6;">
+        <span class="d-block mb-2" style="line-height: 1;">Personas jurídicas</span>
+        <span class="d-block text-secondary small" style="line-height: 1;">
+          {{ getPercentage(company) }} clientes
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

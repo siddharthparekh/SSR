@@ -1,0 +1,228 @@
+﻿.page-wrapper{
+    background-color: #f5f7f8;
+}
+
+.box{
+    border-radius: 2px;
+    box-shadow: 2px 4px 6px 0 rgba(152, 171, 180, 0.06);
+    background-color: #ffffff;
+    padding: 50px;
+    padding-bottom: 0px !important;
+}
+
+.box.float{
+    min-height: 280px;
+    /* position: fixed; */
+    width: 320px;
+}
+
+table tbody td{
+    border-top: none;
+    padding: 3px 5px;
+    font-size: 11pt;
+}
+.radio-label{
+    position: relative;
+    top: 5px;
+}
+
+.group{
+    border: solid 1.5px #e6e6e6;
+    border-radius: 3px;
+}
+
+.group .title{
+    border-bottom: solid 1.5px #e6e6e6;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    font-size: 11pt;
+}
+
+.group .title.end{
+    border-bottom: none;
+    border-top: solid 2px #e6e6e6;
+}
+
+.group .body{
+    background-color: #f0f0f0;   
+}
+
+button.g-button{
+    border-radius: 3px;
+    background-color: #ea4335 !important;
+    padding: 7px 44px !important;
+    font-size: 15px;
+}
+
+.title{
+    font-size: 18px !important;
+}
+
+.e4-check-container .label{
+    font-size: 13px !important;
+} 
+
+.e4-condiciones-section {
+    display: flex;
+    align-items: center;
+    height: 22px;
+}
+.e4-check-container-label {
+    display: flex;
+    align-items: center;
+}
+
+.e4-check-container.e4-condiciones, .e4-check-container-label {
+    height: 22px;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    /* line-height: normal; */
+    letter-spacing: normal;
+    color: #64757d;
+    margin-bottom: 0px;
+}
+
+
+.e4-check-container-label a.link{
+    text-decoration: underline;
+    color: #64757d;
+}
+.e4-check-container-label a.link:hover{
+    text-decoration: underline;
+    color: #64757d;
+}
+
+.input-group .right-icon{
+    right: 32px;
+    position: absolute;
+    top: 16px;
+    z-index: 100;
+}
+
+.radio-label.radio-font{
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0f1820;
+}
+
+img.paypal{
+    height: 19px;
+}
+.fp-link{
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.lock_icon {
+    width: 14px;
+    height: 15px;
+    object-fit: contain;
+  }
+  
+  .card-number {
+    position: absolute;
+    top: 13px;
+    right: 30px;
+  }
+.e4-checkout-cuenta {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.e4-checkout-cuenta span {
+    color: #64757d;
+}
+
+.e4-checkout-cuenta a {
+    color: #ff8b34;
+}
+
+.e4-invoice-resumen-sec {
+    position: relative;
+    height: 59px;
+  }
+  
+.e4-invoice-resumen {
+  position: absolute;
+  width: 100%;
+}
+
+.e4-invoice-resumen.sticky {
+    position: fixed;
+    top: 130px;
+  }
+  
+@media(max-width:767px){
+    .container-fluid{
+        padding: 0 !important;
+    }
+    .container-fluid .container{
+        padding: 0 !important;
+    }
+    .box.float{
+        height: auto;
+        position: relative;
+        width: auto;
+        top: unset;
+    }
+
+    .box-container{
+        margin-bottom: 15px !important;
+    }
+    .invoice button.btn{
+        width: 100%;
+    }
+    .box{
+        padding: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    /* :host ng-sidebar-container {
+        overflow: unset !important;
+    }
+    :host .ng-sidebar__content {
+        overflow: unset !important;
+    }
+
+    .box.float{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 90px;
+        overflow-y: auto;
+    } */
+    .e4-invoice-resumen-sec {
+        height: auto;
+    }
+    .e4-invoice-resumen-sec.sticky-bottom {
+        position: absolute;
+        /* bottom: -15px; */
+        bottom: 225px;
+        right: 0;
+    }
+    .sticky-bottom .e4-invoice-resumen {
+        position: relative;
+        top: unset;
+    }
+    .e4-invoice-resumen.sticky {
+        top: 89px;
+    }
+    .e4-invoice-resumen.sticky.nav-lawyer {
+        top: 70px;
+    }
+
+}

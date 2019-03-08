@@ -1,0 +1,22 @@
+.label {
+  display: block;
+}
+
+.olden-group {
+  border-top: solid 1px #cfcfcf;
+  padding: 10px;
+  color: #7f889a;
+}
+.olden-group:last-of-type {
+  border-bottom: solid 1px #cfcfcf;
+}
+.olden-group .olden span {
+  padding-right: 10px;
+}
+
+@media (max-width: 992px) {
+  .model-lg {
+    width: 100%;
+    max-width: 100%;
+  }
+}

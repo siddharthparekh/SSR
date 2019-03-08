@@ -1,0 +1,7 @@
+<div class="container d-flex" style="height: 500px;">
+   <div class="d-flex justify-content-center align-items-center">
+      <span *ngIf="!hasError && downloading">Descargando kit-prensa.zip (24MB)... Puede tardar unos minutos.</span>
+      <span *ngIf="!hasError && !downloading">Descarga exitosa</span>
+      <span *ngIf="hasError">Ha ocurrido un error. Intentelo más tarde.</span>
+   </div>
+</div>

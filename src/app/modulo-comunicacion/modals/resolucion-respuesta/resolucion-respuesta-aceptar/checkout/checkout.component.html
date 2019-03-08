@@ -1,0 +1,125 @@
+<div class="modal-body">
+  <div *ngIf="modalmode === 'billing'">
+    <div class="row">
+      <div class="col-12">
+        <h6 class="sub-title">Elige cómo efectuar el pago:</h6>
+      </div>
+      <div class="col-12 div-tipos-pago">
+        <span class="tipo-factura" *ngFor="let tipoPago of tiposPago; let i = index;">
+          <label class="e4-radio-container">
+            <input [(ngModel)]="tipoPagoSeleccionado" id="{{tipoPago.id}}" [value]="tipoPago" type="radio" name="tipo" />
+            <span class="e4-checkmark"></span>
+          </label>
+          <label class="tipo-facura-label" for="{{tipoPago.id}}">{{tipoPago.nombre}}</label>
+        </span>
+      </div>
+      <div class="col-12 div-datos-facturacion" *ngIf="user && tipoPagoSeleccionado && tipoPagoSeleccionado.nombre === 'Empresa'">
+        <app-datos-facturacion [editing]="editing" class="facturacion" [user]="user"
+        [onSubmitForm]="submitDatosFacturacion" (updateFinishEmitter)="updateFacturacion($event)"></app-datos-facturacion>
+        <div class="col-md-12 pull-right text-right" *ngIf="user.id">
+          <button *ngIf="!editing" class="btn btn-link" (click)="editing=true">Editar</button>
+          <button *ngIf="editing" class="btn btn-link btn-link-bckg pull-right" (click)="editing=false">Cancelar</button>
+          <button *ngIf="editing" [disabled]="!isValidFacturacion" class="btn btn-primary btn-primary-bckg pull-right"
+            (click)="onFacturacion()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="modalmode === 'checkout'">
+    <div class="row">
+      <div class="col-12" *ngIf="tipoPagoSeleccionado">
+        <br>
+        <div>
+          <span *ngIf="!tipoPagoSeleccionado.disponible" class="aviso">
+            No tienes los datos de facturación completados. Hazlo <a href="javascript:void(0)" (click)="goToFacturacion()">aquí</a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 col-md-6">
+          <span class="checkout-respuesta-subtitle">Respuesta legal {{respuesta?.Categoria.nombre | lowercase}}</span>
+      </div>
+      <div class="col-4 col-md-6 text-right">
+          <span *ngIf="tipoPagoSeleccionado" class="text-right checkout-respuesta-precio1"> {{respuesta.precio.toFixed(2)}}€</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 col-md-6">
+          <span class="checkout-respuesta-subtitle">Retención</span>
+      </div>
+      <div class="col-4 col-md-6 text-right">
+          <span *ngIf="tipoPagoSeleccionado" class="text-right checkout-respuesta-precio1"> {{tipoPagoSeleccionado.retencion.toFixed(2)}}€</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+          <span class="checkout-respuesta-subtitle">IVA</span>
+      </div>
+      <div class="col-6 text-right">
+        <span *ngIf="tipoPagoSeleccionado" class="text-right checkout-respuesta-precio1">{{tipoPagoSeleccionado.precioIVA.toFixed(2)}}€</span>
+      </div>
+    </div>
+    <div class="row checkout-respuesta-total">
+      <div class="col-6">
+          <span class="checkout-respuesta-subtitle">Total a pagar</span>
+      </div>
+      <div class="col-6 text-right">
+          <span *ngIf="tipoPagoSeleccionado" class="text-right checkout-respuesta-precio2">{{tipoPagoSeleccionado.importeTotal}}€</span>
+      </div>
+    </div>
+    
+    <div class="row  mt-4">
+      <div class="col-12">
+        <h6 class="mb-1"><b class="title">Método de pago</b></h6>
+        <h6 class="mt-0 mb-3 text-muted font-size-13">Todas las transacciones son seguras y
+          están
+          encriptadas.</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="group">
+          <div class="col-12 title">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="e4-radio-container">
+                  <input type="radio" [(ngModel)]="payment_type" value="tarjeta" name="payment_type" />
+                  <span class="e4-checkmark"></span>
+                </label> <span class="pl-2 ml-3 radio-label radio-font">Tarjeta
+                  crédito/debito</span>
+              </div>
+              <div class="col-md-6 text-right">
+                <img class="ml-2 mt-1" src="assets/images/visa.jpg" />
+                <img class="ml-2 mt-1" src="assets/images/mastercard.png" />
+                <img class="mt-1" src="assets/images/maestro.png" />
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-2 body" *ngIf="payment_type == 'tarjeta'">
+            <app-card-settings *ngIf="user && user.id" [canDelete]="false" [user]="user" (onChangeCard)="changeCard($event)"></app-card-settings>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <div *ngIf="modalmode === 'billing'">
+    <div class="row">
+      <div class="col-12 text-right">
+        <button [disabled]="!datosFacturacion || !tipoPagoSeleccionado" class="btn btn-primary" (click)="showCheckout()">Siguiente</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="modalmode === 'checkout'">
+    <div class="row">
+      <div *ngIf="tipoPagoSeleccionado" class="col-12 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary my-footer__go-back-button" (click)="showBilling()">Atrás</button>
+        <app-button-loader [disabled]="!(tipoPagoSeleccionado && tipoPagoSeleccionado.disponible) || !card_id || reqInProg" [showLoading]="reqInProg"
+          [text]="formatAmount2(tipoPagoSeleccionado.importeTotal)" (emitClicked)="pagar($event)"></app-button-loader>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,202 @@
+
+#main-card {
+  border: 1px solid gainsboro;
+}
+
+.header {
+  background-color: #192633;
+  padding: 40px;
+}
+
+h3 {
+  color: white;
+  font-weight: 300;
+}
+
+/* button {
+  width: 20%;
+  margin-bottom: 10px;
+} */
+
+.card-header-acordeon {
+  margin-bottom: 30px;
+}
+
+/*
+#section1 {
+  margin-left: 40px;
+}*/
+
+.section {
+  margin-bottom: 30px;
+}
+
+.card-body {
+  /* margin-bottom: 15px; */
+  /* margin-top: 15px; */
+}
+
+.text-muted {
+  margin-top: 7px;
+}
+
+/* MENU MOBILE */
+.menu-mobile-account-settings {
+  display: none;
+  background-color: #ffffff;
+  width: 100% !important;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.nav-link-toggle-mobile {
+  color: #0f1820 !important;
+}
+.nav-link-toggle-mobile>.sidebar-nav-link-icon {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.menu-mobile-account-settings>.nav-tabs .nav-item {
+  width: 100% !important;
+}
+.nav-link {
+  font-weight: normal !important;
+}
+
+.sidebar-nav-link {
+  background-color: #ffffff;
+  border: none !important;
+  border-bottom: 1px solid #e5eaed !important;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  /* color: #ff8b34; */
+  color: #0f1820;
+  padding: 20px;
+}
+
+.sidebar-nav-link:hover {
+  color: #0f1820;
+  /* opacity: 0.5; */
+  /* background-color: #FAFBFB; */
+  background-color: #ffffff;
+}
+
+.sidebar-nav-link:focus {
+  color: #0f1820;
+}
+
+.sidebar-nav-link.router-link-active {
+  color: #0f1820;
+  /* background-color: #F5F7F8; */
+  background-color: #ffffff;
+}
+
+.sidebar-nav-group .sidebar-nav-link {
+  /* opacity: 0.5; */
+  background-color: #FAFBFB;
+}
+
+.sidebar-nav-link-text {
+  margin-left: 0px;
+  vertical-align: middle;
+}
+
+
+/* MENU DESKTOP */
+.menu-account-settings {
+  margin-top: 40px;
+  padding: 0px;
+}
+.nav-pills {
+  min-width: 220px;
+  margin-left: auto;
+  margin-right: 30px;
+}
+.nav-pills:first-child {
+  border-top: 1px solid #e5eaed;
+}
+.nav-item {
+  min-width: 200px;
+  border-bottom: 1px solid #e5eaed;
+}
+.nav-link {
+  padding: 20px 20px 20px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ff8b34;
+}
+.nav-link:hover,.nav-link:focus {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f1820;
+}
+.nav-link.router-link-active {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f1820;
+}
+
+.card-title-account-settings2 {
+  background-color: #f5f7f8 !important;
+  /* height: 29px; */
+  font-size: 23px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0f1820;
+  margin: 0px;
+  padding: 5px 0px 5px 0px;
+
+}
+
+@media (max-width: 767px) {
+  .menu-account-settings {
+    display: none;
+  }
+  .menu-mobile-account-settings {
+    display: block;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  
+}
+
+@media (min-width: 1200px) {
+  .el-page-wrapper {
+    padding-left: 120px;
+  }
+  .el-card-container {
+    padding-left: 60px;
+  }
+  .nav-pills {
+    min-width: 240px;
+  }
+  .nav-item {
+    min-width: 240px;
+    border-bottom: 1px solid #e5eaed;
+  }
+}

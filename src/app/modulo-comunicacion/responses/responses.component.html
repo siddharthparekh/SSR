@@ -1,0 +1,68 @@
+<div class="container-fluid container-respuestas">
+  <div *ngFor="let respuesta of respuestas$ | async" class="row respuesta">
+    <div *ngIf="respuesta.estado == 'BORRADOR'" class="respuesta-container" (click)="goTo(respuesta)">
+      <div class="col-12 col-md-6 profile-container">
+        <img class="profile-pic" src="assets/images/profiles/{{respuesta.Mensaje?.Remitente?.foto}}" alt="usuario">
+        <div class="profile-details">
+          <label class="respuesta-name">{{respuesta.Conversacion.Usuarios[1].nombre |
+            capitalize}}&nbsp;{{respuesta.Conversacion.Usuarios[1].apellidos | capitalize}}</label>
+          <label class="respuesta-subject">{{respuesta.Conversacion.asunto}}</label>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 respuesta-tail-container">
+        <!-- TODO: add deadline-->
+        <label class="respuesta-deadline">Faltan 2 días</label>
+      </div>
+    </div>
+
+    <div *ngIf="respuesta.estado != 'BORRADOR' && isCustomer" class="respuesta-container" (click)="goTo(respuesta)">
+      <div class="col-12 col-md-6 profile-container">
+        <img *ngIf="respuesta.Mensaje.Remitente?.foto" class="profile-pic" src="assets/images/profiles/{{respuesta.Conversacion.Usuarios[1].foto}}">
+        <span *ngIf="!(respuesta.Mensaje.Remitente?.foto)" class="profile-pic">{{respuesta.Conversacion.Usuarios[1].nombre | slice:0:1}}</span>
+        <div class="profile-details">
+          <label class="respuesta-name">{{respuesta.Conversacion.Usuarios[1].nombre |
+            capitalize}}&nbsp;{{respuesta.Conversacion.Usuarios[1].apellidos | capitalize}}</label>
+          <label class="respuesta-subject">{{respuesta.Conversacion.asunto}}</label>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 respuesta-tail-container">
+        <span *ngIf="respuesta.estado == 'ENVIADA'" class="normal-text respuesta-deadline">Recibida hace
+          {{respuesta.dateEnviada}}
+          días</span>
+        <span *ngIf="respuesta.estado == 'ACEPTADA'" class="normal-text respuesta-deadline">Aceptada hace
+          {{respuesta.dateEnviada}} días</span>
+        <span *ngIf="respuesta.estado == 'RECHAZADA'" class="normal-text respuesta-deadline">Rechazada hace
+          {{respuesta.dateEnviada}} días</span>
+      </div>
+    </div>
+    <div *ngIf="respuesta.estado != 'BORRADOR' && !isCustomer" class="respuesta-container" (click)="goTo(respuesta)">
+      <div class="col-12 col-md-6 profile-container">
+        <img *ngIf="respuesta.Mensaje.Conversacion.destinatario.foto" class="profile-pic" src="assets/images/profiles/{{respuesta.Mensaje.Conversacion.destinatario.foto}}">
+        <span *ngIf="!(respuesta.Mensaje.Conversacion.destinatario.foto)" class="profile-pic">{{respuesta.Mensaje.Conversacion.destinatario.nombre | slice:0:1}}</span>
+        <div class="profile-details">
+          <label class="respuesta-name">{{respuesta.Mensaje.Conversacion.destinatario.nombre |
+            capitalize}}&nbsp;{{respuesta.Mensaje.Conversacion.destinatario.apellidos | capitalize}}</label>
+          <label class="respuesta-subject">{{respuesta.Conversacion.asunto}}</label>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 respuesta-tail-container">
+        <span *ngIf="respuesta.estado == 'ENVIADA'" class="respuesta-deadline">Enviada hace {{respuesta.dateEnviada}}
+          días</span>
+        <span *ngIf="respuesta.estado == 'ACEPTADA'" class="respuesta-deadline">Aceptada hace
+          {{respuesta.dateEnviada}} días</span>
+        <span *ngIf="respuesta.estado == 'RECHAZADA'" class="respuesta-deadline">Rechazada hace
+          {{respuesta.dateEnviada}} días</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="(respuestas$ | async)?.length === 0" class="row">
+    <div class="empty-consultas-container">
+      <app-empty-consultas></app-empty-consultas>
+    </div>
+  </div>
+
+</div>
+<ng-template #template>
+  <app-resolucion-respuesta-parent></app-resolucion-respuesta-parent>
+</ng-template>

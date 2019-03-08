@@ -1,0 +1,186 @@
+.modal-90 {
+   width: 90%;
+   max-width: 90%;
+}
+
+.modal-content {
+   width: initial;
+}
+
+.title {
+   margin-bottom: 30px;
+   margin-top: 54px;
+   font-size: 23px;
+   font-weight: 600;
+}
+
+.text {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   text-align: left;
+}
+
+.box-row.first .box {
+   padding-top: 25px;
+   padding-bottom: 23px;
+}
+
+.box-row .box {
+   padding-bottom: 10px;
+   border: solid 1px #e1e1e1;
+   padding-top: 10px;
+}
+
+.box-row .box i.fa {
+   font-size: 11px;
+}
+
+strong {
+   color: black;
+}
+
+.box-row .box .value {
+   font-size: 30px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   text-align: center;
+   color: #559680;
+}
+
+.box-row div:first-of-type {
+   padding-top: 10px;
+}
+
+.box-card {
+   box-shadow: 0px 0px 5px 0px #d0d0d0;
+   padding: 20px;
+}
+
+.box-card .value {
+   font-size: 20px;
+   color: #00ccb1;
+   margin-bottom: 20px;
+}
+
+.box-card .value span {
+   font-size: 10pt;
+}
+
+.first {
+   margin-bottom: 0px;
+}
+
+.divider::after {}
+
+.border-right {
+   border-right: 1px solid #e5eaed;
+   padding: 0;
+   height: 100%;
+}
+
+.box-card.active {
+   border-radius: 3px;
+   border: solid 2px #00ccb1;
+}
+
+.box-card.active .recomeded {
+   width: 100px;
+   height: 22px;
+   border-radius: 3px;
+   color: white;
+   background: #00ccb1;
+   position: absolute;
+   top: -2px;
+   text-transform: uppercase;
+   left: 50%;
+   margin-left: -50px;
+   font-size: 11px;
+   /* padding: 2px 8px; */
+   display: flex;
+   align-items: center;
+   text-align: center;
+}
+
+.box-card.active .recomeded span {
+   margin: 0 auto;
+}
+
+.price {
+   color: #00ccb1;
+   font-size: 30px;
+}
+
+.price-container {
+   padding-top: 20px;
+}
+
+.e4-specialist-plan-title {
+   font-size: 16px;
+   font-weight: 600;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: 1px;
+   text-align: center;
+   color: #0f1820;
+}
+
+.e4-specialist-plan-title-example {
+   font-size: 13px;
+   font-weight: 600;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+   text-align: center;
+   color: #ff8b34;
+}
+.btn-buy {
+   height: 45px;
+   border-radius: 3px;
+   background-color: #ff8b34;
+   border-color: #ff8b34;
+}
+
+
+@media(max-width:767px) {
+   .price-container {
+      padding-top: 0px;
+   }
+   .btn-buy {
+      min-width: 140px;
+   }
+}
+
+@media(min-width:1200px) {
+   .btn-buy {
+      min-width: 140px;
+   }
+}
+
+.box-row img {
+   height: 15px;
+   width: 15px;
+}
+
+h4.title strong {
+   font-size: 23px;
+   font-weight: 600;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: normal;
+}
+
+h5 strong {
+   font-size: 16px;
+   font-weight: 600;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: 1px;
+}

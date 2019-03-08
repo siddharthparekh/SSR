@@ -1,0 +1,21 @@
+.image-cropper {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.image-cropper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 576px) {
+  .rounded-circle {
+    max-width: 90px;
+    height: 72px;
+  }
+}

@@ -1,0 +1,56 @@
+<section class="blockable blockable-dark" [class.blocked]="blocked">
+  <section class="blockable-overlay">
+    <app-blocking-complex></app-blocking-complex>
+  </section>
+  <section class="blockable-content">
+    <div class="row mb-3">
+      <div class="col-6">
+        <span class="font-weight-bold">Casos</span>
+      </div>
+      <!--<div class="col-6 text-right">
+        <span class="mr-2">Estimados</span>
+        <span class="h4 font-weight-bold">92</span>
+      </div>-->
+    </div>
+    <div class="row">
+      <div class="col-12 text-secondary col-lg-3 mb-2">Analizados</div>
+      <div class="col-12 col-lg-8 col-xl-7 mb-3 mb-lg-2">
+        <div [id]="boldWrapperId" data-toggle="tooltip"
+            data-placement="top" data-html="true" data-animation="false">
+          <app-profile-horizontal-bar
+            [value]="data.analyzed"
+            [max]="maximum"
+            [bold]="true"
+            ></app-profile-horizontal-bar>
+          <div class="d-none">
+            <div [id]="contentElementId">
+              <div class="text-uppercase mb-2">Casos analizados</div>
+              <div class="d-flex w-100 align-items-center justify-content-center mb-1">
+                <span *ngIf="differencePercent > 0" 
+                    class="fas fa-caret-up caret-green fa-lg"></span>
+                <span *ngIf="differencePercent < 0"
+                    class="fas fa-caret-down fa-lg caret-red"></span>
+                <span class="ml-1">
+                  {{ differencePercent > 0 ? differencePercent : -differencePercent }}%
+                </span>
+              </div>
+              <div *ngIf="differencePercent === 0" class="small hint-gray">igual que la media</div>
+              <div *ngIf="differencePercent > 0" class="small hint-gray">más que la media</div>
+              <div *ngIf="differencePercent < 0" class="small hint-gray">menos que la media</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-secondary col-lg-3 mb-2">Media abogados</div>
+      <div class="col-12 col-lg-8 col-xl-7 mb-3 mb-lg-2">
+        <app-profile-horizontal-bar
+          [value]="data.media"
+          [max]="maximum"
+          [bold]="false"
+          ></app-profile-horizontal-bar>
+      </div>
+    </div>
+  </section>
+</section>
